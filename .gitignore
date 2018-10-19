@@ -1,0 +1,7 @@
+#ignorar los ficheros siguientes
+sftp-config.json
+#ignorar los directorios siguientes
+prueba/
+libs/
+#no ignorar el siguiente archivo
+!prueba/fichero1.extension
