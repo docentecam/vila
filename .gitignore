@@ -1,4 +1,4 @@
-#ignorar los ficheros siguientes
+QA	1WS CVX#ignorar los ficheros siguientes
 sftp-config.json
 #ignorar los directorios siguientes
 prueba/
