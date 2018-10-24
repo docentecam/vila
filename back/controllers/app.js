@@ -11,12 +11,17 @@ app.run(['$rootScope',function($rootScope) {
 app.config(['$routeProvider',function($routeProvider){
 	$routeProvider
 	.when('/',{
-		templateUrl:'',
-		controller:'',
+		templateUrl:'home.php',
+		controller:'HomeCtrl',
 		title: "Vilactiva"
 	})
   .when('/',{
     templateUrl:'views/associacio.php',
     controller:'AssociCtrl',
     title: "Manteniment Associacio"
+  })
+  .when('/directori',{
+    templateUrl:'views/directori.php',
+    controller:'DirectCtrl',
+    title: "Manteniment Directori"
   })
