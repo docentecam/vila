@@ -1,1 +1,90 @@
-holaaaaaa
+<div class="row">
+	<div class="col-12 col-md-10 offset-md-1 col-xl-5    my-xl-5 fonsContacta ">
+		<!-- <div class="col-12 mt-3 mt-md-5 mb-md-4 mb-2 estiloContacta text-center">Contactan's{{formCont}}</div> -->
+		<div class="row">
+			<div class="col-lg-12 offset-0 text-center alert alert-info pt-4 text-dark" role="alert" ng-show="contactaMissatge">{{formAlertObligat}} {{msg}}</div>
+			<form class="col-12" name="formContacta" ng-submit="enviaEmail()" novalidate ng-hide="contactaMissatge">
+				<div class="row">
+					
+					<!-- nommmmmmmmm -->
+					<div class="form-group col-md-4 mb-3 rounded-0" ng-class="{ 'has-error' : formContacta.nom.$invalid && !formContacta.nom.$pristine }">
+			            <input type="text" name="nom" class="form-control" ng-model="contacta.nom"  placeholder="NOM"  ng-maxlength="30" required>
+						<p ng-show="formContacta.nom.$error.maxlength" class="help-block text-danger">El nom és massa llarg{{forNomLlarg}}</p>
+			            <p ng-show="formContacta.nom.$invalid && !formContacta.nom.$pristine" class="help-block text-danger">El camp nom és obligatori{{formNom}}</p>
+			        </div>
+			        <div class="form-group">
+					    <div class="form-check">
+					      <input class="form-check-input" type="radio" name="tipoUs" id="clickEmp" ng-checked="contactas.checkbox" ng-model="contactas.checkbox">
+					      <label class="form-check-label" for="clickEmp">
+					       EMPRESA
+					      </label>
+					    </div>
+					</div>
+					 <div class="form-group">
+					    <div class="form-check">
+					      <input class="form-check-input" type="radio" name="tipoUs" id="clickPar" ng-checked="contactas.checkbox2" ng-model="contactas.checkbox2">
+					      <label class="form-check-label" for="clickPar">
+					       PARTICULAR
+					      </label>
+					    </div>
+					</div>
+			        <!-- COGNOMMMMMMMMMMM -->
+			        <div class="form-group col-md-4 mb-3 rounded-0" ng-class="{ 'has-error' : formContacta.nom.$invalid && !formContacta.nom.$pristine }">
+			            <input type="text" name="nom" class="form-control" ng-model="contacta.nom"  placeholder="COGNOM"  ng-maxlength="30" required>
+						<p ng-show="formContacta.nom.$error.maxlength" class="help-block text-danger">El nom és massa llarg{{forNomLlarg}}</p>
+			            <p ng-show="formContacta.nom.$invalid && !formContacta.nom.$pristine" class="help-block text-danger">El camp nom és obligatori{{formNom}}</p>
+			        </div>
+
+					<!-- emailllllllllllll -->
+			        <div class="form-group col-md-4 mb-3 rounded-0" ng-class="{ 'has-error' : formContacta.email.$invalid && !formContacta.email.$pristine }">
+			            <input type="email" name="email" class="form-control" ng-model="contacta.email" placeholder="CORREU" required>
+			            <p ng-show="formContacta.email.$invalid && !formContacta.email.$pristine" class="help-block text-danger">L'adreça de correu electrònic introduïda no és vàlida. {{formEmailInco}}</p>
+
+			        </div>
+						<!-- telefonnnnnnnnnnnn -->
+			         <div class="form-group col-md-4 mb-3 rounded-0" ng-class="{ 'has-error' : formContacta.telefon.$invalid && !formContacta.telefon.$pristine }">
+			            <input type="number" name="telefon" class="form-control" ng-model="contacta.telefon" placeholder="TELÈFON " ng-minlength="8" ng-maxlength="9" required>
+			            <p ng-show="formContacta.telefon.$error.minlength" class="help-block text-danger">El numero és incorrecte</p>
+						<p ng-show="formContacta.telefon.$error.maxlength" class="help-block text-danger">El numero és massa llarg</p>
+					</div>
+					<!-- dubtessss -->
+					<div class="form-group col-10 offset-1 mt-md-2 rounded-0" ng-class="{ 'has-error' : formContacta.dubtes.$invalid && !formContacta.dubtes.$pristine }">
+				         <textarea name="dubtes" class=" form-control" type="text" ng-model="contacta.dubtes" required></textarea>
+				         <p ng-show="formContacta.dubtes.$invalid && !formContacta.dubtes.$pristine" class="help-block text-danger">El camp és requerit.</p>
+				    </div>
+			        <div class="form-group">
+						    <div class="form-check">
+						      <input class="form-check-input" type="radio" id="gridCheck" ng-checked="simpat.termes" ng-model="simpat.termes">
+						      <label class="form-check-label" for="gridCheck">
+
+						        Accepto
+
+						      </label>
+						    </div>
+						  </div>
+		        	<div class="col-10 offset-1">
+						<button class="col-md-2 offset-10 my-md-4 my-2 mt-md-4 mr-md-3 btn btn-info btn-lg btnAfi" type="submit"  ng-disabled="formContacta.$invalid">Envia</button>
+					</div>
+				</div>	
+			</form>
+			<input type="button" class="col-md-4 offset-4 my-md-4 mt-md-4 mb-4 btn btn-dark btnAfi" data-toggle="modal" data-target="#modalFitxa" id="fitxaFull" ng-click="modalFitxa" value="Vols afiliar-te a la Colla?">	
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-12 col-md-10 offset-md-1 col-xl-6 my-xl-5 fonsmapa">
+			<div class="row">
+				<div class="col-12 mt-5 text-center">
+					<img ng-src="img/vilactiva.png"  title="Logo vila">
+					<h4 class="ultimsEstilo mt-4">Associacio de comerciants de la vila olimpica{{contactaLlistat.nom}}</h4>
+				</div>
+				<div class="col-12 mt-4 text-center">
+					<span>Telèfon:{{contTel}}&nbsp;{{contactaLlistat.telf}}</span><br>
+					<span>Email:&nbsp;{{contactaLlistat.email}}</span><br>
+					<span>Horari per contactar:</span><br>
+					<a href=""><i class="fab fa-facebook-f"></i></a><br>
+				</div>
+			</div>	
+		</div>
+</div>
+
+
