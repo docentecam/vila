@@ -1,9 +1,6 @@
 var app=angular.module('vila',['ngRoute']);
 app.run(['$rootScope',function($rootScope) {
   	$rootScope.cargador=false;
-  	$rootScope.titlePag="Vilactiva";
-  	$rootScope.favIcon="";
-  	$rootScope.logo="";
   	$rootScope.$on('$routeChangeSuccess', function (event, current, previous) {
         $rootScope.title = current.$$route.title;
    	});
@@ -11,12 +8,14 @@ app.run(['$rootScope',function($rootScope) {
 app.config(['$routeProvider',function($routeProvider){
 	$routeProvider
 	.when('/',{
-		templateUrl:'',
-		controller:'',
+		templateUrl:'views/inici.php',
+		controller:'IniciCtrl',
 		title: "Vilactiva"
 	})
-  .when('/',{
+  .when('/associacio',{
     templateUrl:'views/associacio.php',
     controller:'AssociCtrl',
     title: "Manteniment Associacio"
   })
+
+  }]);  
