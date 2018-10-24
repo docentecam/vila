@@ -12,6 +12,11 @@ app.config(['$routeProvider',function($routeProvider){
 		controller:'HomeCtrl',
 		title: "Vila"
 	})
+	.when('/contacta',{
+		templateUrl:'views/contacta.html',
+		controller:'ContactaCtrl',
+		title: "Contactan's"
+	})
 
 
 }]);	
