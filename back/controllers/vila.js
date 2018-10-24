@@ -1,3 +1,4 @@
+angular.module('vila')
 .controller('AssociCtrl',function(){
 	var data = new FormData();
 		data.append("acc","l");
