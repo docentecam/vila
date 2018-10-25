@@ -1,3 +1,62 @@
+/*colores corporativos:
+
+Blanco roto: #fffcf0
+Gris: #797778
+Amarillo: #e7ab3b
+Azul: #1d93d1
+Rosa: #cb418e
+Morado: #4f307e
+*/
+body{
+	background-color: #fffcf0!important;
+}
+nav{
+	background-color:#fffcf0;
+}
+nav a{
+	color: #4f307e!important;
+}
+
+.h_divider{ 
+	height:4px; 
+	background: #000 
+}
+
+.tituloEstilo{
+	font-family: 'Asap', sans-serif;
+	font-weight: 700;
+	font-size: 1.8em;
+}
+
+.descripcioEstilo{
+	font-family: 'Montserrat', sans-serif;
+	margin-bottom: 50px;
+}
+
+.titularEstilo{
+	font-family: 'Asap', sans-serif;
+	font-weight: 700;
+	font-size: 1.3em;
+}
+
+.titularEstiloCenter{
+	font-family: 'Asap', sans-serif;
+	font-weight: 700;
+	font-size: 1.3em;
+	text-align: center;
+}
+
+.dataEstilo{
+	font-family: 'Asap', sans-serif;
+	font-size: 1.1em;
+}
+
+.dataEstiloCenter{
+	font-family: 'Asap', sans-serif;
+	font-size: 1.1em;
+	text-align: center;
+}
+
 @media (max-width: 575px){
 
 }

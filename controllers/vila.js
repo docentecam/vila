@@ -23,10 +23,13 @@ angular.module('vila')
 })
 .controller('ContactaCtrl',function($scope,$http,$q,$rootScope,$timeout,$window,$document){
 	console.log("llegaa");
-	
-})
-.controller('HomeCtrl',function($scope,$http,$q,$rootScope,$timeout,$window,$document){
-	console.log("llegaa");
-	
 })
 
+.controller('HomeCtrl',function($scope,$http,$q,$rootScope,$timeout,$window,$document){
+	console.log("olaaaxd");
+})
+
+
+.controller('NoticiesCtrl',function($scope,$http,$q,$rootScope,$timeout,$window,$document){
+	console.log("sí, así es");
+})
