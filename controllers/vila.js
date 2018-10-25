@@ -26,7 +26,7 @@ angular.module('vila')
 })
 
 .controller('HomeCtrl',function($scope,$http,$q,$rootScope,$timeout,$window,$document){
-	console.log("llegaa");
+	console.log("olaaaxd");
 })
 
 
