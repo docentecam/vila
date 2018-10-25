@@ -1,3 +1,43 @@
+.h_divider{ 
+	height:4px; 
+	background: #000 
+}
+
+.tituloEstilo{
+	font-family: 'Asap', sans-serif;
+	font-weight: 700;
+	font-size: 1.8em;
+}
+
+.descripcioEstilo{
+	font-family: 'Montserrat', sans-serif;
+	margin-bottom: 50px;
+}
+
+.titularEstilo{
+	font-family: 'Asap', sans-serif;
+	font-weight: 700;
+	font-size: 1.3em;
+}
+
+.titularEstiloCenter{
+	font-family: 'Asap', sans-serif;
+	font-weight: 700;
+	font-size: 1.3em;
+	text-align: center;
+}
+
+.dataEstilo{
+	font-family: 'Asap', sans-serif;
+	font-size: 1.1em;
+}
+
+.dataEstiloCenter{
+	font-family: 'Asap', sans-serif;
+	font-size: 1.1em;
+	text-align: center;
+}
+
 @media (max-width: 575px){
 
 }
