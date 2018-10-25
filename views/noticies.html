@@ -1,0 +1,119 @@
+<div class="row" >
+<!-- 	ng-show="llistat" -->
+	<div class="mt-4 col-10 offset-1">
+		<div class="row">
+			<div ng-repeat="noticia in noticies | orderBy:-dataAng" class="col-lg-6 col-md-12">
+				<div class="row">
+					<div class="col-lg-6 col-md-6">
+						<div class="group-item">
+							<div class="imagecontainer is-cover">
+								<a ng-href="#/noticies/{{noticia.idEsdev}}">
+									<img ng-src="{{noticia.fotoNoticia!=''?'img/noticies/'+noticia.fotoNoticia:'img/noimage.png'}}" class="imagecontainer-img lazyload" alt="noticia">
+								</a>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-6 col-md-6">
+						<div class="dataEstilo">
+							{{noticia.dataNoticia}}
+						</div>
+
+						<div class="titularEstilo">
+							<a ng-href="#/noticia/{{noticia.idNoticia}}">
+							{{noticia.titolNoticia | uppercase}}
+							</a>
+						</div>
+
+						<div class="descripcioEstilo">
+							{{noticia.txtNoticia | limitTo:100}}...
+							<a ng-href="#/noticia/{{noticia.idNoticia}}" class="colorLink">Llegir més</a>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="row" ng-show="esdevError">
+						<div class="alert alert-info" role="alert">
+							No hi han notícies
+						</div>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+
+		<div class="tituloEstilo mt-5">
+			Notícies
+		</div>
+		<div class="h_divider mb-5"></div>
+		<div class="row">
+			<div class="col-12 col-xl-10 offset-xl-1 mb-4">
+				<div class="row">
+					<div ng-repeat="noticia in noticies | filter:{proxim:0} | orderBy:'-dataAng'" ng-href="#/noticies/{{noticia.idNoticia}}" class="col-lg-4 col-md-6 px-md-2 px-xl-4 pt-md-2 pt-xl-4">
+						<div class="card">
+							<div class="group-item">
+								<div class="imagecontainer is-cover">
+									<a ng-href="#/noticia/{{noticia.idNoticia}}">
+										<img ng-src="{{noticia.fotoNoticia!=''?'img/noticies/'+noticia.fotoNoticia:'img/noimage.png'}}" class="imagecontainer-img lazyload" alt="noticia">
+									</a>
+								</div>
+							</div>
+						</div>
+						<div class="dataEstiloCenter">
+							{{noticia.dataNoticia}}
+						</div>
+						<div class="titularEstiloCenter">
+							<a ng-href="#/noticia/{{noticia.idNoticia}}">
+							{{noticia.titolNoticia | uppercase}}
+							</a>
+						</div>
+						<div class="descripcioEstilo">{{noticia.txtNoticia | limitTo:100}}...
+							<a class="colorLink cursor" ng-href="#/noticia/{{noticia.idNoticia}}">
+							Llegir més
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- <div class="row" ng-hide="llistat">
+	
+	<div class="mt-4 col-10 offset-1">
+		<br>
+
+		<div class="ultimsEstilo">
+			<a href="#/noticies">*VOLVER A NOTICIAS</a>
+		</div>
+
+		<div class="h_divider mb-4"></div>
+
+		<div class="ultimsEstiloCenter mb-4">
+			{{noticia.titolNoticia | uppercase}}
+		</div>
+	
+		
+		<div class="row mb-4">
+			<div class="col-12 col-lg-6 mb-4">
+			<img ng-src="{{noticia.fotoNoticia!=''?'img/noticies/'+noticia.fotoNoticia:'img/noimage.png'}}" class="img-fluid imageBordes" alt="noticia">
+			<img src="https://i.pinimg.com/236x/6e/45/df/6e45df85b705ab5ee2f4a534e9fcbd8f--graphic-tees-t-shirt-print.jpg">
+			</div>
+
+			<div class="col-12 col-lg-6">
+				<div class="descripcioEstilo">
+				<b>NOTICIA:</b>
+				<br>
+				{{noticia.txtNoticia}}
+				<br><br>
+				<b>DATA(dia y mes, no la hora)</b>
+				<br>
+				{{noticia.dataNoticia}}
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+</div>
+ -->

@@ -25,7 +25,7 @@
 	<body>
 
 <?php session_start();	?>
-	
+
 		<nav class="navbar navbar-expand-lg navbar-light bg-light">
   			<a class="navbar-brand" href="#">
     			<img class="imglogonav" ng-src="../img/{{logo}}" alt="Logo vila">

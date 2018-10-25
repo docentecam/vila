@@ -22,42 +22,41 @@
 		</script>
 	</head>
 	<body>
-		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<nav class="navbar navbar-expand-lg navbar-dark">
 		    <div class="container">
 		        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar10">
 		            <span class="navbar-toggler-icon icon-white"></span>
 		        </button>
 		        <div class="navbar-collapse collapse navReduced" id="navbar10">
 		            <ul class="navbar-nav nav-fill w-100">
-		                <li class="nav-item my-auto reduceNav">
-		                    <a class="nav-link" ng-href="#">INICI{{navIni}}</a>
-		                </li>
-		                <li class="nav-item my-auto reduceNav">
-		                    <a class="nav-link" ng-href="#gegants">ELS GEGANTS{{navGeg}}</a>
-		                </li>
-		                <li class="nav-item my-auto reduceNav">
-		                    <a class="nav-link" ng-href="#quisom">QUI SOM?{{navQui}}</a>
-		                </li>
 		                <li class="nav-item d-none d-lg-inline my-auto ">
 		                    <a class="nav-link" ng-href="#">
-		                    	<img class="img-fluid logoColla" ng-src="img/{{footerContent.logoNav}}"  alt="Logo colla">
+		                    	<img class="img-fluid logoVila" ng-src="img/{{footerContent.logoNav}}"  alt="Vilactiva">INICI
 		                    </a>
 		                </li>
 		                <li class="nav-item my-auto reduceNav">
-		                    <a class="nav-link" ng-href="#esdeveniments">ESDEVENIMENTS{{navEsd}}</a>
+		                    <a class="nav-link" ng-href="#associacio">ASSOCIACIO</a>
 		                </li>
 		                <li class="nav-item my-auto reduceNav">
-		                    <a class="nav-link" ng-href="#galeria">GALERIA{{navGal}}</a>
+		                    <a class="nav-link" ng-href="#directori">DIRECTORI</a>
 		                </li>
 		                <li class="nav-item my-auto reduceNav">
-		                    <a class="nav-link" ng-href="#contacta">CONTACTE{{navCon}}</a>
+		                    <a class="nav-link" ng-href="#noticies">NOTICIES</a>
+		                </li>
+		                <li class="nav-item my-auto reduceNav">
+		                    <a class="nav-link" ng-href="#firamar">FIRAMAR</a>
+		                </li>
+		                <li class="nav-item my-auto reduceNav">
+		                    <a class="nav-link" ng-href="#contacta">CONTACTA'NS</a>
 		                </li>
 		            </ul>
 		        </div>
 		    </div>
 		</nav>
+		<div class="h_divider col-8 offset-2"></div>
+
 		<div class="row">
-			<div class="container col-12"> 
+			<div class="container col-8 offset-2"> 
 				<div id="cargador" class="cargador" ng-show="cargador">
 					<img ng-src="img/loading.svg" class="preloader">
 				</div>
