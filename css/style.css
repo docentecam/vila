@@ -15,11 +15,12 @@ nav{
 }
 nav a{
 	color: #4f307e!important;
+	font-weight: bold;
 }
 
 .h_divider{ 
-	height:4px; 
-	background: #000 
+	height:2px; 
+	background: #4f307e;
 }
 
 .tituloEstilo{
