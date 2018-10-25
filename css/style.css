@@ -1,3 +1,22 @@
+/*colores corporativos:
+
+Blanco roto: #fffcf0
+Gris: #797778
+Amarillo: #e7ab3b
+Azul: #1d93d1
+Rosa: #cb418e
+Morado: #4f307e
+*/
+body{
+	background-color: #fffcf0!important;
+}
+nav{
+	background-color:#fffcf0;
+}
+nav a{
+	color: #4f307e!important;
+}
+
 .h_divider{ 
 	height:4px; 
 	background: #000 
