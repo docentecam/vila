@@ -32,4 +32,25 @@ angular.module('vila')
 
 .controller('NoticiesCtrl',function($scope,$http,$q,$rootScope,$timeout,$window,$document){
 	console.log("sí, así es");
+	$scope.llistat=false;
+	$rootScope.cargador=true;
+	var data = new FormData();
+		data.append("acc","l");
+		data.append("idNoticia",$routeParams.idNoticia);
+	var deferred=$q.defer();
+	$http.post("models/noticies.php", data,{
+		headers:{
+			"Content-type":undefined
+		},
+		transformRequest:angular.identity
+	})
+	.then(function(res){
+		deferred.resolve(res);
+		$rootScope.cargador=false;
+		$scope.noticia=res.data[0];
+		$rootScope.cargador=false;
+	})
+	.catch(function(error) {
+		$rootScope.cargador=false;
+		});
 })
