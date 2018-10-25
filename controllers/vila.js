@@ -22,7 +22,13 @@ angular.module('vila')
 
 })
 .controller('ContactaCtrl',function($scope,$http,$q,$rootScope,$timeout,$window,$document){
-	console.log("llegaa");
+	
+	$scope.muestraInput=false;
+
+	$scope.muestraNom=function(tipo)
+	{
+		$scope.muestraInput=tipo;
+	}
 	
 })
 .controller('HomeCtrl',function($scope,$http,$q,$rootScope,$timeout,$window,$document){
