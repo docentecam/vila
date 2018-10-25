@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<<<<<<< HEAD
 <html>
 <head>
 	<title>{{titlePag}}</title>
@@ -19,4 +20,77 @@ ljojouj
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
+=======
+<html data-ng-app="vila" ng-controller="IndexCtrl">
+	<head>
+		<title ng-bind="title"></title>
+		<link rel="icon" ng-href="img/" type="image/x-icon">
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<script src="js/angular.js"></script>
+		<script src="js/angular-route.js"></script>
+		<script src="js/app.js"></script>
+		<script src="controllers/vila.js"></script>
+		<script>
+			$(document).ready(function () {
+					$(".reduceNav").click(function(event) {
+				$(".navReduced").collapse('hide');
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		    <div class="container">
+		        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar10">
+		            <span class="navbar-toggler-icon icon-white"></span>
+		        </button>
+		        <div class="navbar-collapse collapse navReduced" id="navbar10">
+		            <ul class="navbar-nav nav-fill w-100">
+		                <li class="nav-item my-auto reduceNav">
+		                    <a class="nav-link" ng-href="#">INICI{{navIni}}</a>
+		                </li>
+		                <li class="nav-item my-auto reduceNav">
+		                    <a class="nav-link" ng-href="#gegants">ELS GEGANTS{{navGeg}}</a>
+		                </li>
+		                <li class="nav-item my-auto reduceNav">
+		                    <a class="nav-link" ng-href="#quisom">QUI SOM?{{navQui}}</a>
+		                </li>
+		                <li class="nav-item d-none d-lg-inline my-auto ">
+		                    <a class="nav-link" ng-href="#">
+		                    	<img class="img-fluid logoColla" ng-src="img/{{footerContent.logoNav}}"  alt="Logo colla">
+		                    </a>
+		                </li>
+		                <li class="nav-item my-auto reduceNav">
+		                    <a class="nav-link" ng-href="#esdeveniments">ESDEVENIMENTS{{navEsd}}</a>
+		                </li>
+		                <li class="nav-item my-auto reduceNav">
+		                    <a class="nav-link" ng-href="#galeria">GALERIA{{navGal}}</a>
+		                </li>
+		                <li class="nav-item my-auto reduceNav">
+		                    <a class="nav-link" ng-href="#contacta">CONTACTE{{navCon}}</a>
+		                </li>
+		            </ul>
+		        </div>
+		    </div>
+		</nav>
+		<div class="row">
+			<div class="container col-12"> 
+				<div id="cargador" class="cargador" ng-show="cargador">
+					<img ng-src="img/loading.svg" class="preloader">
+				</div>
+				<div data-ng-view=""></div>
+			</div>
+		</div>	
+		<footer>
+				
+		</footer>	
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	</body>
+>>>>>>> 6c2ff8319d75f1a7941614a98e5a425dd14a52f4
 </html>
