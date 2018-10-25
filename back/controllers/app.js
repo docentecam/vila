@@ -23,4 +23,9 @@ app.config(['$routeProvider',function($routeProvider){
     controller:'DirectCtrl',
     title: "Manteniment Directori"
   })
+  .when('/contactans',{
+    templateUrl:'views/contactans.php',
+    controller:'ContactCtrl',
+    title: "Contacta'ns"
+  })
 }]); 
