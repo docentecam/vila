@@ -17,6 +17,10 @@ app.config(['$routeProvider',function($routeProvider){
 		controller:'ContactaCtrl',
 		title: "Contactan's"
 	})
-
+	.when('/noticies',{
+		templateUrl:'views/noticies.html',
+		controller:'NoticiesCtrl',
+		title: "Noticies"
+	})
 
 }]);	

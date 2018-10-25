@@ -22,49 +22,42 @@
 		</script>
 	</head>
 	<body>
-	<div class="row">
-		<div class="col-8 offset-2">
-				<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-				    <div class="container">
-				        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar10">
-				            <span class="navbar-toggler-icon icon-white"></span>
-				        </button>
-				        <div class="navbar-collapse collapse navReduced" id="navbar10">
-				            <ul class="navbar-nav nav-fill w-100">
-				                <li class="nav-item my-auto reduceNav">
-				                    <a class="nav-link" ng-href="#">INICI{{navIni}}</a>
-				                </li>
-				                <li class="nav-item my-auto reduceNav">
-				                    <a class="nav-link" ng-href="#gegants">ELS GEGANTS{{navGeg}}</a>
-				                </li>
-				                <li class="nav-item my-auto reduceNav">
-				                    <a class="nav-link" ng-href="#quisom">QUI SOM?{{navQui}}</a>
-				                </li>
-				                <li class="nav-item d-none d-lg-inline my-auto ">
-				                    <a class="nav-link" ng-href="#">
-				                    	<img class="img-fluid logoColla" ng-src="img/{{footerContent.logoNav}}"  alt="Logo colla">
-				                    </a>
-				                </li>
-				                <li class="nav-item my-auto reduceNav">
-				                    <a class="nav-link" ng-href="#esdeveniments">ESDEVENIMENTS{{navEsd}}</a>
-				                </li>
-				                <li class="nav-item my-auto reduceNav">
-				                    <a class="nav-link" ng-href="#galeria">GALERIA{{navGal}}</a>
-				                </li>
-				                <li class="nav-item my-auto reduceNav">
-				                    <a class="nav-link" ng-href="#contacta">CONTACTE{{navCon}}</a>
-				                </li>
-				            </ul>
-				        </div>
-				    </div>
-				</nav>
-				<div class="row">
-					<div class="container col-12"> 
-						<div id="cargador" class="cargador" ng-show="cargador">
-							<img ng-src="img/loading.svg" class="preloader">
-						</div>
-						<div data-ng-view=""></div>
-					</div>
+
+		<nav class="navbar navbar-expand-lg">
+		    <div class="container">
+		        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar10">
+		            <span class="navbar-toggler-icon icon-white"></span>
+		        </button>
+		        <div class="navbar-collapse collapse navReduced" id="navbar10">
+		            <ul class="navbar-nav nav-fill w-100">
+		                <li class="nav-item d-none d-lg-inline my-auto ">
+		                    <a class="nav-link" ng-href="#">
+		                    	<img class="img-fluid logoVila" ng-src="img/{{footerContent.logoNav}}"  alt="Vilactiva">INICI
+		                    </a>
+		                </li>
+		                <li class="nav-item my-auto reduceNav">
+		                    <a class="nav-link" ng-href="#associacio">ASSOCIACIO</a>
+		                </li>
+		                <li class="nav-item my-auto reduceNav">
+		                    <a class="nav-link" ng-href="#directori">DIRECTORI</a>
+		                </li>
+		                <li class="nav-item my-auto reduceNav">
+		                    <a class="nav-link" ng-href="#noticies">NOTICIES</a>
+		                </li>
+		                <li class="nav-item my-auto reduceNav">
+		                    <a class="nav-link" ng-href="#firamar">FIRAMAR</a>
+		                </li>
+		                <li class="nav-item my-auto reduceNav">
+		                    <a class="nav-link" ng-href="#contacta">CONTACTA'NS</a>
+		                </li>
+		            </ul>
+		        </div>
+		    </div>
+		</nav>
+		<div class="row">
+			<div class="container col-12"> 
+				<div id="cargador" class="cargador" ng-show="cargador">
+					<img ng-src="img/loading.svg" class="preloader">
 				</div>
 		</div>
 	</div>
