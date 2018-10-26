@@ -23,7 +23,7 @@ appLogin.controller ('LoginCtrl', function($scope, $http, $q, $timeout, $rootSco
 
 	});
 			$scope.usuari={};
-			$scope.usuari.soci="";
+			$scope.usuari.vila="";
 			$scope.usuari.contra="";
 			$scope.message="";
 			$scope.incontra=false;
@@ -44,10 +44,10 @@ appLogin.controller ('LoginCtrl', function($scope, $http, $q, $timeout, $rootSco
 	$scope.login=function(){
 		var data = new FormData();
 			data.append("acc","log");
-			data.append("soci",$scope.usuari.soci);
+			data.append("vila",$scope.usuari.vila);
 			data.append("contra",$scope.usuari.contra);
 		var deferred=$q.defer();
-		$http.post("models/home.php",data,{
+		$http.post("models/login.php",data,{
 			headers:{
 				"Content-type":undefined
 		},
@@ -57,14 +57,14 @@ appLogin.controller ('LoginCtrl', function($scope, $http, $q, $timeout, $rootSco
 			deferred.resolve(res);
 			$scope.message=res.data[0].message;					
 		}, function (res) {
-			$scope.usuari.soci=res.statusText;
+			$scope.usuari.vila=res.statusText;
 		})
 		.finally(function() 
 		{ 			
 		    if($scope.message=="OK") window.location.href="home.php";
 
 		    else {
-		    	$scope.usuari.soci="";
+		    	$scope.usuari.vila="";
 				$scope.usuari.contra="";
 				$scope.incontra=true;
 				$timeout(function(){
@@ -174,6 +174,7 @@ appLogin.controller ('LoginCtrl', function($scope, $http, $q, $timeout, $rootSco
 	$scope.redirectLogin=function(){
 		document.location.href = "index.php";
 	}
+
 })
 
  

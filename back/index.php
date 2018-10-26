@@ -19,7 +19,7 @@
 				<fieldset>
 					<div ng-src="">
 					<legend>Iniciar Sessió</legend><br>
-			  		<input class="form-control" type="text" name="txtHNom" id="txtHNom" size="25"  required ng-model="usuari.soci" placeholder="Introduïu el vostre correu" ng-keyup="$event.keyCode == 13 ? login() : null"><br>
+			  		<input class="form-control" type="text" name="txtHNom" id="txtHNom" size="25"  required ng-model="usuari.vila" placeholder="Introduïu el vostre correu" ng-keyup="$event.keyCode == 13 ? login() : null"><br>
 			  		<div class="input-group ">
 			  			<div class="input-group-append">
 			  				<input class="form-control border-right-0" id="txtPass" name="txtPass" type="password" size="40" required ng-model="usuari.contra" placeholder="Contrasenya" ng-keyup="$event.keyCode == 13 ? login() : null">
@@ -49,7 +49,7 @@
 			      		<div class="modal-body">
 			       			Indiqueu email on restablir una nova contrasenya.<br><br>
 			       	
-			       			<input class="form-control" type="email" name="txtReC"  placeholder="Introduïu correu on restablir una nova contrasenya" required ng-keyup="$event.keyCode == 13 ? recontra() : null" ng-model="usuari.soci">
+			       			<input class="form-control" type="email" name="txtReC"  placeholder="Introduïu correu on restablir una nova contrasenya" required ng-keyup="$event.keyCode == 13 ? recontra() : null" ng-model="usuari.vila">
 			       			  <p ng-show="Frecontra.txtReC.$invalid && !Frecontra.txtReC.$pristine" class="help-block text-danger">L'adreça de correu electrònic introduïda no és vàlida. {{formEmailInco}}</p>
 			      		</div>
 			      		<div class="modal-footer">
