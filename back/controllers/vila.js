@@ -154,3 +154,17 @@ angular.module('vila')
 		$scope.order=columna;
 	}
 })
+.controller('LogoutCtrl',function($scope,$http){
+	$http({
+		method:"GET",
+		url:"models/login.php?acc=logout"
+	})
+	.then(function mySuccess(response){
+		location.href="index.php";
+	},
+	function myError(response){	
+	})
+	.finally (function(){
+
+	})
+})
