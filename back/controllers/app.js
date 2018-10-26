@@ -23,4 +23,7 @@ app.config(['$routeProvider',function($routeProvider){
     controller:'DirectCtrl',
     title: "Manteniment Directori"
   })
+  .otherwise({
+    redirectTo:'/'
+  });
 }]); 
