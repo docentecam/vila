@@ -37,8 +37,24 @@ angular.module('vila')
 	.then(function(res){
 		deferred.resolve(res);
 		$rootScope.cargador=false;
+		$scope.ass.email=$scope.vila.email;
+		$scope.ass.pasMail=$scope.vila.pasMail;
+		$scope.ass.logoVila=$scope.vila.logoVila;
+		$scope.ass.facebook=$scope.vila.facebook;
+		$scope.ass.kayApi=$scope.vila.kayApi;
+		$scope.ass.password=$scope.vila.password;
+		$scope.ass.logoBolsa=$scope.vila.logoBolsa;
+		$scope.ass.favIcon=$scope.vila.favIcon;
+		$scope.ass.telf=$scope.vila.telf;
+		$scope.ass.horari=$scope.vila.horari;
+		$scope.ass.nom=$scope.vila.nom;
 		$scope.ass.quiSom=$scope.vila.quiSom;
 		$scope.ass.equip=$scope.vila.equip;
+		$scope.ass.latitud=$scope.vila.latitud;
+		$scope.ass.longitud=$scope.vila.longitud;
+		$scope.ass.LGPD=$scope.vila.LGPD;
+		$scope.ass.URLWeb=$scope.vila.URLWeb;
+		
 	})
 	.catch(function(error) {
 		$rootScope.cargador=false;
@@ -54,8 +70,23 @@ angular.module('vila')
 		else{
 			$scope.msj="Les dades s'han actualitzat correctament.";
 			var data = new FormData();
+				data.append("email",$scope.ass.email);
+				data.append("pasMail",$scope.ass.pasMail);
+				data.append("logoVila",$scope.ass.logoVila);
+				data.append("facebook",$scope.ass.facebook);
+				data.append("kayApi",$scope.ass.kayApi);
+				data.append("password",$scope.ass.password);
+				data.append("logoBolsa",$scope.ass.logoBolsa);
+				data.append("favIcon",$scope.ass.favIcon);
+				data.append("telf",$scope.ass.telf);
+				data.append("horari",$scope.ass.horari);
+				data.append("nom",$scope.ass.nom);
 				data.append("quiSom",$scope.ass.quiSom);
 				data.append("equip",$scope.ass.equip);
+				data.append("latitud",$scope.ass.latitud);
+				data.append("longitud",$scope.ass.longitud);
+				data.append("LGPD",$scope.ass.LGPD);
+				data.append("URLWeb",$scope.ass.URLWeb);
 				var deferred=$q.defer();
 			$rootScope.cargador=true;
 			$http.post("models/associacio.php", data,{
@@ -153,4 +184,17 @@ angular.module('vila')
 	$scope.columnOrder=function(columna){
 		$scope.order=columna;
 	}
+})
+.controller('LogoutCtrl',function($scope,$http){
+	$http({
+		method:"GET",
+		url:"models/login.php?acc=logout"
+	})
+	.then(function mySuccess(response){
+		location.href="index.php";
+	},
+	function myError(response){	
+	})
+	.finally (function(){
+	})
 })
