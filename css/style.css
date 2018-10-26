@@ -7,12 +7,9 @@ Azul: #1d93d1
 Rosa: #cb418e
 Morado: #4f307e
 */
-body{
+/*body{
 	background-color: #fffcf0!important;
-}
-nav{
-	background-color:#fffcf0;
-}
+}*/
 nav a{
 	color: #4f307e!important;
 	font-weight: bold;
