@@ -17,6 +17,11 @@ app.config(['$routeProvider',function($routeProvider){
 		controller:'ContactaCtrl',
 		title: "Contactan's"
 	})
+	.when('/politica',{
+		templateUrl:'views/politica.html',
+		controller:'PoliticaCtrl',
+		title: "Política de dades"
+	})
 	.when('/noticies',{
 		templateUrl:'views/noticies.html',
 		controller:'NoticiesCtrl',

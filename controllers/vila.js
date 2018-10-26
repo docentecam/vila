@@ -30,6 +30,13 @@ angular.module('vila')
 		$scope.muestraInput=tipo;
 	}
 })
+.controller('PoliticaCtrl',function($scope,$http,$q,$rootScope,$timeout,$window,$document){
+
+	$scope.muestraInput="holaaa";
+
+	
+})
+
 
 .controller('HomeCtrl',function($scope,$http,$q,$rootScope,$timeout,$window,$document){
 	console.log("olaaaxd");

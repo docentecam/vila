@@ -8,6 +8,26 @@ nav a{
 	color: #4f307e!important;
 	font-weight: bold;
 }
+
+a:link{
+	color: black;
+    text-decoration: none;
+}
+a:visited{
+	color: black;
+    text-decoration: none;
+}
+a:hover{
+	color: black;
+    text-decoration: none;
+}
+.estiloContacta{
+	color: #4f307e;
+	font-family: 'Asap', sans-serif;
+	font-weight:500;
+	font-size: 2.5em;
+	text-transform: uppercase;
+}
 .row{
 	margin: 0!important;
 	padding: 0!important;
@@ -24,11 +44,11 @@ nav a{
   font-weight: bold;
 }
 .form-control:focus {
-    color: #495057;
+    color: black;
  	background-color:#fff; 
-    border-color:#4ce0e2; 
+    border-color:#5a0ece; 
     outline: 0;
-    box-shadow: 0 0 0 0.2rem #4ce0e26e;
+    box-shadow: 0 0 0 0.2rem #4f307e9e;
 }
 
 .modal-dialog2 {
