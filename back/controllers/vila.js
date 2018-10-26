@@ -1,9 +1,10 @@
 angular.module('vila')
-.controller('AssociCtrl',function(){
+.controller('AssociCtrl',function($scope,$http,$q,$rootScope,$timeout){
 	var data = new FormData();
-		data.append("acc","l");
+		data.append("acc","favi");
 	var deferred=$q.defer();
 	$rootScope.cargador=true;
+
 	$http.post("models/associacio.php", data,{
 		headers:{
 			"Content-type":undefined
@@ -20,7 +21,62 @@ angular.module('vila')
 	.catch(function(error) {
 		$rootScope.cargador=false;
 	});
-})
+	$scope.accion="";
+	$scope.ass={};
+	$scope.msj="";
+	var data = new FormData();
+		data.append("acc","l");
+	var deferred=$q.defer();
+	$rootScope.cargador=true;
+	$http.post("models/associacio.php", data,{
+		headers:{
+			"Content-type":undefined
+		},
+			transformRequest:angular.identity
+	})
+	.then(function(res){
+		deferred.resolve(res);
+		$rootScope.cargador=false;
+		$scope.ass.quiSom=$scope.vila.quiSom;
+		$scope.ass.equip=$scope.vila.equip;
+	})
+	.catch(function(error) {
+		$rootScope.cargador=false;
+	});
+	$scope.guardar=function(){
+		$scope.divMsj=true;
+		if($scope.ass.equip=="" || $scope.ass.quiSom==""){
+			$scope.msj="Les dades no s'han actualitzat correctament. Sisplau ompli els camps buits";
+			$timeout(function() {
+				$scope.divMsj=false;
+			}, 3000);
+		}
+		else{
+			$scope.msj="Les dades s'han actualitzat correctament.";
+			var data = new FormData();
+				data.append("quiSom",$scope.ass.quiSom);
+				data.append("equip",$scope.ass.equip);
+				var deferred=$q.defer();
+			$rootScope.cargador=true;
+			$http.post("models/associacio.php", data,{
+				headers:{
+					"Content-type":undefined
+				},
+					transformRequest:angular.identity
+			})
+			.then(function(res){
+				deferred.resolve(res);
+				$rootScope.cargador=false;
+				$timeout(function() {
+					$scope.divMsj=false;
+				}, 2000);
+			})
+			.catch(function(error) {
+				$rootScope.cargador=false;
+			});
+		}
+	}
+})	
 .controller('DirectCtrl',function(){
 	var data = new FormData();
 		data.append("acc","l");
