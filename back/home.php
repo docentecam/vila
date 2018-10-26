@@ -62,7 +62,7 @@
      				</li>
      				<li class="nav-item p d-block d-lg-none reduceNav">
 
-    					<a class="nav-link pt-1 pl-5 fas fa-sign-out-alt fa-2x" href="#/"></a>
+    					<a class="nav-link pt-1 pl-5 fas fa-sign-out-alt fa-2x" href="#/logout"></a>
     					<!-- log out ^^ -->
      				</li>			
 				</ul>
@@ -77,7 +77,7 @@
      				
      					</li>
      					<li class="nav-item ml-3">
-    						<a class=" nav-link pt-1 fas fa-sign-out-alt fa-2x" href="#/"></a>
+    						<a class=" nav-link pt-1 fas fa-sign-out-alt fa-2x" href="#/logout"></a>
      					</li>
      				</ul>	
     			
