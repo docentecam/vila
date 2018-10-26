@@ -7,7 +7,7 @@
 					<div class="col-lg-6 col-md-6">
 						<div class="group-item">
 							<div class="imagecontainer is-cover">
-								<a ng-href="#/noticies/{{noticia.idEsdev}}">
+								<a ng-href="#/noticies/{{noticia.idNoticia}}">
 									<img ng-src="{{noticia.fotoNoticia!=''?'img/noticies/'+noticia.fotoNoticia:'img/noimage.png'}}" class="imagecontainer-img lazyload" alt="noticia">
 								</a>
 							</div>
@@ -42,13 +42,13 @@
 		</div>
 
 		<div class="tituloEstilo mt-5">
-			Notícies:
+			Notícies
 		</div>
 		<div class="h_divider mb-5"></div>
 		<div class="row">
 			<div class="col-12 col-xl-10 offset-xl-1 mb-4">
 				<div class="row">
-					<div ng-repeat="noticia in noticies | filter:{proxim:0} | orderBy:'-dataAng'" ng-href="#/noticies/{{noticia.idNoticia}}" class="col-lg-4 col-md-6 px-md-2 px-xl-4 pt-md-2 pt-xl-4">
+					<div ng-repeat="noticia in noticies | orderBy:'-dataAng'" ng-href="#/noticies/{{noticia.idNoticia}}" class="col-lg-4 col-md-6 px-md-2 px-xl-4 pt-md-2 pt-xl-4">
 						<div class="card">
 							<div class="group-item">
 								<div class="imagecontainer is-cover">

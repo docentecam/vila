@@ -484,4 +484,6 @@ a:hover {
 	background-color: #ddd;
     color: black;
 	}	
+.ServeisLista{
+	list-style: none;
 }

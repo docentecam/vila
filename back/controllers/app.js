@@ -22,8 +22,19 @@ app.config(['$routeProvider',function($routeProvider){
     controller:'DirectCtrl',
     title: "Manteniment Directori"
   })
+<<<<<<< HEAD
   .when('/logout',{
     templateUrl:'index.php',
     controller:'LogoutCtrl',
   })
+=======
+  .when('/contactans',{
+    templateUrl:'views/contactans.php',
+    controller:'ContactCtrl',
+    title: "Contacta'ns"
+  })
+  .otherwise({
+    redirectTo:'/'
+  });
+>>>>>>> 3dec95e9601bc46043788daa43f53a80c0a0631e
 }]); 

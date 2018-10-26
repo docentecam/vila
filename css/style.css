@@ -1,6 +1,58 @@
+
+/*colores corporativos:
+
+Blanco roto: #fffcf0
+Gris: #797778
+Amarillo: #e7ab3b
+Azul: #1d93d1
+Rosa: #cb418e
+Morado: #4f307e
+*/
+/*body{
+	background-color: #fffcf0!important;
+}*/
+nav a{
+	color: #4f307e!important;
+	font-weight: bold;
+}
+.row{
+	margin: 0!important;
+	padding: 0!important;
+}
+.col-*{
+	margin: 0!important;
+	padding: 0!important;
+}
+.form-control {
+  padding: 0.5rem;
+  border: 1px solid;
+  font-size: 1rem;
+  color: black;
+  font-weight: bold;
+}
+.form-control:focus {
+    color: #495057;
+ 	background-color:#fff; 
+    border-color:#4ce0e2; 
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem #4ce0e26e;
+}
+
+.modal-dialog2 {
+	max-width: 800px;
+	margin: 1rem auto;
+}
+.modal-content {
+	border-radius: 1.5rem;
+}
+
+.modal-body{
+	padding: 2rem;
+}
+
 .h_divider{ 
-	height:4px; 
-	background: #000 
+	height:2px; 
+	background: #4f307e;
 }
 
 .tituloEstilo{
