@@ -12,7 +12,6 @@
 		<script src="../js/angular.js"></script>
 		<script src="../js/angular-route.js"></script>
 		<script src="controllers/app.js"></script>
-		<script src="controllers/datos.js"></script>
 		<script src="controllers/vila.js"></script>
 		<script>
 				$(document).ready(function () {

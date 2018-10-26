@@ -119,20 +119,6 @@ appLogin.controller ('LoginCtrl', function($scope, $http, $q, $timeout, $rootSco
 		$scope.usuari.contra="";
 	}	
 })
-.controller('LogoutCtrl',function($scope,$http){
-	$http({
-		method:"GET",
-		url:"models/login.php?acc=logout"
-	})
-	.then(function mySuccess(response){
-		location.href="index.php";
-	},
-	function myError(response){	
-	})
-	.finally (function(){
-
-	})
-})
 .controller('RecContraCtrl', function($scope, $http, $q, $timeout, $rootScope){
 	$scope.actBtnIrLogin=true;
 	var recupera="";
