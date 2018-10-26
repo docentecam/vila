@@ -89,6 +89,12 @@ nav a{
 	font-size: 1.1em;
 	text-align: center;
 }
+.quisomAssociacio{
+	font-family: 'Asap', sans-serif;
+	font-weight: 700;
+	font-size: 1.8em;
+	text-align:center !important; 
+}
 
 @media (max-width: 575px){
 

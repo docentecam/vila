@@ -21,6 +21,30 @@ angular.module('vila')
 		// })
 
 })
+.controller('AssociacioCtrl',function($scope,$http,$q,$rootScope,$timeout,$window,$document){
+	
+	var data = new FormData();
+		data.append("acc","l");
+	var deferred=$q.defer();
+	console.log("aasdasdasd");
+	$rootScope.cargador=true;
+	$http.post("models/associacio.php", data,{
+				headers:{
+					"Content-type":undefined
+				},
+				transformRequest:angular.identity
+	})
+	.then(function(res){
+		deferred.resolve(res);
+		$rootScope.cargador=false;
+		$scope.noticia=res.data[0];
+		$rootScope.cargador=false;
+	})
+	.catch(function(error) {
+		$rootScope.cargador=false;
+	});
+	
+})
 .controller('ContactaCtrl',function($scope,$http,$q,$rootScope,$timeout,$window,$document){
 
 	$scope.muestraInput=false;
@@ -42,7 +66,6 @@ angular.module('vila')
 	$rootScope.cargador=true;
 	var data = new FormData();
 		data.append("acc","l");
-		data.append("idNoticia",$routeParams.idNoticia);
 	var deferred=$q.defer();
 	$http.post("models/noticies.php", data,{
 		headers:{
