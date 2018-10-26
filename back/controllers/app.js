@@ -8,7 +8,6 @@ app.run(['$rootScope',function($rootScope) {
 app.config(['$routeProvider',function($routeProvider){
 	$routeProvider
 	.when('/',{
-
 		templateUrl:'views/inici.php',
 		controller:'IniciCtrl',
     title: "Vilactiva"
@@ -22,6 +21,10 @@ app.config(['$routeProvider',function($routeProvider){
     templateUrl:'views/directori.php',
     controller:'DirectCtrl',
     title: "Manteniment Directori"
+  })
+  .when('/logout',{
+    templateUrl:'index.php',
+    controller:'LogoutCtrl',
   })
   .when('/contactans',{
     templateUrl:'views/contactans.php',

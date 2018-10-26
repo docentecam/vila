@@ -1,9 +1,10 @@
 <?php
 	function connect(){
 		
-		// $connexio=@mysqli_connect("localhost","root","","vila");
+		 $connexio=@mysqli_connect("localhost","root","","vila");
 
-		$connexio=@mysqli_connect("bbdd.codigitals.com.es","ddbb118414","VilaProves@2018","ddbb118414");
+		//$connexio=@mysqli_connect("bbdd.codigitals.com.es","ddbb118414","VilaProves@2018","ddbb118414");
+		
 		if(!$connexio){
 			die("error al conectar");
 		}

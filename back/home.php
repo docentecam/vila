@@ -8,11 +8,11 @@
 		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-		<link rel="stylesheet" type="text/css" href="../..	/css/style.css">
-		<script src="../../js/angular.js"></script>
-		<script src="../../js/angular-route.js"></script>
-		<script src="../controllers/app.js"></script>
-		<script src="../controllers/datos.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<script src="../js/angular.js"></script>
+		<script src="../js/angular-route.js"></script>
+		<script src="controllers/app.js"></script>
+		<script src="controllers/vila.js"></script>
 		<script>
 				$(document).ready(function () {
   					$(".reduceNav").click(function(event) {
@@ -25,7 +25,7 @@
 	<body>
 
 <?php session_start();	?>
-
+	
 		<nav class="navbar navbar-expand-lg navbar-light bg-light">
   			<a class="navbar-brand" href="#">
     			<img class="imglogonav" ng-src="../img/{{logo}}" alt="Logo vila">
@@ -62,7 +62,7 @@
      				</li>
      				<li class="nav-item p d-block d-lg-none reduceNav">
 
-    					<a class="nav-link pt-1 pl-5 fas fa-sign-out-alt fa-2x" href="#/"></a>
+    					<a class="nav-link pt-1 pl-5 fas fa-sign-out-alt fa-2x" href="#/logout"></a>
     					<!-- log out ^^ -->
      				</li>			
 				</ul>
@@ -77,7 +77,7 @@
      				
      					</li>
      					<li class="nav-item ml-3">
-    						<a class=" nav-link pt-1 fas fa-sign-out-alt fa-2x" href="#/"></a>
+    						<a class=" nav-link pt-1 fas fa-sign-out-alt fa-2x" href="#/logout"></a>
      					</li>
      				</ul>	
     			
