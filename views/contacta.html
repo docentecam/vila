@@ -1,73 +1,84 @@
+<div class="row"> 
+	<div class="col-12 mt-3 mt-md-5 mb-md-4 mb-2 estiloContacta text-center"><h2>Contactan's{{formCont}}</h2></div>
+</div>
 <div class="row">
-	<div class="col-12 col-md-10 offset-md-1 col-xl-5    my-xl-5 fonsContacta ">
-		<!-- <div class="col-12 mt-3 mt-md-5 mb-md-4 mb-2 estiloContacta text-center">Contactan's{{formCont}}</div> -->
+	<div class="col-12 col-md-10 offset-md-2 col-xl-5  my-xl-5 fonsContacta ">
+		
 		<div class="row">
-			<div class="col-lg-12 offset-0 text-center alert alert-info pt-4 text-dark" role="alert" ng-show="contactaMissatge">{{formAlertObligat}} {{msg}}</div>
-			<form class="col-12" name="formContacta" ng-submit="enviaEmail()" novalidate ng-hide="contactaMissatge">
-				<div class="row">
+			<div class="col-lg-12 offset-0  alert alert-info pt-4 text-dark" role="alert" ng-show="contactaMissatge">{{formAlertObligat}} {{msg}}</div>
+			<form name="formContacta" ng-submit="enviaEmail()" novalidate ng-hide="contactaMissatge">
+				<div class=" form-row">
 					
 					<!-- nommmmmmmmm -->
 					<div class="form-group col-md-4 mb-3 rounded-0" ng-class="{ 'has-error' : formContacta.nom.$invalid && !formContacta.nom.$pristine }">
-			            <input type="text" name="nom" class="form-control" ng-model="contacta.nom"  placeholder="NOM"  ng-maxlength="30" required>
+			            <input type="text" name="nom" class="form-control" ng-model="contacta.nom"  placeholder="Nom"  ng-maxlength="30" required>
 						<p ng-show="formContacta.nom.$error.maxlength" class="help-block text-danger">El nom és massa llarg{{forNomLlarg}}</p>
 			            <p ng-show="formContacta.nom.$invalid && !formContacta.nom.$pristine" class="help-block text-danger">El camp nom és obligatori{{formNom}}</p>
 			        </div>
-			        <div class="form-group">
+			      
+			        <!-- COGNOMMMMMMMMMMM -->
+			        <div class="form-group col-md-4  offfset-4  mb-3 rounded-0" ng-class="{ 'has-error' : formContacta.nom.$invalid && !formContacta.nom.$pristine }">
+			            <input type="text" name="nom" class="form-control" ng-model="contacta.nom"  placeholder="Cognom"  ng-maxlength="30" required>
+						<p ng-show="formContacta.nom.$error.maxlength" class="help-block text-danger">El nom és massa llarg{{forNomLlarg}}</p>
+			            <p ng-show="formContacta.nom.$invalid && !formContacta.nom.$pristine" class="help-block text-danger">El camp nom és obligatori{{formNom}}</p>
+			        </div>
+			        <div class="form-group  col-md-12   mb-3 ">
 					    <div class="form-check">
-					      <input class="form-check-input" type="radio" name="tipoUs" id="clickEmp" ng-checked="contactas.checkbox" ng-model="contactas.checkbox">
+					      <input class="form-check-input" type="radio" name="tipoUs" id="clickEmp" ng-checked="contactas.checkbox" ng-model="contactas.checkbox" ng-click="muestraNom(true)">
 					      <label class="form-check-label" for="clickEmp">
 					       EMPRESA
 					      </label>
 					    </div>
 					</div>
-					 <div class="form-group">
+					<div ng-show="muestraInput">
+						<div class="form-group col-md-12 mb-3 rounded-0" ng-class="{ 'has-error' : formContacta.nom.$invalid && !formContacta.nom.$pristine }">
+			            <input type="text" name="nom" class="form-control" ng-model="contacta.nom"  placeholder="Nom Comercial"  ng-maxlength="30" required>
+						<p ng-show="formContacta.nom.$error.maxlength" class="help-block text-danger">El nom és massa llarg{{forNomLlarg}}</p>
+			            <p ng-show="formContacta.nom.$invalid && !formContacta.nom.$pristine" class="help-block text-danger">El camp nom és obligatori{{formNom}}</p>
+			        	</div>
+					</div>
+					 <div class="form-group  col-md-12 mb-3 ">
 					    <div class="form-check">
-					      <input class="form-check-input" type="radio" name="tipoUs" id="clickPar" ng-checked="contactas.checkbox2" ng-model="contactas.checkbox2">
+					      <input class="form-check-input" type="radio" name="tipoUs" id="clickPar" ng-checked="true" ng-model="contactas.checkbox2" ng-click="muestraNom(false)">
 					      <label class="form-check-label" for="clickPar">
 					       PARTICULAR
 					      </label>
 					    </div>
 					</div>
-			        <!-- COGNOMMMMMMMMMMM -->
-			        <div class="form-group col-md-4 mb-3 rounded-0" ng-class="{ 'has-error' : formContacta.nom.$invalid && !formContacta.nom.$pristine }">
-			            <input type="text" name="nom" class="form-control" ng-model="contacta.nom"  placeholder="COGNOM"  ng-maxlength="30" required>
-						<p ng-show="formContacta.nom.$error.maxlength" class="help-block text-danger">El nom és massa llarg{{forNomLlarg}}</p>
-			            <p ng-show="formContacta.nom.$invalid && !formContacta.nom.$pristine" class="help-block text-danger">El camp nom és obligatori{{formNom}}</p>
-			        </div>
 
 					<!-- emailllllllllllll -->
 			        <div class="form-group col-md-4 mb-3 rounded-0" ng-class="{ 'has-error' : formContacta.email.$invalid && !formContacta.email.$pristine }">
-			            <input type="email" name="email" class="form-control" ng-model="contacta.email" placeholder="CORREU" required>
+			            <input type="email" name="email" class="form-control" ng-model="contacta.email" placeholder="Email" required>
 			            <p ng-show="formContacta.email.$invalid && !formContacta.email.$pristine" class="help-block text-danger">L'adreça de correu electrònic introduïda no és vàlida. {{formEmailInco}}</p>
 
 			        </div>
 						<!-- telefonnnnnnnnnnnn -->
-			         <div class="form-group col-md-4 mb-3 rounded-0" ng-class="{ 'has-error' : formContacta.telefon.$invalid && !formContacta.telefon.$pristine }">
-			            <input type="number" name="telefon" class="form-control" ng-model="contacta.telefon" placeholder="TELÈFON " ng-minlength="8" ng-maxlength="9" required>
+			        <div class="form-group col-md-4 mb-3 rounded-0" ng-class="{ 'has-error' : formContacta.telefon.$invalid && !formContacta.telefon.$pristine }">
+			            <input type="number" name="telefon" class="form-control" ng-model="contacta.telefon" placeholder="Telèfon " ng-minlength="8" ng-maxlength="9" required>
 			            <p ng-show="formContacta.telefon.$error.minlength" class="help-block text-danger">El numero és incorrecte</p>
 						<p ng-show="formContacta.telefon.$error.maxlength" class="help-block text-danger">El numero és massa llarg</p>
 					</div>
 					<!-- dubtessss -->
-					<div class="form-group col-10 offset-1 mt-md-2 rounded-0" ng-class="{ 'has-error' : formContacta.dubtes.$invalid && !formContacta.dubtes.$pristine }">
+					<div class="form-group col-12 col-md-8 mt-md-2 rounded-0" ng-class="{ 'has-error' : formContacta.dubtes.$invalid && !formContacta.dubtes.$pristine }">
 				         <textarea name="dubtes" class=" form-control" type="text" ng-model="contacta.dubtes" required></textarea>
 				         <p ng-show="formContacta.dubtes.$invalid && !formContacta.dubtes.$pristine" class="help-block text-danger">El camp és requerit.</p>
-				    </div>
-			        <div class="form-group">
-						    <div class="form-check">
-						      <input class="form-check-input" type="radio" id="gridCheck" ng-checked="simpat.termes" ng-model="simpat.termes">
-						      <label class="form-check-label" for="gridCheck">
+				    </div><br>
+			        <div class="form-group col-8">
+					    <div class="form-check">
+					      <input class="form-check-input" type="radio" id="gridCheck"  ng-checked="simpat.termes" ng-model="simpat.termes">
+					      <label class="form-check-label" for="gridCheck">
 
-						        Accepto
+					        Accepto
 
-						      </label>
-						    </div>
-						  </div>
-		        	<div class="col-10 offset-1">
-						<button class="col-md-2 offset-10 my-md-4 my-2 mt-md-4 mr-md-3 btn btn-info btn-lg btnAfi" type="submit"  ng-disabled="formContacta.$invalid">Envia</button>
+					      </label>
+					    </div>
+					</div>
+		        	<div class="col-10">
+						<button class="col-md-2 offset-2 my-md-4 my-2 mt-md-4 mr-md-3 btn btn-info btn-lg btnAfi" type="submit"  ng-disabled="formContacta.$invalid">Envia</button>
 					</div>
 				</div>	
 			</form>
-			<input type="button" class="col-md-4 offset-4 my-md-4 mt-md-4 mb-4 btn btn-dark btnAfi" data-toggle="modal" data-target="#modalFitxa" id="fitxaFull" ng-click="modalFitxa" value="Vols afiliar-te a la Colla?">	
+			<input type="button" class="col-md-4 offset-2 my-md-4 mt-md-4 mb-4 btn btn-dark btnAfi" data-toggle="modal" data-target="#modalFitxa" id="fitxaFull" ng-click="modalFitxa" value="Vols fer-te soci">	
 		</div>
 	</div>
 	<div class="row">
@@ -81,10 +92,84 @@
 					<span>Telèfon:{{contTel}}&nbsp;{{contactaLlistat.telf}}</span><br>
 					<span>Email:&nbsp;{{contactaLlistat.email}}</span><br>
 					<span>Horari per contactar:</span><br>
+					<span>
+					</span>
 					<a href=""><i class="fab fa-facebook-f"></i></a><br>
 				</div>
 			</div>	
 		</div>
+	</div>
 </div>
+	<div class="modal fade" id="modalFitxa" tabindex="-1" role="dialog" aria-labelledby="modalFitxaCentered" aria-hidden="true">
+	  	<div class="modal-dialog modal-dialog2 modal-dialog-centered col-12" role="document">
+		    <div class="modal-content">
+		      	<div class="modal-body">
+		      		<div class="container-fluid">
+						<div class="row">
+						 	<div ng-hide="fitxaSuccess">
+							 	<div class="my-2 mb-md-4 mb-2 estiloContacta"> SOCI{{fitxaAfi}}
+							 		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							          <span aria-hidden="true">&times;</span>
+							        </button>
+							 	</div>
+								<form name="fiAfi" id="fiAfi" ng-submit="enviaAfi()" novalidate>
+									<div class="form-row">
+									  <div class="form-group col-12 mb-3" ng-class="{ 'has-error' : fiAfi.inputNom.$invalid && !fiAfi.inputNom.$pristine }">
+									    <label for="inputNom">Nom</label>
+										<input type="text" class="form-control" id="inputNom" placeholder="El teu nom" name="inputNom" ng-model="simpat.nom" ng-maxlength="25" required="">
+										<p ng-show="fiAfi.inputNom.$error.maxlength" class="help-block text-danger">El nom és massa llarg{{forNomLlarg}}</p>
+										<p ng-show="fiAfi.inputNom.$invalid && !fiAfi.inputNom.$pristine" class="help-block text-danger">El camp nom és obligatori{{formNom}}</p>
+									  </div>
+									  <div class="form-group col-12" ng-class="{ 'has-error' : fiAfi.inputAdr.$invalid && !fiAfi.inputAdr.$pristine }">
+									    <label for="inputAdr">Sector</label>
+									    <input type="text" class="form-control" id="inputAdr" placeholder="Sector" name="inputAdr" ng-model="simpat.adreca" ng-maxlength="250" required="">
+									    <p ng-show="fiAfi.inputAdr.$error.maxlength" class="help-block text-danger">L'adreça és massa llarga{{forAdrecaLlarg}}</p>
+										<p ng-show="fiAfi.inputAdr.$invalid && !fiAfi.inputAdr.$pristine" class="help-block text-danger">El camp és obligatori{{formObli}}</p>
+									  </div>
+									  <div class="form-group col-12" ng-class="{ 'has-error' : fiAfi.inputAdr.$invalid && !fiAfi.inputAdr.$pristine }">
+									    <label for="inputAdr">Adreça</label>
+									    <input type="text" class="form-control" id="inputAdr" placeholder="La teva adreça" name="inputAdr" ng-model="simpat.adreca" ng-maxlength="250" required="">
+									    <p ng-show="fiAfi.inputAdr.$error.maxlength" class="help-block text-danger">L'adreça és massa llarga{{forAdrecaLlarg}}</p>
+										<p ng-show="fiAfi.inputAdr.$invalid && !fiAfi.inputAdr.$pristine" class="help-block text-danger">El camp és obligatori{{formObli}}</p>
+									  </div>
+									</div>
+									<div class="form-row">
+									    <div class="form-group col-md-6" ng-class="{ 'has-error' : fiAfi.inputMobil.$invalid && !fiAfi.inputMobil.$pristine }">
+									      <label for="inputMobil">Telf</label>
+									      <input type="number" class="form-control" id="inputMobil" name="inputMobil" ng-model="simpat.movil" ng-maxlength="9" ng-minlength="9" placeholder="Telèfon" required="">
+									      <p ng-show="fiAfi.inputMobil.$error.minlength" class="help-block text-danger">El número és incorrecte{{forNumIncor}}</p>
+			            				  <p ng-show="fiAfi.inputMobil.$error.maxlength" class="help-block text-danger">El número és massa llarg{{forNumLlarg}}</p>
+									    </div>
+									   <div class="form-group col-md-6" ng-class="{ 'has-error' : fiAfi.inputEmail.$invalid && !fiAfi.inputEmail.$pristine }">
+									    <label for="inputEmail">Correu electrònic</label>
+									    <input type="text" class="form-control" id="inputEmail" placeholder="Introdueix el teu correu electrònic" name="inputEmail" ng-model="simpat.email" ng-maxlength="100" required="">
+									    <p ng-show="fiAfi.inputEmail.$invalid && !fiAfi.inputEmail.$pristine" class="help-block text-danger">L'adreça de correu electrònic introduïda no és vàlida{{formEmailInco}}</p>
+									  </div>
+								    </div>
+								   <div ng-show="mailIncorrecte" class="alert alert-danger" role="alert">{{msg}}</div>
+							</div>
+								    <div class="form-check">
+								      <input class="form-check-input" type="checkbox" name="tipoUs" id="gridCheck" ng-checked="true" ng-model="simpat.termes">
+								      <label class="form-check-label" for="gridCheck">
 
+								        Accepto els termes i condicions (*)
 
+								      </label>
+								    </div>
+							  </div><br>
+							  <button type="submit" class="btn btn-info" ng-disabled="fiAfi.$invalid">Envia</button>
+							</form><br><br>
+							<span class="spanRGPD my-4">(*) El 25 de maig de 2018 va entrar en vigor el nou <b>Reglament general de protecció de dades (RGPD)</b>, una reforma sobre la protecció de dades a nivell europeu en la que van estar treballant el Parlament Europeu i el Consell durant 5 anys. L&#39;objectiu del RGPD és regular la protecció de les persones físiques en el que es respecta el tractament de dades personals i a la lliure circulació dels mateixos, i també ofereix un nou conjunt de drets digitals pels ciutadans de la UE.<br> Amb l'acceptació dels termes i condicions, accepteu que guardem les vostres dades per enviar-vos informació sobre futurs esdeveniments.</span>
+							</div>
+							<div ng-show="fitxaSuccess">
+								<span class="my-2 mb-4 estiloContacta">Benvingut</span><br>
+								<span class="estiloContacta2">Ara ets un més de la Vila Olímpica!</span><br>
+								<span>Les teves dades s'han registrat correctament i en breus rebràs un correu electrònic de benvinguda. </span><br>
+								<button ng-click="reload()" class="btn btn-info">D'acord</button>
+							</div>
+						</div>
+					</div>
+	      		</div>
+	     	</div>
+	    </div>
+ 	</div>
