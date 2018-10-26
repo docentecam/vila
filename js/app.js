@@ -27,5 +27,12 @@ app.config(['$routeProvider',function($routeProvider){
 		controller:'NoticiesCtrl',
 		title: "Noticies"
 	})
-
+	.when('/associacio',{
+		templateUrl:'views/associacio.html',
+		controller:'AssociacioCtrl',
+		title:"Associcació"
+	})
+	.otherwise({
+		redirectTo:'/'
+	});
 }]);	
