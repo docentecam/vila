@@ -114,7 +114,7 @@ angular.module('vila')
 		}
 	}
 })	
-.controller('DirectCtrl',function($scope,$http,$q,$rootScope,$timeout){
+.controller('DirectCtrl',function($scope,$http,$q,$rootScope,$routeParams,$timeout,$window){
 	var data = new FormData();
 		data.append("acc","l");
 
@@ -128,13 +128,68 @@ angular.module('vila')
 	})
 	.then(function(res){
 		deferred.resolve(res);
+		$scope.directoris=res.data;
+		$rootScope.cargador=false;
+		console.log(res.data);
+	})
+	.catch(function(error) {
+		$rootScope.cargador=false;
+	});
+	window.onscroll = function() {scrollFunction()};
+
+	function scrollFunction() {
+	    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+	        document.getElementById("goTop").style.display = "block";
+	    } else {
+	        document.getElementById("goTop").style.display = "none";
+	    }
+	}
+ 	$scope.goTop=function(){
+ 		var element = document.getElementById("divTop");
+	    element.scrollIntoView({block: "end", behavior: "smooth"});
+ 	}
+	$scope.columnOrder=function(columna){
+		$scope.order=columna;
+	}
+})
+.controller('DirectComerCtrl',function($scope,$http,$q,$rootScope,$routeParams,$timeout,$window){
+	var data = new FormData();
+		data.append("acc","l");
+
+	var deferred=$q.defer();
+	$rootScope.cargador=true;
+	$http.post("models/directori.php", data,{
+		headers:{
+			"Content-type":undefined
+		},
+		transformRequest:angular.identity
+	})
+	.then(function(res){
+		deferred.resolve(res);
+		$scope.directoris=res.data;
 		$rootScope.cargador=false;
 	})
 	.catch(function(error) {
 		$rootScope.cargador=false;
 	});
+	window.onscroll = function() {scrollFunction()};
+
+	function scrollFunction() {
+	    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+	        document.getElementById("goTop").style.display = "block";
+	    } else {
+	        document.getElementById("goTop").style.display = "none";
+	    }
+	}
+ 	$scope.goTop=function(){
+ 		var element = document.getElementById("divTop");
+	    element.scrollIntoView({block: "end", behavior: "smooth"});
+ 	}
+	$scope.columnOrder=function(columna){
+		$scope.order=columna;
+	}
 })
-.controller('ContactCtrl',function($scope,$http,$q,$rootScope,$timeout){
+.controller('ContactCtrl',function($scope,$http,$q,$rootScope,$timeout,$window){
 	var data = new FormData();
 		data.append("acc", "favi");
 	var deferred=$q.defer();
@@ -192,7 +247,7 @@ angular.module('vila')
 		$scope.order=columna;
 	}
 })
-.controller('SociCtrl',function($scope,$http,$q,$rootScope,$timeout){
+.controller('SociCtrl',function($scope,$http,$q,$rootScope,$timeout,$window){
 	var data = new FormData();
 		data.append("acc", "favi");
 	var deferred=$q.defer();
