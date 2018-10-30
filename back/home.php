@@ -45,7 +45,8 @@
         				<a class="nav-link" href="#/firamar">Firamar</a>
       				</li>
      				<li class="nav-item reduceNav">
-       					<a class="nav-link" href="#/solicitutsoc">Solicitutsoc</a>
+       					<a class="nav-link" href="#/solicitutsoci">Llistat solicitud de socis</a>
+
      				</li>
      				<li class="nav-item reduceNav">
        					<a class="nav-link" href="#/contactans">Contacta´ns</a>

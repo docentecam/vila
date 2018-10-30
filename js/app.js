@@ -23,11 +23,6 @@ app.config(['$routeProvider',function($routeProvider){
 		controller:'DirectoriCtrl',
 		title: "Directori"
 	})
-	.when('/noticies',{
-		templateUrl:'views/noticies.html',
-		controller:'NoticiesCtrl',
-		title: "Noticies"
-	})
 
 	.when('/firamar',{
 		templateUrl:'views/firamar.html',
@@ -44,7 +39,19 @@ app.config(['$routeProvider',function($routeProvider){
 		controller:'PoliticaCtrl',
 		title: "Política de dades"
 	})
-	
+
+	.when('/noticies',{
+		templateUrl:'views/noticies.html',
+		controller:'NoticiesCtrl',
+		title: "Noticies"
+	})
+	.when('/noticia/:idNoticia',{
+		templateUrl:'views/noticies.html',
+		controller:'NoticiaCtrl',
+		title: "Noticia"
+	})
+
+
 	.otherwise({
 		redirectTo:'/'
 	});
