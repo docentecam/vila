@@ -51,8 +51,7 @@ ul, li{
 }
 
 footer{
-	background-color:#4f307e;
-	color: white!important;
+	color: #4f307e!important;
 	font-size:17px;
 	width:100%;
 	margin-top: 20px;
@@ -146,7 +145,7 @@ footer{
 
 .h_divider_w{ 
 	height:2px; 
-	background: white;
+	background: #4f307e;
 	margin-top: 25px;
 	margin-bottom: 20px;
 }

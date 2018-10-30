@@ -27,6 +27,11 @@ app.config(['$routeProvider',function($routeProvider){
 		controller:'NoticiesCtrl',
 		title: "Noticies"
 	})
+	.when('/noticia/:idNoticia',{
+		templateUrl:'views/noticies.html',
+		controller:'NoticiaCtrl',
+		title: "Noticia"
+	})
 	.when('/associacio',{
 		templateUrl:'views/associacio.html',
 		controller:'AssociacioCtrl',
