@@ -2,10 +2,7 @@
 		$tbl_noticies="noticies";
 		require("../inc/functions.php");
 		if(isset($_POST['acc'])&&$_POST['acc']=='l'){
-			$mySqlNoticies='SELECT `idNoticia`, `titolNoticia`, `txtNoticia`, DATE_FORMAT(`dataNoticia`,"%Y-%m-%d") AS `dataAng`, DATE_FORMAT(`dataNoticia`,"%d-%m-%Y") AS "dataNoticia", `principal`, `fotoNoticia`FROM '.$tbl_noticies;
-
-			if(isset($_POST['idNoticia'])) $mySqlNoticies.=" WHERE `idNoticia`='".$_POST['idNoticia']."'";
-			$mySqlNoticies.=' ORDER BY `dataNoticia`';
+			$mySqlNoticies="SELECT `idNoticia`, `titolNoticia`, `txtNoticia`, DATE_FORMAT(`dataNoticia`,'%Y-%m-%d') AS `dataAng`, DATE_FORMAT(`dataNoticia`,'%d-%m-%Y') AS 'dataNoticia', `principal`, `fotoNoticia`FROM $tbl_noticies";
 			
 			$connexio=connect();
 			$resultNoticies=mysqli_query($connexio,$mySqlNoticies);

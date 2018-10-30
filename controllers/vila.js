@@ -68,6 +68,29 @@ angular.module('vila')
 	.then(function(res){
 		deferred.resolve(res);
 		$rootScope.cargador=false;
+		$scope.noticies=res.data;
+	})
+	.catch(function(error) {
+		$rootScope.cargador=false;
+		});
+})
+
+.controller('NoticiaCtrl',function($scope,$http,$q,$routeParams,$rootScope){
+	$scope.llistat=false;
+	$rootScope.cargador=true;
+	var data = new FormData();
+		data.append("acc","l");
+		data.append("idNoticia",$routeParams.idNoticia);
+	var deferred=$q.defer();
+	$http.post("models/noticies.php", data,{
+		headers:{
+			"Content-type":undefined
+		},
+		transformRequest:angular.identity
+	})
+	.then(function(res){
+		deferred.resolve(res);
+		$rootScope.cargador=false;
 		$scope.noticia=res.data[0];
 	})
 	.catch(function(error) {

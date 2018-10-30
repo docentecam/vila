@@ -1,12 +1,12 @@
 
-<!-- <?php
-	// session_start();
+<?php
+	session_start();
 
-	// if (!isset($_SESSION['vila']['email'])) 
+	if (!isset($_SESSION['vila']['email'])) 
 	{
-		// header("location: ../");
+		header("location: ../");
 	}
- ?> -->
+ ?> 
 	<div class="row text-center mt-4 mb-3 titleSocis">
 		<h1 class="col">Safata d'Entrada</h1>
 	</div>
@@ -22,13 +22,13 @@
 				<th class="cursor" ng-click="columnOrder('dubtes')">Missatge</th>
 			</tr>
 			<tr ng-repeat="contacta in contactans | orderBy:order">
-				<td>{{contacta.nomContacta}}</td>
-				<td>{{contacta.cognomContacta}}</td>
+				<td>{{contacta.nomContacte}}</td>
+				<td>{{contacta.cognomContacte}}</td>
 				<td>{{contacta.tipus}}</td>
-				<td>{{contacta.nomEmpresa}}</td>
-				<td>{{contacta.telf}}</td>
-				<td>{{contacta.email}}</td>
-				<td>{{contacta.txtContacta}}</td>
+				<td>{{contacta.nomEmpresa}}<span ng-if="contacta.nomEmpresa==''">---</span></td>
+				<td>{{contacta.telf}}<span ng-if="contacta.telf==''">---</span></td>
+				<td><span ng-if="contacta.email!=''">{{contacta.email}}</span><span ng-if="contacta.email==''">---</span></td>
+				<td>{{contacta.txtContacte}}</td>
 			</tr>
 		</table>	
 	</div>	

@@ -1,4 +1,6 @@
 angular.module('vila')
+.controller('IniciCtrl',function($scope,$http,$q,$rootScope,$timeout){
+}
 .controller('AssociCtrl',function($scope,$http,$q,$rootScope,$timeout){
 	var data = new FormData();
 		data.append("acc","favi");
@@ -59,9 +61,9 @@ angular.module('vila')
 	.catch(function(error) {
 		$rootScope.cargador=false;
 	});
-	$scope.guardar=function(){
+	$scope.submitAss=function(){
 		$scope.divMsj=true;
-		if($scope.ass.equip=="" || $scope.ass.quiSom==""){
+		if($scope.ass.nom=="" || $scope.ass.telf=="" || $scope.ass.facebook=="" $scope.ass.URLWeb=="" ||  $scope.ass.email=="" ||  $scope.ass.pasMail=="" ||  $scope.ass.horari=="" ||  $scope.ass.latitud=="" || $scope.ass.longitud=="" || $scope.ass.keyApi=="" || $scope.ass.quiSom=="" || $scope.ass.equip=="" || $scope.ass.LGPD==""){
 			$scope.msj="Les dades no s'han actualitzat correctament. Sisplau ompli els camps buits";
 			$timeout(function() {
 				$scope.divMsj=false;
@@ -108,7 +110,7 @@ angular.module('vila')
 		}
 	}
 })	
-.controller('DirectCtrl',function(){
+.controller('DirectCtrl',function($scope,$http,$q,$rootScope,$timeout){
 	var data = new FormData();
 		data.append("acc","l");
 
@@ -128,7 +130,7 @@ angular.module('vila')
 		$rootScope.cargador=false;
 	});
 })
-.controller('ContactCtrl',function(){
+.controller('ContactCtrl',function($scope,$http,$q,$rootScope,$timeout){
 	var data = new FormData();
 		data.append("acc", "favi");
 	var deferred=$q.defer();
@@ -154,7 +156,7 @@ angular.module('vila')
 	var data = new FormData();
 		data.append("acc","l");
     var deferred=$q.defer();
-	$http.post("models/contactes.php", data,{
+	$http.post("models/contactans.php", data,{
 		headers:{
 			"Content-type":undefined
 		},
@@ -164,6 +166,7 @@ angular.module('vila')
 		deferred.resolve(res);
 		$scope.contactans=res.data;
 		$rootScope.cargador=false;
+		console.log(res.data);
 	})
 	.catch(function(error) {
 		$rootScope.cargador=false;
@@ -185,6 +188,10 @@ angular.module('vila')
 		$scope.order=columna;
 	}
 })
+.controller('FiramarCtrl',function($scope, $http, $q, $timeout, $rootScope) {
+
+
+});
 .controller('LogoutCtrl',function($scope,$http){
 	$http({
 		method:"GET",
