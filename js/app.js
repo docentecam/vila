@@ -17,10 +17,22 @@ app.config(['$routeProvider',function($routeProvider){
 		controller:'ContactaCtrl',
 		title: "Contactan's"
 	})
+	.when('/politica',{
+		templateUrl:'views/politica.html',
+		controller:'PoliticaCtrl',
+		title: "Política de dades"
+	})
 	.when('/noticies',{
 		templateUrl:'views/noticies.html',
 		controller:'NoticiesCtrl',
 		title: "Noticies"
 	})
-
+	.when('/associacio',{
+		templateUrl:'views/associacio.html',
+		controller:'AssociacioCtrl',
+		title:"Associcació"
+	})
+	.otherwise({
+		redirectTo:'/'
+	});
 }]);	
