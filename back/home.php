@@ -36,19 +36,19 @@
   			<div class="collapse navbar-collapse navReduced" id="navbarNavDropdown">
    			 	<ul class="navbar-nav">
      				<li class="nav-item active reduceNav">
-        				<a class="nav-link" href="#/associacio">Manteniment Associacio</a>
+        				<a class="nav-link" href="#/associacio">Dades Associacio</a>
      				</li>
       				<li class="nav-item reduceNav">
         				<a class="nav-link" href="#/directori">Manteniment Directori</a>
       				</li>
       				<li class="nav-item reduceNav">
-        				<a class="nav-link" href="#/solicitutsoc">solicitutsoc</a>
+        				<a class="nav-link" href="#/firamar">Firamar</a>
       				</li>
      				<li class="nav-item reduceNav">
-       					<a class="nav-link" href="#/contactans">Contacta´ns</a>
+       					<a class="nav-link" href="#/solicitutsoc">Solicitutsoc</a>
      				</li>
      				<li class="nav-item reduceNav">
-       					<a class="nav-link" href="#/">Titulo 4</a>
+       					<a class="nav-link" href="#/contactans">Contacta´ns</a>
      				</li>
      				<li class="nav-item p d-block d-lg-none reduceNav">
 

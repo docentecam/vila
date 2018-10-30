@@ -189,6 +189,10 @@ angular.module('vila')
 		$scope.order=columna;
 	}
 })
+.controller('FiramarCtrl',function($scope, $http, $q, $timeout, $rootScope) {
+
+
+});
 .controller('LogoutCtrl',function($scope,$http){
 	$http({
 		method:"GET",
