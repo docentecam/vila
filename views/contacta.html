@@ -24,7 +24,7 @@
 			        <div class="form-group  col-md-12   mb-3 ">
 					    <div class="form-check">
 					      <input class="form-check-input" type="radio" name="tipoUs" id="clickEmp" ng-checked="contactas.checkbox" ng-model="contactas.checkbox" ng-click="muestraNom(true)">
-					      <label class="form-check-label" for="clickEmp">
+					      <label class="form-check-label tipoTexto" for="clickEmp">
 					       EMPRESA
 					      </label>
 					    </div>
@@ -39,7 +39,7 @@
 					 <div class="form-group  col-md-12 mb-3 ">
 					    <div class="form-check">
 					      <input class="form-check-input" type="radio" name="tipoUs" id="clickPar" ng-checked="true" ng-model="contactas.checkbox2" ng-click="muestraNom(false)">
-					      <label class="form-check-label" for="clickPar">
+					      <label class="form-check-label tipoTexto" for="clickPar">
 					       PARTICULAR
 					      </label>
 					    </div>
@@ -62,21 +62,21 @@
 				         <textarea name="dubtes" class=" form-control" type="text" ng-model="contacta.dubtes" required></textarea>
 				         <p ng-show="formContacta.dubtes.$invalid && !formContacta.dubtes.$pristine" class="help-block text-danger">El camp és requerit.</p>
 				    </div><br>
-			        <div class="form-group col-12 col-md-8">
+			        <div class="form-group col-12 col-md-8 tipoTexto">
 					    <div class="form-check">
-					      <input class="form-check-input" type="radio" id="gridCheck"  ng-checked="simpat.termes" ng-model="simpat.termes">
-					      <span class="form-check-label" for="gridCheck">
+					      <input class="form-check-input" type="radio" id="gridCheck"  ng-checked="true" ng-model="simpat.termes">
+					      <label class="form-check-label" for="gridCheck">
 
-					         <a class="tipoTexto" ng-href="#politica" target="_blank">Accepto els termes i condicions (*)</a>
-					      </span>
+					          He llegit i accepto la <a class="PolitPriva" ng-href="#politica" target="_blank">Política de Privadesa.</a>
+					      </label>
 					    </div>
 					</div><br>
 		        	<div class="col-12">
-						<button class="col-4 col-md-2 offset-md-6 my-md-4 mb-4 mt-md-4 mr-md-3 btn btn-info btn-lg btnAfi" type="submit"  ng-disabled="formContacta.$invalid">Envia</button>
+						<button class="col-4 col-md-2 offset-md-6 my-md-4 mb-4 mt-md-4 mr-md-3 btn btn-info btn-lg btnAfi tipoTexto" type="submit"  ng-disabled="formContacta.$invalid">Envia</button>
 					</div>
 				</div>	
 			</form>
-			<input type="button" class="col-md-4 offset-1 my-md-4 mt-md-4 mb-4 btn btn-dark btnAfi" data-toggle="modal" data-target="#modalFitxa" id="fitxaFull" ng-click="modalFitxa" value="Vols fer-te soci">	
+			<input type="button" class="col-md-4 offset-1 my-md-4 mt-md-4 mb-4 btn btn-dark btnAfi tipoTexto" data-toggle="modal" data-target="#modalFitxa" id="fitxaFull" ng-click="modalFitxa" value="Vols fer-te soci">	
 		</div>
 	</div>
 
@@ -88,15 +88,15 @@
 				</div>
 				<div class="col-12 mt-4">
 					<span><b>Telèfon:</b>{{contTel}}{{contactaLlistat.telf}}</span><br>
-					<i class="fab fa-whatsapp mr-3">658596784</i><br>
+					<i class="fab fa-whatsapp mr-3"><span class="tipoTexto">658596784</span></i><br>
 					<span><b>Email:</b>{{contactaLlistat.email}}</span><br>
-					<span>yaibondi@gmail.com</span><br>
+					<span class="tipoTexto">yaibondi@gmail.com</span><br>
 					<span><b>Horaris per contactar:</b></span><br>
-					<span>
+					<span class="tipoTexto">
 						Matins: De dilluns a divendres de 10.00 a 13.00 h.
 						Tardes: Els dimarts de 16.00 a 17.45 hores, de mitjan setembre a mitjan juny.
 					</span><br>
-					<a href="https://es-es.facebook.com/" target="_blank"><i class="fab fa-facebook-square">vila</i></a><br>
+					<a href="https://es-es.facebook.com/" target="_blank"><i class="fab fa-facebook-square fa-2x fa-lg mt-2"></i></a><br>
 				</div>
 		</div>	
 	</div>
@@ -107,63 +107,62 @@
 		    <div class="modal-content">
 		      	<div class="modal-body">
 		      		<div class="container-fluid">
-						<div class="row">
-						 	<div ng-hide="fitxaSuccess">
-							 	<div class="my-2 mb-md-4 mb-2 estiloContacta"> SOCI{{fitxaAfi}}
-							 		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-							          <span aria-hidden="true">&times;</span>
-							        </button>
-							 	</div>
-								<form name="fiAfi" id="fiAfi" ng-submit="enviaAfi()" novalidate>
-									<div class="form-row">
-									  <div class="form-group col-12 mb-3" ng-class="{ 'has-error' : fiAfi.inputNom.$invalid && !fiAfi.inputNom.$pristine }">
-										<input type="text" class="form-control" id="inputNom" placeholder="El teu nom" name="inputNom" ng-model="simpat.nom" ng-maxlength="25" required="">
-										<p ng-show="fiAfi.inputNom.$error.maxlength" class="help-block text-danger">El nom és massa llarg{{forNomLlarg}}</p>
-										<p ng-show="fiAfi.inputNom.$invalid && !fiAfi.inputNom.$pristine" class="help-block text-danger">El camp nom és obligatori{{formNom}}</p>
-									  </div>
-									  <div class="form-group col-12" ng-class="{ 'has-error' : fiAfi.inputAdr.$invalid && !fiAfi.inputAdr.$pristine }">
-									    <input type="text" class="form-control" id="inputAdr" placeholder="Sector" name="inputAdr" ng-model="simpat.adreca" ng-maxlength="250" required="">
-									    <p ng-show="fiAfi.inputAdr.$error.maxlength" class="help-block text-danger">L'adreça és massa llarga{{forAdrecaLlarg}}</p>
-										<p ng-show="fiAfi.inputAdr.$invalid && !fiAfi.inputAdr.$pristine" class="help-block text-danger">El camp és obligatori{{formObli}}</p>
-									  </div>
-									  <div class="form-group col-12" ng-class="{ 'has-error' : fiAfi.inputAdr.$invalid && !fiAfi.inputAdr.$pristine }">
-									    <input type="text" class="form-control" id="inputAdr" placeholder="La teva adreça" name="inputAdr" ng-model="simpat.adreca" ng-maxlength="250" required="">
-									    <p ng-show="fiAfi.inputAdr.$error.maxlength" class="help-block text-danger">L'adreça és massa llarga{{forAdrecaLlarg}}</p>
-										<p ng-show="fiAfi.inputAdr.$invalid && !fiAfi.inputAdr.$pristine" class="help-block text-danger">El camp és obligatori{{formObli}}</p>
-									  </div>
-									</div>
-									<div class="form-row">
-									    <div class="form-group col-md-6" ng-class="{ 'has-error' : fiAfi.inputMobil.$invalid && !fiAfi.inputMobil.$pristine }">
-									      <input type="number" class="form-control" id="inputMobil" name="inputMobil" ng-model="simpat.movil" ng-maxlength="9" ng-minlength="9" placeholder="Telèfon" required="">
-									      <p ng-show="fiAfi.inputMobil.$error.minlength" class="help-block text-danger">El número és incorrecte{{forNumIncor}}</p>
-			            				  <p ng-show="fiAfi.inputMobil.$error.maxlength" class="help-block text-danger">El número és massa llarg{{forNumLlarg}}</p>
+							<div class="row">
+							 	<div ng-hide="fitxaSuccess">
+								 	<div class="my-2 mb-md-4 mb-2 tipoTitulo"> SOCI{{fitxaAfi}}
+								 		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								          <span aria-hidden="true">&times;</span>
+								        </button>
+								 	</div>
+									<form name="fiAfi" id="fiAfi" ng-submit="enviaAfi()" novalidate>
+										<div class="form-row">
+										  <div class="form-group col-12 mb-3" ng-class="{ 'has-error' : fiAfi.inputNom.$invalid && !fiAfi.inputNom.$pristine }">
+											<input type="text" class="form-control" id="inputNom" placeholder="El teu nom" name="inputNom" ng-model="simpat.nom" ng-maxlength="25" required="">
+											<p ng-show="fiAfi.inputNom.$error.maxlength" class="help-block text-danger">El nom és massa llarg{{forNomLlarg}}</p>
+											<p ng-show="fiAfi.inputNom.$invalid && !fiAfi.inputNom.$pristine" class="help-block text-danger">El camp nom és obligatori{{formNom}}</p>
+										  </div>
+										  <div class="form-group col-12" ng-class="{ 'has-error' : fiAfi.inputAdr.$invalid && !fiAfi.inputAdr.$pristine }">
+										    <input type="text" class="form-control" id="inputAdr" placeholder="Sector" name="inputAdr" ng-model="simpat.adreca" ng-maxlength="250" required="">
+										    <p ng-show="fiAfi.inputAdr.$error.maxlength" class="help-block text-danger">L'adreça és massa llarga{{forAdrecaLlarg}}</p>
+											<p ng-show="fiAfi.inputAdr.$invalid && !fiAfi.inputAdr.$pristine" class="help-block text-danger">El camp és obligatori{{formObli}}</p>
+										  </div>
+										  <div class="form-group col-12" ng-class="{ 'has-error' : fiAfi.inputAdr.$invalid && !fiAfi.inputAdr.$pristine }">
+										    <input type="text" class="form-control" id="inputAdr" placeholder="La teva adreça" name="inputAdr" ng-model="simpat.adreca" ng-maxlength="250" required="">
+										    <p ng-show="fiAfi.inputAdr.$error.maxlength" class="help-block text-danger">L'adreça és massa llarga{{forAdrecaLlarg}}</p>
+											<p ng-show="fiAfi.inputAdr.$invalid && !fiAfi.inputAdr.$pristine" class="help-block text-danger">El camp és obligatori{{formObli}}</p>
+										  </div>
+										</div>
+										<div class="form-row">
+										    <div class="form-group col-md-6" ng-class="{ 'has-error' : fiAfi.inputMobil.$invalid && !fiAfi.inputMobil.$pristine }">
+										      <input type="number" class="form-control" id="inputMobil" name="inputMobil" ng-model="simpat.movil" ng-maxlength="9" ng-minlength="9" placeholder="Telèfon" required="">
+										      <p ng-show="fiAfi.inputMobil.$error.minlength" class="help-block text-danger">El número és incorrecte{{forNumIncor}}</p>
+				            				  <p ng-show="fiAfi.inputMobil.$error.maxlength" class="help-block text-danger">El número és massa llarg{{forNumLlarg}}</p>
+										    </div>
+										   <div class="form-group col-md-6" ng-class="{ 'has-error' : fiAfi.inputEmail.$invalid && !fiAfi.inputEmail.$pristine }">
+										    <input type="text" class="form-control" id="inputEmail" placeholder="Introdueix el teu correu electrònic" name="inputEmail" ng-model="simpat.email" ng-maxlength="100" required="">
+										    <p ng-show="fiAfi.inputEmail.$invalid && !fiAfi.inputEmail.$pristine" class="help-block text-danger">L'adreça de correu electrònic introduïda no és vàlida{{formEmailInco}}</p>
+										  </div>
 									    </div>
-									   <div class="form-group col-md-6" ng-class="{ 'has-error' : fiAfi.inputEmail.$invalid && !fiAfi.inputEmail.$pristine }">
-									    <input type="text" class="form-control" id="inputEmail" placeholder="Introdueix el teu correu electrònic" name="inputEmail" ng-model="simpat.email" ng-maxlength="100" required="">
-									    <p ng-show="fiAfi.inputEmail.$invalid && !fiAfi.inputEmail.$pristine" class="help-block text-danger">L'adreça de correu electrònic introduïda no és vàlida{{formEmailInco}}</p>
-									  </div>
-								    </div>
-								   <div ng-show="mailIncorrecte" class="alert alert-danger" role="alert">{{msg}}</div>
-								      <div class="form-check">
-								      <input class="form-check-input" type="checkbox" name="tipoUs" id="gridCheck" ng-checked="true" ng-model="simpat.termes">
-								      <label class="form-check-label" for="gridCheck">
+									   <div ng-show="mailIncorrecte" class="alert alert-danger" role="alert">{{msg}}</div>
+									      <div class="form-check tipoTexto">
+									      <input class="form-check-input" type="checkbox" name="tipoUs" id="gridCheck" ng-checked="true" ng-model="simpat.termes">
+									      <label class="form-check-label" for="gridCheck">
 
-								        Accepto els termes i condicions (*)
+									      He llegit i accepto la <a class="PolitPriva" ng-href="#politica" target="_blank">Política de Privadesa.</a>
 
-								      </label>
-								    </div>
-							 
-							  <button type="submit" class="btn btn-info" ng-disabled="fiAfi.$invalid">Envia</button>
-							</form><br>
-						</div>
-								<span class="spanRGPD my-4">(*) El 25 de maig de 2018 va entrar en vigor el nou <b>Reglament general de protecció de dades (RGPD)</b>, una reforma sobre la protecció de dades a nivell europeu en la que van estar treballant el Parlament Europeu i el Consell durant 5 anys. L&#39;objectiu del RGPD és regular la protecció de les persones físiques en el que es respecta el tractament de dades personals i a la lliure circulació dels mateixos, i també ofereix un nou conjunt de drets digitals pels ciutadans de la UE.<br> Amb l'acceptació dels termes i condicions, accepteu que guardem les vostres dades per enviar-vos informació sobre futurs esdeveniments.</span>
-							 </div><br>
-							<div ng-show="fitxaSuccess">
-								<span class="my-2 mb-4 estiloContacta">Benvingut</span><br>
-								<span class="estiloContacta2">Ara ets un més de la Vila Olímpica!</span><br>
-								<span>Les teves dades s'han registrat correctament i en breus rebràs un correu electrònic de benvinguda. </span><br>
-								<button ng-click="reload()" class="btn btn-info">D'acord</button>
+									      </label>
+									    </div>
+								 
+								  <button type="submit" class="col-12 btn btn-info tipoTexto mt-5 py-2" ng-disabled="fiAfi.$invalid">Envia</button>
+								</form><br>
 							</div>
+						</div><br>
+						<div ng-show="fitxaSuccess">
+							<span class="my-2 mb-4 estiloContacta">Benvingut</span><br>
+							<span class="estiloContacta2">Ara ets un més de la Vila Olímpica!</span><br>
+							<span>Les teves dades s'han registrat correctament i en breus rebràs un correu electrònic de benvinguda. </span><br>
+							<button ng-click="reload()" class="btn btn-info">D'acord</button>
+						</div>
 				</div>
 			</div>
 	    </div>

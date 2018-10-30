@@ -2,34 +2,34 @@ angular.module('vila')
 .controller('IniciCtrl',function($scope,$http,$q,$rootScope,$timeout){
 })
 .controller('AssociCtrl',function($scope,$http,$q,$rootScope,$timeout){
-	var data = new FormData();
-		data.append("acc","favi");
-	var deferred=$q.defer();
-	$rootScope.cargador=true;
+	// var data = new FormData();
+	// 	data.append("acc","favi");
+	// var deferred=$q.defer();
+	// $rootScope.cargador=true;
 
-	$http.post("models/associacio.php", data,{
-		headers:{
-			"Content-type":undefined
-		},
-		transformRequest:angular.identity
-	})
-	.then(function(res){
-		deferred.resolve(res);
-		$rootScope.cargador=false;
-		$timeout(function() {
+	// $http.post("models/associacio.php", data,{
+	// 	headers:{
+	// 		"Content-type":undefined
+	// 	},
+	// 	transformRequest:angular.identity
+	// })
+	// .then(function(res){
+	// 	deferred.resolve(res);
+	// 	$rootScope.cargador=false;
+	// 	$timeout(function() {
 
-		}, 2000);
-	})
-	.catch(function(error) {
-		$rootScope.cargador=false;
-	});
+	// 	}, 2000);
+	// })
+	// .catch(function(error) {
+	// 	$rootScope.cargador=false;
+	// });
 	$scope.accion="";
 	$scope.ass={};
 	$scope.msj="";
 	var data = new FormData();
 		data.append("acc","l");
 	var deferred=$q.defer();
-	$rootScope.cargador=true;
+	// $rootScope.cargador=true;
 	$http.post("models/associacio.php", data,{
 		headers:{
 			"Content-type":undefined
@@ -38,33 +38,37 @@ angular.module('vila')
 	})
 	.then(function(res){
 		deferred.resolve(res);
-		$rootScope.cargador=false;
-		$scope.ass.email=$scope.vila.email;
-		$scope.ass.pasMail=$scope.vila.pasMail;
-		$scope.ass.logoVila=$scope.vila.logoVila;
-		$scope.ass.facebook=$scope.vila.facebook;
-		$scope.ass.kayApi=$scope.vila.kayApi;
-		$scope.ass.password=$scope.vila.password;
-		$scope.ass.logoBolsa=$scope.vila.logoBolsa;
-		$scope.ass.favIcon=$scope.vila.favIcon;
-		$scope.ass.telf=$scope.vila.telf;
-		$scope.ass.horari=$scope.vila.horari;
-		$scope.ass.nom=$scope.vila.nom;
-		$scope.ass.quiSom=$scope.vila.quiSom;
-		$scope.ass.equip=$scope.vila.equip;
-		$scope.ass.latitud=$scope.vila.latitud;
-		$scope.ass.longitud=$scope.vila.longitud;
-		$scope.ass.LGPD=$scope.vila.LGPD;
-		$scope.ass.URLWeb=$scope.vila.URLWeb;
+		console.log(res.data);
+		// $rootScope.cargador=false;
+		// $scope.ass.email=$scope.vila.email;
+		// $scope.ass.pasMail=$scope.vila.pasMail;
+		// $scope.ass.logoVila=$scope.vila.logoVila;
+		// $scope.ass.facebook=$scope.vila.facebook;
+		// $scope.ass.kayApi=$scope.vila.kayApi;
+		// $scope.ass.password=$scope.vila.password;
+		// $scope.ass.logoBolsa=$scope.vila.logoBolsa;
+		// $scope.ass.favIcon=$scope.vila.favIcon;
+		// $scope.ass.telf=$scope.vila.telf;
+		// $scope.ass.horari=$scope.vila.horari;
+		// $scope.ass.nom=$scope.vila.nom;
+		// $scope.ass.quiSom=$scope.vila.quiSom;
+		// $scope.ass.equip=$scope.vila.equip;
+		// $scope.ass.latitud=$scope.vila.latitud;
+		// $scope.ass.longitud=$scope.vila.longitud;
+		// $scope.ass.LGPD=$scope.vila.LGPD;
+		// $scope.ass.URLWeb=$scope.vila.URLWeb;
 		
 	})
 	.catch(function(error) {
 		$rootScope.cargador=false;
 	});
 	$scope.submitAss=function(){
+
 		$scope.divMsj=true;
+
 		if($scope.ass.nom=="" || $scope.ass.telf=="" || $scope.ass.facebook=="" || $scope.ass.URLWeb=="" ||  $scope.ass.email=="" ||  $scope.ass.pasMail=="" ||  $scope.ass.horari=="" ||  $scope.ass.latitud=="" || $scope.ass.longitud=="" || $scope.ass.keyApi=="" || $scope.ass.quiSom=="" || $scope.ass.equip=="" || $scope.ass.LGPD==""){
 			$scope.msj="Les dades no s'han actualitzat correctament. Sisplau ompli els camps buits";
+			$scope.divMsj=true;
 			$timeout(function() {
 				$scope.divMsj=false;
 			}, 3000);
