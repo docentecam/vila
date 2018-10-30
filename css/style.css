@@ -156,6 +156,35 @@ a:hover{
 	text-align:center !important; 
 }
 
+.carouAsoc{
+  display: inline-block;
+  margin-left:-4px;
+}
+.carouAsoc img{
+  width:100%;
+  height:auto;
+}
+body .carousel-indicators li{
+  background-color:red;
+}
+body .carousel-control-prev-icon,
+body .carousel-control-next-icon{
+  background-color:red;
+}
+body .no-padding{
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.carousel {
+   max-height: 400px;
+   max-width: 500px;
+   overflow: hidden;
+}
+
+.carousel-inner > .item > img {
+    margin: 0 auto;
+}
 
 @media (max-width: 575px){
 
