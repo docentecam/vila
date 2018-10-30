@@ -11,6 +11,28 @@ Morado: #4f307e
 /*body{
 	background-color: #fffcf0!important;
 }*/
+
+@import url('https://fonts.googleapis.com/css?family=Bitter|Oswald:700|Roboto:300,400');
+
+.tipoTitulo{
+	font-family: 'Oswald', sans-serif;
+	font-weight: 700;
+	font-size: 2em;
+	text-transform: uppercase;
+}
+
+.tipoSubTitulo{
+	font-family: 'Bitter', serif;
+	font-weight: 400;
+	font-size: 1.3em;
+}
+
+.tipoTexto{
+	font-family: 'Roboto', sans-serif;
+	font-weight: 300;
+	font-size: 1em;
+}
+
 nav a{
 	color: #4f307e!important;
 	font-weight: bold;
