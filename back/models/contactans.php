@@ -13,9 +13,9 @@
 	if(isset($_POST['acc'])&&$_POST['acc']=='l'){
 		echo llistatContact($tbl_contactans);
 	}
-	function llistatContact($tbl_simpat){
-		$mySql="SELECT `email`,`idContacta`,`nomContacta`, `cognomContacta`, `tipus`, `telf`, `nomEmpresa`, `txtContacta` FROM $tbl_contactans";
-		
+	function llistatContact($tbl_contactans){
+		$mySql="SELECT `email`,`idContacte`,`nomContacte`, `cognomContacte`, `tipus`, `telf`, `nomEmpresa`, `txtContacte` FROM $tbl_contactans";
+		// echo $mySql;
 		$connexio=connect();
 		$resultContact=mySqli_query($connexio,$mySql);
 		disconnect($connexio);

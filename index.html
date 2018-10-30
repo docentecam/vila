@@ -5,6 +5,9 @@
 		<link rel="icon" ng-href="img/" type="image/x-icon">
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
@@ -31,7 +34,7 @@
 		            <ul class="navbar-nav nav-fill w-100">
 		                <li class="nav-item d-none d-lg-inline my-auto ">
 		                    <a class="nav-link" ng-href="#">
-		                    	<img class="img-fluid logoVila" ng-src="img/{{footerContent.logoNav}}"  alt="Vilactiva">INICI
+		                    	<img class="img-fluid logoVila" ng-src="img/a_vilactiva.png"  alt="Vilactiva">INICI
 		                    </a>
 		                </li>
 		                <li class="nav-item my-auto reduceNav">
@@ -53,10 +56,11 @@
 		        </div>
 		    </div>
 		</nav>
-		<div class="h_divider col-8 offset-2"></div>
 
+		<div class="h_divider"></div>
 		<div class="row">
-			<div class="container col-8 offset-2"> 
+			<div class="container col-sm-12 col-xl-8"> 
+
 				<div id="cargador" class="cargador" ng-show="cargador">
 					<img ng-src="img/loading.svg" class="preloader">
 				</div>
@@ -64,8 +68,43 @@
 			</div>
 		</div>	
 		<footer>
-				
-		</footer>	
+			<div class="row">	
+				<div class="offset-2 offset-md-1 offset-lg-1 offset-xl-1 col-8 col-md-11 col-lg-2 col-xl-2 order-1 order-md-0 mt-2 mt-md-2 mt-lg-4 mt-xl-5 col align-self-start centrarFooterMovil"> 
+						<img src="img/vilactiva.png">
+						<br>
+						Associació de comerciants de la Vila Olímpica, Barcelona
+				</div>
+				<div class="offset-1 offset-md-5 offset-lg-1 offset-xl-2 col-10 col-md-3 col-lg-3 col-xl-2 order-3 order-md-1  mb-2 col align-self-center centrarFooterMovil">
+
+					<div class="row">
+						<div class="col-12 offset-0 mt-2 mt-lg-0 text-center">
+							<a ng-href="{{vila.facebook}}" target="_blank">
+								<i class="fab fa-facebook-square fa-2x " ng-href="{{vila.facebook}}" target="_blank"></i>
+							</a>
+						</div>
+					</div>
+				</div>
+			<div class="offset-2 offset-md-1 offset-lg-1 offset-xl-2 col-10 col-md-4 col-lg-4 col-xl-3 col align-self-end order-2 order-md-3 mb-lg-3 mt-lg-4 mt-xl-4 d-none d-md-none d-lg-block">
+				<div class="row">
+					<div class="col-12">
+						Parle'm-ne!<br>
+					</div>
+					<div class="col-12">
+						<div class="row">
+							<ul>
+								<li><a href="{{X}}">vilactiva@gmail.com{{X}}</a></li>
+								<li><a href="{{X}}">649 89 53 84{{X}}</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row fondoFooter centrarFooterMovil">
+			<div class="h_divider_w col-8 offset-2"></div>
+			<div class="col-12 text-center font-weight-bold">Pàgina realitzada amb la col·laboració dels alumnes de la Casa d'Oficis Barris Digitals i Barcelona Activa</div>
+		</div>
+		</footer>		
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 	</body>

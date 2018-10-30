@@ -22,14 +22,28 @@ app.config(['$routeProvider',function($routeProvider){
     controller:'DirectCtrl',
     title: "Manteniment Directori"
   })
-  .when('/logout',{
-    templateUrl:'index.php',
-    controller:'LogoutCtrl',
-  })
   .when('/contactans',{
     templateUrl:'views/contactans.php',
     controller:'ContactCtrl',
     title: "Contacta'ns"
+  })
+<<<<<<< HEAD
+  .when('/firamar',{
+    templateUrl:'views/firamar.php',
+    controller:'FiramarCtrl',
+    title: "Firamar"
+  })
+=======
+  .when('/solicitutsoc',{
+    templateUrl:'views/contactans.php',
+    controller:'SociCtrl',
+    title: "Llistat Solicitud de socis"
+  })
+
+>>>>>>> d6d7c015de4469bbf1113ac464ec1540c750427a
+  .when('/logout',{
+    templateUrl:'index.php',
+    controller:'LogoutCtrl',
   })
   .otherwise({
     redirectTo:'/'
