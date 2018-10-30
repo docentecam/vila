@@ -21,6 +21,9 @@ angular.module('vila')
 		// })
 
 })
+.controller('HomeCtrl',function($scope,$http,$q,$rootScope,$timeout,$window,$document){
+})
+
 .controller('AssociacioCtrl',function($scope,$http,$q,$rootScope,$timeout,$window,$document){
 	
 	var data = new FormData();
@@ -45,28 +48,10 @@ angular.module('vila')
 	});
 	
 })
-.controller('ContactaCtrl',function($scope,$http,$q,$rootScope,$timeout,$window,$document){
 
-	$scope.muestraInput=false;
-
-	$scope.muestraNom=function(tipo)
-	{
-		$scope.muestraInput=tipo;
-	}
+.controller('DirectoriCtrl',function($scope,$http,$q,$rootScope,$timeout,$window,$document){
+	console.log("llega");
 })
-.controller('PoliticaCtrl',function($scope,$http,$q,$rootScope,$timeout,$window,$document){
-
-	$scope.muestraInput="holaaa";
-
-	
-})
-
-
-.controller('HomeCtrl',function($scope,$http,$q,$rootScope,$timeout,$window,$document){
-	console.log("olaaaxd");
-})
-
-
 .controller('NoticiesCtrl',function($scope,$http,$q,$rootScope,$timeout,$window,$document){
 	console.log("sí, así es");
 	$scope.llistat=false;
@@ -89,3 +74,24 @@ angular.module('vila')
 		$rootScope.cargador=false;
 		});
 })
+
+.controller('FiramarCtrl',function($scope,$http,$q,$rootScope,$timeout,$window,$document){
+	console.log("sí, así es");
+
+})
+.controller('ContactaCtrl',function($scope,$http,$q,$rootScope,$timeout,$window,$document){
+
+	$scope.muestraInput=false;
+
+	$scope.muestraNom=function(tipo)
+	{
+		$scope.muestraInput=tipo;
+	}
+})
+.controller('PoliticaCtrl',function($scope,$http,$q,$rootScope,$timeout,$window,$document){
+
+	$scope.muestraInput="holaaa";
+
+	
+})
+
