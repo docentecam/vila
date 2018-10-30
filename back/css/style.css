@@ -162,8 +162,8 @@ a:hover {
 	background-color: #A8A8A8;
 }
 .AssAllCss{
-	margin-right: 20%;
-	margin-left: 20%;
+	margin-right: 15%;
+	margin-left: 15%;
 }
 .AssTituCss{
 	font-weight: bold;
@@ -185,6 +185,10 @@ a:hover {
 .FacebookAssCss{
 	font-size: 1.5rem;
 }
+.imgCssAss{
+	height: 150px;
+}
+
 @media (max-width: 575px){
 	.imglogonav{
 		height: 30px;

@@ -13,7 +13,6 @@
 		<script src="../js/angular-route.js"></script>
 		<script src="controllers/app.js"></script>
 		<script src="controllers/vila.js"></script>
-		<script src="controllers/firamar.js"></script>
 		<script>
 				$(document).ready(function () {
   					$(".reduceNav").click(function(event) {

@@ -65,7 +65,45 @@
 	    		<label for="LGPDAss">LGPD</label>
 	    		<textarea class="form-control textareaLGPDAss" ng-model="telf.LGPD" id="LGPDAss" placeholder="LGPD"></textarea>
 	  		</div>
+	<!-- 	</div>
+		<div class="form-row">
+			<div class="form-group col-md-6 col-lg-2 offset-lg-2">
+		      <div class="form-row">
+		        <div class="form-group col-12">
+		          <label for="inputLogo" class="col-12">Logo de la Vila</label>
+		          <img class="img-fluid imgCssAss col-10" ng-src="{{ass.logoVila!='' ? '../img/'+ass.logoVila : '../img/noimage.png'}}" alt="">
+		        </div>
+		        <div class="form-group col-12">
+		          <label for="btnExLogo" class="col-12 text-primary cursor align-self-end"><u>Cambiar Imatge</u>&nbsp;<i class="fas fa-search add-examinar cursor" aria-hidden="true"></i></label>
+		          <input type="file" id="btnExLogo" name="btnExLogo" onchange="angular.element(this).scope().getFileDetails(this,'logoVila')" ng-show="false"/>
+		        </div>
+		      </div>  
+		    </div>
+		    <div class="form-group col-md-6 col-lg-2">
+		      <div class="form-row">
+		        <div class="form-group col-12">
+		          <label for="inputLogo" class="col-12">Logo de la Bolsa</label>
+		          <img class="img-fluid imgCssAss col-10" ng-src="{{ass.logoBolsa!='' ? '../img/'+ass.logoBolsa : '../img/noimage.png'}}" alt="">
+		        </div>
+		        <div class="form-group">
+		          <label for="btnExLogo" class="col-12 text-primary cursor align-self-end"><u>Cambiar Imatge</u>&nbsp;<i class="fas fa-search add-examinar cursor" aria-hidden="true"></i></label>
+		          <input type="file" id="btnExLogo" name="btnExLogo" onchange="angular.element(this).scope().getFileDetails(this,'logoBolsa')" ng-show="false"/>
+		        </div>
+		      </div>  
+		    </div>
+	    	<div class="form-group col-md-6 col-lg-2">
+		      <div class="form-row">
+		        <div class="form-group col-12">
+		          <label for="inputFavIcon" class="col-12">Imatge pestanya de la pàgina</label>
+		          <img class="img-fluid imgCssColla col-10" ng-src="{{ass.favIcon!='' ? '../img/'+ass.favIcon : '../img/noimage.png'}}" alt="">
+		        </div>
+		        <div class="form-group col-12">
+		          <label for="btnExFavIcon" class="col-12 text-primary cursor align-self-end"><u>Cambiar Imatge</u>&nbsp;<i class="fas fa-search add-examinar cursor" aria-hidden="true"></i></label>
+		          <input type="file" id="btnExFavIcon" name="btnExFavIcon" onchange="angular.element(this).scope().getFileDetails(this,'favIcon')" ng-show="false"/>
+		        </div>
+		      </div>  
+		    </div>
 		</div>
-		<input type="button" class="btn btn-primary offset-lg-2" ng-click="submit()" value="Guardar canvis">
+		<input type="button" class="btn btn-primary" ng-click="submit()" value="Guardar canvis"> -->
 	</form>
 </div>	
