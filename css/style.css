@@ -86,7 +86,11 @@ a:hover{
     outline: 0;
     box-shadow: 0 0 0 0.2rem #4f307e9e;
 }
-
+.btn-info
+{
+	background-color:#cb418e!important;
+	border: none;
+}
 .modal-dialog2 {
 	max-width: 800px;
 	margin: 1rem auto;
