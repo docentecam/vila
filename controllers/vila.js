@@ -83,8 +83,7 @@ angular.module('vila')
 	.then(function(res){
 		deferred.resolve(res);
 		$rootScope.cargador=false;
-		$scope.noticies=res.data[0];
-		console.log(res.data);
+		$scope.noticies=res.data;
 	})
 	.catch(function(error) {
 		$rootScope.cargador=false;

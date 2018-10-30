@@ -14,6 +14,18 @@ Morado: #4f307e
 
 @import url('https://fonts.googleapis.com/css?family=Bitter|Oswald:700|Roboto:300,400');
 
+body .carousel-indicators li{
+  background-color:red;
+}
+body .carousel-control-prev-icon,
+body .carousel-control-next-icon{
+  background-color:red;
+}
+body .no-padding{
+  padding-left: 0;
+  padding-right: 0;
+}
+
 nav a{
 	color: #4f307e!important;
 	font-weight: bold;
@@ -36,6 +48,12 @@ ul, li{
 	list-style-type: none;
 	margin: 0;
     padding: 0;
+}
+
+footer{
+	background-color:#4f307e;
+	color: white!important;
+	font-size:17px;
 }
 
 .tipoTitulo{
@@ -150,17 +168,7 @@ ul, li{
   width:100%;
   height:auto;
 }
-body .carousel-indicators li{
-  background-color:red;
-}
-body .carousel-control-prev-icon,
-body .carousel-control-next-icon{
-  background-color:red;
-}
-body .no-padding{
-  padding-left: 0;
-  padding-right: 0;
-}
+
 
 .carousel {
    max-height: 400px;
