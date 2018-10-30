@@ -54,6 +54,9 @@ footer{
 	background-color:#4f307e;
 	color: white!important;
 	font-size:17px;
+	width:100%;
+	margin-top: 20px;
+	bottom: 0;
 }
 
 .tipoTitulo{
@@ -73,6 +76,28 @@ footer{
 	font-family: 'Roboto', sans-serif;
 	font-weight: 300;
 	font-size: 1em;
+}
+
+.tipoTituloCenter{
+	font-family: 'Oswald', sans-serif;
+	font-weight: 700;
+	font-size: 2em;
+	text-transform: uppercase;
+	text-align: center;
+}
+
+.tipoSubTituloCenter{
+	font-family: 'Bitter', serif;
+	font-weight: 400;
+	font-size: 1.3em;
+	text-align: center;
+}
+
+.tipoTextoCenter{
+	font-family: 'Roboto', sans-serif;
+	font-weight: 300;
+	font-size: 1em;
+	text-align: center;
 }
 
 .row{
@@ -119,40 +144,13 @@ footer{
 	background: #4f307e;
 }
 
-.tituloEstilo{
-	font-family: 'Asap', sans-serif;
-	font-weight: 700;
-	font-size: 1.8em;
+.h_divider_w{ 
+	height:2px; 
+	background: white;
+	margin-top: 25px;
+	margin-bottom: 20px;
 }
 
-.descripcioEstilo{
-	font-family: 'Montserrat', sans-serif;
-	margin-bottom: 50px;
-}
-
-.titularEstilo{
-	font-family: 'Asap', sans-serif;
-	font-weight: 700;
-	font-size: 1.3em;
-}
-
-.titularEstiloCenter{
-	font-family: 'Asap', sans-serif;
-	font-weight: 700;
-	font-size: 1.3em;
-	text-align: center;
-}
-
-.dataEstilo{
-	font-family: 'Asap', sans-serif;
-	font-size: 1.1em;
-}
-
-.dataEstiloCenter{
-	font-family: 'Asap', sans-serif;
-	font-size: 1.1em;
-	text-align: center;
-}
 .quisomAssociacio{
 	font-family: 'Asap', sans-serif;
 	font-weight: 700;
@@ -180,18 +178,42 @@ footer{
     margin: 0 auto;
 }
 
+.group {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.group-item {
+  width: 100%;
+}
+
 @media (max-width: 575px){
-
+	.centrarFooterMovil{
+		text-align: center;
+	}
 }
+
 @media (min-width: 576px) and (max-width: 767px){
-
+	.centrarFooterMovil{
+		text-align: center;
+	}
 }
+
 @media (min-width: 768px) and (max-width: 991px){
-
+	.centrarFooterMovil{
+		text-align: center;
+	}
 }
+
 @media (min-width: 992px) and (max-width: 1199px){
 
 }
+
 @media (min-width: 1200px){
 
 }

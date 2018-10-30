@@ -61,9 +61,9 @@ angular.module('vila')
 	.catch(function(error) {
 		$rootScope.cargador=false;
 	});
-	$scope.guardar=function(){
+	$scope.submitAss=function(){
 		$scope.divMsj=true;
-		if($scope.ass.equip=="" || $scope.ass.quiSom==""){
+		if($scope.ass.nom=="" || $scope.ass.telf=="" || $scope.ass.facebook=="" $scope.ass.URLWeb=="" ||  $scope.ass.email=="" ||  $scope.ass.pasMail=="" ||  $scope.ass.horari=="" ||  $scope.ass.latitud=="" || $scope.ass.longitud=="" || $scope.ass.keyApi=="" || $scope.ass.quiSom=="" || $scope.ass.equip=="" || $scope.ass.LGPD==""){
 			$scope.msj="Les dades no s'han actualitzat correctament. Sisplau ompli els camps buits";
 			$timeout(function() {
 				$scope.divMsj=false;
@@ -135,7 +135,7 @@ angular.module('vila')
 		data.append("acc", "favi");
 	var deferred=$q.defer();
 	
-	$http.post("models/home.php", data,{
+	$http.post("models/associacio.php", data,{
 	headers:{
 		"Content-type":undefined
 	},
@@ -193,7 +193,7 @@ angular.module('vila')
 		data.append("acc", "favi");
 	var deferred=$q.defer();
 	
-	$http.post("models/home.php", data,{
+	$http.post("models/associacio.php", data,{
 	headers:{
 		"Content-type":undefined
 	},

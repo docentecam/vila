@@ -27,12 +27,16 @@ app.config(['$routeProvider',function($routeProvider){
     controller:'ContactCtrl',
     title: "Contacta'ns"
   })
-  .when('/solicitutsoci',{
-    templateUrl:'views/solicitutsoc.php',
+  .when('/firamar',{
+    templateUrl:'views/firamar.php',
+    controller:'FiramarCtrl',
+    title: "Firamar"
+  })
+  .when('/solicitutsoc',{
+    templateUrl:'views/contactans.php',
     controller:'SociCtrl',
     title: "Llistat Solicitud de socis"
   })
-
   .when('/logout',{
     templateUrl:'index.php',
     controller:'LogoutCtrl',
