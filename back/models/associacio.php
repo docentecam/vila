@@ -1,12 +1,11 @@
 <?php 
 	require("../../inc/functions.php");
-	$tbl_associacio="associats";
-	$tbl_serveis="serveis";
-	$tbl_subserveis="subserveis";
+	$tbl_vila="vila";
+	// $tbl_serveis="serveis";
+	// $tbl_subserveis="subserveis";
 
-	function associats($tbl_associacio,$tbl_serveis){
-		$mySql="SELECT `ass`.`idAssociat`, `ass`.`logoAssociat`, `ass`.`nomAssociat`, `ass`.`horari`, `ass`.`txtAssociat`, `ass`.`facebook`, `ass`.`activo`, `ass`.`adreca`, `ass`.`telf1`, `ass`.`telf2`, `ass`.`whatsapp`, `ass`.`email`
-			FROM $tbl_associacio AS ass
-			LEFT JOIN $tbl_serveis AS serv"
+	function vila($tbl_associacio,$tbl_serveis){
+		$mySql="SELECT `vila`.`email`, `vila`.`pasMail`, `vila`.`logoVila`, `vila`.`facebook`, `vila`.`keyApi`, `vila`.`password`, `vila`.`logoBolsa`, `vila`.`favIcon`, `vila`.`telf`, `vila`.`horari`, `vila`.`nom`, `vila`.`quiSom`, `vila`.`equip`, `vila`.`latitud`, `vila`.`longitud`, `vila`.`LGPD`, `vila`.`URLWeb`
+			FROM `vila`"
 	}
 ?>
