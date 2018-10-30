@@ -64,7 +64,25 @@ footer{
 	margin-top: 20px;
 	bottom: 0;
 }
+.cargador {
+	position: absolute;
+	text-align: center;
+	width: 100%;
+	height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    background-color: rgba(95, 95, 95, 0.7);
+}
 
+.preloader {
+	margin-top: 18%;
+}
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
 .tipoTitulo{
 	font-family: 'Oswald', sans-serif;
 	font-weight: 700;
@@ -105,7 +123,12 @@ footer{
 	font-size: 1em;
 	text-align: center;
 }
-
+.jumbotron {
+    padding: 2rem 1rem;
+    margin-bottom: 2rem;
+    background-color: #cb418e;
+    border-radius: .3rem;
+}
 .row{
 	margin: 0!important;
 	padding: 0!important;
@@ -128,10 +151,20 @@ footer{
     outline: 0;
     box-shadow: 0 0 0 0.2rem #4f307e9e;
 }
+info:not(:disabled):not(.disabled):active:focus, .show>.btn-info.dropdown-toggle:focus {
+     box-shadow: 0 0 0 0.2rem rgba(169, 23, 187, 0.2);
+}
 .btn-info
 {
 	background-color:#cb418e!important;
 	border: none;
+}
+.btn-info.focus, .btn-info:focus {
+    box-shadow: none; 
+}
+.btn.focus, .btn:focus {
+    outline: 0;
+     box-shadow: none; 
 }
 .modal-dialog2 {
 	max-width: 800px;

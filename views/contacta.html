@@ -9,36 +9,36 @@
 				<div class=" form-row">
 					
 					<!-- nommmmmmmmm -->
-					<div class="form-group col-md-4 mb-3" ng-class="{ 'has-error' : formContacta.nom.$invalid && !formContacta.nom.$pristine }">
-			            <input type="text" name="nom" class="form-control" ng-model="contacta.nom"  placeholder="Nom"  ng-maxlength="30" required>
-						<p ng-show="formContacta.nom.$error.maxlength" class="help-block text-danger">El nom és massa llarg{{forNomLlarg}}</p>
-			            <p ng-show="formContacta.nom.$invalid && !formContacta.nom.$pristine" class="help-block text-danger">El camp nom és obligatori{{formNom}}</p>
+					<div class="form-group col-md-4 mb-3" ng-class="{ 'has-error' : formContacta.nomContacte.$invalid && !formContacta.nomContacte.$pristine }">
+			            <input type="text" name="nomContacte" class="form-control" ng-model="contactans.nomContacte"  placeholder="Nom"  ng-maxlength="30" required>
+						<p ng-show="formContacta.nomContacte.$error.maxlength" class="help-block text-danger">El nom és massa llarg{{forNomLlarg}}</p>
+			            <p ng-show="formContacta.nomContacte.$invalid && !formContacta.nomContacte.$pristine" class="help-block text-danger">El camp nom és obligatori{{formNom}}</p>
 			        </div>
 			      
 			        <!-- COGNOMMMMMMMMMMM -->
-			        <div class="form-group col-md-4  offfset-4  mb-3" ng-class="{ 'has-error' : formContacta.nom.$invalid && !formContacta.nom.$pristine }">
-			            <input type="text" name="nom" class="form-control" ng-model="contacta.nom"  placeholder="Cognom"  ng-maxlength="30" required>
-						<p ng-show="formContacta.nom.$error.maxlength" class="help-block text-danger">El nom és massa llarg{{forNomLlarg}}</p>
-			            <p ng-show="formContacta.nom.$invalid && !formContacta.nom.$pristine" class="help-block text-danger">El camp nom és obligatori{{formNom}}</p>
+			        <div class="form-group col-md-4  offfset-4  mb-3" ng-class="{ 'has-error' : formContacta.cognomContacte.$invalid && !formContacta.cognomContacte.$pristine }">
+			            <input type="text" name="cognomContacte" class="form-control" ng-model="contactans.cognomContacte"  placeholder="Cognom"  ng-maxlength="30" required>
+						<p ng-show="formContacta.cognomContacte.$error.maxlength" class="help-block text-danger">El nom és massa llarg{{forNomLlarg}}</p>
+			            <p ng-show="formContacta.cognomContacte.$invalid && !formContacta.cognomContacte.$pristine" class="help-block text-danger">El camp nom és obligatori{{formNom}}</p>
 			        </div>
 			        <div class="form-group  col-md-12   mb-3 ">
 					    <div class="form-check">
-					      <input class="form-check-input" type="radio" name="tipoUs" id="clickEmp" ng-checked="contactas.checkbox" ng-model="contactas.checkbox" ng-click="muestraNom(true)">
+					      <input class="form-check-input" type="radio" name="tipoUs" id="clickEmp" ng-click="muestraNom(true)">
 					      <label class="form-check-label tipoTexto" for="clickEmp">
 					       EMPRESA
 					      </label>
 					    </div>
 					</div>
 					<div ng-show="muestraInput">
-						<div class="form-group col-md-12 mb-3" ng-class="{ 'has-error' : formContacta.nom.$invalid && !formContacta.nom.$pristine }">
-			            <input type="text" name="nom" class="form-control" ng-model="contacta.nom"  placeholder="Nom Comercial"  ng-maxlength="30" required>
-						<p ng-show="formContacta.nom.$error.maxlength" class="help-block text-danger">El nom és massa llarg{{forNomLlarg}}</p>
-			            <p ng-show="formContacta.nom.$invalid && !formContacta.nom.$pristine" class="help-block text-danger">El camp nom és obligatori{{formNom}}</p>
+						<div class="form-group col-md-12 mb-3" ng-class="{ 'has-error' : formContacta.nomEmpresa.$invalid && !formContacta.nomEmpresa.$pristine }">
+			            <input type="text" name="nomEmpresa" class="form-control" ng-model="contactans.nomEmpresa"  placeholder="Nom Comercial"  ng-maxlength="30" required>
+						<p ng-show="formContacta.nomEmpresa.$error.maxlength" class="help-block text-danger">El nom és massa llarg{{forNomLlarg}}</p>
+			            <p ng-show="formContacta.nomEmpresa.$invalid && !formContacta.nomEmpresa.$pristine" class="help-block text-danger">El camp nom és obligatori{{formNom}}</p>
 			        	</div>
 					</div>
 					 <div class="form-group  col-md-12 mb-3 ">
 					    <div class="form-check">
-					      <input class="form-check-input" type="radio" name="tipoUs" id="clickPar" ng-checked="true" ng-model="contactas.checkbox2" ng-click="muestraNom(false)">
+					      <input class="form-check-input" type="radio" name="tipoUs" id="clickPar" ng-checked="contactans.checkTipo=='Particular'" ng-click="muestraNom(false)">
 					      <label class="form-check-label tipoTexto" for="clickPar">
 					       PARTICULAR
 					      </label>
@@ -47,20 +47,20 @@
 
 					<!-- emailllllllllllll -->
 			        <div class="form-group col-md-4 mb-3 " ng-class="{ 'has-error' : formContacta.email.$invalid && !formContacta.email.$pristine }">
-			            <input type="email" name="email" class="form-control" ng-model="contacta.email" placeholder="Email" required>
+			            <input type="email" name="email" class="form-control" ng-model="contactans.email" placeholder="Email" required>
 			            <p ng-show="formContacta.email.$invalid && !formContacta.email.$pristine" class="help-block text-danger">L'adreça de correu electrònic introduïda no és vàlida. {{formEmailInco}}</p>
 
 			        </div>
 						<!-- telefonnnnnnnnnnnn -->
 			        <div class="form-group col-md-4 mb-3" ng-class="{ 'has-error' : formContacta.telefon.$invalid && !formContacta.telefon.$pristine }">
-			            <input type="number" name="telefon" class="form-control" ng-model="contacta.telefon" placeholder="Telèfon " ng-minlength="8" ng-maxlength="9" required>
+			            <input type="number" name="telefon" class="form-control" ng-model="contactans.telefon" placeholder="Telèfon " ng-minlength="8" ng-maxlength="9" required>
 			            <p ng-show="formContacta.telefon.$error.minlength" class="help-block text-danger">El numero és incorrecte</p>
 						<p ng-show="formContacta.telefon.$error.maxlength" class="help-block text-danger">El numero és massa llarg</p>
 					</div>
 					<!-- dubtessss -->
-					<div class="form-group col-12 col-md-8 mt-md-2" ng-class="{ 'has-error' : formContacta.dubtes.$invalid && !formContacta.dubtes.$pristine }">
-				         <textarea name="dubtes" class=" form-control" type="text" ng-model="contacta.dubtes" required></textarea>
-				         <p ng-show="formContacta.dubtes.$invalid && !formContacta.dubtes.$pristine" class="help-block text-danger">El camp és requerit.</p>
+					<div class="form-group col-12 col-md-8 mt-md-2" ng-class="{ 'has-error' : formContacta.txtContacte.$invalid && !formContacta.txtContacte.$pristine }">
+				         <textarea name="txtContacte" class=" form-control" type="text" ng-model="contactans.txtContacte" required></textarea>
+				         <p ng-show="formContacta.txtContacte.$invalid && !formContacta.txtContacte.$pristine" class="help-block text-danger">El camp és requerit.</p>
 				    </div><br>
 			        <div class="form-group col-12 col-md-8 tipoTexto">
 					    <div class="form-check">
