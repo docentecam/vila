@@ -14,6 +14,30 @@ Morado: #4f307e
 
 @import url('https://fonts.googleapis.com/css?family=Bitter|Oswald:700|Roboto:300,400');
 
+nav a{
+	color: #4f307e!important;
+	font-weight: bold;
+}
+
+a:link{
+	color: black;
+    text-decoration: none;
+}
+a:visited{
+	color: black;
+    text-decoration: none;
+}
+a:hover{
+	color: black;
+    text-decoration: none;
+}
+
+ul, li{
+	list-style-type: none;
+	margin: 0;
+    padding: 0;
+}
+
 .tipoTitulo{
 	font-family: 'Oswald', sans-serif;
 	font-weight: 700;
@@ -31,37 +55,6 @@ Morado: #4f307e
 	font-family: 'Roboto', sans-serif;
 	font-weight: 300;
 	font-size: 1em;
-}
-
-nav a{
-	color: #4f307e!important;
-	font-weight: bold;
-}
-
-footer{
-	background-color:#4f307e;
-	color: white!important;
-	font-size:17px;
-}
-
-a:link{
-	color: black;
-    text-decoration: none;
-}
-a:visited{
-	color: black;
-    text-decoration: none;
-}
-a:hover{
-	color: black;
-    text-decoration: none;
-}
-.estiloContacta{
-	color: #4f307e;
-	font-family: 'Asap', sans-serif;
-	font-weight:500;
-	font-size: 2.5em;
-	text-transform: uppercase;
 }
 
 .row{
@@ -106,13 +99,6 @@ a:hover{
 .h_divider{ 
 	height:2px; 
 	background: #4f307e;
-}
-
-.h_divider_w{ 
-	height:2px; 
-	background: white;
-	margin-top: 30px;
-	margin-bottom: 20px;
 }
 
 .tituloEstilo{
