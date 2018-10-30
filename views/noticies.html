@@ -1,46 +1,6 @@
 <div class="row" >
 <!-- 	ng-show="llistat" -->
 	<div class="mt-4 col-10 offset-1">
-		<div class="row">
-			<div ng-repeat="noticia in noticies | orderBy:-dataAng" class="col-lg-6 col-md-12">
-				<div class="row">
-					<div class="col-lg-6 col-md-6">
-						<div class="group-item">
-							<div class="imagecontainer is-cover">
-								<a ng-href="#/noticies/{{noticia.idNoticia}}">
-									<img ng-src="{{noticia.fotoNoticia!=''?'img/noticies/'+noticia.fotoNoticia:'img/noimage.png'}}" class="imagecontainer-img lazyload" alt="noticia">
-								</a>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-6 col-md-6">
-						<div class="dataEstilo">
-							{{noticia.dataNoticia}}
-						</div>
-
-						<div class="titularEstilo">
-							<a ng-href="#/noticia/{{noticia.idNoticia}}">
-							{{noticia.titolNoticia | uppercase}}
-							</a>
-						</div>
-
-						<div class="descripcioEstilo">
-							{{noticia.txtNoticia | limitTo:100}}...
-							<a ng-href="#/noticia/{{noticia.idNoticia}}" class="colorLink">Llegir més</a>
-						</div>
-					</div>
-				</div>
-				<div class="row">
-					<div class="row" ng-show="esdevError">
-						<div class="alert alert-info" role="alert">
-							No hi han notícies
-						</div>
-					</div>
-				</div>
-			</div>
-			
-		</div>
-
 		<div class="tituloEstilo mt-5">
 			Notícies
 		</div>

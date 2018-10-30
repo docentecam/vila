@@ -11,6 +11,21 @@ Morado: #4f307e
 /*body{
 	background-color: #fffcf0!important;
 }*/
+
+@import url('https://fonts.googleapis.com/css?family=Bitter|Oswald:700|Roboto:300,400');
+
+body .carousel-indicators li{
+  background-color:red;
+}
+body .carousel-control-prev-icon,
+body .carousel-control-next-icon{
+  background-color:red;
+}
+body .no-padding{
+  padding-left: 0;
+  padding-right: 0;
+}
+
 nav a{
 	color: #4f307e!important;
 	font-weight: bold;
@@ -28,13 +43,38 @@ a:hover{
 	color: black;
     text-decoration: none;
 }
-.estiloContacta{
-	color: #4f307e;
-	font-family: 'Asap', sans-serif;
-	font-weight:500;
-	font-size: 2.5em;
+
+ul, li{
+	list-style-type: none;
+	margin: 0;
+    padding: 0;
+}
+
+footer{
+	background-color:#4f307e;
+	color: white!important;
+	font-size:17px;
+}
+
+.tipoTitulo{
+	font-family: 'Oswald', sans-serif;
+	font-weight: 700;
+	font-size: 2em;
 	text-transform: uppercase;
 }
+
+.tipoSubTitulo{
+	font-family: 'Bitter', serif;
+	font-weight: 400;
+	font-size: 1.3em;
+}
+
+.tipoTexto{
+	font-family: 'Roboto', sans-serif;
+	font-weight: 300;
+	font-size: 1em;
+}
+
 .row{
 	margin: 0!important;
 	padding: 0!important;
@@ -57,7 +97,11 @@ a:hover{
     outline: 0;
     box-shadow: 0 0 0 0.2rem #4f307e9e;
 }
-
+.btn-info
+{
+	background-color:#cb418e!important;
+	border: none;
+}
 .modal-dialog2 {
 	max-width: 800px;
 	margin: 1rem auto;
@@ -116,6 +160,25 @@ a:hover{
 	text-align:center !important; 
 }
 
+.carouAsoc{
+  display: inline-block;
+  margin-left:-4px;
+}
+.carouAsoc img{
+  width:100%;
+  height:auto;
+}
+
+
+.carousel {
+   max-height: 400px;
+   max-width: 500px;
+   overflow: hidden;
+}
+
+.carousel-inner > .item > img {
+    margin: 0 auto;
+}
 
 @media (max-width: 575px){
 
