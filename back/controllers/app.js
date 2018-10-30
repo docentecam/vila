@@ -22,14 +22,19 @@ app.config(['$routeProvider',function($routeProvider){
     controller:'DirectCtrl',
     title: "Manteniment Directori"
   })
-  .when('/logout',{
-    templateUrl:'index.php',
-    controller:'LogoutCtrl',
-  })
   .when('/contactans',{
     templateUrl:'views/contactans.php',
     controller:'ContactCtrl',
     title: "Contacta'ns"
+  })
+  .when('/firamar',{
+    templateUrl:'views/firamar.php',
+    controller:'FiramarCtrl',
+    title: "Firamar"
+  })
+  .when('/logout',{
+    templateUrl:'index.php',
+    controller:'LogoutCtrl',
   })
   .otherwise({
     redirectTo:'/'

@@ -13,6 +13,7 @@
 		<script src="../js/angular-route.js"></script>
 		<script src="controllers/app.js"></script>
 		<script src="controllers/vila.js"></script>
+		<script src="controllers/firamar.js"></script>
 		<script>
 				$(document).ready(function () {
   					$(".reduceNav").click(function(event) {
@@ -73,8 +74,9 @@
 
 					<ul class="navbar-nav flex-row ml-md-auto d-none d-lg-flex">
 						<li class="nav-item pt-2 pr-3">
+ 						
+ 						<?php if(isset($_SESSION['vila']['nom'])) echo $_SESSION['vila']['nom']?>
 
-     				
      					</li>
      					<li class="nav-item ml-3">
     						<a class=" nav-link pt-1 fas fa-sign-out-alt fa-2x" href="#/logout"></a>
