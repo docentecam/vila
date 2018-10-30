@@ -57,13 +57,31 @@ angular.module('vila')
 .controller('PoliticaCtrl',function($scope,$http,$q,$rootScope,$timeout,$window,$document){
 
 	$scope.muestraInput="holaaa";
-
 	
 })
 
 
 .controller('HomeCtrl',function($scope,$http,$q,$rootScope,$timeout,$window,$document){
 	console.log("olaaaxd");
+	$(window).resize(function() {
+   if(this.resizeTO) clearTimeout(this.resizeTO);
+   this.resizeTO = setTimeout(function() {
+      $(this).trigger('resizeEnd');
+   }, 500);
+	});
+	$(window).bind('resizeEnd', function() {
+   var url = $('#$WrapperID').data('refresh');
+   $('#$WrapperID').fadeOut("slow", function() {
+      $('#$WrapperID').load(url, { width: $('#$HTMLID').width() },
+      function() {
+         FB.XFBML.parse(document.getElementById('$WrapperID'),
+         function() {
+            $('#$WrapperID').fadeIn("slow");
+         		});
+      		})
+   		});
+	});
+
 })
 
 

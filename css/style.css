@@ -151,26 +151,30 @@ ul, li{
   height:auto;
 }
 body .carousel-indicators li{
-  background-color:red;
+  background-color:#4f307e;
 }
 body .carousel-control-prev-icon,
 body .carousel-control-next-icon{
-  background-color:red;
+  background-color:#4f307e;
 }
 body .no-padding{
   padding-left: 0;
   padding-right: 0;
 }
 
-.carousel {
-   max-height: 400px;
-   max-width: 500px;
-   overflow: hidden;
+.carousel-inner img {
+  margin: auto;
 }
 
-.carousel-inner > .item > img {
-    margin: 0 auto;
-}
+.carousel-innerPrincipal{
+	width: 100%;
+	height: 500px!important;
+	}
+
+.carousel-innerAsso{
+	width: 100%;
+	height: auto;
+	}
 
 @media (max-width: 575px){
 
