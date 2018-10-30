@@ -54,6 +54,9 @@ footer{
 	background-color:#4f307e;
 	color: white!important;
 	font-size:17px;
+	width:100%;
+	margin-top: 20px;
+	bottom: 0;
 }
 
 .tipoTitulo{
@@ -144,7 +147,7 @@ footer{
 .h_divider_w{ 
 	height:2px; 
 	background: white;
-	margin-top: 20px;
+	margin-top: 25px;
 	margin-bottom: 20px;
 }
 
