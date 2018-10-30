@@ -182,6 +182,9 @@ a:hover {
 .textareaEquipAss{
 	height: 100px!important;
 }
+.FacebookAssCss{
+	font-size: 1.5rem;
+}
 @media (max-width: 575px){
 	.imglogonav{
 		height: 30px;
