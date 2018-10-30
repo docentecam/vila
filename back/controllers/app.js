@@ -32,10 +32,10 @@ app.config(['$routeProvider',function($routeProvider){
     controller:'FiramarCtrl',
     title: "Firamar"
   })
-  .when('/solicitutsoc',{
-    templateUrl:'views/contactans.php',
+  .when('/solicitutsoci',{
+    templateUrl:'views/solicitutsoc.php',
     controller:'SociCtrl',
-    title: "Llistat Solicitud de socis"
+    title: "Llistat solicitud de socis"
   })
   .when('/logout',{
     templateUrl:'index.php',

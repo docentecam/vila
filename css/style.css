@@ -43,7 +43,13 @@ a:hover{
 	color: black;
     text-decoration: none;
 }
-
+a.PolitPriva:link{
+	color: #cb418e!important;
+	font-weight: bold;
+}
+i,.cursor{
+	cursor:pointer;
+}
 ul, li{
 	list-style-type: none;
 	margin: 0;
