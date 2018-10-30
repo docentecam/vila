@@ -109,78 +109,6 @@ a:hover {
 .textarea{
 	height: 150px!important; 
 }
-.formEsd * {
-    box-sizing: border-box;
-}
-.formEsd input[type=text], select, textarea {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    resize: vertical;
-}
-.formEsd label {
-    padding: 12px 12px 12px 0;
-    display: inline-block;
-}
-.formEsd input[type=button] {
-    padding: 12px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    float: right;
-    margin: 5px;
-}
-.formEsd {
-	width: 800px;
-    margin: auto;
-    margin-bottom: 80px;
-}
-.iconEsdevCss {
-	margin-top: 6px;
-	color: #ffcc00;
-}
-.iconEsdevCssBlack {
-
-	font-size: 25px;
-}
-.AgregCss {
-	font-size: 2.2em;
-	color: #000000;
-}
-.divDades{
-	padding: 1px;
-	font-size:14px;
-}
-.imgCssEsdev{
-	margin-top: 20px;
-	height: auto;
-	display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.tituCss{
-	font-size: 25px;
-	font-weight: bold;
-	font-family: "Trebuchet MS", Helvetica, sans-serif;
-	word-break: keep-all;
-	overflow-wrap: normal;
-	hyphens: auto;
-	text-decoration: underline;
-
-}
-.textboxCss{
-	margin-top: 10px;
-	word-break: keep-all;
-	overflow-wrap: normal;
-	hyphens: auto;
-}
-.textboxCss div, h6, span {
-	padding-right: 2px!important;
-	padding-left: 2px!important;
-
-}
 .ultimsEstilo{
 	font-family: 'Asap', sans-serif;
 	font-weight: 700;
@@ -233,7 +161,27 @@ a:hover {
 .divLogoNav{
 	background-color: #A8A8A8;
 }
-
+.AssAllCss{
+	margin-right: 20%;
+	margin-left: 20%;
+}
+.AssTituCss{
+	font-weight: bold;
+	font-size: 1.5vw;
+	margin-bottom: 2%;
+}
+.textareaQuiSomAss{
+	height: 100px!important;
+}
+.textareaHorariAss{
+	height: 90px!important;
+}
+.textareaLGPDAss{
+	height: 100px!important;
+}
+.textareaEquipAss{
+	height: 100px!important;
+}
 @media (max-width: 575px){
 	.imglogonav{
 		height: 30px;
@@ -247,22 +195,6 @@ a:hover {
 	}
 	.iconSize{
 		font-size: 1.75em;
-	}
-	.textboxCss{
-		padding-left: 15px!important;
-	}
-	.picboxCss{
-		margin-left: auto;
-    	margin-right: auto;
-    	width: auto;
-    	text-align: center;
-	}
-	.picboxCssIcon{
-		padding-top: 10px;
-		margin-left: auto;
-    	margin-right: auto;
-    	width: auto;
-    	text-align: center;
 	}
 	.flechaSociEsdev{
 	text-decoration: none;
@@ -292,21 +224,6 @@ a:hover {
 	.iconSize{
 		font-size: 1.75em;
 	}
-	.textboxCss{
-		padding-left: 40px!important;
-		padding-right: 40px!important;
-	}
-	.picboxCss{
-		margin-left: auto;
-    	margin-right: auto;
-	}
-	.picboxCssIcon{
-		padding-top: 10px;
-		margin-left: auto;
-    	margin-right: auto;
-    	width: auto;
-    	text-align: center;
-	}
 	.flechaSociEsdev{
 	text-decoration: none;
     display: inline-block;
@@ -328,22 +245,6 @@ a:hover {
 	}
 	.iconSize{
 		font-size: 1.75em;
-	}
-	.textboxCss{
-		padding-left: 15px!important;
-		padding-right: 15px!important;
-	}
-	.picboxCss{
-		margin-left: auto;
-    	margin-right: auto;
-    	width: auto;
-	}
-	.picboxCssIcon{
-		padding-top: 10px;
-		margin-left: auto;
-    	margin-right: auto;
-    	width: auto;
-    	text-align: center;
 	}
 	.flechaSociEsdev{
 	text-decoration: none;
@@ -416,20 +317,6 @@ a:hover {
 	.iconSize{
 		font-size: 1.33em;
 	}
-	.textboxCss{
-		padding-left: 0px!important;
-	}
-	.picboxCss{
-		margin-left: auto;
-    	margin-right: auto;
-	}
-	.picboxCssIcon{
-		padding-top: 10px;
-		margin-left: auto;
-    	margin-right: auto;
-    	width: auto;
-    	text-align: center;
-	}
 	.flechaSociEsdev{
 	text-decoration: none;
     display: inline-block;
@@ -455,22 +342,6 @@ a:hover {
 	.iconSize{
 		font-size: 1.33em;
 	}
-	.textboxCss{
-		padding-left: 5px!important;
-		padding-right: 5px!important;
-	}
-	.picboxCss{
-		padding-right: 8px;
-		padding-left: 8px;
-	
-	}
-	.picboxCssIcon{
-		padding-top: 10px;
-		margin-left: auto;
-    	margin-right: auto;
-    	width: auto;
-    	text-align: center;
-	}
 	.flechaSociEsdev{
 	text-decoration: none;
     display: inline-block;
@@ -484,6 +355,3 @@ a:hover {
 	background-color: #ddd;
     color: black;
 	}	
-.ServeisLista{
-	list-style: none;
-}
