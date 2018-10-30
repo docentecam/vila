@@ -74,6 +74,7 @@ angular.module('vila')
 		// else{
 		// 	$scope.msj="Les dades s'han actualitzat correctament.";
 		// 	var data = new FormData();
+		// 		data.append("idVila",$scope.ass.idVila);
 		// 		data.append("email",$scope.ass.email);
 		// 		data.append("pasMail",$scope.ass.pasMail);
 		// 		data.append("logoVila",$scope.ass.logoVila);
@@ -137,7 +138,7 @@ angular.module('vila')
 		data.append("acc", "favi");
 	var deferred=$q.defer();
 	
-	$http.post("models/home.php", data,{
+	$http.post("models/associacio.php", data,{
 	headers:{
 		"Content-type":undefined
 	},
@@ -167,6 +168,64 @@ angular.module('vila')
 	.then(function(res){
 		deferred.resolve(res);
 		$scope.contactans=res.data;
+		$rootScope.cargador=false;
+		console.log(res.data);
+	})
+	.catch(function(error) {
+		$rootScope.cargador=false;
+	});
+	window.onscroll = function() {scrollFunction()};
+
+	function scrollFunction() {
+	    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+	        document.getElementById("goTop").style.display = "block";
+	    } else {
+	        document.getElementById("goTop").style.display = "none";
+	    }
+	}
+ 	$scope.goTop=function(){
+ 		var element = document.getElementById("divTop");
+	    element.scrollIntoView({block: "end", behavior: "smooth"});
+ 	}
+	$scope.columnOrder=function(columna){
+		$scope.order=columna;
+	}
+})
+.controller('SociCtrl',function($scope,$http,$q,$rootScope,$timeout){
+	var data = new FormData();
+		data.append("acc", "favi");
+	var deferred=$q.defer();
+	
+	$http.post("models/associacio.php", data,{
+	headers:{
+		"Content-type":undefined
+	},
+	transformRequest:angular.identity
+
+	})
+	.then(function(resIcon){
+		deferred.resolve(resIcon);
+		$rootScope.favIcon=resIcon.data[0].favIcon;
+		$rootScope.logo=resIcon.data[0].logo;
+		$rootScope.cargador=false;
+	})
+	.catch(function(error){
+		$rootScope.cargador=false;
+
+	});
+
+	var data = new FormData();
+		data.append("acc","l");
+    var deferred=$q.defer();
+	$http.post("models/solicitutsoc.php", data,{
+		headers:{
+			"Content-type":undefined
+		},
+		transformRequest:angular.identity
+	})
+	.then(function(res){
+		deferred.resolve(res);
+		$scope.solicituts=res.data;
 		$rootScope.cargador=false;
 		console.log(res.data);
 	})
