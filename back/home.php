@@ -36,29 +36,19 @@
   			<div class="collapse navbar-collapse navReduced" id="navbarNavDropdown">
    			 	<ul class="navbar-nav">
      				<li class="nav-item active reduceNav">
-        				<a class="nav-link" href="#/">Titulo 1 </a>
+        				<a class="nav-link" href="#/associacio">Manteniment Associacio</a>
      				</li>
       				<li class="nav-item reduceNav">
-        				<a class="nav-link" href="#/">Titulo 2</a>
-      				</li>
-      				<li class="nav-item dropdown ">
-        				<a class="nav-link dropdown-toggle cursor" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          					Dropdown 1
-        				</a>
-				        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-				        	<a class="dropdown-item reduceNav" href="#/">Dropdown op 1</a>
-				        	<a class="dropdown-item reduceNav" href="#/">Dropdown op 2</a>
-				        	<a class="dropdown-item reduceNav" href="#/">Dropdown op 3</a>
-				        </div>
-     				</li>
-      				<li class="nav-item reduceNav">
-        				<a class="nav-link" href="#/">Titulo 3</a>
+        				<a class="nav-link" href="#/directori">Manteniment Directori</a>
       				</li>
       				<li class="nav-item reduceNav">
-       					<a class="nav-link" href="#/">Titulo 4</a>
+        				<a class="nav-link" href="#/solicitutsoc">solicitutsoc</a>
+      				</li>
+     				<li class="nav-item reduceNav">
+       					<a class="nav-link" href="#/contactans">Contacta´ns</a>
      				</li>
      				<li class="nav-item reduceNav">
-       					<a class="nav-link" href="#/">Titulo 5</a>
+       					<a class="nav-link" href="#/">Titulo 4</a>
      				</li>
      				<li class="nav-item p d-block d-lg-none reduceNav">
 
