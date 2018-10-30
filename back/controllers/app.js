@@ -27,8 +27,8 @@ app.config(['$routeProvider',function($routeProvider){
     controller:'ContactCtrl',
     title: "Contacta'ns"
   })
-  .when('/solicitutsoc',{
-    templateUrl:'views/contactans.php',
+  .when('/solicitutsoci',{
+    templateUrl:'views/solicitutsoc.php',
     controller:'SociCtrl',
     title: "Llistat Solicitud de socis"
   })

@@ -227,11 +227,15 @@ a:hover {
 	color: #FFFFFF;
 	
 }
-.divTable tr:nth-child(even){
-	background-color:#f2f2f2;
+.divTable tr:nth-child(odd){
+	background-color:#fffcf0;
 }
 .divLogoNav{
 	background-color: #A8A8A8;
+}
+.divTable table th{
+	color: #FFFFFF;
+	background-color: #4f307e;
 }
 
 @media (max-width: 575px){
