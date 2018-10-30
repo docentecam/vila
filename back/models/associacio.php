@@ -7,9 +7,7 @@
 	if(isset($_POST['acc'])&&$_POST['acc']=='l'){
 		echo dadesVila($tbl_vila);
 	}
-	if(isset($_POST['acc'])&&$_POST['acc']=='favi'){
-		echo dadesVila($tbl_vila);
-	}
+
 	// if(isset($_POST['acc'])&&$_POST['acc']==''){
 	//     $cantImatge=$_POST['cantImatge']+1;
 	//     $j=0;
@@ -23,12 +21,18 @@
 	//     }
 	// }
 	function dadesVila($tbl_vila){
-		$mySql="SELECT `email` ,`pasMail` ,`logoVila` ,`facebook` ,`keyApi` ,`password` ,`logoBolsa` ,`favIcon` ,`telf` ,`horari` ,`nom` ,`quiSom` ,`equip` ,`latitud` ,`longitud` ,`LGPD` ,`URLWeb`
+		$mySql="SELECT `idVila`, `email`,  `pasMail`,  `logoVila`,  `facebook`,  `keyApi`,  `password`,  `logoBolsa`,  `favIcon`,  `telf`,  `horari`,  `nom`,  `quiSom`,  `equip`,  `latitud`,  `longitud`,  `LGPD`,  `URLWeb`
 			FROM `$tbl_vila`";
 		$connexio=connect();
 		$resultVila=mysqli_query($connexio,$mySql);
 		disconnect($connexio);
-		$dadesVila=mysqli_fetch_row($resultVila);
-		return json_encode($dadesVila);
+		//$dadesVila=mysqli_fetch_row($resultVila);
+		//return json_encode($dadesVila);
+		$rows = array(); 
+		while($r = mysqli_fetch_array($resultVila)) 
+		{
+			$rows[] = $r; 
+		}
+		return json_encode($rows);
 	}
 ?>
