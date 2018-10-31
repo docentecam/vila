@@ -205,16 +205,32 @@ info:not(:disabled):not(.disabled):active:focus, .show>.btn-info.dropdown-toggle
   height:auto;
 }
 
-
-.carousel {
-   max-height: 400px;
-   max-width: 500px;
-   overflow: hidden;
+body .carousel-indicators li{
+  background-color:#4f307e;
+}
+body .carousel-control-prev-icon,
+body .carousel-control-next-icon{
+  background-color:#4f307e;
+}
+body .no-padding{
+  padding-left: 0;
+  padding-right: 0;
 }
 
-.carousel-inner > .item > img {
-    margin: 0 auto;
+
+.carousel-inner img {
+  margin: auto;
 }
+
+.carousel-innerPrincipal{
+	width: 100%;
+	height: 500px!important;
+	}
+
+.carousel-innerAsso{
+	width: 100%;
+	height: auto;
+	}
 
 .group {
   display: -webkit-box;
