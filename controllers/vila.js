@@ -21,8 +21,31 @@ angular.module('vila')
 		// })
 
 })
-.controller('HomeCtrl',function($scope,$http,$q,$rootScope,$timeout,$window,$document){
-})
+
+
+// .controller('HomeCtrl',function($scope,$http,$q,$rootScope,$timeout,$window,$document){
+// 		$rootScope.cargador=true;
+// 	var data = new FormData();
+// 				data.append("acc","l");
+
+// 			var deferred=$q.defer();
+			
+// 			$http.post("models/home.php", data,{
+// 				headers:{
+// 					"Content-type":undefined
+// 				},
+// 					transformRequest:angular.identity
+// 			})
+// 			.then(function(res){
+// 				deferred.resolve(res);
+// 				$rootScope.cargador=false;
+// 				$rootScope.titlePag=res.data.nom;
+// 				$scope.noticiesDestacades=res.data.noticiesDestacades;
+// 			})
+// 			.catch(function(error) {
+// 				$rootScope.cargador=false;
+// 			});
+// })
 
 .controller('AssociacioCtrl',function($scope,$http,$q,$rootScope,$timeout,$window,$document){
 	

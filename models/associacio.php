@@ -18,18 +18,25 @@ $tbl_subserveis="subserveis";
 		}
 		echo json_encode($dades);
 
-		$datallistatGegants='{"dadesColla":';
+		$datallistatServei='{"DadesServeis":';
 
 		$i=0; 
-		while ($row=mysqli_fetch_array($resultGegants)) {
+		while ($row=mysqli_fetch_array($resultServeis)) {
 			if ($i!=0) {
-				$datallistatGegants.=",";	
+				$datallistatServei.=",";	
 			}
 			$i++;
-			$datallistatGegants.='{"urlgegants":"'.$row['urlgegants'].'","llibrepdf":"'.$row['llibrepdf'].'"}';
+			$datallistatServei.='{"nomServei":"'.$row['nomServei'].'","txtServei":"'.$row['txtServei'].'"}';
 		}
 
-		$datallistatGegants.=',"dadesGegants":';
-	
+		$datallistatServei.=',"DadesServeis":';
+		$rows = array(); 
+		while($row = mysqli_fetch_array($resultServeis)) 
+		{
+		$rows[] = $row; 
+		} 
+		$datallistatServei.=json_encode($rows);
+		$datallistatServei.='}';
+		echo $datallistatServei;
 	}
 ?>
