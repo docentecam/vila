@@ -14,13 +14,6 @@ Morado: #4f307e
 
 @import url('https://fonts.googleapis.com/css?family=Bitter|Oswald:700|Roboto:300,400');
 
-body .carousel-indicators li{
-  background-color:red;
-}
-body .carousel-control-prev-icon,
-body .carousel-control-next-icon{
-  background-color:red;
-}
 body .no-padding{
   padding-left: 0;
   padding-right: 0;
@@ -244,6 +237,17 @@ body .no-padding{
 
 .group-item {
   width: 100%;
+}
+
+.pruebaImg{
+	max-width: 100%;
+    max-height: 100%;
+}
+
+.estiloAso{
+	border-width: 2px;
+	border-style: solid;
+	border-color: #e7ab3b;
 }
 
 @media (max-width: 575px){
