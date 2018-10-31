@@ -94,7 +94,7 @@ angular.module('vila')
 })
 .controller('NoticiesCtrl',function($scope,$http,$q,$rootScope,$timeout,$window,$document){
 	console.log("sí, así es");
-	$scope.llistat=false;
+	$scope.llistat=true;
 	$rootScope.cargador=true;
 	var data = new FormData();
 		data.append("acc","l");
@@ -108,8 +108,8 @@ angular.module('vila')
 	.then(function(res){
 		deferred.resolve(res);
 		$rootScope.cargador=false;
-		$scope.noticies=res.data;
-		console.log("llega: "+res.data);
+		$scope.noticiess=res.data;
+		console.log($scope.noticiess);
 	})
 	.catch(function(error) {
 		$rootScope.cargador=false;
