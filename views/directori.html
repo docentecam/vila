@@ -1,9 +1,9 @@
 <div class="row">
-	<div class="col-12 col-md-9">
+	<div class="col-12 col-md-9 mt-5">
 		<img src="img/mapiya.png" class="pruebaImg">
 	</div>
 	<div class="col-12 col-md-3">
-		<div class="tipoTitulo mb-2">
+		<div class="tipoTitulo mb-2 mt-5">
 			Filtre
 		</div>
 		<div>
@@ -28,19 +28,25 @@
 				<div class="row">
 					<div class="col px-0">
 						<img src="img/associat.jpg">
+						<!-- <img ng-src="{{associats.logoAssociat!='' ? 'img/noticies/'+associats.logoAssociat : 'img/noimage.png'}}" class="imagecontainer-img lazyload" alt="associat"> -->
 					</div>
 					<div class="col px-0">
-						<div class="">
-							Títol botiga
+						<div class="tipoSubTitulo">
+							Títol botiga{{associats.nomAssociat}}
 						</div>
-						<div class="">
+						<div class="tipoTexto">
 							categoria
+							{{categoriaassociat.principal}}
 						</div>
-						<div class="">
+						<div class="tipoTexto">
 							C/ jsflasjf---
+							{{associats.adreca}}
 						</div>
-						<div class="">
+						<div class="tipoTexto">
 							745394505
+							{{associats.telf1}}
+							{{associats.telf2}}
+							{{associats.email}}
 						</div>
 					</div>
 				</div>

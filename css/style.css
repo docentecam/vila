@@ -21,10 +21,12 @@ body .no-padding{
 
 body .carousel-indicators li{
   background-color:#4f307e;
+  cursor:pointer;
 }
 body .carousel-control-prev-icon,
 body .carousel-control-next-icon{
   background-color:#4f307e;
+  cursor:pointer;
 }
 
 nav a{
@@ -50,6 +52,7 @@ a.PolitPriva:link{
 }
 i,.cursor{
 	cursor:pointer;
+	padding-right: 4%;
 }
 ul, li{
 	list-style-type: none;
