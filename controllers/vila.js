@@ -23,29 +23,50 @@ angular.module('vila')
 })
 
 
-// .controller('HomeCtrl',function($scope,$http,$q,$rootScope,$timeout,$window,$document){
-// 		$rootScope.cargador=true;
-// 	var data = new FormData();
-// 				data.append("acc","l");
+.controller('HomeCtrl',function($scope,$http,$q,$rootScope,$timeout,$window,$document){
+	$rootScope.cargador=true;
+	console.log("olaaaxd");
 
-// 			var deferred=$q.defer();
+	$(window).resize(function() {
+   if(this.resizeTO) clearTimeout(this.resizeTO);
+   this.resizeTO = setTimeout(function() {
+      $(this).trigger('resizeEnd');
+   }, 500);
+	});
+	$(window).bind('resizeEnd', function() {
+   var url = $('#$WrapperID').data('refresh');
+   $('#$WrapperID').fadeOut("slow", function() {
+      $('#$WrapperID').load(url, { width: $('#$HTMLID').width() },
+      function() {
+         FB.XFBML.parse(document.getElementById('$WrapperID'),
+         function() {
+            $('#$WrapperID').fadeIn("slow");
+         		});
+      		})
+   		});
+	});
+
+	var data = new FormData();
+				data.append("acc","l");
+
+			var deferred=$q.defer();
 			
-// 			$http.post("models/home.php", data,{
-// 				headers:{
-// 					"Content-type":undefined
-// 				},
-// 					transformRequest:angular.identity
-// 			})
-// 			.then(function(res){
-// 				deferred.resolve(res);
-// 				$rootScope.cargador=false;
-// 				$rootScope.titlePag=res.data.nom;
-// 				$scope.noticiesDestacades=res.data.noticiesDestacades;
-// 			})
-// 			.catch(function(error) {
-// 				$rootScope.cargador=false;
-// 			});
-// })
+			$http.post("models/home.php", data,{
+				headers:{
+					"Content-type":undefined
+				},
+					transformRequest:angular.identity
+			})
+			.then(function(res){
+				deferred.resolve(res);
+				$rootScope.cargador=false;
+				$rootScope.titlePag=res.data.nom;
+				$scope.noticiesDestacades=res.data.noticiesDestacades;
+			})
+			.catch(function(error) {
+				$rootScope.cargador=false;
+			});
+})
 
 .controller('AssociacioCtrl',function($scope,$http,$q,$rootScope,$timeout,$window,$document){
 	
@@ -88,28 +109,6 @@ angular.module('vila')
 })
 
 
-.controller('HomeCtrl',function($scope,$http,$q,$rootScope,$timeout,$window,$document){
-	console.log("olaaaxd");
-	$(window).resize(function() {
-   if(this.resizeTO) clearTimeout(this.resizeTO);
-   this.resizeTO = setTimeout(function() {
-      $(this).trigger('resizeEnd');
-   }, 500);
-	});
-	$(window).bind('resizeEnd', function() {
-   var url = $('#$WrapperID').data('refresh');
-   $('#$WrapperID').fadeOut("slow", function() {
-      $('#$WrapperID').load(url, { width: $('#$HTMLID').width() },
-      function() {
-         FB.XFBML.parse(document.getElementById('$WrapperID'),
-         function() {
-            $('#$WrapperID').fadeIn("slow");
-         		});
-      		})
-   		});
-	});
-})
-
 
 .controller('DirectoriCtrl',function($scope,$http,$q,$rootScope,$timeout,$window,$document){
 	console.log("llega");
@@ -131,8 +130,7 @@ angular.module('vila')
 	.then(function(res){
 		deferred.resolve(res);
 		$rootScope.cargador=false;
-		$scope.noticiess=res.data;
-		console.log($scope.noticiess);
+		$scope.noticies=res.data;
 	})
 	.catch(function(error) {
 		$rootScope.cargador=false;
@@ -178,9 +176,6 @@ angular.module('vila')
 	$scope.contactans.nomEmpresa="hsgdhsagdhgasdgashjdg";
 	$scope.contactans.txtContacte="hsajkdhasjkhdjakshdj";
 	// $scope.fitxaSuccess=true;
-
-
-	
 
 	$scope.muestraInput=false;
 	$scope.muestraNom=function(tipo)
@@ -240,4 +235,3 @@ angular.module('vila')
 
 	
 })
-
