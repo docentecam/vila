@@ -16,7 +16,7 @@
 		$i=0; 
 
 
-		$dataHome.='","ultimsEsdeveniments":[';
+		$dataHome.='","noticiesDestacades":[';
 
 		$i=0; 
 		while ($row=mysqli_fetch_array($resultDadesNoticies)) {
