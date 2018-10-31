@@ -44,31 +44,34 @@
 <div class="row">
 	<div ng-repeat="noticia in noticiesDestacades | orderBy:noticia.dataNoticia" ng-href="#/noticies/{{noticia.idNoticia}}" class="">
 		<div class="row">
-			<a ng-href="#/noticia/{{noticia.idNoticia}}">
-				<div class="card">
-					<div class="group-item">
-						<div class="imagecontainer is-cover">	
+			
+			<div class="card">
+				<div class="group-item">
+					<div class="imagecontainer is-cover">	
+						<a ng-href="#/noticia/{{noticia.idNoticia}}">
 							<img ng-src="{{noticia.fotoNoticia!='' ? 'img/noticies/'+noticia.fotoNoticia : 'img/noimage.png'}}" class="imagecontainer-img lazyload" alt="noticia">
-						</div>
+						</a>
 					</div>
 				</div>
-			</a>
-
-			<div class="tipoSubTituloCenter mt-4 mb-1">
-				<a ng-href="#/noticia/{{noticia.idNoticia}}">
-				{{noticia.titolNoticia}}
-				</a>
 			</div>
+			
+			<div class="col">
+				<div class="tipoTexto mb-1">
+					{{noticia.dataNoticia}}
+				</div>
 
-			<div class="tipoTextoCenter mb-1">
-				{{noticia.dataNoticia}}
-			</div>
+				<div class="tipoSubTitulo mt-4 mb-1">
+					<a ng-href="#/noticia/{{noticia.idNoticia}}">
+					{{noticia.titolNoticia}}
+					</a>
+				</div>
 
-			<div class="tipoTexto">
-				{{noticia.txtNoticia | limitTo:100}}...
-				<a class="colorLink" ng-href="#/noticia/{{noticia.idNoticia}}">
-				Llegir més
-				</a>
+				<div class="tipoTexto">
+					{{noticia.txtNoticia | limitTo:100}}...
+					<a class="colorLink" ng-href="#/noticia/{{noticia.idNoticia}}">
+					Llegir més
+					</a>
+				</div>
 			</div>
 		</div>
 	</div>
