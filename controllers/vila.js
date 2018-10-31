@@ -168,14 +168,40 @@ angular.module('vila')
 	$scope.contactaMissatge=false;
 	$scope.msg="";
 	$scope.contactans={};
-	$scope.contactans.nomContacte="andrea";
-	$scope.contactans.cognomContacte="garcia";
-	$scope.contactans.checkTipo="Particular";
-	$scope.contactans.email="hsfghsdf@gmail.com";
-	$scope.contactans.telefon="455454545";
-	$scope.contactans.nomEmpresa="hsgdhsagdhgasdgashjdg";
-	$scope.contactans.txtContacte="hsajkdhasjkhdjakshdj";
+	$scope.contactans.nomContacte="";
+	$scope.contactans.cognomContacte="";
+	$scope.contactans.checkTipo="";
+	$scope.contactans.email="";
+	$scope.contactans.telefon="";
+	$scope.contactans.nomEmpresa="";
+	$scope.contactans.txtContacte="";
+	$scope.contactaSoci={};
+	$scope.contactaSoci.nomComercial="fdhfdhgdfh";
+	$scope.contactaSoci.sectorComercial="hfddfhdfhfdhfd";
+	$scope.contactaSoci.adreca="gran via 1006";
+	$scope.contactaSoci.telf=658596784;
+	$scope.contactaSoci.email="yaibondi@gmail.com";
+	$scope.contactaSoci.personaContacte="dsgdsgdsgsdgsdgsdgdsgs";
+	$scope.contactaSoci.horari="54564gds564g5dsg4dsgsdgsdgdsgdsgdsg";
 	// $scope.fitxaSuccess=true;
+
+	var data = new FormData();
+				data.append("acc","l");
+			var deferred=$q.defer();
+			$rootScope.cargador=true;
+			$http.post("models/contacta.php", data,{
+				headers:{
+					"Content-type":undefined
+				},
+					transformRequest:angular.identity
+			})
+
+			.then(function(res){
+				deferred.resolve(res);
+				$scope.contactaLlistat = res.data[0];
+				console.log(res.data);
+				$rootScope.cargador=false;
+			})
 
 	$scope.muestraInput=false;
 	$scope.muestraNom=function(tipo)
@@ -187,22 +213,75 @@ angular.module('vila')
 			}
 		console.log($scope.contactans.checkTipo);
 	}
-	$scope.insertar=function(tipo){
+	$scope.enviaEmail=function(){
 
-//verificar exista email o telefono
+	//verificar exista email o telefono
 
+	if($scope.contactans.email=="" && $scope.contactans.telefon==""){
+
+			$scope.msg="No puede estar vacio el campo email/telefono";
+			$timeout(function(){
+				$scope.contactaMissatge=false;
+			},3000);
+
+	}
+
+	else{
+
+	
+	// console.log("llega");
 		$scope.llistat=false;
-	$rootScope.cargador=true;
+		var data = new FormData();
+			data.append("acc","i");
+			data.append("nomContacte",$scope.contactans.nomContacte);
+			data.append("cognomContacte",$scope.contactans.cognomContacte);
+			data.append("tipus",$scope.contactans.checkTipo);
+			data.append("email",$scope.contactans.email);
+			data.append("telf",$scope.contactans.telefon);
+			data.append("nomEmpresa",$scope.contactans.nomEmpresa);
+			data.append("txtContacte",$scope.contactans.txtContacte);		
+		var deferred=$q.defer();
+		$rootScope.cargador=true;
+		$http.post("models/contacta.php", data,{
+			headers:{
+				"Content-type":undefined
+			},
+			transformRequest:angular.identity
+		})
+		.then(function(res){
+			deferred.resolve(res);
+			$rootScope.cargador=false;
+			// console.log(res.data);
+	
+		})
+		.catch(function(error) {
+			$rootScope.cargador=false;
+			});
+		}
+}
+$scope.enviaSoci=function(){
+console.log(isNaN($scope.contactaSoci.telf));
+	$scope.llistat=false;
+	if($scope.contactaSoci.email=="" && $scope.contactaSoci.telf==null){
+
+			$scope.msg="No puede estar vacio el campo email/telefono";
+			$timeout(function(){
+				console.log("jadghajgdjasdg");
+				$scope.contactaMissatge=false;
+			},3000);
+
+	}
+else{
+	// formulario sociiiii***********************************
 	var data = new FormData();
-		// data.append("acc","l");
-		data.append("acc","i");
-		data.append("nomContacte",$scope.contactans.nomContacte);
-		data.append("cognomContacte",$scope.contacta.cognomContacte);
-		data.append("tipus",$scope.contactans.checkTipo);
-		data.append("email",$scope.contactans.email);
-		data.append("telefon",$scope.contactans.telefon);
-		data.append("nomEmpresa",$scope.contactans.nomEmpresa);
-		data.append("txtContacte",$scope.contactans.txtContacte);		
+		data.append("acc","insertSolicitutssocis");
+		data.append("nomComercial",$scope.contactaSoci.nomComercial);
+		data.append("sectorComercial",$scope.contactaSoci.sectorComercial);
+		data.append("adreca",$scope.contactaSoci.adreca);
+		data.append("email",$scope.contactaSoci.email);
+		data.append("telf",$scope.contactaSoci.telf);
+		data.append("personaContacte",$scope.contactaSoci.personaContacte);
+		data.append("horari",$scope.contactaSoci.horari);		
 	var deferred=$q.defer();
 	$rootScope.cargador=true;
 	$http.post("models/contacta.php", data,{
@@ -214,19 +293,33 @@ angular.module('vila')
 	.then(function(res){
 		deferred.resolve(res);
 		$rootScope.cargador=false;
-		$scope.contactans=res.data;
-
-		$scope.contactans.nomContacte="";
-		$scope.contactans.cognomContacte="";
-		$scope.contactans.tipus="";
-		$scope.contactans.email="";
-		$scope.contactans.telefon="";
-		$scope.contactans.nomEmpresa="";
-		$scope.contactans.txtContacte="";
+		console.log(res.data);
+		// $scope.contactans=res.data;
+		// $scope.contactaSoci.nomComercial="";
+		// $scope.contactaSoci.sectorComercial="";
+		// $scope.contactaSoci.adreca="";
+		// $scope.contactaSoci.telf="";
+		// $scope.contactaSoci.email="";
+		// $scope.contactaSoci.personaContacte="";
+		// $scope.contactaSoci.horari="";
+		// if(res.data.trim()=="ok") {
+		// 	$scope.msg="Missatge registrat";
+		// 	$timeout(function(){
+		// 		$scope.contactaMissatge=false;
+		// 		window.location.reload();
+		// 	},3000);
+		// }
+		// else{
+		// 	$scope.msg="verifica dades";
+		// }
+		
+		// $scope.contactaMissatge=true;
+		// $rootScope.cargador=false;
 	})
 	.catch(function(error) {
 		$rootScope.cargador=false;
 		});
+	}
 	}
 })
 .controller('PoliticaCtrl',function($scope,$http,$q,$rootScope,$timeout,$window,$document){
