@@ -85,6 +85,7 @@ angular.module('vila')
       		})
    		});
 	});
+})
 
 
 .controller('DirectoriCtrl',function($scope,$http,$q,$rootScope,$timeout,$window,$document){
