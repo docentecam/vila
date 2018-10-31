@@ -140,16 +140,75 @@ angular.module('vila')
 })
 
 .controller('FiramarCtrl',function($scope,$http,$q,$rootScope,$timeout,$window,$document){
-	console.log("sí, así es");
+	console.log("Hola");
 
 })
 .controller('ContactaCtrl',function($scope,$http,$q,$rootScope,$timeout,$window,$document){
+	$scope.contactaMissatge=false;
+	$scope.msg="";
+	$scope.contactans={};
+	$scope.contactans.nomContacte="andrea";
+	$scope.contactans.cognomContacte="garcia";
+	$scope.contactans.checkTipo="Particular";
+	$scope.contactans.email="hsfghsdf@gmail.com";
+	$scope.contactans.telefon="455454545";
+	$scope.contactans.nomEmpresa="hsgdhsagdhgasdgashjdg";
+	$scope.contactans.txtContacte="hsajkdhasjkhdjakshdj";
+	// $scope.fitxaSuccess=true;
+
+
+	
 
 	$scope.muestraInput=false;
-
 	$scope.muestraNom=function(tipo)
 	{
 		$scope.muestraInput=tipo;
+		if (!tipo) {$scope.contactans.checkTipo="Particular";}
+			else{
+				$scope.contactans.checkTipo="Empresa";
+			}
+		console.log($scope.contactans.checkTipo);
+	}
+	$scope.insertar=function(tipo){
+
+//verificar exista email o telefono
+
+		$scope.llistat=false;
+	$rootScope.cargador=true;
+	var data = new FormData();
+		// data.append("acc","l");
+		data.append("acc","i");
+		data.append("nomContacte",$scope.contactans.nomContacte);
+		data.append("cognomContacte",$scope.contacta.cognomContacte);
+		data.append("tipus",$scope.contactans.checkTipo);
+		data.append("email",$scope.contactans.email);
+		data.append("telefon",$scope.contactans.telefon);
+		data.append("nomEmpresa",$scope.contactans.nomEmpresa);
+		data.append("txtContacte",$scope.contactans.txtContacte);		
+	var deferred=$q.defer();
+	$rootScope.cargador=true;
+	$http.post("models/contacta.php", data,{
+		headers:{
+			"Content-type":undefined
+		},
+		transformRequest:angular.identity
+	})
+	.then(function(res){
+		deferred.resolve(res);
+		$rootScope.cargador=false;
+		$scope.contactans=res.data;
+
+		$scope.contactans.nomContacte="";
+		$scope.contactans.cognomContacte="";
+		$scope.contactans.tipus="";
+		$scope.contactans.email="";
+		$scope.contactans.telefon="";
+		$scope.contactans.nomEmpresa="";
+		$scope.contactans.txtContacte="";
+	})
+	.catch(function(error) {
+		$rootScope.cargador=false;
+		});
 	}
 })
 .controller('PoliticaCtrl',function($scope,$http,$q,$rootScope,$timeout,$window,$document){

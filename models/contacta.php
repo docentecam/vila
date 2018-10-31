@@ -26,18 +26,18 @@
 //TODO VERIFICAR QUE LO INSERTA. $idContactans=mysqli_insert_id
 		
 
-		$numContac=1;
-		if($numContac!=0){
+		// $numContac=1;
+		// if($numContac!=0){
 
-			$envio=sendMail($_POST['email'],"Missatge rebut per la Colla.",donarFormat("Hola, acabem de rebre el teu missatge on deia el següent:<br><br>".$_POST['txtContacte']."<br><br>Moltes gràcies per escriure'ns, et respondrem el més aviat possible així que estigues atent de la teva safata d'entrada.<br><br>Salutacions!"),"si");
-			$estat="ok";
-		}
-		else{
-			$estat="ko";
-		}
+		// 	$envio=sendMail($_POST['email'],"Missatge rebut per la Colla.",donarFormat("Hola, acabem de rebre el teu missatge on deia el següent:<br><br>".$_POST['txtContacte']."<br><br>Moltes gràcies per escriure'ns, et respondrem el més aviat possible així que estigues atent de la teva safata d'entrada.<br><br>Salutacions!"),"si");
+		// 	$estat="ok";
+		// }
+		// else{
+		// 	$estat="ko";
+		// }
 		
 
-		echo $estat;
+		// echo $estat;
 
 }
 
