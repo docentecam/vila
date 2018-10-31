@@ -9,10 +9,10 @@
 			    </tr>	
 			</thead>
 			<tbody>
-				<tr>
+				<tr ng-repeat="servei in serveis">
 			      <th scope="row">1</th> 
-			      <td></td>
-			      <td><i class="fas fa-plus"></i></td>
+			      <td>{{servei.nomServei}}:{{servei.txtServei}}</td>
+			      <td ng-repeat="subservei in subserveis">{{subservei.nomSubservei}}:{{subservei.txtServei}}<i class="fas fa-plus"></i></td>
 			    </tr>
 			</tbody>
 		</table>

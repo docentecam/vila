@@ -2,27 +2,27 @@ angular.module('vila')
 .controller('IniciCtrl',function($scope,$http,$q,$rootScope,$timeout){
 })
 .controller('AssociCtrl',function($scope,$http,$q,$rootScope,$timeout){
-	// var data = new FormData();
-	// 	data.append("acc","favi");
-	// var deferred=$q.defer();
-	// $rootScope.cargador=true;
+	var data = new FormData();
+		data.append("acc","favi");
+	var deferred=$q.defer();
+	$rootScope.cargador=true;
 
-	// $http.post("models/associacio.php", data,{
-	// 	headers:{
-	// 		"Content-type":undefined
-	// 	},
-	// 	transformRequest:angular.identity
-	// })
-	// .then(function(res){
-	// 	deferred.resolve(res);
-	// 	$rootScope.cargador=false;
-	// 	$timeout(function() {
+	$http.post("models/associacio.php", data,{
+		headers:{
+			"Content-type":undefined
+		},
+		transformRequest:angular.identity
+	})
+	.then(function(res){
+		deferred.resolve(res);
+		$rootScope.cargador=false;
+		$timeout(function() {
 
-	// 	}, 2000);
-	// })
-	// .catch(function(error) {
-	// 	$rootScope.cargador=false;
-	// });
+		}, 2000);
+	})
+	.catch(function(error) {
+		$rootScope.cargador=false;
+	});
 	$scope.accion="";
 	$scope.ass={};
 	$scope.msj="";
@@ -67,8 +67,7 @@ angular.module('vila')
 		$rootScope.cargador=false;
 	});
 	$scope.submitAss=function(){
-		$scope.msj=true;
-			$scope.msj="Les dades s'han actualitzat correctament.";
+		
 			var data = new FormData();
 				data.append("acc","updateVila");
 				data.append("idVila",$scope.ass.idVila);
@@ -76,7 +75,7 @@ angular.module('vila')
 				data.append("pasMail",$scope.ass.pasMail);
 				data.append("logoVila",$scope.ass.logoVila);
 				data.append("facebook",$scope.ass.facebook);
-				data.append("kayApi",$scope.ass.kayApi);
+				data.append("keyApi",$scope.ass.keyApi);
 				data.append("password",$scope.ass.password);
 				data.append("logoBolsa",$scope.ass.logoBolsa);
 				data.append("favIcon",$scope.ass.favIcon);
@@ -101,6 +100,8 @@ angular.module('vila')
 				deferred.resolve(res);
 				console.log(res.data);
 				$rootScope.cargador=false;
+				$scope.divMsj=true;
+				$scope.msj="Les dades s'han actualitzat correctament.";
 				$timeout(function() {
 					$scope.divMsj=false;
 				}, 2000);
@@ -356,6 +357,69 @@ angular.module('vila')
 })
 .controller('FiramarCtrl',function($scope, $http, $q, $timeout, $rootScope) {
 
+
+})
+.controller('ServeisCtrl',function($scope, $http, $q, $timeout, $rootScope) {
+	var data = new FormData();
+		data.append("acc", "favi");
+	var deferred=$q.defer();
+	
+	$http.post("models/associacio.php", data,{
+	headers:{
+		"Content-type":undefined
+	},
+	transformRequest:angular.identity
+
+	})
+	.then(function(resIcon){
+		deferred.resolve(resIcon);
+		$rootScope.favIcon=resIcon.data[0].favIcon;
+		$rootScope.logo=resIcon.data[0].logo;
+		$rootScope.cargador=false;
+	})
+	.catch(function(error){
+		$rootScope.cargador=false;
+
+	});
+	var data = new FormData();
+		data.append("acc","l");
+    var deferred=$q.defer();
+	$http.post("models/serveis.php", data,{
+		headers:{
+			"Content-type":undefined
+		},
+		transformRequest:angular.identity
+	})
+	.then(function(res){
+		deferred.resolve(res);
+		$scope.contactans=res.data;
+		$rootScope.cargador=false;
+		console.log(res.data);
+	})
+	.catch(function(error) {
+		$rootScope.cargador=false;
+	});
+	$scope.accionServ="";
+	$scope.ser={};
+	$scope.msj="";
+	$scope.accionSer="";
+	$scope.reveal=false;
+
+	$scope.EditServei=function(){
+		$scope.reveal=true;
+		if (idPosServei!="-1") {
+			$scope.accionSer="Editar"
+			$scope.ser.idServei=$scope.serveis[idPosServei].idServeis;
+			$scope.ser.nomServei=$scope.serveis[idPosServei].nomServeis;
+			$scope.ser.txtServei=$scope.serveis[idPosServei].txtServeis;
+		}
+		else{
+			$scope.accionSer="Editar"
+			$scope.ser.idServei="";
+			$scope.ser.nomServei="";
+			$scope.ser.txtServei="";
+		}
+	}
 
 })
 .controller('LogoutCtrl',function($scope,$http){
