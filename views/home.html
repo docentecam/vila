@@ -14,9 +14,9 @@
     <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
     <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
   </ol>
-  <div class="carousel-inner">
+  <div class="carousel-inner carousel-innerPrincipal">
     <div class="carousel-item active">
-      <img class="d-block w-100" src="img/slider_1.jpg" alt="First slide">
+      <img class="d-block w-100" src="img/slider_1.jpg" alt="First slide"> 
     </div>
     <div class="carousel-item">
       <img class="d-block w-100" src="img/slider_2.jpg" alt="Second slide">
@@ -34,17 +34,26 @@
     <span class="sr-only">Next</span>
   </a>
 </div>
-
-	<div>
-		<span class="tipoTitulo">Esto es un título</span><br>
-		<span class="tipoSubTitulo">Esto es un subtítulo</span><br>
-		<p class="tipoTexto">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-	</div>
-	<div class="tipoTitulo">
+<div class="h_divider mb-1 mt-1"></div>
+	<div class="tipoTitulo mt-4">
 		Notícies destacades
 	</div>
 	<div class="row">
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+
 		<div ng-repeat="noticia in noticies | filter:{proxim:2} | orderBy:-dataAng" class="col-lg-6 col-md-12">
+
 			<div class="row">
 				<div class="col-lg-6 col-md-6">
 					<div class="group-item">
@@ -79,14 +88,14 @@
 	<div class="row">
 
 		
-		<div class="col-6 px-0">
+		<div class="col-5 px-0">
 			<div>
-				<div class="card">
-					<iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FVilactiva&tabs=timeline&width=500&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="100%" height="500" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
+				<div class="text-center">
+					<iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fvilactiva&tabs=timeline&width=340&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="340" height="500" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
 				</div>
 			</div>
 		</div>	
-		<div class="col-6 px-0">
+		<div class="col-7 px-0">
 			<div>
 				<div class="card mb-2">
 					 <img class="card-img" src="img/banner1.jpg" alt="Card image">
@@ -100,8 +109,10 @@
 			</div>
 		</div>
 	</div>
+	<div class="h_divider mb-1 mt-1"></div>
 	<div class="row">
-		<div class="tipoTitulo">
+
+		<div class="tipoTitulo mt-4 mb-3">
 			Associats
 		</div>
 		<div class="col-12">
@@ -109,65 +120,64 @@
 		</div>
 	</div>
 
-
-	<div id="demo" class="carousel slide" data-ride="carousel">
+	<div id="carouselAsso" class="carousel slide" data-ride="carousel">
 
 	  <ul class="carousel-indicators">
-	    <li data-target="#demo" data-slide-to="0" class="active"></li>
-	    <li data-target="#demo" data-slide-to="1"></li>
-	    <li data-target="#demo" data-slide-to="2"></li>
+	    <li data-target="#carouselAsso" data-slide-to="0" class="active"></li>
+	    <li data-target="#carouselAsso" data-slide-to="1"></li>
+	    <li data-target="#carouselAsso" data-slide-to="2"></li>
 	  </ul>
 	  
-	  <div class="container carousel-inner no-padding">
+	  <div class="container carousel-inner no-padding carousel-innerAsso">
 	    <div class="carousel-item active">
 	      <div class="col-xs-3 col-sm-3 col-md-3 carouAsoc">
-	        <img src="https://image.shutterstock.com/z/stock-photo-sleeping-disorders-as-a-reason-for-insomnia-293777093.jpg">
+	        <img src="img/associat.jpg">
 	      </div>    
 	      <div class="col-xs-3 col-sm-3 col-md-3 carouAsoc">
-	        <img src="https://image.shutterstock.com/display_pic_with_logo/253414/570119506/stock-photo-family-running-through-field-letting-kite-fly-570119506.jpg">
+	        <img src="img/associat.jpg">
 	      </div>   
 	      <div class="col-xs-3 col-sm-3 col-md-3 carouAsoc">
-	        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRs1d757jDXgofgXudKd1rmRVXuwepjtaqlCWChev0MpFg7QE5mYw">
+	        <img src="img/associat.jpg">
 	      </div>   
 	      <div class="col-xs-3 col-sm-3 col-md-3 carouAsoc">
-	        <img src="http://1000petals.in/Blog/wp-content/uploads/2017/10/Hallucinatory-head-Shutterstock-800x430.jpg">
+	        <img src="img/associat.jpg">
 	      </div>   
 	    </div>
 	    <div class="carousel-item">
 	      <div class="col-xs-3 col-sm-3 col-md-3 carouAsoc">
-	        <img src="https://vice-images.vice.com/images/content-images-crops/2015/11/28/inside-offset-the-surreal-millennial-targeted-photo-market-within-shutterstock-111-body-image-1448729509-size_1000.jpg?output-quality=75?resize=320:*">
+	        <img src="img/associat.jpg">
 	      </div>    
 	      <div class="col-xs-3 col-sm-3 col-md-3 carouAsoc">
-	        <img src="https://i.pinimg.com/originals/70/dc/7b/70dc7b5badbd8d1d02abc6246c220597.jpg">
+	        <img src="img/associat.jpg">
 	      </div>   
 	      <div class="col-xs-3 col-sm-3 col-md-3 carouAsoc">
-	        <img src="https://cdn.theatlantic.com/static/mt/assets/science/cat_caviar.jpg">
+	        <img src="img/associat.jpg">
 	      </div>   
 	      <div class="col-xs-3 col-sm-3 col-md-3 carouAsoc">
-	        <img src="https://static.adweek.com/adweek.com-prod/wp-content/uploads/2018/07/shutterstock-recreations-3-2018.jpg">
-	      </div>  
+	        <img src="img/associat.jpg">
+	    </div>  
 	    </div>
 	    <div class="carousel-item">
 	      <div class="col-xs-3 col-sm-3 col-md-3 carouAsoc">
-	        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiR5VuDj-Nw10sWTeC4Kh0jlcn5kK0nzWNtMb8_ks7MFsAOnkD">
+	        <img src="img/associat.jpg">
 	      </div>    
 	      <div class="col-xs-3 col-sm-3 col-md-3 carouAsoc">
-	        <img src="https://es.israel21c.org/wp-content/uploads/2016/01/shutterstock_knee-1168x657.jpg">
+	        <img src="img/associat.jpg">
 	      </div>   
 	      <div class="col-xs-3 col-sm-3 col-md-3 carouAsoc">
-	        <img src="https://www.pqs.pe/sites/default/files/styles/852x479/public/2017/05/actualidad/pqs-detectar-talento-tips.jpg?itok=7ZxLa32o">
+	        <img src="img/associat.jpg">
 	      </div>   
 	      <div class="col-xs-3 col-sm-3 col-md-3 carouAsoc">
-	        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8CeFio8IwK0F8qUKTdtscBe3_0SuWqRRUzCAyy6C48_7MrtyH">
+	        <img src="img/associat.jpg">
 	      </div>  
 	    </div>
 	  </div>
 	  
-	  <a class="carousel-control-prev" href="#demo" data-slide="prev">
+	  <a class="carousel-control-prev" href="#carouselAsso" data-slide="prev">
 	    <span class="carousel-control-prev-icon"></span>
 	  </a>
-	  <a class="carousel-control-next" href="#demo" data-slide="next">
+	  <a class="carousel-control-next" href="#carouselAsso" data-slide="next">
 	    <span class="carousel-control-next-icon"></span>
 	  </a>
-	  
+
 	</div>
