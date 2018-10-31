@@ -252,6 +252,13 @@ angular.module('vila')
 			deferred.resolve(res);
 			$rootScope.cargador=false;
 			// console.log(res.data);
+			$scope.contactans.nomContacte="";
+			$scope.contactans.cognomContacte="";
+			$scope.contactans.checkTipo="";
+			$scope.contactans.email="";
+			$scope.contactans.telefon="";
+			$scope.contactans.nomEmpresa="";
+			$scope.contactans.txtContacte="";
 	
 		})
 		.catch(function(error) {
@@ -295,26 +302,26 @@ else{
 		$rootScope.cargador=false;
 		console.log(res.data);
 		// $scope.contactans=res.data;
-		// $scope.contactaSoci.nomComercial="";
-		// $scope.contactaSoci.sectorComercial="";
-		// $scope.contactaSoci.adreca="";
-		// $scope.contactaSoci.telf="";
-		// $scope.contactaSoci.email="";
-		// $scope.contactaSoci.personaContacte="";
-		// $scope.contactaSoci.horari="";
-		// if(res.data.trim()=="ok") {
-		// 	$scope.msg="Missatge registrat";
-		// 	$timeout(function(){
-		// 		$scope.contactaMissatge=false;
-		// 		window.location.reload();
-		// 	},3000);
-		// }
-		// else{
-		// 	$scope.msg="verifica dades";
-		// }
+		$scope.contactaSoci.nomComercial="";
+		$scope.contactaSoci.sectorComercial="";
+		$scope.contactaSoci.adreca="";
+		$scope.contactaSoci.telf="";
+		$scope.contactaSoci.email="";
+		$scope.contactaSoci.personaContacte="";
+		$scope.contactaSoci.horari="";
+		if(res.data.trim()=="ok") {
+			$scope.msg="Missatge registrat";
+			$timeout(function(){
+				$scope.contactaMissatge=false;
+				window.location.reload();
+			},3000);
+		}
+		else{
+			$scope.msg="verifica dades";
+		}
 		
-		// $scope.contactaMissatge=true;
-		// $rootScope.cargador=false;
+		$scope.contactaMissatge=true;
+		$rootScope.cargador=false;
 	})
 	.catch(function(error) {
 		$rootScope.cargador=false;

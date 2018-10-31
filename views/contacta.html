@@ -31,7 +31,7 @@
 					</div>
 					<div ng-show="muestraInput">
 						<div class="form-group col-md-12 mb-3" ng-class="{ 'has-error' : formContacta.nomEmpresa.$invalid && !formContacta.nomEmpresa.$pristine }">
-			            <input type="text" name="nomEmpresa" class="form-control" ng-model="contactans.nomEmpresa"  placeholder="Nom Comercial"  ng-maxlength="30" required>
+			            <input type="text" name="nomEmpresa" class="form-control" ng-model="contactans.nomEmpresa"  placeholder="Nom Comercial"  ng-maxlength="30">
 						<p ng-show="formContacta.nomEmpresa.$error.maxlength" class="help-block text-danger">El nom és massa llarg{{forNomLlarg}}</p>
 			            <p ng-show="formContacta.nomEmpresa.$invalid && !formContacta.nomEmpresa.$pristine" class="help-block text-danger">El camp nom és obligatori{{formNom}}</p>
 			        	</div>

@@ -49,7 +49,7 @@
 		$mySql="SELECT `email`,`nom`,`URLWeb` FROM $tbl_vila ";
 		$mySqlInsertSoci="INSERT INTO $tbl_solicitutssocis (`nomComercial`,`sectorComercial`,`adreca`,`telf`,`email`,`data`,`personaContacte`,`horari`)
 				VALUES ('".$_POST['nomComercial']."','".$_POST['sectorComercial']."','".$_POST['adreca']."','".$_POST['telf']."','".$_POST['email']."','".$dataActual."','".$_POST['personaContacte']."','".$_POST['horari']."')";
-
+// echo $mySqlInsertSoci;
  		 $connexio=connect();
 		 $resultVila=mysqli_query($connexio,$mySql); 
 		  $resultSolicitutSoci=mysqli_query($connexio,$mySqlInsertSoci); 
@@ -57,20 +57,15 @@
 		$dadesVila=mysqli_fetch_row($resultVila);
 echo "ok";
 		
-		// $envio=sendMail($_POST['email'],"Benvinguts!",donarFormat("Hola <b>".$_POST['nom']."</b>!<br>Ara que ets un afiliat més a la nostra associació, gaudiràs d'estar al dia de totes les novetats i esdeveniments.<br>No oblidis que qualsevol dubte que puguis tenir, pots contactar amb nosaltres sempre que vulguis.<br>Et convidem a donar-li una ullada a la <a href='".$dadesVila[2]."' target='_blank'>pàgina web</a> i a les nostres xarxes socials on trobaràs molta més informació.<br>Dit això, ens veiem aviat! <br>
-		// 	<form action='".$dadesVila[2]."/cpanel/models/reccontra.php' method='post'>
-		// 	<input name='acc' type='hidden' value='ta'>
-		// 	<input name='afiliat' type='hidden' value='".$newToken."'>
-		// 		<button class='estilButton'>Activació Afiliat</button>
-		// 	</form>	
-		// 	"),"simpat");
-		// echo "ok";
-		// }
+		$envio=sendMail($_POST['email'],"Benvinguts!",donarFormat("Hola <b>".$_POST['nom']."</b>!<br>Ara que ets un afiliat més a la nostra associació, gaudiràs d'estar al dia de totes les novetats i esdeveniments.<br>No oblidis que qualsevol dubte que puguis tenir, pots contactar amb nosaltres sempre que vulguis.<br>Et convidem a donar-li una ullada a la <a href='".$dadesVila[2]."' target='_blank'>pàgina web</a> i a les nostres xarxes socials on trobaràs molta més informació.<br>Dit això, ens veiem aviat! <br>
+			"),"simpat");
+		echo "ok";
+
 		// else{
 		// 	echo "0";
 		// }
 		
-	// }
+
 }
 
 ?>
