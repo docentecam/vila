@@ -165,7 +165,7 @@ a:hover {
 	color: #FFFFFF;
 	background-color: #4f307e;
 }
-.AssAllCss{
+.AssNotSerAllCss{
 	margin-right: 15%;
 	margin-left: 15%;
 }
@@ -190,9 +190,16 @@ a:hover {
 	font-size: 1.5rem;
 }
 .imgCssAss{
-	height: 150px;
+	height: 78%;
 }
-
+.passwordAss{
+	border-radius: 0.25rem 0rem 0rem 0.25rem !important;
+	width: 67%;
+}
+.inputGroupPrepend{
+	padding-bottom: 0!important;
+	padding-top: 0!important;
+}
 @media (max-width: 575px){
 	.imglogonav{
 		height: 30px;
