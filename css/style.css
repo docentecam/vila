@@ -35,15 +35,15 @@ nav a{
 }
 
 a:link{
-	color: black;
+	color: #1d93d1;
     text-decoration: none;
 }
 a:visited{
-	color: black;
+	color: #1d93d1;
     text-decoration: none;
 }
 a:hover{
-	color: black;
+	color: #4f307e;
     text-decoration: none;
 }
 a.PolitPriva:link, a.PolitPriva:visited, a.PolitPriva:hover{
