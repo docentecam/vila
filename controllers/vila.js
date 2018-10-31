@@ -60,8 +60,8 @@ angular.module('vila')
 			.then(function(res){
 				deferred.resolve(res);
 				$rootScope.cargador=false;
-				$rootScope.titlePag=res.data.nom;
-				$scope.noticiesDestacades=res.data.noticiesDestacades;
+				$scope.noticiesDestacades=res.data;
+				console.log(res.data);
 			})
 			.catch(function(error) {
 				$rootScope.cargador=false;
