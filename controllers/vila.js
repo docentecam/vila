@@ -48,7 +48,7 @@ angular.module('vila')
 	});
 	
 })
-<<<<<<< HEAD
+
 .controller('ContactaCtrl',function($scope,$http,$q,$rootScope,$timeout,$window,$document){
 
 	$scope.muestraInput=false;
@@ -86,11 +86,10 @@ angular.module('vila')
    		});
 	});
 
-=======
 
 .controller('DirectoriCtrl',function($scope,$http,$q,$rootScope,$timeout,$window,$document){
 	console.log("llega");
->>>>>>> 89819b74e390e9e2aa36406860439958e5473c0f
+
 })
 .controller('NoticiesCtrl',function($scope,$http,$q,$rootScope,$timeout,$window,$document){
 	console.log("sí, así es");
