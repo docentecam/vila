@@ -7,12 +7,20 @@
 			$connexio=connect();
 			$resultNoticies=mysqli_query($connexio,$mySqlNoticies);
 			disconnect($connexio);
-			echo json_encode(mysqli_fetch_row($resultNoticies));
-			// $rows2 = array(); 
-			// while($r = mysqli_fetch_array($resultNoticies)) 
-			// {
-			// 	$rows2[] = $r; 
-			// }		
-			// echo json_encode($rows2);
+			//echo json_encode(mysqli_fetch_row($resultNoticies));
+			 $rows = array(); 
+			while($r = mysqli_fetch_array($resultNoticies)) 
+			{
+				$rows[] = $r; 
+			} 
+			echo json_encode($rows);
+			
+
+
+			
+
+
+
+
 	}
 ?>

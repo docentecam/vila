@@ -17,6 +17,9 @@
 		<script src="js/app.js"></script>
 		<script src="controllers/vila.js"></script>
 		<script>
+			var CMSSpace = CMSSpace || {};
+		</script>
+		<script>
 			$(document).ready(function () {
 					$(".reduceNav").click(function(event) {
 				$(".navReduced").collapse('hide');
@@ -32,9 +35,9 @@
 		        </button>
 		        <div class="navbar-collapse collapse navReduced" id="navbar10">
 		            <ul class="navbar-nav nav-fill w-100">
-		                <li class="nav-item d-none d-lg-inline my-auto ">
+		                <li class="nav-item d-none d-lg-inline my-auto">
 		                    <a class="nav-link" ng-href="#">
-		                    	<img class="img-fluid logoVila" ng-src="img/a_vilactiva.png"  alt="Vilactiva">INICI
+		                    	<img class="img-fluid logoVila" ng-src="img/a_vilactiva.png" alt="Vilactiva">INICI
 		                    </a>
 		                </li>
 		                <li class="nav-item my-auto reduceNav">
@@ -58,34 +61,35 @@
 		</nav>
 
 		<div class="h_divider"></div>
+
 		<div class="row">
 			<div class="container col-sm-12 col-xl-8"> 
-
 				<div id="cargador" class="cargador" ng-show="cargador">
 					<img ng-src="img/loading.svg" class="preloader">
 				</div>
 				<div data-ng-view=""></div>
 			</div>
 		</div>
-<div class="h_divider"></div>
+
+		<div class="h_divider mt-4"></div>
+
 		<footer>
+			<div class="container tipoTexto">
 			<div class="row">
-				<div class="offset-2 offset-md-1 offset-lg-1 offset-xl-1 col-8 col-md-11 col-lg-2 col-xl-2 order-1 order-md-0 mt-2 mt-md-2 mt-lg-4 mt-xl-5 col align-self-start centrarFooterMovil"> 
-						<img src="img/vilactiva.png">
+				<div class="col-xl"> 
+						<img src="img/vilactiva.png"><br>
 						Associació de comerciants de la Vila Olímpica, Barcelona{{vila.nom}}
 				</div>
-				<div class="offset-1 offset-md-5 offset-lg-1 offset-xl-2 col-10 col-md-3 col-lg-3 col-xl-2 order-3 order-md-1  mb-2 col align-self-center centrarFooterMovil">
 
-					<div class="row">
-						<div class="col-12 offset-0 mt-2 mt-lg-0 text-center">
-							<a ng-href="{{vila.facebook}}" target="_blank">
-								<i class="fab fa-facebook-square fa-3x " ng-href="{{vila.facebook}}" target="_blank"></i>
-							</a>
-						</div>
+				<div class="col-xl text-center">
+					<div>
+						<a ng-href="{{vila.facebook}}" target="_blank">
+							<i class="fab fa-facebook-square fa-3x " ng-href="{{vila.facebook}}" target="_blank"></i>
+						</a>
 					</div>
 				</div>
-			<div class="offset-2 offset-md-1 offset-lg-1 offset-xl-2 col-10 col-md-4 col-lg-4 col-xl-3 col align-self-end order-2 order-md-3 mb-lg-3 d-none d-md-none d-lg-block">
-				<div class="row">
+
+				<div class="col-xl text-right">
 					<ul>
 						<li>Parle'm-ne!</li>
 						<li><a href="{{X}}">vilactiva@gmail.com{{X}}</a></li>
@@ -93,12 +97,34 @@
 					</ul>
 				</div>
 			</div>
-		</div>
-		<div class="row">
-			<div class="h_divider_w col-8 offset-2"></div>
-			<div class="col-12 text-center">Pàgina realitzada amb la col·laboració dels alumnes de la Casa d'Oficis Barris Digitals i Barcelona Activa</div>
-		</div>
-		</footer>		
+			</div>
+
+			
+			<div class="row">
+				<div class="h_divider_w col-8 offset-2"></div>
+				<div class="col-12 text-center tipoTexto mb-4">Pàgina realitzada amb la col·laboració dels alumnes de la Casa d'Oficis Barris Digitals i Barcelona Activa</div>
+			</div>
+			<div class="container">
+				<div class="row">
+					<div class="img-fluid">
+						<img ng-src="img/logos/logoAjuntament.png">
+					</div>
+					<div class="img-fluid">
+						<img ng-src="img/logos/logoCasesOificis.png">
+					</div>
+					<div class="img-fluid">
+						<img ng-src="img/logos/logoGeneralitat.png">
+					</div>
+					<div class="img-fluid">
+						<img ng-src="img/logos/logoSoc.png">
+					</div>
+					<div class="img-fluid">
+						<img ng-src="img/logos/logoMinisteri.jpg">
+					</div>
+				</div>
+			</div>
+		</footer>
+
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 	</body>
