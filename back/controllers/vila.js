@@ -1,33 +1,35 @@
 angular.module('vila')
+.controller('IniciCtrl',function($scope,$http,$q,$rootScope,$timeout){
+})
 .controller('AssociCtrl',function($scope,$http,$q,$rootScope,$timeout){
-	var data = new FormData();
-		data.append("acc","favi");
-	var deferred=$q.defer();
-	$rootScope.cargador=true;
+	// var data = new FormData();
+	// 	data.append("acc","favi");
+	// var deferred=$q.defer();
+	// $rootScope.cargador=true;
 
-	$http.post("models/associacio.php", data,{
-		headers:{
-			"Content-type":undefined
-		},
-		transformRequest:angular.identity
-	})
-	.then(function(res){
-		deferred.resolve(res);
-		$rootScope.cargador=false;
-		$timeout(function() {
+	// $http.post("models/associacio.php", data,{
+	// 	headers:{
+	// 		"Content-type":undefined
+	// 	},
+	// 	transformRequest:angular.identity
+	// })
+	// .then(function(res){
+	// 	deferred.resolve(res);
+	// 	$rootScope.cargador=false;
+	// 	$timeout(function() {
 
-		}, 2000);
-	})
-	.catch(function(error) {
-		$rootScope.cargador=false;
-	});
+	// 	}, 2000);
+	// })
+	// .catch(function(error) {
+	// 	$rootScope.cargador=false;
+	// });
 	$scope.accion="";
 	$scope.ass={};
 	$scope.msj="";
 	var data = new FormData();
 		data.append("acc","l");
 	var deferred=$q.defer();
-	$rootScope.cargador=true;
+	// $rootScope.cargador=true;
 	$http.post("models/associacio.php", data,{
 		headers:{
 			"Content-type":undefined
@@ -36,7 +38,9 @@ angular.module('vila')
 	})
 	.then(function(res){
 		deferred.resolve(res);
+		$scope.vila=res.data[0];
 		$rootScope.cargador=false;
+		$scope.ass.idVila=$scope.vila.idVila;
 		$scope.ass.email=$scope.vila.email;
 		$scope.ass.pasMail=$scope.vila.pasMail;
 		$scope.ass.logoVila=$scope.vila.logoVila;
@@ -54,61 +58,62 @@ angular.module('vila')
 		$scope.ass.longitud=$scope.vila.longitud;
 		$scope.ass.LGPD=$scope.vila.LGPD;
 		$scope.ass.URLWeb=$scope.vila.URLWeb;
-		
+		console.log($scope.ass.email);
 	})
 	.catch(function(error) {
 		$rootScope.cargador=false;
 	});
-	$scope.guardar=function(){
-		$scope.divMsj=true;
-		if($scope.ass.equip=="" || $scope.ass.quiSom==""){
-			$scope.msj="Les dades no s'han actualitzat correctament. Sisplau ompli els camps buits";
-			$timeout(function() {
-				$scope.divMsj=false;
-			}, 3000);
-		}
-		else{
-			$scope.msj="Les dades s'han actualitzat correctament.";
-			var data = new FormData();
-				data.append("email",$scope.ass.email);
-				data.append("pasMail",$scope.ass.pasMail);
-				data.append("logoVila",$scope.ass.logoVila);
-				data.append("facebook",$scope.ass.facebook);
-				data.append("kayApi",$scope.ass.kayApi);
-				data.append("password",$scope.ass.password);
-				data.append("logoBolsa",$scope.ass.logoBolsa);
-				data.append("favIcon",$scope.ass.favIcon);
-				data.append("telf",$scope.ass.telf);
-				data.append("horari",$scope.ass.horari);
-				data.append("nom",$scope.ass.nom);
-				data.append("quiSom",$scope.ass.quiSom);
-				data.append("equip",$scope.ass.equip);
-				data.append("latitud",$scope.ass.latitud);
-				data.append("longitud",$scope.ass.longitud);
-				data.append("LGPD",$scope.ass.LGPD);
-				data.append("URLWeb",$scope.ass.URLWeb);
-				var deferred=$q.defer();
-			$rootScope.cargador=true;
-			$http.post("models/associacio.php", data,{
-				headers:{
-					"Content-type":undefined
-				},
-					transformRequest:angular.identity
-			})
-			.then(function(res){
-				deferred.resolve(res);
-				$rootScope.cargador=false;
-				$timeout(function() {
-					$scope.divMsj=false;
-				}, 2000);
-			})
-			.catch(function(error) {
-				$rootScope.cargador=false;
-			});
-		}
+	$scope.submitAss=function(){
+		// if($scope.ass.nom=="" || $scope.ass.telf=="" || $scope.ass.facebook=="" || $scope.ass.URLWeb=="" ||  $scope.ass.email=="" ||  $scope.ass.pasMail=="" ||  $scope.ass.horari=="" ||  $scope.ass.latitud=="" || $scope.ass.longitud=="" || $scope.ass.keyApi=="" || $scope.ass.quiSom=="" || $scope.ass.equip=="" || $scope.ass.LGPD==""){
+		// 	$scope.msj="Les dades no s'han actualitzat correctament. Sisplau ompli els camps buits";
+		// 	$scope.divMsj=true;
+		// 	$timeout(function() {
+		// 		$scope.divMsj=false;
+		// 	}, 3000);
+		// }
+		// else{
+		// 	$scope.msj="Les dades s'han actualitzat correctament.";
+		// 	var data = new FormData();
+		// 		data.append("idVila",$scope.ass.idVila);
+		// 		data.append("email",$scope.ass.email);
+		// 		data.append("pasMail",$scope.ass.pasMail);
+		// 		data.append("logoVila",$scope.ass.logoVila);
+		// 		data.append("facebook",$scope.ass.facebook);
+		// 		data.append("kayApi",$scope.ass.kayApi);
+		// 		data.append("password",$scope.ass.password);
+		// 		data.append("logoBolsa",$scope.ass.logoBolsa);
+		// 		data.append("favIcon",$scope.ass.favIcon);
+		// 		data.append("telf",$scope.ass.telf);
+		// 		data.append("horari",$scope.ass.horari);
+		// 		data.append("nom",$scope.ass.nom);
+		// 		data.append("quiSom",$scope.ass.quiSom);
+		// 		data.append("equip",$scope.ass.equip);
+		// 		data.append("latitud",$scope.ass.latitud);
+		// 		data.append("longitud",$scope.ass.longitud);
+		// 		data.append("LGPD",$scope.ass.LGPD);
+		// 		data.append("URLWeb",$scope.ass.URLWeb);
+		// 		var deferred=$q.defer();
+		// 	$rootScope.cargador=true;
+		// 	$http.post("models/associacio.php", data,{
+		// 		headers:{
+		// 			"Content-type":undefined
+		// 		},
+		// 			transformRequest:angular.identity
+		// 	})
+		// 	.then(function(res){
+		// 		deferred.resolve(res);
+		// 		$rootScope.cargador=false;
+		// 		$timeout(function() {
+		// 			$scope.divMsj=false;
+		// 		}, 2000);
+		// 	})
+		// 	.catch(function(error) {
+		// 		$rootScope.cargador=false;
+		// 	});
+		// }
 	}
 })	
-.controller('DirectCtrl',function(){
+.controller('DirectCtrl',function($scope,$http,$q,$rootScope,$routeParams,$timeout,$window){
 	var data = new FormData();
 		data.append("acc","l");
 
@@ -122,39 +127,37 @@ angular.module('vila')
 	})
 	.then(function(res){
 		deferred.resolve(res);
+		$scope.directoris=res.data;
 		$rootScope.cargador=false;
+		console.log(res.data);
 	})
 	.catch(function(error) {
 		$rootScope.cargador=false;
 	});
+	window.onscroll = function() {scrollFunction()};
+
+	function scrollFunction() {
+	    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+	        document.getElementById("goTop").style.display = "block";
+	    } else {
+	        document.getElementById("goTop").style.display = "none";
+	    }
+	}
+ 	$scope.goTop=function(){
+ 		var element = document.getElementById("divTop");
+	    element.scrollIntoView({block: "end", behavior: "smooth"});
+ 	}
+	$scope.columnOrder=function(columna){
+		$scope.order=columna;
+	}
 })
-.controller('ContactCtrl',function(){
-	var data = new FormData();
-		data.append("acc", "favi");
-	var deferred=$q.defer();
-	
-	$http.post("models/home.php", data,{
-	headers:{
-		"Content-type":undefined
-	},
-	transformRequest:angular.identity
-
-	})
-	.then(function(resIcon){
-		deferred.resolve(resIcon);
-		$rootScope.favIcon=resIcon.data[0].favIcon;
-		$rootScope.logo=resIcon.data[0].logo;
-		$rootScope.cargador=false;
-	})
-	.catch(function(error){
-		$rootScope.cargador=false;
-
-	});
-
+.controller('DirectComerCtrl',function($scope,$http,$q,$rootScope,$routeParams,$timeout,$window){
 	var data = new FormData();
 		data.append("acc","l");
-    var deferred=$q.defer();
-	$http.post("models/contactes.php", data,{
+
+	var deferred=$q.defer();
+	$rootScope.cargador=true;
+	$http.post("models/directori.php", data,{
 		headers:{
 			"Content-type":undefined
 		},
@@ -162,7 +165,7 @@ angular.module('vila')
 	})
 	.then(function(res){
 		deferred.resolve(res);
-		$scope.contactans=res.data;
+		$scope.directoris=res.data;
 		$rootScope.cargador=false;
 	})
 	.catch(function(error) {
@@ -184,6 +187,126 @@ angular.module('vila')
 	$scope.columnOrder=function(columna){
 		$scope.order=columna;
 	}
+})
+.controller('ContactCtrl',function($scope,$http,$q,$rootScope,$timeout,$window){
+	var data = new FormData();
+		data.append("acc", "favi");
+	var deferred=$q.defer();
+	
+	$http.post("models/associacio.php", data,{
+	headers:{
+		"Content-type":undefined
+	},
+	transformRequest:angular.identity
+
+	})
+	.then(function(resIcon){
+		deferred.resolve(resIcon);
+		$rootScope.favIcon=resIcon.data[0].favIcon;
+		$rootScope.logo=resIcon.data[0].logo;
+		$rootScope.cargador=false;
+	})
+	.catch(function(error){
+		$rootScope.cargador=false;
+
+	});
+
+	var data = new FormData();
+		data.append("acc","l");
+    var deferred=$q.defer();
+	$http.post("models/contactans.php", data,{
+		headers:{
+			"Content-type":undefined
+		},
+		transformRequest:angular.identity
+	})
+	.then(function(res){
+		deferred.resolve(res);
+		$scope.contactans=res.data;
+		$rootScope.cargador=false;
+		console.log(res.data);
+	})
+	.catch(function(error) {
+		$rootScope.cargador=false;
+	});
+	window.onscroll = function() {scrollFunction()};
+
+	function scrollFunction() {
+	    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+	        document.getElementById("goTop").style.display = "block";
+	    } else {
+	        document.getElementById("goTop").style.display = "none";
+	    }
+	}
+ 	$scope.goTop=function(){
+ 		var element = document.getElementById("divTop");
+	    element.scrollIntoView({block: "end", behavior: "smooth"});
+ 	}
+	$scope.columnOrder=function(columna){
+		$scope.order=columna;
+	}
+})
+.controller('SociCtrl',function($scope,$http,$q,$rootScope,$timeout,$window){
+	var data = new FormData();
+		data.append("acc", "favi");
+	var deferred=$q.defer();
+	
+	$http.post("models/associacio.php", data,{
+	headers:{
+		"Content-type":undefined
+	},
+	transformRequest:angular.identity
+
+	})
+	.then(function(resIcon){
+		deferred.resolve(resIcon);
+		$rootScope.favIcon=resIcon.data[0].favIcon;
+		$rootScope.logo=resIcon.data[0].logo;
+		$rootScope.cargador=false;
+	})
+	.catch(function(error){
+		$rootScope.cargador=false;
+
+	});
+
+	var data = new FormData();
+		data.append("acc","l");
+    var deferred=$q.defer();
+	$http.post("models/solicitutsoc.php", data,{
+		headers:{
+			"Content-type":undefined
+		},
+		transformRequest:angular.identity
+	})
+	.then(function(res){
+		deferred.resolve(res);
+		$scope.solicituts=res.data;
+		$rootScope.cargador=false;
+		console.log(res.data);
+	})
+	.catch(function(error) {
+		$rootScope.cargador=false;
+	});
+	window.onscroll = function() {scrollFunction()};
+
+	function scrollFunction() {
+	    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+	        document.getElementById("goTop").style.display = "block";
+	    } else {
+	        document.getElementById("goTop").style.display = "none";
+	    }
+	}
+ 	$scope.goTop=function(){
+ 		var element = document.getElementById("divTop");
+	    element.scrollIntoView({block: "end", behavior: "smooth"});
+ 	}
+	$scope.columnOrder=function(columna){
+		$scope.order=columna;
+	}
+})
+.controller('FiramarCtrl',function($scope, $http, $q, $timeout, $rootScope) {
+
+
 })
 .controller('LogoutCtrl',function($scope,$http){
 	$http({

@@ -52,31 +52,32 @@
 		<br>
 		<br>
 
-		<div ng-repeat="esdeveniment in esdeveniments | filter:{proxim:1} | orderBy:-dataAng" class="col-lg-6 col-md-12">
+		<div ng-repeat="noticia in noticies | filter:{proxim:2} | orderBy:-dataAng" class="col-lg-6 col-md-12">
+
 			<div class="row">
 				<div class="col-lg-6 col-md-6">
 					<div class="group-item">
 						<div class="imagecontainer is-cover">
-							<a ng-href="#/esdeveniment/{{esdeveniment.idEsdev}}">
-								<img ng-src="{{esdeveniment.foto!=''?'img/esdeveniments/'+esdeveniment.foto:'img/noimage.png'}}" class="imagecontainer-img lazyload" alt="esdeveniment">
+							<a ng-href="#/noticia/{{noticia.idEsdev}}">
+								<img ng-src="{{noticia.foto!=''?'img/noticies/'+noticia.foto:'img/noimage.png'}}" class="imagecontainer-img lazyload" alt="noticia">
 							</a>
 						</div>
 					</div>
 				</div>
 				<div class="col-lg-6 col-md-6">
 					<div class="dataEstilo">
-						{{esdeveniment.dataEsdeveniment}}h
+						{{noticia.dataNoticia}}
 					</div>
 
 					<div class="titularEstilo">
-						<a ng-href="#/esdeveniment/{{esdeveniment.idEsdev}}">
-						{{esdeveniment.titular | uppercase}}
+						<a ng-href="#/noticia/{{noticia.idEsdev}}">
+						{{noticia.titolNoticia}}
 						</a>
 					</div>
 
 					<div class="descripcioEstilo">
-						{{esdeveniment.descripcio | limitTo:100}}...
-						<a ng-href="#/esdeveniment/{{esdeveniment.idEsdev}}" class="colorLink">Llegir més{{esdevenimentsMas}}</a>
+						{{noticia.txtNoticia | limitTo:100}}...
+						<a ng-href="#/noticia/{{noticia.idEsdev}}" class="colorLink">Llegir més</a>
 					</div>
 				</div>
 			</div>

@@ -8,13 +8,14 @@
 	
 		if(isset($_POST['acc'])&&$_POST['acc']=='log'){
 			
-		$mySql="SELECT `email`, `nom` FROM $tbl_vila WHERE `email` ='".$_POST['vila']."' AND `password`='".sha1(md5($_POST['contra']))."'";
+		$mySql="SELECT `idVila`, `email`, `nom` FROM $tbl_vila WHERE `email` ='".$_POST['vila']."' AND `password`='".sha1(md5($_POST['contra']))."'";
 		$connexio=connect();
 		$resultUser=mysqli_query($connexio,$mySql); 
 		disconnect($connexio);
 		if((mySqli_num_rows($resultUser))!=0)
 		{
 				while($row=mySqli_fetch_array($resultUser)){
+					$_SESSION['vila']['idVila']=$row['idVila'];
 					$_SESSION['vila']['email']=$row['email'];
 					$_SESSION['vila']['nom']=$row['nom'];	
 				}

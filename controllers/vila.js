@@ -21,6 +21,9 @@ angular.module('vila')
 		// })
 
 })
+.controller('HomeCtrl',function($scope,$http,$q,$rootScope,$timeout,$window,$document){
+})
+
 .controller('AssociacioCtrl',function($scope,$http,$q,$rootScope,$timeout,$window,$document){
 	
 	var data = new FormData();
@@ -45,6 +48,7 @@ angular.module('vila')
 	});
 	
 })
+<<<<<<< HEAD
 .controller('ContactaCtrl',function($scope,$http,$q,$rootScope,$timeout,$window,$document){
 
 	$scope.muestraInput=false;
@@ -82,12 +86,15 @@ angular.module('vila')
    		});
 	});
 
+=======
+
+.controller('DirectoriCtrl',function($scope,$http,$q,$rootScope,$timeout,$window,$document){
+	console.log("llega");
+>>>>>>> 89819b74e390e9e2aa36406860439958e5473c0f
 })
-
-
 .controller('NoticiesCtrl',function($scope,$http,$q,$rootScope,$timeout,$window,$document){
 	console.log("sí, así es");
-	// $scope.llistat=false;
+	$scope.llistat=false;
 	$rootScope.cargador=true;
 	var data = new FormData();
 		data.append("acc","l");
@@ -101,10 +108,54 @@ angular.module('vila')
 	.then(function(res){
 		deferred.resolve(res);
 		$rootScope.cargador=false;
-		$scope.noticies=res.data[0];
-		console.log(res.data);
+		$scope.noticies=res.data;
+		console.log("llega: "+res.data);
 	})
 	.catch(function(error) {
 		$rootScope.cargador=false;
 		});
 })
+
+.controller('NoticiaCtrl',function($scope,$http,$q,$routeParams,$rootScope){
+	$scope.llistat=false;
+	$rootScope.cargador=true;
+	var data = new FormData();
+		data.append("acc","l");
+		data.append("idNoticia",$routeParams.idNoticia);
+	var deferred=$q.defer();
+	$http.post("models/noticies.php", data,{
+		headers:{
+			"Content-type":undefined
+		},
+		transformRequest:angular.identity
+	})
+	.then(function(res){
+		deferred.resolve(res);
+		$rootScope.cargador=false;
+		$scope.noticia=res.data[0];
+	})
+	.catch(function(error) {
+		$rootScope.cargador=false;
+		});
+})
+
+.controller('FiramarCtrl',function($scope,$http,$q,$rootScope,$timeout,$window,$document){
+	console.log("sí, así es");
+
+})
+.controller('ContactaCtrl',function($scope,$http,$q,$rootScope,$timeout,$window,$document){
+
+	$scope.muestraInput=false;
+
+	$scope.muestraNom=function(tipo)
+	{
+		$scope.muestraInput=tipo;
+	}
+})
+.controller('PoliticaCtrl',function($scope,$http,$q,$rootScope,$timeout,$window,$document){
+
+	$scope.muestraInput="holaaa";
+
+	
+})
+

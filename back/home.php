@@ -36,29 +36,20 @@
   			<div class="collapse navbar-collapse navReduced" id="navbarNavDropdown">
    			 	<ul class="navbar-nav">
      				<li class="nav-item active reduceNav">
-        				<a class="nav-link" href="#/">Titulo 1 </a>
+        				<a class="nav-link" href="#/associacio">Dades Associacio</a>
      				</li>
       				<li class="nav-item reduceNav">
-        				<a class="nav-link" href="#/">Titulo 2</a>
-      				</li>
-      				<li class="nav-item dropdown ">
-        				<a class="nav-link dropdown-toggle cursor" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          					Dropdown 1
-        				</a>
-				        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-				        	<a class="dropdown-item reduceNav" href="#/">Dropdown op 1</a>
-				        	<a class="dropdown-item reduceNav" href="#/">Dropdown op 2</a>
-				        	<a class="dropdown-item reduceNav" href="#/">Dropdown op 3</a>
-				        </div>
-     				</li>
-      				<li class="nav-item reduceNav">
-        				<a class="nav-link" href="#/">Titulo 3</a>
+        				<a class="nav-link" href="#/directori">Manteniment Directori</a>
       				</li>
       				<li class="nav-item reduceNav">
-       					<a class="nav-link" href="#/">Titulo 4</a>
+        				<a class="nav-link" href="#/firamar">Firamar</a>
+      				</li>
+     				<li class="nav-item reduceNav">
+       					<a class="nav-link" href="#/solicitutsoci">Llistat solicitud de socis</a>
+
      				</li>
      				<li class="nav-item reduceNav">
-       					<a class="nav-link" href="#/">Titulo 5</a>
+       					<a class="nav-link" href="#/contactans">Contacta´ns</a>
      				</li>
      				<li class="nav-item p d-block d-lg-none reduceNav">
 
@@ -73,8 +64,9 @@
 
 					<ul class="navbar-nav flex-row ml-md-auto d-none d-lg-flex">
 						<li class="nav-item pt-2 pr-3">
+ 						
+ 						<?php if(isset($_SESSION['vila']['nom'])) echo $_SESSION['vila']['nom']?>
 
-     				
      					</li>
      					<li class="nav-item ml-3">
     						<a class=" nav-link pt-1 fas fa-sign-out-alt fa-2x" href="#/logout"></a>

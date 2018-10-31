@@ -1,5 +1,5 @@
 <?php 
-	$tbl_contactans="contactans";
+	$tbl_solicitutsoc="solicitutssocis";
 
 	require("../../inc/functions.php");
 
@@ -11,25 +11,26 @@
 	}
 
 	if(isset($_POST['acc'])&&$_POST['acc']=='l'){
-		echo llistatContact($tbl_contactans);
+		echo llistatSocis($tbl_solicitutsoc);
 	}
-	function llistatContact($tbl_contactans){
-		$mySql="SELECT `email`,`idContacte`,`nomContacte`, `cognomContacte`, `tipus`, `telf`, `nomEmpresa`, `txtContacte`, DATE_FORMAT(`dataContacte`,'%d/%m/%Y' ) AS 'dataContacte' FROM $tbl_contactans";
+	function llistatSocis($tbl_solicitutsoc){
+		$mySql="SELECT `email`,`idSolicitut`,`nomComercial`, `sectorComercial`, `adreca`, `telf`, `personaContacte`, `horari`, DATE_FORMAT(`dataSolicitut`,'%d/%m/%Y' ) AS 'dataSolicitut' FROM $tbl_solicitutsoc";
 		// echo $mySql;
 		$connexio=connect();
-		$resultContact=mySqli_query($connexio,$mySql);
+		$resultSolicit=mySqli_query($connexio,$mySql);
 		disconnect($connexio);
 		
 		
 		$rows = array();
 
-		while ($r = mySqli_fetch_array($resultContact)) {
+		while ($r = mySqli_fetch_array($resultSolicit)) {
 			$rows[] = $r;
 			
 		}
 		for ($i=0; $i<sizeof($rows); $i++) { 
 			$rows[$i][2]=replaceFromBBDD($rows[$i][2]);
 			$rows[$i][3]=replaceFromBBDD($rows[$i][3]);
+			$rows[$i][4]=replaceFromBBDD($rows[$i][4]);
 			$rows[$i][6]=replaceFromBBDD($rows[$i][6]);
 			$rows[$i][7]=replaceFromBBDD($rows[$i][7]);
 		}
