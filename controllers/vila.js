@@ -25,7 +25,6 @@ angular.module('vila')
 
 .controller('HomeCtrl',function($scope,$http,$q,$rootScope,$timeout,$window,$document){
 	$rootScope.cargador=true;
-	console.log("olaaaxd");
 
 	$(window).resize(function() {
    if(this.resizeTO) clearTimeout(this.resizeTO);
@@ -73,7 +72,6 @@ angular.module('vila')
 	var data = new FormData();
 		data.append("acc","l");
 	var deferred=$q.defer();
-	console.log("aasdasdasd");
 	$rootScope.cargador=true;
 	$http.post("models/associacio.php", data,{
 				headers:{
@@ -93,29 +91,11 @@ angular.module('vila')
 	
 })
 
-.controller('ContactaCtrl',function($scope,$http,$q,$rootScope,$timeout,$window,$document){
-
-	$scope.muestraInput=false;
-
-	$scope.muestraNom=function(tipo)
-	{
-		$scope.muestraInput=tipo;
-	}
-})
-.controller('PoliticaCtrl',function($scope,$http,$q,$rootScope,$timeout,$window,$document){
-
-	$scope.muestraInput="holaaa";
-	
-})
-
-
 
 .controller('DirectoriCtrl',function($scope,$http,$q,$rootScope,$timeout,$window,$document){
-	console.log("llega");
 
 })
 .controller('NoticiesCtrl',function($scope,$http,$q,$rootScope,$timeout,$window,$document){
-	console.log("sí, así es");
 	$scope.llistat=true;
 	$rootScope.cargador=true;
 	var data = new FormData();
@@ -161,7 +141,6 @@ angular.module('vila')
 })
 
 .controller('FiramarCtrl',function($scope,$http,$q,$rootScope,$timeout,$window,$document){
-	console.log("Hola");
 
 })
 .controller('ContactaCtrl',function($scope,$http,$q,$rootScope,$timeout,$window,$document){
@@ -199,7 +178,7 @@ angular.module('vila')
 			.then(function(res){
 				deferred.resolve(res);
 				$scope.contactaLlistat = res.data[0];
-				console.log(res.data);
+				// console.log(res.data);
 				$rootScope.cargador=false;
 			})
 
@@ -211,6 +190,17 @@ angular.module('vila')
 			else{
 				$scope.contactans.checkTipo="Empresa";
 			}
+		console.log($scope.contactans.checkTipo);
+	}
+	$scope.NomComercialVacio=function()
+	{
+		$scope.contactans.checkTipo="Empresa";
+		{
+			$scope.msg="No puede estar vacio el campo Nom Comercial";
+			$timeout(function(){
+				$scope.contactaMissatge=false;
+			},3000);
+		}
 		console.log($scope.contactans.checkTipo);
 	}
 	$scope.enviaEmail=function(){
@@ -259,8 +249,21 @@ angular.module('vila')
 			$scope.contactans.telefon="";
 			$scope.contactans.nomEmpresa="";
 			$scope.contactans.txtContacte="";
-	
+			if(res.data.trim()=="ok") {
+			$scope.msg="Missatge registrat";
+			$timeout(function(){
+				$scope.contactaMissatge=false;
+				window.location.reload();
+			},3000);
+		}
+		else{
+			$scope.msg="verifica dades";
+		}
+		
+		$scope.contactaMissatge=true;
+		$rootScope.cargador=false;
 		})
+
 		.catch(function(error) {
 			$rootScope.cargador=false;
 			});
@@ -322,16 +325,31 @@ else{
 		
 		$scope.contactaMissatge=true;
 		$rootScope.cargador=false;
-	})
-	.catch(function(error) {
-		$rootScope.cargador=false;
+		})
+		.catch(function(error) {
+			$rootScope.cargador=false;
 		});
 	}
-	}
+}
 })
 .controller('PoliticaCtrl',function($scope,$http,$q,$rootScope,$timeout,$window,$document){
-
-	$scope.muestraInput="holaaa";
-
-	
+var data = new FormData();
+				data.append("acc","l");
+			var deferred=$q.defer();
+			$rootScope.cargador=true;
+			$http.post("models/contacta.php", data,{
+				headers:{
+					"Content-type":undefined
+				},
+					transformRequest:angular.identity
+			})
+			.then(function(res){
+				deferred.resolve(res);
+				$scope.contactaLlistat = res.data[0];
+				console.log(res.data);
+				$rootScope.cargador=false;
+			})
+			.catch(function(error) {
+				$rootScope.cargador=false;
+			});
 })

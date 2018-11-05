@@ -32,7 +32,7 @@
 	{
 		$tbl_Vila="vila";
 		$mySql="SELECT `logoVila`,`facebook`, `nom`, `horari`, `telf`, `email`,`LGPD`
-				FROM $tbl_vila";
+				FROM $tbl_Vila";
 				
 		$connexio=connect();
 		$resultMail=mysqli_query($connexio,$mySql); 
@@ -216,7 +216,7 @@
 		// $mail->SMTPDebug = 2; //para que muestre lo que va haciendo conexión SMTP
 
 		
-		$mail->AddReplyTo($emailColla);//Dirección de respuesta
+		$mail->AddReplyTo($email);//Dirección de respuesta
 		$mail->AddAddress($mailTo);//Dirección de envío.
 		$mail->Timeout=5;
 		$mail->IsHTML(true); 
@@ -249,7 +249,7 @@
 
 		if ($copia=="si") {
 			$mail->Subject = "Copia de contacte per formulari ";
-			$mail->AddAddress($emailVila);//Dirección de envío.
+			$mail->AddAddress($email);//Dirección de envío.
 			$exito = $mail->Send();
 			$mail->ClearAddresses();
 		}

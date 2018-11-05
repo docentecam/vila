@@ -52,12 +52,12 @@
 // echo $mySqlInsertSoci;
  		 $connexio=connect();
 		 $resultVila=mysqli_query($connexio,$mySql); 
-		  $resultSolicitutSoci=mysqli_query($connexio,$mySqlInsertSoci); 
+		 $resultSolicitutSoci=mysqli_query($connexio,$mySqlInsertSoci); 
 		 disconnect($connexio);		
-		$dadesVila=mysqli_fetch_row($resultVila);
+		 $dadesVila=mysqli_fetch_row($resultVila);
 echo "ok";
 		
-		$envio=sendMail($_POST['email'],"Benvinguts!",donarFormat("Hola <b>".$_POST['nom']."</b>!<br>Ara que ets un afiliat més a la nostra associació, gaudiràs d'estar al dia de totes les novetats i esdeveniments.<br>No oblidis que qualsevol dubte que puguis tenir, pots contactar amb nosaltres sempre que vulguis.<br>Et convidem a donar-li una ullada a la <a href='".$dadesVila[2]."' target='_blank'>pàgina web</a> i a les nostres xarxes socials on trobaràs molta més informació.<br>Dit això, ens veiem aviat! <br>
+		$envio=sendMail($_POST['email'],"Benvinguts!",donarFormat("Hola <b>".$_POST['nomComercial']."</b>!<br>Ara que ets un afiliat més a la nostra associació, gaudiràs d'estar al dia de totes les novetats i esdeveniments.<br>No oblidis que qualsevol dubte que puguis tenir, pots contactar amb nosaltres sempre que vulguis.<br>Et convidem a donar-li una ullada a la <a href='".$dadesVila[2]."' target='_blank'>pàgina web</a> i a les nostres xarxes socials on trobaràs molta més informació.<br>Dit això, ens veiem aviat! <br>
 			"),"simpat");
 		echo "ok";
 

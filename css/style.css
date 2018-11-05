@@ -50,6 +50,10 @@ a.PolitPriva:link, a.PolitPriva:visited, a.PolitPriva:hover{
 	color: #cb418e!important;
 	font-weight: bold;
 }
+a.Whatsapp:link, a.Whatsapp:visited, a.Whatsapp:hover{
+	color: #01E675!important;
+	font-weight: bold;
+}
 
 i,.cursor{
 	cursor:pointer;

@@ -4,7 +4,7 @@
 <div class="row">
 	<div class="col-12 col-md-8 ">
 		<div class="row">
-			<div class="col-lg-12 offset-0  alert alert-info pt-4 text-dark" role="alert" ng-show="contactaMissatge">{{formAlertObligat}} {{msg}}</div>
+			<div class="col-lg-12 offset-0  alert alert-danger pt-4 text-dark" role="alert" ng-show="contactaMissatge">{{msg}}</div>
 			<form name="formContacta" ng-submit="enviaEmail()" novalidate ng-hide="contactaMissatge">
 				<div class=" form-row">
 					
@@ -29,6 +29,7 @@
 					      </label>
 					    </div>
 					</div>
+					<!-- muestraaaaaa nom comercial 1er formulario********* -->
 					<div ng-show="muestraInput">
 						<div class="form-group col-md-12 mb-3" ng-class="{ 'has-error' : formContacta.nomEmpresa.$invalid && !formContacta.nomEmpresa.$pristine }">
 			            <input type="text" name="nomEmpresa" class="form-control" ng-model="contactans.nomEmpresa"  placeholder="Nom Comercial"  ng-maxlength="30">
@@ -86,20 +87,22 @@
 					<img class="img-fluid" ng-src="img/{{contactaLlistat.logoVila}}"  title="Logo vila">
 					<h4 class="tipoSubTitulo mt-2">{{contactaLlistat.nom}}</h4>
 				</div>
-				<div class="col-12 mt-4">
-					<span><b>Telèfon:</b>{{contTel}}</span><br>
-					<i class="fab fa-whatsapp mr-3"><span class="tipoTexto">{{contactaLlistat.telf}}</span></i><br>
-					<span><b>Email:</b><span class="tipoTexto">{{contactaLlistat.email}}</span></span><br>
+				<div class="col-12 mt-3">
+					<span><b>Telèfon:</b></span><br>
+						<a class="fab fa-whatsapp fa-2x ml-1 Whatsapp" ng-href="https://api.whatsapp.com/send?phone=34{{contactaLlistat.telf}}"  target="_blank" title="Enviar whatsapp"></a>
+						<a ng-href="tel:{{contactaLlistat.telf}}" target="_blank" title="Trucar per telèfon">
+					<span class="tipoTexto">{{contactaLlistat.telf}}</span></a><br>
+					<span><b>Correu electrònic:</b></span><br>
+						<a class="tipoTexto ml-1" ng-href="mailto:{{contactaLlistat.email}}" target="_blank" title="Enviar correu">{{contactaLlistat.email}}</a><br>
 					<span><b>Horaris per contactar:</b></span><br>
 					<span class="tipoTexto">
-						{{contactaLlistat.horari}}
+						<div>{{contactaLlistat.horari}}</div>
 					</span><br>
-					<a ng-href="{{contactaLlistat.facebook}}" target="_blank"><i class="fab fa-facebook-square fa-2x fa-lg mt-2" ng-href="{{contactaLlistat.facebook}}" target="_blank"></i></a><br>
-
+					<a ng-href="{{contactaLlistat.facebook}}" target="_blank"><i class="fab fa-facebook-square fa-2x fa-lg mt-3" ng-href="{{contactaLlistat.facebook}}" target="_blank" title="Facebook Vila"></i></a><br>
 				</div> 
-		</div>	
+		</div>
 	</div>
-</div>
+
 
 <div class="modal fade" id="modalFitxa" tabindex="-1" role="dialog" aria-labelledby="modalFitxaCentered" aria-hidden="true">
 	<div class="modal-dialog modal-dialog2 modal-dialog-centered col-12" role="document">
@@ -108,7 +111,7 @@
 		      		<div class="container-fluid">
 							<div class="row">
 							 	<div ng-hide="fitxaSuccess">
-								 	<div class="my-2 mb-md-4 mb-2 tipoTitulo"> SOCI{{fitxaAfi}}
+								 	<div class="my-2 mb-md-4 mb-2 tipoTitulo"> FER-TE SOCI {{fitxaAfi}}
 								 		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 								          <span aria-hidden="true">&times;</span>
 								        </button>
