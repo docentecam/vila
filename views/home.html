@@ -37,33 +37,36 @@
 
 <div class="h_divider mb-1 mt-1"></div>
 
-<div class="tipoTitulo mt-4">
+<div class="tipoTitulo mt-4 mb-3">
 	Notícies destacades
 </div>
 
 <div class="row">
-	<div ng-repeat="noticia in noticiesDestacades | orderBy:noticia.dataNoticia" ng-href="#/noticies/{{noticia.idNoticia}}" class="">
-		<div class="row">
-			
-			<div class="card">
-				<div class="group-item">
-					<div class="imagecontainer is-cover">	
-						<a ng-href="#/noticia/{{noticia.idNoticia}}">
-							<img ng-src="{{noticia.fotoNoticia!='' ? 'img/noticies/'+noticia.fotoNoticia : 'img/noimage.png'}}" class="imagecontainer-img lazyload" alt="noticia">
-						</a>
+	<div ng-repeat="noticia in noticiesDestacades | orderBy:noticia.dataNoticia" ng-href="#/noticies/{{noticia.idNoticia}}" class="col-6">
+		
+		<div class="row align-items-center">
+			<div class="col">
+				<div class="card">
+					<div class="group-item">
+						<div class="imagecontainer is-cover">	
+							<a ng-href="#/noticia/{{noticia.idNoticia}}">
+								<img ng-src="{{noticia.fotoNoticia!='' ? 'img/noticies/'+noticia.fotoNoticia : 'img/noimage.png'}}" class="imagecontainer-img lazyload" alt="noticia">
+							</a>
+						</div>
 					</div>
 				</div>
 			</div>
 			
+			
 			<div class="col">
-				<div class="tipoTexto mb-1">
-					{{noticia.dataNoticia}}
-				</div>
-
-				<div class="tipoSubTitulo mt-4 mb-1">
+				<div class="tipoSubTitulo mb-1">
 					<a ng-href="#/noticia/{{noticia.idNoticia}}">
 					{{noticia.titolNoticia}}
 					</a>
+				</div>
+
+				<div class="tipoTexto mb-1">
+					{{noticia.dataNoticia}}
 				</div>
 
 				<div class="tipoTexto">
@@ -74,6 +77,8 @@
 				</div>
 			</div>
 		</div>
+
+		
 	</div>
 </div>
 
