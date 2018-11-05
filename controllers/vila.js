@@ -26,24 +26,24 @@ angular.module('vila')
 .controller('HomeCtrl',function($scope,$http,$q,$rootScope,$timeout,$window,$document){
 	$rootScope.cargador=true;
 
-	$(window).resize(function() {
-   if(this.resizeTO) clearTimeout(this.resizeTO);
-   this.resizeTO = setTimeout(function() {
-      $(this).trigger('resizeEnd');
-   }, 500);
-	});
-	$(window).bind('resizeEnd', function() {
-   var url = $('#$WrapperID').data('refresh');
-   $('#$WrapperID').fadeOut("slow", function() {
-      $('#$WrapperID').load(url, { width: $('#$HTMLID').width() },
-      function() {
-         FB.XFBML.parse(document.getElementById('$WrapperID'),
-         function() {
-            $('#$WrapperID').fadeIn("slow");
-         		});
-      		})
-   		});
-	});
+	var TIMEOUT = null;
+$(window).on('resize', function() {
+    if(TIMEOUT === null) {
+        TIMEOUT = window.setTimeout(function() {
+            TIMEOUT = null;
+            //fb_iframe_widget class is added after first FB.FXBML.parse()
+            //fb_iframe_widget_fluid is added in same situation, but only for mobile devices (tablets, phones)
+            //By removing those classes FB.XFBML.parse() will reset the plugin widths.
+            $('.fb-page').removeClass('fb_iframe_widget fb_iframe_widget_fluid');
+            FB.XFBML.parse();
+        }, 300);
+    }
+});
+
+var altoFace=500;
+var altoBanner=altoFace/3;
+console.log($("#frameFb").height());
+$("#banner1").height(($("#frameFb").height())/3);
 
 	var data = new FormData();
 				data.append("acc","l");

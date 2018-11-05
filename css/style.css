@@ -14,6 +14,11 @@ Morado: #4f307e
 
 @import url('https://fonts.googleapis.com/css?family=Bitter|Oswald:700|Roboto:300,400');
 
+#frameFb{
+	width: 500px;
+	height: 500px;
+}
+
 body .no-padding{
   padding-left: 0;
   padding-right: 0;
@@ -253,6 +258,56 @@ info:not(:disabled):not(.disabled):active:focus, .show>.btn-info.dropdown-toggle
 	border-color: #e7ab3b;
 }
 
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+.imagecontainer {
+  position: relative;
+  overflow: hidden;
+  transform: translateZ(0);
+}
+
+.imagecontainer:before {
+  display: block;
+  width: 100%;
+  content: "";
+  padding-bottom: 100%;
+  height: 0;
+}
+
+.imagecontainer-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  transition: 400ms transform;
+}
+
+.is-contain.imagecontainer .imagecontainer-img {
+  object-fit: contain;
+  font-family: "object-fit: contain";
+}
+
+.imagecontainer:hover .imagecontainer-img {
+  transform: scale(1.1);
+}
+
+.group {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+
 @media (max-width: 575px){
 	.centrarFooterMovil{
 		text-align: center;
@@ -266,11 +321,22 @@ info:not(:disabled):not(.disabled):active:focus, .show>.btn-info.dropdown-toggle
 }
 
 @media (min-width: 768px) and (max-width: 991px){
+
 	.centrarFooterMovil{
 		text-align: center;
 	}
-}
+	#frameFb{
+		width: 287px!important;
+		height: 500px;
+	}
 
+}
+@media (min-width: 768px){ /*ESTO ES PARA PANTALLAS DE 768 < */
+
+	.bannerAlto{
+		height: 166.6px;
+	}
+}
 @media (min-width: 992px) and (max-width: 1199px){
 
 }
