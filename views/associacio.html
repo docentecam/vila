@@ -5,7 +5,7 @@
 	<div class="text-center col-12 tipoTexto">
 		<p>
 		{{vila.quiSom}}
-		{{vila.equip}}
+		
 		</p>
 	</div>
 	
@@ -14,11 +14,10 @@
 	<div class="tipoTitulo mt-5 col-12 text-center tipoTitulo">
 		Serveis
 	</div>
-	<div class="text-center col-12 tipoTexto">
-		{{serveis.nomServei}}
-		<p>
-			{{serveis.txtServei}}
-		</p>
+	<div ng-repeat="servei in serveis" class="col-12 tipoTexto">
+			<p class="tipoTextoNegrita">{{servei.nomServei}}:</p>
+			<p>{{servei.txtServei}}</p>
+		
 	</div>
 </div>
 
@@ -26,7 +25,7 @@
 	<div class="tipoTitulo mt-5 col-12 text-center tipoTitulo">
 		Equip
 	</div>
-	<div class="tipoTexto">
-		
+	<div class="tipoTexto text-center col-12">
+		{{vila.equip}}
 	</div>
 </div>

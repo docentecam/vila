@@ -40,10 +40,7 @@ $(window).on('resize', function() {
     }
 });
 
-var altoFace=500;
-var altoBanner=altoFace/3;
-console.log($("#frameFb").height());
-$("#banner1").height(($("#frameFb").height())/3);
+
 
 	var data = new FormData();
 				data.append("acc","l");
@@ -81,7 +78,11 @@ $("#banner1").height(($("#frameFb").height())/3);
 	})
 	.then(function(res){
 		deferred.resolve(res);
-		$scope.vila=res.data[0];
+		$scope.vila=res.data.dadesVila[0];
+		$scope.serveis=res.data.dadesServeis;
+		console.log($scope.serveis.length);
+		$scope.equip=res.data.dadesVila[0];
+		console.log(res.data);
 		$rootScope.cargador=false;
 		console.log($scope.vila);
 	})
@@ -95,6 +96,9 @@ $("#banner1").height(($("#frameFb").height())/3);
 
 
 .controller('DirectoriCtrl',function($scope,$http,$q,$rootScope,$timeout,$window,$document){
+	$(".dirButton").height(($("#mapId").height())/4);
+	console.log(($("#mapId").height())/4);
+	console.log($("#mapId").height());
 	$scope.llistat=true;
 	$rootScope.cargador=true;
 	var data = new FormData();
@@ -137,6 +141,7 @@ $("#banner1").height(($("#frameFb").height())/3);
 	.catch(function(error) {
 		$rootScope.cargador=false;
 		});
+>>>>>>> 70ab5d582822b43dd7db3332512ed9b9f4564995
 })
 
 .controller('NoticiesCtrl',function($scope,$http,$q,$rootScope,$timeout,$window,$document){
