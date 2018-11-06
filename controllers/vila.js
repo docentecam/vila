@@ -95,8 +95,50 @@ $("#banner1").height(($("#frameFb").height())/3);
 
 
 .controller('DirectoriCtrl',function($scope,$http,$q,$rootScope,$timeout,$window,$document){
-
+	$scope.llistat=true;
+	$rootScope.cargador=true;
+	var data = new FormData();
+		data.append("acc","l");
+	var deferred=$q.defer();
+	$http.post("models/directori.php", data,{
+		headers:{
+			"Content-type":undefined
+		},
+		transformRequest:angular.identity
+	})
+	.then(function(res){
+		deferred.resolve(res);
+		$rootScope.cargador=false;
+		$scope.associats=res.data;
+	})
+	.catch(function(error) {
+		$rootScope.cargador=false;
+		});
 })
+
+.controller('AssociatCtrl',function($scope,$http,$q,$routeParams,$rootScope){
+	$scope.llistat=false;
+	$rootScope.cargador=true;
+	var data = new FormData();
+		data.append("acc","l");
+		data.append("idAssociat",$routeParams.idAssociat);
+	var deferred=$q.defer();
+	$http.post("models/directori.php", data,{
+		headers:{
+			"Content-type":undefined
+		},
+		transformRequest:angular.identity
+	})
+	.then(function(res){
+		deferred.resolve(res);
+		$rootScope.cargador=false;
+		$scope.associat=res.data[0];
+	})
+	.catch(function(error) {
+		$rootScope.cargador=false;
+		});
+})
+
 .controller('NoticiesCtrl',function($scope,$http,$q,$rootScope,$timeout,$window,$document){
 	$scope.llistat=true;
 	$rootScope.cargador=true;
@@ -145,6 +187,7 @@ $("#banner1").height(($("#frameFb").height())/3);
 .controller('FiramarCtrl',function($scope,$http,$q,$rootScope,$timeout,$window,$document){
 
 })
+
 .controller('ContactaCtrl',function($scope,$http,$q,$rootScope,$timeout,$window,$document){
 	$scope.contactaMissatge=false;
 	$scope.msg="";

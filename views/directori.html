@@ -26,100 +26,33 @@
 		<div class="col-6 my-2 pr-3">
 			<div class="container estiloAso py-5">
 				<div class="row">
-					<div class="col px-0">
-						<img src="img/associat.jpg">
-						<!-- <img ng-src="{{associats.logoAssociat!='' ? 'img/noticies/'+associats.logoAssociat : 'img/noimage.png'}}" class="imagecontainer-img lazyload" alt="associat"> -->
+
+					<div ng-repeat="associat in associats | orderBy: random" ng-href="#/directori/{{associat.idAssociat}}" class="col px-0">
+						<img ng-src="{{associats.logoAssociat!='' ? 'img/associats/'+associats.logoAssociat : 'img/noimage.png'}}" class="imagecontainer-img lazyload" alt="associat">
+					
+						<div class="col px-0">
+							<div class="tipoSubTitulo">
+								Títol botiga{{associats.nomAssociat}}
+							</div>
+							<div class="tipoTexto">
+								categoria
+								{{categoriaassociat.principal}}
+							</div>
+							<div class="tipoTexto">
+								C/ jsflasjf---
+								{{associats.adreca}}
+							</div>
+							<div class="tipoTexto">
+								745394505
+								{{associats.telf1}}
+								{{associats.telf2}}
+								{{associats.email}}
+							</div>
+						</div>
 					</div>
-					<div class="col px-0">
-						<div class="tipoSubTitulo">
-							Títol botiga{{associats.nomAssociat}}
-						</div>
-						<div class="tipoTexto">
-							categoria
-							{{categoriaassociat.principal}}
-						</div>
-						<div class="tipoTexto">
-							C/ jsflasjf---
-							{{associats.adreca}}
-						</div>
-						<div class="tipoTexto">
-							745394505
-							{{associats.telf1}}
-							{{associats.telf2}}
-							{{associats.email}}
-						</div>
-					</div>
+
 				</div>
 			</div>
-		</div>
-		<div class="col-6 my-2 pr-3">
-			<div class="container estiloAso py-5">
-				<div class="row">
-					<div class="col px-0">
-						<img src="img/associat.jpg">
-					</div>
-					<div class="col px-0">
-						<div class="">
-							Títol botiga
-						</div>
-						<div class="">
-							categoria
-						</div>
-						<div class="">
-							C/ jsflasjf---
-						</div>
-						<div class="">
-							745394505
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="col-6 my-2 pr-3">
-			<div class="container estiloAso py-5">
-				<div class="row">
-					<div class="col px-0">
-						<img src="img/associat.jpg">
-					</div>
-					<div class="col px-0">
-						<div class="">
-							Títol botiga
-						</div>
-						<div class="">
-							categoria
-						</div>
-						<div class="">
-							C/ jsflasjf---
-						</div>
-						<div class="">
-							745394505
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="col-6 my-2 pr-3">
-			<div class="container estiloAso py-5">
-				<div class="row">
-					<div class="col px-0">
-						<img src="img/associat.jpg">
-					</div>
-					<div class="col px-0">
-						<div class="">
-							Títol botiga
-						</div>
-						<div class="">
-							categoria
-						</div>
-						<div class="">
-							C/ jsflasjf---
-						</div>
-						<div class="">
-							745394505
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>		
+		</div>	
 	</div>
 </div>
