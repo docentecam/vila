@@ -7,7 +7,14 @@ $tbl_serveis="serveis";
 $tbl_subserveis="subserveis";
 
 if(isset($_POST['acc'])&&$_POST['acc']=='l'){
-		echo mostrarQuisom($tbl_vila);
+		$dades= '{"dadesVila": ';
+		$dades.= mostrarQuisom($tbl_vila);
+		$dades.= ',"dadesServeis":';	
+		$dades.= mostrarServeis($tbl_serveis);
+
+		$dades.="}";
+
+		echo $dades;
 	}
 
 function mostrarQuisom($tbl_vila){
@@ -49,4 +56,5 @@ function mostrarServeis($tbl_serveis,$tbl_subserveis){
 		disconnect($connexio);		
 		return json_encode($rows);
 	}
+
 ?>

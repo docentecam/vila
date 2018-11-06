@@ -25,12 +25,11 @@ body .no-padding{
 }
 
 body .carousel-indicators li{
-  background-color:#4f307e;
   cursor:pointer;
 }
 body .carousel-control-prev-icon,
 body .carousel-control-next-icon{
-  background-color:#4f307e;
+
   cursor:pointer;
 }
 
@@ -258,6 +257,11 @@ info:not(:disabled):not(.disabled):active:focus, .show>.btn-info.dropdown-toggle
 	border-color: #e7ab3b;
 }
 
+.divCate{
+	height: 100%;
+	width: 100%;
+}
+
 *,
 *:before,
 *:after {
@@ -324,10 +328,6 @@ info:not(:disabled):not(.disabled):active:focus, .show>.btn-info.dropdown-toggle
 
 	.centrarFooterMovil{
 		text-align: center;
-	}
-	#frameFb{
-		width: 287px!important;
-		height: 500px;
 	}
 
 }

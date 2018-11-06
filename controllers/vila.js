@@ -40,10 +40,7 @@ $(window).on('resize', function() {
     }
 });
 
-var altoFace=500;
-var altoBanner=altoFace/3;
-console.log($("#frameFb").height());
-$("#banner1").height(($("#frameFb").height())/3);
+
 
 	var data = new FormData();
 				data.append("acc","l");
@@ -81,7 +78,11 @@ $("#banner1").height(($("#frameFb").height())/3);
 	})
 	.then(function(res){
 		deferred.resolve(res);
-		$scope.vila=res.data[0];
+		$scope.vila=res.data.dadesVila[0];
+		$scope.serveis=res.data.dadesServeis;
+		console.log($scope.serveis.length);
+		$scope.equip=res.data.dadesVila[0];
+		console.log(res.data);
 		$rootScope.cargador=false;
 		console.log($scope.vila);
 	})
@@ -96,7 +97,60 @@ $("#banner1").height(($("#frameFb").height())/3);
 
 .controller('DirectoriCtrl',function($scope,$http,$q,$rootScope,$timeout,$window,$document){
 
+	$timeout(function(){
+	console.log("hola");
+				$(".dirButton").height(($("#mapId").height())/4);
+			},3000);
+
+	$(".dirButton").height(($("#mapId").height())/4);
+	console.log(($("#mapId").height())/4);
+	console.log($("#mapId").height());
+
+
+	$scope.llistat=true;
+	$rootScope.cargador=true;
+	var data = new FormData();
+		data.append("acc","l");
+	var deferred=$q.defer();
+	$http.post("models/directori.php", data,{
+		headers:{
+			"Content-type":undefined
+		},
+		transformRequest:angular.identity
+	})
+	.then(function(res){
+		deferred.resolve(res);
+		$rootScope.cargador=false;
+		$scope.associats=res.data;
+	})
+	.catch(function(error) {
+		$rootScope.cargador=false;
+		});
 })
+
+.controller('AssociatCtrl',function($scope,$http,$q,$routeParams,$rootScope){
+	$scope.llistat=false;
+	$rootScope.cargador=true;
+	var data = new FormData();
+		data.append("acc","l");
+		data.append("idAssociat",$routeParams.idAssociat);
+	var deferred=$q.defer();
+	$http.post("models/directori.php", data,{
+		headers:{
+			"Content-type":undefined
+		},
+		transformRequest:angular.identity
+	})
+	.then(function(res){
+		deferred.resolve(res);
+		$rootScope.cargador=false;
+		$scope.associat=res.data[0];
+	})
+	.catch(function(error) {
+		$rootScope.cargador=false;
+		});
+})
+
 .controller('NoticiesCtrl',function($scope,$http,$q,$rootScope,$timeout,$window,$document){
 	$scope.llistat=true;
 	$rootScope.cargador=true;
@@ -143,8 +197,30 @@ $("#banner1").height(($("#frameFb").height())/3);
 })
 
 .controller('FiramarCtrl',function($scope,$http,$q,$rootScope,$timeout,$window,$document){
+	$scope.llistat=false;
+	$rootScope.cargador=true;
+	var data = new FormData();
+		data.append("acc","l");
+		// data.append("idGaleriaFiramar",$firamar.idGaleriaFiramar);
+	var deferred=$q.defer();
+	$http.post("models/noticies.php", data,{
+		headers:{
+			"Content-type":undefined
+		},
+		transformRequest:angular.identity
+	})
+	.then(function(res){
+		deferred.resolve(res);
+		$rootScope.cargador=false;
+		// $scope.Firamar=res.data[0];
+		console.log(res.data);
+	})
+	.catch(function(error) {
+		$rootScope.cargador=false;
+		});
 
 })
+
 .controller('ContactaCtrl',function($scope,$http,$q,$rootScope,$timeout,$window,$document){
 	$scope.contactaMissatge=false;
 	$scope.msg="";
@@ -157,13 +233,13 @@ $("#banner1").height(($("#frameFb").height())/3);
 	$scope.contactans.nomEmpresa="";
 	$scope.contactans.txtContacte="";
 	$scope.contactaSoci={};
-	$scope.contactaSoci.nomComercial="fdhfdhgdfh";
-	$scope.contactaSoci.sectorComercial="hfddfhdfhfdhfd";
-	$scope.contactaSoci.adreca="gran via 1006";
-	$scope.contactaSoci.telf=658596784;
-	$scope.contactaSoci.email="yaibondi@gmail.com";
-	$scope.contactaSoci.personaContacte="dsgdsgdsgsdgsdgsdgdsgs";
-	$scope.contactaSoci.horari="54564gds564g5dsg4dsgsdgsdgdsgdsgdsg";
+	$scope.contactaSoci.nomComercial="";
+	$scope.contactaSoci.sectorComercial="";
+	$scope.contactaSoci.adreca="";
+	$scope.contactaSoci.telf="";
+	$scope.contactaSoci.email="";
+	$scope.contactaSoci.personaContacte="";
+	$scope.contactaSoci.horari="";
 	// $scope.fitxaSuccess=true;
 
 	var data = new FormData();
@@ -243,7 +319,7 @@ $("#banner1").height(($("#frameFb").height())/3);
 		.then(function(res){
 			deferred.resolve(res);
 			$rootScope.cargador=false;
-			// console.log(res.data);
+			console.log(""+res.data);
 			$scope.contactans.nomContacte="";
 			$scope.contactans.cognomContacte="";
 			$scope.contactans.checkTipo="";
@@ -251,6 +327,7 @@ $("#banner1").height(($("#frameFb").height())/3);
 			$scope.contactans.telefon="";
 			$scope.contactans.nomEmpresa="";
 			$scope.contactans.txtContacte="";
+
 			if(res.data.trim()=="ok") {
 			$scope.msg="Missatge registrat";
 			$timeout(function(){
@@ -274,11 +351,10 @@ $("#banner1").height(($("#frameFb").height())/3);
 $scope.enviaSoci=function(){
 console.log(isNaN($scope.contactaSoci.telf));
 	$scope.llistat=false;
-	if($scope.contactaSoci.email=="" && $scope.contactaSoci.telf==null){
+	if($scope.contactaSoci.email=="" || $scope.contactaSoci.telf==null){
 
 			$scope.msg="No puede estar vacio el campo email/telefono";
 			$timeout(function(){
-				console.log("jadghajgdjasdg");
 				$scope.contactaMissatge=false;
 			},3000);
 
@@ -306,7 +382,7 @@ else{
 		deferred.resolve(res);
 		$rootScope.cargador=false;
 		console.log(res.data);
-		// $scope.contactans=res.data;
+		$scope.contactans=res.data;
 		$scope.contactaSoci.nomComercial="";
 		$scope.contactaSoci.sectorComercial="";
 		$scope.contactaSoci.adreca="";
@@ -346,8 +422,8 @@ var data = new FormData();
 					transformRequest:angular.identity
 			})
 			.then(function(res){
-				deferred.resolve(res);
-				$scope.contactaLlistat = res.data[0];
+				deferred.resolve(res);$scope.contactaLlistat = res.data[0];
+				
 				console.log(res.data);
 				$rootScope.cargador=false;
 			})

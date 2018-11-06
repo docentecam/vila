@@ -1,11 +1,16 @@
 <?php 
 
+
+	$tbl_firamar="firamar";
 	$tbl_galeriafiramar="galeriafiramar";
-	
+	$tbl_activitatsfiramar="activitatsfiramar";
+	$tbl_sponsors="sponsors";
+	$tbl_participants="participants";
+
 	require("../inc/functions.php");
 	
 	session_start();
-	
+	$tbl_galeriafiramar="galeriafiramar";
 	if(isset($_POST['acc'])&&$_POST['acc']=='l'){
 		echo formGaleria($tbl_galeriafiramar);
 	}
