@@ -258,6 +258,11 @@ info:not(:disabled):not(.disabled):active:focus, .show>.btn-info.dropdown-toggle
 	border-color: #e7ab3b;
 }
 
+.divCate{
+	height: 100%;
+	width: 100%;
+}
+
 *,
 *:before,
 *:after {

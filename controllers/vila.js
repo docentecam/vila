@@ -40,10 +40,7 @@ $(window).on('resize', function() {
     }
 });
 
-var altoFace=500;
-var altoBanner=altoFace/3;
-console.log($("#frameFb").height());
-$("#banner1").height(($("#frameFb").height())/3);
+
 
 	var data = new FormData();
 				data.append("acc","l");
@@ -95,7 +92,9 @@ $("#banner1").height(($("#frameFb").height())/3);
 
 
 .controller('DirectoriCtrl',function($scope,$http,$q,$rootScope,$timeout,$window,$document){
-
+	$(".dirButton").height(($("#mapId").height())/4);
+	console.log(($("#mapId").height())/4);
+	console.log($("#mapId").height());
 })
 .controller('NoticiesCtrl',function($scope,$http,$q,$rootScope,$timeout,$window,$document){
 	$scope.llistat=true;
