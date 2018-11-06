@@ -142,10 +142,22 @@
 	</div>
 	<div class="row mt-3">
 		<div class="col-12 col-lg-2 offset-lg-2">
-			<label>Categories no principals</label>
-			<ul >
-				<li ng-repeat="categoria in listCatNotPrinc | filter:{'principal':'N'}">{{categoria.nomCategoria}}</li>
-			</ul>
+			<table>
+				<tr>
+					<th>Categories no principals</th>
+				</tr>
+			<tr>
+				<td>
+					<ul >
+						<li ng-repeat="categoria in listCatNotPrinc">{{categoria.nomCategoria}}</li>
+					</ul>
+				</td>
+				<td>
+					<i class="fas fa-times text-danger iconSize ml-3 my-2"></i>
+				</td>
+			</tr>
+			
+			</table>
 		</div>
 		<select class="form-control col-12 col-lg-6" name="selCatPrin" id="selCatPrin" ng-model="com.categoriaNotPrinc" ng-change="afegirCateg()">
 			<option value="-1">---Afegeix una categoria no principal---</option>

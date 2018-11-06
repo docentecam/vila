@@ -312,7 +312,34 @@ angular.module('vila')
 	    var element = document.getElementById("divTop");
 	    element.scrollIntoView({block: "end", behavior: "smooth"});
 	}
-	})
+	$scope.afegirCateg=function(){
+		var data = new FormData();
+		data.append("idAssociat",$scope.com.idAssociat);
+		data.append("idCategoria",$scope.com.categoriaNotPrinc);
+		data.append("acc","af");
+		var deferred=$q.defer();
+		$rootScope.cargador=true;
+			$http.post("models/directori.php", data,{
+				headers:{
+					"Content-type":undefined
+				},
+					transformRequest:angular.identity
+			})
+			.then(function(res){
+				deferred.resolve(res);
+				$scope.listCatNotPrinc=res.data;
+				$scope.categNotPrinc=res.data.catNotPrinc;
+				console.log(res.data);
+				$rootScope.cargador=false;
+				$timeout(function() {
+					$scope.divMsj=false;
+				}, 2000);
+			})
+			.catch(function(error) {
+				$rootScope.cargador=false;
+			});
+	}
+})
 .controller('ContactCtrl',function($scope,$http,$q,$rootScope,$timeout,$window){
 	var data = new FormData();
 		data.append("acc", "favi");
@@ -495,6 +522,83 @@ angular.module('vila')
 		}
 	}
 
+})
+.controller('CategCtrl',function($scope,$http,$q,$rootScope,$timeout,$window){
+	// var data = new FormData();
+	// 	data.append("acc", "favi");
+	// var deferred=$q.defer();
+	
+	// $http.post("models/associacio.php", data,{
+	// headers:{
+	// 	"Content-type":undefined
+	// },
+	// transformRequest:angular.identity
+
+	// })
+	// .then(function(resIcon){
+	// 	deferred.resolve(resIcon);
+	// 	$rootScope.favIcon=resIcon.data[0].favIcon;
+	// 	$rootScope.logo=resIcon.data[0].logo;
+	// 	$rootScope.cargador=false;
+	// })
+	// .catch(function(error){
+	// 	$rootScope.cargador=false;
+
+	// });
+
+	$scope.dadesCateg=true;
+	$scope.cat={};
+	$scope.accion="";
+
+	var data = new FormData();
+		data.append("acc","list");
+    var deferred=$q.defer();
+	$http.post("models/categories.php", data,{
+		headers:{
+			"Content-type":undefined
+		},
+		transformRequest:angular.identity
+	})
+	.then(function(res){
+		deferred.resolve(res);
+		$scope.categories=res.data;
+		$rootScope.cargador=false;
+		console.log(res.data);
+	})
+	.catch(function(error) {
+		$rootScope.cargador=false;
+	});
+	window.onscroll = function() {scrollFunction()};
+
+	function scrollFunction() {
+	    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+	        document.getElementById("goTop").style.display = "block";
+	    } else {
+	        document.getElementById("goTop").style.display = "none";
+	    }
+	}
+ 	$scope.goTop=function(){
+ 		var element = document.getElementById("divTop");
+	    element.scrollIntoView({block: "end", behavior: "smooth"});
+ 	}
+	$scope.columnOrder=function(columna){
+		$scope.order=columna;
+	}
+	$scope.muestraFormCat=function(idEdit=""){
+		$scope.dadesCateg=false
+		if(idEdit!="-1"){
+			$scope.accion="Edita";
+			$scope.cat.idCategoria=$scope.categories.idCategoria;
+			$scope.cat.nomCategoria=$scope.categories.nomCategoria;
+		}
+		else{
+			$scope.accion="Afegir";
+			$scope.cat.nomCategoria="";
+		}
+	}
+	$scope.cancel=function(listSocis){
+		$scope.dadesCateg=true;		
+	}
 })
 .controller('LogoutCtrl',function($scope,$http){
 	$http({
