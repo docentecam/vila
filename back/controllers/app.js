@@ -22,6 +22,11 @@ app.config(['$routeProvider',function($routeProvider){
     controller:'DirectCtrl',
     title: "Manteniment Directori"
   })
+  .when('/directori/:idAssociat',{
+    templateUrl:'views/directori.php',
+    controller:'DirectComerCtrl',
+    title: "Manteniment Directori"
+  })
   .when('/contactans',{
     templateUrl:'views/contactans.php',
     controller:'ContactCtrl',
@@ -36,6 +41,11 @@ app.config(['$routeProvider',function($routeProvider){
     templateUrl:'views/solicitutsoc.php',
     controller:'SociCtrl',
     title: "Llistat solicitud de socis"
+  })
+  .when('/categories',{
+    templateUrl:'views/categories.php',
+    controller:'CategCtrl',
+    title: "Manteniment de categories"
   })
   .when('/logout',{
     templateUrl:'index.php',
