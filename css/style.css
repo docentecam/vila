@@ -19,6 +19,15 @@ body .no-padding{
   padding-right: 0;
 }
 
+body .carousel-indicators li{
+  cursor:pointer;
+}
+body .carousel-control-prev-icon,
+body .carousel-control-next-icon{
+
+  cursor:pointer;
+}
+
 nav a{
 	color: #4f307e!important;
 	font-weight: bold;
@@ -322,6 +331,7 @@ body .no-padding{
 	.centrarFooterMovil{
 		text-align: center;
 	}
+
 }
 
 @media (min-width: 992px) and (max-width: 1199px){

@@ -96,9 +96,17 @@ $(window).on('resize', function() {
 
 
 .controller('DirectoriCtrl',function($scope,$http,$q,$rootScope,$timeout,$window,$document){
+
+	$timeout(function(){
+	console.log("hola");
+				$(".dirButton").height(($("#mapId").height())/4);
+			},3000);
+
 	$(".dirButton").height(($("#mapId").height())/4);
 	console.log(($("#mapId").height())/4);
 	console.log($("#mapId").height());
+
+
 	$scope.llistat=true;
 	$rootScope.cargador=true;
 	var data = new FormData();
