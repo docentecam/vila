@@ -25,20 +25,28 @@ function mostrarQuisom($tbl_vila){
 				
 		return json_encode($rows);
 	}
-function mostrarServeis($tbl_serveis){
-		$mySql="SELECT `nomServei`,`txtServei`	FROM $tbl_serveis";
+function mostrarServeis($tbl_serveis,$tbl_subserveis){
+		$mySql="SELECT `idServei`,`nomServei`,`txtServei`	FROM $tbl_serveis";
 		$connexio=connect();
 		$resultServeis=mysqli_query($connexio,$mySql); 
-		disconnect($connexio);
-
+		
 		$rows = array(); 
-		$i=0;
+		
 		while($r = mysqli_fetch_array($resultServeis)) 
 		{
-			$rows[] = $r; 
-			 $i++;
+			$mySql="SELECT `idSubservei`, `nomSubservei`, `txtSubservei`, `idServei` 
+					FROM `$tbl_subserveis`
+					WHERE idServei=".$r[0];
+					$rowsSub = array(); 
+		
+					while($rSub = mysqli_fetch_array($resultServeis)) 
+					{
+						$rowsSub[] = $rSub; 
+					}
+					array_push($r, $rowsSub);
+			$rows[] = $r; 	
 		} 
-				
+		disconnect($connexio);		
 		return json_encode($rows);
 	}
 ?>

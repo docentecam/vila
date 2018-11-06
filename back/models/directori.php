@@ -12,6 +12,15 @@
 	{
 		header("location: ../");
 	}
+	if(isset($_POST['acc'])&&$_POST['acc']=='af'){
+		$mySql="INSERT INTO $tbl_categoriaassociat (`idCategoria`, `idAssociat`, `principal`) 
+				VALUES ('".$_POST['idCategoria']."','".$_POST['idAssociat']."','N')";
+		// echo $mySql;
+		$connexio=connect();
+		$resultComerc=mysqli_query($connexio,$mySql);
+		disconnect($connexio);
+		echo categNotPrinc($tbl_categories,$tbl_categoriaassociat, $_POST['idAssociat']);
+	}
 	if(isset($_POST['acc'])&&$_POST['acc']=='upChange'){
 		$mySql="DELETE FROM $tbl_categoriaassociat WHERE idAssociat='".$_POST['idAssociat']."' AND principal='S'";
 		$mySql3="DELETE FROM $tbl_categoriaassociat WHERE idAssociat='".$_POST['idAssociat']."' AND idCategoria='".$_POST['idCategoria']."'";
@@ -74,7 +83,7 @@
 				$dadesComerc.=',"catego":'.categories($tbl_categories);
 				$dadesComerc.=',"catPrinc":'.categAssociat($tbl_categoriaassociat, $_POST['idAssociat']);
 				$dadesComerc.=',"catNotPrinc":'.categAssocNotPrinc($tbl_categories,$tbl_categoriaassociat, $_POST['idAssociat']);
-				$dadesComerc.=',"listCatNotPrinc":'.categNotPrinc($tbl_categories,$tbl_categoriaassociat,$tbl_directori, $_POST['idAssociat']);
+				$dadesComerc.=',"listCatNotPrinc":'.categNotPrinc($tbl_categories,$tbl_categoriaassociat, $_POST['idAssociat']);
 				$dadesComerc.='}';		
 		return $dadesComerc;
 
@@ -126,25 +135,25 @@
 			}
 			return json_encode($rows);
 	}
-	function categNotPrinc($tbl_categories,$tbl_categoriaassociat,$tbl_directori, $idAssociat){
-		$mySql="SELECT c.`idCategoria`,c.`nomCategoria`,ca.`principal`,a.`idAssociat` 
-				FROM `$tbl_categoriaassociat` AS ca 
-					LEFT JOIN `$tbl_categories` AS c
-					LEFT JOIN  $tbl_directori AS a
-					ON a.`idAssociat` =".$idAssociat;
-		echo $mySql;
-		// $connexio=connect();
-		// $resultCat=mysqli_query($connexio,$mySql); 
-		// disconnect($connexio);
-		// $rows = array(); 
-		// 	while($row = mysqli_fetch_array($resultCat)) 
-		// 	{
-		// 		$rows[] = $row; 
-		// 	} 
-		// 	for ($i=0; $i < sizeof($rows); $i++) { 
-		// 		$rows[$i][1]=replaceFromBBDD($rows[$i][1]);
-		// 	}
-		// 	return json_encode($rows);
+	function categNotPrinc($tbl_categories,$tbl_categoriaassociat, $idAssociat){
+		$mySql="SELECT c.`idCategoria` ,c.`nomCategoria`,ca.`principal`, `ca`.`idAssociat`
+				FROM `$tbl_categoriaassociat` AS ca
+				    LEFT JOIN `categories` AS c 
+				    ON `ca`.`idCategoria` = `c`.`idCategoria`
+				WHERE ((`ca`.`principal` ='N') AND (`ca`.`idAssociat` ='".$idAssociat."'))";
+		// echo $mySql;
+		$connexio=connect();
+		$resultCat=mysqli_query($connexio,$mySql); 
+		disconnect($connexio);
+		$rows = array(); 
+			while($row = mysqli_fetch_array($resultCat)) 
+			{
+				$rows[] = $row; 
+			} 
+			for ($i=0; $i < sizeof($rows); $i++) { 
+				$rows[$i][1]=replaceFromBBDD($rows[$i][1]);
+			}
+			return json_encode($rows);
 	}
 
 	if(isset($_POST['acc'])&&$_POST['acc']=='list'){
