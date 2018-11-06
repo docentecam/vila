@@ -96,9 +96,17 @@ $(window).on('resize', function() {
 
 
 .controller('DirectoriCtrl',function($scope,$http,$q,$rootScope,$timeout,$window,$document){
+
+	$timeout(function(){
+	console.log("hola");
+				$(".dirButton").height(($("#mapId").height())/4);
+			},3000);
+
 	$(".dirButton").height(($("#mapId").height())/4);
 	console.log(($("#mapId").height())/4);
 	console.log($("#mapId").height());
+
+
 	$scope.llistat=true;
 	$rootScope.cargador=true;
 	var data = new FormData();
@@ -189,6 +197,27 @@ $(window).on('resize', function() {
 })
 
 .controller('FiramarCtrl',function($scope,$http,$q,$rootScope,$timeout,$window,$document){
+	$scope.llistat=false;
+	$rootScope.cargador=true;
+	var data = new FormData();
+		data.append("acc","l");
+		// data.append("idGaleriaFiramar",$firamar.idGaleriaFiramar);
+	var deferred=$q.defer();
+	$http.post("models/noticies.php", data,{
+		headers:{
+			"Content-type":undefined
+		},
+		transformRequest:angular.identity
+	})
+	.then(function(res){
+		deferred.resolve(res);
+		$rootScope.cargador=false;
+		// $scope.Firamar=res.data[0];
+		console.log(res.data);
+	})
+	.catch(function(error) {
+		$rootScope.cargador=false;
+		});
 
 })
 
@@ -204,13 +233,13 @@ $(window).on('resize', function() {
 	$scope.contactans.nomEmpresa="";
 	$scope.contactans.txtContacte="";
 	$scope.contactaSoci={};
-	$scope.contactaSoci.nomComercial="fdhfdhgdfh";
-	$scope.contactaSoci.sectorComercial="hfddfhdfhfdhfd";
-	$scope.contactaSoci.adreca="gran via 1006";
-	$scope.contactaSoci.telf=658596784;
-	$scope.contactaSoci.email="yaibondi@gmail.com";
-	$scope.contactaSoci.personaContacte="dsgdsgdsgsdgsdgsdgdsgs";
-	$scope.contactaSoci.horari="54564gds564g5dsg4dsgsdgsdgdsgdsgdsg";
+	$scope.contactaSoci.nomComercial="";
+	$scope.contactaSoci.sectorComercial="";
+	$scope.contactaSoci.adreca="";
+	$scope.contactaSoci.telf="";
+	$scope.contactaSoci.email="";
+	$scope.contactaSoci.personaContacte="";
+	$scope.contactaSoci.horari="";
 	// $scope.fitxaSuccess=true;
 
 	var data = new FormData();
@@ -290,7 +319,7 @@ $(window).on('resize', function() {
 		.then(function(res){
 			deferred.resolve(res);
 			$rootScope.cargador=false;
-			// console.log(res.data);
+			console.log(""+res.data);
 			$scope.contactans.nomContacte="";
 			$scope.contactans.cognomContacte="";
 			$scope.contactans.checkTipo="";
@@ -298,6 +327,7 @@ $(window).on('resize', function() {
 			$scope.contactans.telefon="";
 			$scope.contactans.nomEmpresa="";
 			$scope.contactans.txtContacte="";
+
 			if(res.data.trim()=="ok") {
 			$scope.msg="Missatge registrat";
 			$timeout(function(){
@@ -321,11 +351,10 @@ $(window).on('resize', function() {
 $scope.enviaSoci=function(){
 console.log(isNaN($scope.contactaSoci.telf));
 	$scope.llistat=false;
-	if($scope.contactaSoci.email=="" && $scope.contactaSoci.telf==null){
+	if($scope.contactaSoci.email=="" || $scope.contactaSoci.telf==null){
 
 			$scope.msg="No puede estar vacio el campo email/telefono";
 			$timeout(function(){
-				console.log("jadghajgdjasdg");
 				$scope.contactaMissatge=false;
 			},3000);
 
@@ -353,7 +382,7 @@ else{
 		deferred.resolve(res);
 		$rootScope.cargador=false;
 		console.log(res.data);
-		// $scope.contactans=res.data;
+		$scope.contactans=res.data;
 		$scope.contactaSoci.nomComercial="";
 		$scope.contactaSoci.sectorComercial="";
 		$scope.contactaSoci.adreca="";
@@ -393,8 +422,8 @@ var data = new FormData();
 					transformRequest:angular.identity
 			})
 			.then(function(res){
-				deferred.resolve(res);
-				$scope.contactaLlistat = res.data[0];
+				deferred.resolve(res);$scope.contactaLlistat = res.data[0];
+				
 				console.log(res.data);
 				$rootScope.cargador=false;
 			})

@@ -31,7 +31,7 @@
 		function donarFormat($text)
 	{
 		$tbl_Vila="vila";
-		$mySql="SELECT `logoVila`,`facebook`, `nom`, `horari`, `telf`, `email`,`LGPD`
+		$mySql="SELECT `logoVila`,`facebook`, `nom`, `horari`, `telf`, `email`,`LGPD`,`URLWeb`
 				FROM $tbl_Vila";
 				
 		$connexio=connect();
@@ -47,6 +47,7 @@
 				$facebook= $r['facebook'];
 				$horari= $r['horari'];
 				$LGPD= $r['LGPD'];
+				$URLWeb= $r['URLWeb'];
 			}
 			
 		$newBody=
@@ -133,7 +134,7 @@
 								</tr>
 								<tr>
 									<td width="20%"></td>
-									<td width="60%"><a href="http://colla.codigitals.com.es/#/" target="_blank"><img src="cid:my-attach1" alt="Logo" class="tamLogo"></a></td>
+									<td width="60%"><a href="'.$URLWeb.'" target="_blank"><img src="cid:my-attach1" alt="Logo" class="tamLogo"></a></td>
 									<td width="20%"></td>
 								</tr>
 								<tr height="20rem"></tr>
@@ -162,7 +163,7 @@
 									<div style="color:black;">
 									<a href="'.$facebook.'" target="_blank"><img src="cid:my-attachface" alt="Logo Facebook" ></a>
 									</div>
-									<hr style="border: 5px dashed #F31025; margin-left:35%; margin-right:35%;">
+									<hr style="border: 5px dashed #e7ab3b; margin-left:35%; margin-right:35%;">
 									</td><td width="20%"></td><br><br>
 
 								</tr>
@@ -207,16 +208,16 @@
 		// $mail->SMTPSecure="ssl";
 		// $mail->Host = 'smtp.gmail.com'; 
 		// $mail->Port=465;
-		$mail->Username=$email;// SMTP usuario
+		$mail->Username=$emailVila;// SMTP usuario
 		$mail->Password=$pasMail; // SMTP password
-		$mail->FromName = $nom; //Nombre a mostrar
-		$mail->From = $email;  //Cuenta de envío.
+		$mail->FromName = $nomVila; //Nombre a mostrar
+		$mail->From = $emailVila;  //Cuenta de envío.
 
 		// $mail->SMTPDebug = 1; //para que muestre los fallos de conexión SMTP
 		// $mail->SMTPDebug = 2; //para que muestre lo que va haciendo conexión SMTP
 
 		
-		$mail->AddReplyTo($email);//Dirección de respuesta
+		$mail->AddReplyTo($emailVila);//Dirección de respuesta
 		$mail->AddAddress($mailTo);//Dirección de envío.
 		$mail->Timeout=5;
 		$mail->IsHTML(true); 
@@ -225,18 +226,14 @@
 		$mail->Subject = $subject;
 		//INSERTAR IMAGEN EN EL CUERPO DEL MAIL
 		//$mail->AddEmbeddedImage('imagen.png','myfoto');
-		if ($copia=="si" || $copia=="simpat"){
+		if ($copia=="si" || $copia=="soci"){
 			$mail->AddEmbeddedImage("../img/".$logoVila, "my-attach1");
 			$mail->AddEmbeddedImage("../img/facebook.png", "my-attachface");
-			$mail->AddEmbeddedImage("../img/instagram.png", "my-attachinsta");
-			$mail->AddEmbeddedImage("../img/twitter.png", "my-attachtwi");
 
 		}
 		else{
 			$mail->AddEmbeddedImage("../../img/".$logoVila, "my-attach1");
 			$mail->AddEmbeddedImage("../../img/facebook.png", "my-attachface");
-			$mail->AddEmbeddedImage("../../img/instagram.png", "my-attachinsta");
-			$mail->AddEmbeddedImage("../../img/twitter.png", "my-attachtwi");
 		}
 		
 		$mail->Body = $body;
@@ -249,7 +246,7 @@
 
 		if ($copia=="si") {
 			$mail->Subject = "Copia de contacte per formulari ";
-			$mail->AddAddress($email);//Dirección de envío.
+			$mail->AddAddress($emailVila);//Dirección de envío.
 			$exito = $mail->Send();
 			$mail->ClearAddresses();
 		}
