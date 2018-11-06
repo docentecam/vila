@@ -21,7 +21,7 @@
 	</div>
 </div>
 
-<div class="container">
+<div class="container" ng-show="llistat">
 	<div class="row">
 		<div class="col-6 my-2 pr-3">
 			<div class="container estiloAso py-5">
@@ -54,5 +54,59 @@
 				</div>
 			</div>
 		</div>	
+	</div>
+</div>
+
+<div class="row" ng-hide="llistat">
+	<div class="mt-4 col-10 offset-1">
+		<div class="tipoTitulo">
+			<a href="#/noticies">TORNAR A DIRECTORI</a>
+		</div>
+		<div class="h_divider mb-4"></div>
+
+		<div class="tipoSubTitulo mb-4">
+			{{associats.nomAssociat}}
+		</div>
+
+		<div class="row mb-4">
+			<div class="col-12 col-lg-6 mb-4">
+			<img ng-src="{{associat.logoAssociat!=''?'img/noticies/'+associat.logoAssociat:'img/noimage.png'}}" class="img-fluid imageBordes" alt="associat">
+			</div>
+
+			<div class="col-12 col-lg-6">
+				<div class="tipoTexto">
+				<b>info:</b>
+				<br>
+				{{associat.txtAssociat}}
+				<br><br>
+				<b>horari:</b>
+				<br>
+				{{associat.horari}}
+				<br><br>
+				<b>telefono:</b>
+				<br>
+				{{associat.telf1}}
+				{{associat.telf2}}
+				{{associat.whatsapp}}
+				<br><br>
+				<b>adreça:</b>
+				<br>
+				{{associat.adreca}}
+				<br><br>
+				<b>xarxes:</b>
+				<br>
+				{{associat.facebook}}
+				{{associat.URLWeb}}
+				</div>
+			</div>
+		</div>
+
+		<div>
+			ON SOM?
+		</div>
+
+		<div>
+			GALERIA
+		</div>
 	</div>
 </div>
