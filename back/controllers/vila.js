@@ -165,8 +165,9 @@ angular.module('vila')
     } 
 })	
 .controller('DirectCtrl',function($scope,$http,$q,$rootScope,$routeParams,$timeout,$window){
+	$scope.llistatComer=true;
 	var data = new FormData();
-		data.append("acc","l");
+		data.append("acc","list");
 
 	var deferred=$q.defer();
 	$rootScope.cargador=true;
@@ -180,7 +181,6 @@ angular.module('vila')
 		deferred.resolve(res);
 		$scope.directoris=res.data;
 		$rootScope.cargador=false;
-		console.log(res.data);
 	})
 	.catch(function(error) {
 		$rootScope.cargador=false;
@@ -203,9 +203,12 @@ angular.module('vila')
 	}
 })
 .controller('DirectComerCtrl',function($scope,$http,$q,$rootScope,$routeParams,$timeout,$window){
+	console.log("entra");
+	$scope.llistatComer=false;
+	$scope.com={};
 	var data = new FormData();
 		data.append("acc","l");
-
+		data.append("idAssociat",$routeParams.idAssociat);
 	var deferred=$q.defer();
 	$rootScope.cargador=true;
 	$http.post("models/directori.php", data,{
@@ -216,8 +219,31 @@ angular.module('vila')
 	})
 	.then(function(res){
 		deferred.resolve(res);
-		$scope.directoris=res.data;
-		$rootScope.cargador=false;
+		console.log(res.data);
+		$scope.com.categoriaPrinc="-1";
+		$scope.com.categoriaNotPrinc="-1";
+		$scope.comerc=res.data.comerc[0];
+		$scope.categories=res.data.catego;
+		$scope.categNotPrinc=res.data.catNotPrinc;
+		$scope.listCatNotPrinc=res.data.listCatNotPrinc;
+		$scope.com.categoriaPrinc=res.data.catPrinc[0].idCategoria;
+		$scope.com.idAssociat=$scope.comerc.idAssociat;
+		$scope.com.nomAssociat=$scope.comerc.nomAssociat;
+		$scope.com.adreca=$scope.comerc.adreca;
+		$scope.com.telf1=parseInt($scope.comerc.telf1);
+		$scope.com.telf2=parseInt($scope.comerc.telf2);
+		$scope.com.whatsapp=parseInt($scope.comerc.whatsapp);
+		$scope.com.facebook=$scope.comerc.facebook;
+		$scope.com.horari=$scope.comerc.horari;
+		$scope.com.latitud=$scope.comerc.latitud;
+		$scope.com.longitud=$scope.comerc.longitud;
+		$scope.com.txtAssociat=$scope.comerc.txtAssociat;
+		$scope.com.logoAssociat=$scope.comerc.logoAssociat;
+		$scope.com.logoAssociatOld=$scope.comerc.logoAssociat;
+		$scope.com.logoUpdate="";
+		$scope.com.email=$scope.comerc.email;
+		$scope.com.URLWeb=$scope.comerc.URLWeb;
+		$rootScope.cargador=false;		
 	})
 	.catch(function(error) {
 		$rootScope.cargador=false;
@@ -225,7 +251,7 @@ angular.module('vila')
 	window.onscroll = function() {scrollFunction()};
 
 	function scrollFunction() {
-	    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+	    if (document.body.scrollTop > 500 || document.documentElement.scrollTop > 500) {
 	        document.getElementById("goTop").style.display = "block";
 	    } else {
 	        document.getElementById("goTop").style.display = "none";
@@ -238,7 +264,55 @@ angular.module('vila')
 	$scope.columnOrder=function(columna){
 		$scope.order=columna;
 	}
-})
+	$scope.guardar=function(){
+		$scope.divMsj=true;
+		if($scope.com.nomAssociat=="" || $scope.com.adreca=="" || $scope.com.facebook=="" || $scope.com.URLWeb=="" || $scope.com.latitud==""|| $scope.com.longitud=="" || $scope.com.horari=="" || $scope.com.txtAssociat==""){
+			$scope.msj="Les dades no s'han actualitzat correctament. Sisplau ompli els camps buits";
+			$timeout(function() {
+				$scope.divMsj=false;
+			}, 3000);
+		}
+		else{
+			$scope.msj="Les dades s'han actualitzat correctament.";
+			var data = new FormData();
+				data.append("idAssociat",$scope.com.idAssociat);
+				data.append("nomAssociat",$scope.com.nomAssociat);
+				data.append("adreca",$scope.com.adreca);
+				data.append("telf1",$scope.com.telf1);
+				data.append("telf2",$scope.com.telf2);
+				data.append("whatsapp",$scope.com.whatsapp);
+				data.append("facebook",$scope.com.facebook);
+				data.append("URLWeb",$scope.com.URLWeb);
+				data.append("horari",$scope.com.horari);
+				data.append("txtAssociat",$scope.com.txtAssociat);
+				data.append("email",$scope.com.email);
+				data.append("latitud",$scope.com.latitud);
+				data.append("longitud",$scope.com.longitud);
+				data.append("idCategoria",$scope.com.categoriaPrinc);
+				data.append("acc","up");
+				var deferred=$q.defer();
+			$rootScope.cargador=true;
+			$http.post("models/directori.php", data,{
+				headers:{
+					"Content-type":undefined
+				},
+					transformRequest:angular.identity
+			})
+			.then(function(res){
+				deferred.resolve(res);
+				$rootScope.cargador=false;
+				$timeout(function() {
+					$scope.divMsj=false;
+				}, 2000);
+			})
+			.catch(function(error) {
+				$rootScope.cargador=false;
+			});
+		}
+	    var element = document.getElementById("divTop");
+	    element.scrollIntoView({block: "end", behavior: "smooth"});
+	}
+	})
 .controller('ContactCtrl',function($scope,$http,$q,$rootScope,$timeout,$window){
 	var data = new FormData();
 		data.append("acc", "favi");
