@@ -14,13 +14,5 @@
 				$rows[] = $r; 
 			} 
 			echo json_encode($rows);
-			
-
-
-			
-
-
-
-
 	}
 ?>

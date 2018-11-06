@@ -40,10 +40,7 @@ $(window).on('resize', function() {
     }
 });
 
-var altoFace=500;
-var altoBanner=altoFace/3;
-console.log($("#frameFb").height());
-$("#banner1").height(($("#frameFb").height())/3);
+
 
 	var data = new FormData();
 				data.append("acc","l");
@@ -81,20 +78,71 @@ $("#banner1").height(($("#frameFb").height())/3);
 	})
 	.then(function(res){
 		deferred.resolve(res);
+		$scope.vila=res.data.dadesVila[0];
+		$scope.serveis=res.data.dadesServeis;
+		console.log($scope.serveis.length);
+		$scope.equip=res.data.dadesVila[0];
+		console.log(res.data);
 		$rootScope.cargador=false;
-		$scope.noticia=res.data[0];
-		$rootScope.cargador=false;
+		console.log($scope.vila);
 	})
 	.catch(function(error) {
 		$rootScope.cargador=false;
 	});
+
+
 	
 })
 
 
 .controller('DirectoriCtrl',function($scope,$http,$q,$rootScope,$timeout,$window,$document){
-
+	$(".dirButton").height(($("#mapId").height())/4);
+	console.log(($("#mapId").height())/4);
+	console.log($("#mapId").height());
+	$scope.llistat=true;
+	$rootScope.cargador=true;
+	var data = new FormData();
+		data.append("acc","l");
+	var deferred=$q.defer();
+	$http.post("models/directori.php", data,{
+		headers:{
+			"Content-type":undefined
+		},
+		transformRequest:angular.identity
+	})
+	.then(function(res){
+		deferred.resolve(res);
+		$rootScope.cargador=false;
+		$scope.associats=res.data;
+	})
+	.catch(function(error) {
+		$rootScope.cargador=false;
+		});
 })
+
+.controller('AssociatCtrl',function($scope,$http,$q,$routeParams,$rootScope){
+	$scope.llistat=false;
+	$rootScope.cargador=true;
+	var data = new FormData();
+		data.append("acc","l");
+		data.append("idAssociat",$routeParams.idAssociat);
+	var deferred=$q.defer();
+	$http.post("models/directori.php", data,{
+		headers:{
+			"Content-type":undefined
+		},
+		transformRequest:angular.identity
+	})
+	.then(function(res){
+		deferred.resolve(res);
+		$rootScope.cargador=false;
+		$scope.associat=res.data[0];
+	})
+	.catch(function(error) {
+		$rootScope.cargador=false;
+		});
+})
+
 .controller('NoticiesCtrl',function($scope,$http,$q,$rootScope,$timeout,$window,$document){
 	$scope.llistat=true;
 	$rootScope.cargador=true;
@@ -164,6 +212,7 @@ $("#banner1").height(($("#frameFb").height())/3);
 		});
 
 })
+
 .controller('ContactaCtrl',function($scope,$http,$q,$rootScope,$timeout,$window,$document){
 	$scope.contactaMissatge=false;
 	$scope.msg="";
