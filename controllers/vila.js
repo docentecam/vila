@@ -95,7 +95,51 @@ $(window).on('resize', function() {
 	$(".dirButton").height(($("#mapId").height())/4);
 	console.log(($("#mapId").height())/4);
 	console.log($("#mapId").height());
+	$scope.llistat=true;
+	$rootScope.cargador=true;
+	var data = new FormData();
+		data.append("acc","l");
+	var deferred=$q.defer();
+	$http.post("models/directori.php", data,{
+		headers:{
+			"Content-type":undefined
+		},
+		transformRequest:angular.identity
+	})
+	.then(function(res){
+		deferred.resolve(res);
+		$rootScope.cargador=false;
+		$scope.associats=res.data;
+	})
+	.catch(function(error) {
+		$rootScope.cargador=false;
+		});
 })
+
+.controller('AssociatCtrl',function($scope,$http,$q,$routeParams,$rootScope){
+	$scope.llistat=false;
+	$rootScope.cargador=true;
+	var data = new FormData();
+		data.append("acc","l");
+		data.append("idAssociat",$routeParams.idAssociat);
+	var deferred=$q.defer();
+	$http.post("models/directori.php", data,{
+		headers:{
+			"Content-type":undefined
+		},
+		transformRequest:angular.identity
+	})
+	.then(function(res){
+		deferred.resolve(res);
+		$rootScope.cargador=false;
+		$scope.associat=res.data[0];
+	})
+	.catch(function(error) {
+		$rootScope.cargador=false;
+		});
+>>>>>>> 70ab5d582822b43dd7db3332512ed9b9f4564995
+})
+
 .controller('NoticiesCtrl',function($scope,$http,$q,$rootScope,$timeout,$window,$document){
 	$scope.llistat=true;
 	$rootScope.cargador=true;
@@ -144,6 +188,7 @@ $(window).on('resize', function() {
 .controller('FiramarCtrl',function($scope,$http,$q,$rootScope,$timeout,$window,$document){
 
 })
+
 .controller('ContactaCtrl',function($scope,$http,$q,$rootScope,$timeout,$window,$document){
 	$scope.contactaMissatge=false;
 	$scope.msg="";
