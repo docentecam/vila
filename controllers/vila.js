@@ -52,7 +52,6 @@ angular.module('vila')
 	var data = new FormData();
 		data.append("acc","l");
 	var deferred=$q.defer();
-	console.log("aasdasdasd");
 	$rootScope.cargador=true;
 	$http.post("models/associacio.php", data,{
 				headers:{
@@ -62,13 +61,15 @@ angular.module('vila')
 	})
 	.then(function(res){
 		deferred.resolve(res);
+		$scope.vila=res.data[0];
 		$rootScope.cargador=false;
-		$scope.noticia=res.data[0];
-		$rootScope.cargador=false;
+		console.log($scope.vila);
 	})
 	.catch(function(error) {
 		$rootScope.cargador=false;
 	});
+
+
 	
 })
 

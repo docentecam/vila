@@ -1,42 +1,44 @@
 <?php
-require ("..functinos.php");
+
+require("../inc/functions.php");
+
 $tbl_vila="vila";
 $tbl_serveis="serveis";
 $tbl_subserveis="subserveis";
-	if(isset($_POST['acc'])&&$_POST['acc']=='l'){
-		$mySqlDadesVila="SELECT `quiSom`, `equip` FROM $tbl_vila";
-		$mySqlDadesServeis="SELECT `nomServei`, `txtServei`,`idServei` FROM $tbl_serveis";
-		$mySqlDadesSubServeis="SELECT `nomSubservei`, `txtSubservei` FROM $tbl_subserveis WHERE `idServei`= ".$r['idServei'];
+
+if(isset($_POST['acc'])&&$_POST['acc']=='l'){
+		echo mostrarQuisom($tbl_vila);
+	}
+
+function mostrarQuisom($tbl_vila){
+		$mySql="SELECT `quiSom`,`equip`	FROM $tbl_vila";
 		$connexio=connect();
-		$resultVila=mysqli_query($connexio,$mySqlDadesVila);
+		$resultQuisom=mysqli_query($connexio,$mySql); 
 		disconnect($connexio);
-			
-		$dades = array(); 
-		while($r = mysqli_fetch_array($resultVila)) 
-		{
-			$dades[] = $r; 
-		}
-		echo json_encode($dades);
 
-		$datallistatServei='{"DadesServeis":';
-
-		$i=0; 
-		while ($row=mysqli_fetch_array($resultServeis)) {
-			if ($i!=0) {
-				$datallistatServei.=",";	
-			}
-			$i++;
-			$datallistatServei.='{"nomServei":"'.$row['nomServei'].'","txtServei":"'.$row['txtServei'].'"}';
-		}
-
-		$datallistatServei.=',"DadesServeis":';
 		$rows = array(); 
-		while($row = mysqli_fetch_array($resultServeis)) 
+
+		while($r = mysqli_fetch_array($resultQuisom)) 
 		{
-		$rows[] = $row; 
+			$rows[] = $r; 
 		} 
-		$datallistatServei.=json_encode($rows);
-		$datallistatServei.='}';
-		echo $datallistatServei;
+				
+		return json_encode($rows);
+	}
+function mostrarServeis($tbl_serveis){
+		$mySql="SELECT `nomServei`,`txtServei`	FROM $tbl_serveis";
+		$connexio=connect();
+		$resultServeis=mysqli_query($connexio,$mySql); 
+		disconnect($connexio);
+
+		$rows = array(); 
+		$i=0;
+		while($r = mysqli_fetch_array($resultServeis)) 
+		{
+			$rows[] = $r; 
+			 $i++;
+		} 
+				
+		return json_encode($rows);
 	}
 ?>
