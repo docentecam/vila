@@ -10,7 +10,7 @@ if(isset($_POST['acc'])&&$_POST['acc']=='l'){
 		$dades= '{"dadesVila": ';
 		$dades.= mostrarQuisom($tbl_vila);
 		$dades.= ',"dadesServeis":';	
-		$dades.= mostrarServeis($tbl_serveis);
+		$dades.= mostrarServeis($tbl_serveis,$tbl_subserveis);
 
 		$dades.="}";
 
@@ -41,12 +41,12 @@ function mostrarServeis($tbl_serveis,$tbl_subserveis){
 		
 		while($r = mysqli_fetch_array($resultServeis)) 
 		{
-			$mySql="SELECT `idSubservei`, `nomSubservei`, `txtSubservei`, `idServei` 
+			$mySql2="SELECT `idSubservei`, `nomSubservei`, `txtSubservei`, `idServei` 
 					FROM `$tbl_subserveis`
 					WHERE idServei=".$r[0];
 					$rowsSub = array(); 
-		
-					while($rSub = mysqli_fetch_array($resultServeis)) 
+					$resultSubServeis=mysqli_query($connexio,$mySql2); 
+					while($rSub = mysqli_fetch_array($resultSubServeis)) 
 					{
 						$rowsSub[] = $rSub; 
 					}
