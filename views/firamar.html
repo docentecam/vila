@@ -7,8 +7,8 @@
 		{{firamar.txtFiramar}}
 		</p>
 	</div>
-	
 </div>
+
 <div class="row">
 	<div class="col-12 tipoSubTitulo">
 		Programa d'activitats
@@ -22,8 +22,14 @@
 	<div class="col-12 tipoSubTitulo">
 		Galeria
 	</div>
-	<div class="col-12">
-		meter la galeria jeje
+	<div class="container">
+		<div class="row">
+			<div class="card-columns">
+			<div class="card" ng-repeat="galeria in galerias">
+				    <img class="card-img-top img-fluid d-md-none" ng-src="{{galeriafiramar.fotoFiramar!=''?'img/galeriafiramar/'+galeriafiramar.fotoFiramar:'img/noimage.png'}}" ng-if="soci.idSoci==sociUser" id="fotoFull" >
+				    <img class="card-img-top img-fluid d-none d-md-inline" ng-src="{{galeriafiramar.fotoFiramar!=''?'img/galeriafiramar/'+galeriafiramar.fotoFiramar:'img/noimage.png'}}" ng-if="soci.idSoci==sociUser" data-toggle="modal" data-target="#modalFoto" id="fotoFull" ng-click="modalFoto(galeriafiramar.fotoFiramar)">
+			</div>
+		</div>
 	</div>
 </div>
 
@@ -31,7 +37,7 @@
 	<div class="col-12 tipoSubTitulo">
 		Participants
 	</div>
-	<div class="col-12">
+	<div class="col-12 tipoTexto">
 		meter carousel de 5, como en la home
 	</div>
 </div>
@@ -50,7 +56,7 @@
 	<div class="col-12 tipoSubTitulo">
 		Edicions anteriors
 	</div>
-	<div class="col-12">
+	<div class="col-12 tipoTexto">
 		ng repeat en párrafos que sean links? (creo)
 	</div>
 </div>

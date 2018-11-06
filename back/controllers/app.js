@@ -15,7 +15,7 @@ app.config(['$routeProvider',function($routeProvider){
   .when('/associacio',{
     templateUrl:'views/associacio.php',
     controller:'AssociCtrl',
-    title: "Manteniment Associacio"
+    title: "Dades Associacio"
   })
   .when('/directori',{
     templateUrl:'views/directori.php',
@@ -36,6 +36,11 @@ app.config(['$routeProvider',function($routeProvider){
     templateUrl:'views/solicitutsoc.php',
     controller:'SociCtrl',
     title: "Llistat solicitud de socis"
+  })
+  .when('/serveis',{
+    templateUrl:'views/serveis.php',
+    controller:'ServeisCtrl',
+    title: "Serveis"
   })
   .when('/logout',{
     templateUrl:'index.php',
