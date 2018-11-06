@@ -15,7 +15,7 @@ app.config(['$routeProvider',function($routeProvider){
   .when('/associacio',{
     templateUrl:'views/associacio.php',
     controller:'AssociCtrl',
-    title: "Manteniment Associacio"
+    title: "Dades Associacio"
   })
   .when('/directori',{
     templateUrl:'views/directori.php',
@@ -46,6 +46,11 @@ app.config(['$routeProvider',function($routeProvider){
     templateUrl:'views/categories.php',
     controller:'CategCtrl',
     title: "Manteniment de categories"
+  })
+  .when('/serveis',{
+    templateUrl:'views/serveis.php',
+    controller:'ServeisCtrl',
+    title: "Serveis"
   })
   .when('/logout',{
     templateUrl:'index.php',

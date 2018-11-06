@@ -51,7 +51,6 @@ app.config(['$routeProvider',function($routeProvider){
 		title: "Noticia"
 	})
 
-
 	.otherwise({
 		redirectTo:'/'
 	});

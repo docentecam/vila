@@ -165,7 +165,7 @@ a:hover {
 	color: #FFFFFF;
 	background-color: #4f307e;
 }
-.AssAllCss{
+.AssNotSerAllCss{
 	margin-right: 15%;
 	margin-left: 15%;
 }
@@ -190,8 +190,17 @@ a:hover {
 	font-size: 1.5rem;
 }
 .imgCssAss{
-	height: 150px;
+	height: 78%;
 }
+.passwordAss{
+	border-radius: 0.25rem 0rem 0rem 0.25rem !important;
+	width: 67%;
+}
+.inputGroupPrepend{
+	padding-bottom: 0!important;
+	padding-top: 0!important;
+}
+<<<<<<< HEAD
 .form-control {
   padding: 0.5rem;
   border: 1px solid;
@@ -206,6 +215,8 @@ a:hover {
     outline: 0;
     box-shadow: 0 0 0 0.2rem #4f307e9e;
 }
+=======
+>>>>>>> bd51e0967033131f6f88493953fcbeec693c453e
 @media (max-width: 575px){
 	.imglogonav{
 		height: 30px;
