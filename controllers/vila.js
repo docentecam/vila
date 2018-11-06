@@ -81,7 +81,11 @@ $("#banner1").height(($("#frameFb").height())/3);
 	})
 	.then(function(res){
 		deferred.resolve(res);
-		$scope.vila=res.data[0];
+		$scope.vila=res.data.dadesVila[0];
+		$scope.serveis=res.data.dadesServeis;
+		console.log($scope.serveis.length);
+		$scope.equip=res.data.dadesVila[0];
+		console.log(res.data);
 		$rootScope.cargador=false;
 		console.log($scope.vila);
 	})
