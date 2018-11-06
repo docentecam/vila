@@ -141,7 +141,6 @@ $(window).on('resize', function() {
 	.catch(function(error) {
 		$rootScope.cargador=false;
 		});
->>>>>>> 70ab5d582822b43dd7db3332512ed9b9f4564995
 })
 
 .controller('NoticiesCtrl',function($scope,$http,$q,$rootScope,$timeout,$window,$document){

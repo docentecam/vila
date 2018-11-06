@@ -18,7 +18,8 @@
 	</div>
 </div>
 
-<div class="container" ng-show="llistat">
+<div class="container">
+<!-- 	 ng-show="llistat" -->
 	<div class="row">
 		<div class="col-6 my-2 pr-3">
 			<div class="container estiloAso py-5">
@@ -29,7 +30,9 @@
 					
 						<div class="col px-0">
 							<div class="tipoSubTitulo">
+								<a ng-href="#/associat{{associat.idAssociats}}">
 								Títol botiga{{associats.nomAssociat}}
+								</a>
 							</div>
 							<div class="tipoTexto">
 								categoria
@@ -54,7 +57,7 @@
 	</div>
 </div>
 
-<div class="row" ng-hide="llistat">
+<!-- <div class="row" ng-hide="llistat">
 	<div class="mt-4 col-10 offset-1">
 		<div class="tipoTitulo">
 			<a href="#/noticies">TORNAR A DIRECTORI</a>
@@ -106,4 +109,4 @@
 			GALERIA
 		</div>
 	</div>
-</div>
+</div> -->
