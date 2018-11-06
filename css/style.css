@@ -1,3 +1,4 @@
+
 /*colores corporativos:
 
 Blanco roto: #fffcf0
@@ -6,7 +7,6 @@ Amarillo: #e7ab3b
 Azul: #1d93d1
 Rosa: #cb418e
 Morado: #4f307e
-
 */
 /*body{
 	background-color: #fffcf0!important;
@@ -14,18 +14,12 @@ Morado: #4f307e
 
 @import url('https://fonts.googleapis.com/css?family=Bitter|Oswald:700|Roboto:300,400');
 
-#frameFb{
-	width: 500px;
-	height: 500px;
-}
-
 body .no-padding{
   padding-left: 0;
   padding-right: 0;
 }
 
 body .carousel-indicators li{
-  background-color:#4f307e;
   cursor:pointer;
 }
 body .carousel-control-prev-icon,
@@ -40,29 +34,23 @@ nav a{
 }
 
 a:link{
-	color: #1d93d1;
+	color: black;
     text-decoration: none;
 }
 a:visited{
-	color: #1d93d1;
+	color: black;
     text-decoration: none;
 }
 a:hover{
-	color: #4f307e;
+	color: black;
     text-decoration: none;
 }
-a.PolitPriva:link, a.PolitPriva:visited, a.PolitPriva:hover{
+a.PolitPriva:link{
 	color: #cb418e!important;
 	font-weight: bold;
 }
-a.Whatsapp:link, a.Whatsapp:visited, a.Whatsapp:hover{
-	color: #01E675!important;
-	font-weight: bold;
-}
-
 i,.cursor{
 	cursor:pointer;
-	padding-right: 4%;
 }
 ul, li{
 	list-style-type: none;
@@ -219,6 +207,19 @@ info:not(:disabled):not(.disabled):active:focus, .show>.btn-info.dropdown-toggle
   height:auto;
 }
 
+body .carousel-indicators li{
+  background-color:#4f307e;
+}
+body .carousel-control-prev-icon,
+body .carousel-control-next-icon{
+  background-color:#4f307e;
+}
+body .no-padding{
+  padding-left: 0;
+  padding-right: 0;
+}
+
+
 .carousel-inner img {
   margin: auto;
 }
@@ -257,6 +258,7 @@ info:not(:disabled):not(.disabled):active:focus, .show>.btn-info.dropdown-toggle
 	border-style: solid;
 	border-color: #e7ab3b;
 }
+
 
 .divCate{
 	height: 100%;
@@ -326,18 +328,12 @@ info:not(:disabled):not(.disabled):active:focus, .show>.btn-info.dropdown-toggle
 }
 
 @media (min-width: 768px) and (max-width: 991px){
-
 	.centrarFooterMovil{
 		text-align: center;
 	}
 
 }
-@media (min-width: 768px){ /*ESTO ES PARA PANTALLAS DE 768 < */
 
-	.bannerAlto{
-		height: 166.6px;
-	}
-}
 @media (min-width: 992px) and (max-width: 1199px){
 
 }
