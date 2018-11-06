@@ -7,7 +7,18 @@
 		require("../inc/functions.php");
 
 		if(isset($_POST['acc'])&&$_POST['acc']=='l'){
-				echo mostrarAssociats($tbl_associats);
+				$dades= '{"dadesAssociats": ';
+				$dades.= mostrarAssociats($tbl_associats);
+				$dades.= ',"dadesCategoriaassociat":';	
+				$dades.= mostrarCategoriaassociat($tbl_categoriaassociat);
+				$dades.= ',"dadesGaleriaassociats":';	
+				$dades.= mostrarGaleriaassociats($tbl_galeriaassociats);
+				$dades.= ',"dadesCategories":';	
+				$dades.= mostrarCategories($tbl_categories);
+
+				$dades.="}";
+
+				echo $dades;
 			}
 
 		function mostrarAssociats($tbl_associats){
@@ -75,3 +86,4 @@
 						
 				return json_encode($rows);
 			}
+?>

@@ -80,6 +80,7 @@ $(window).on('resize', function() {
 		deferred.resolve(res);
 		$scope.vila=res.data.dadesVila[0];
 		$scope.serveis=res.data.dadesServeis;
+		$scope.subserveis=res.data.dadesServeis;
 		console.log($scope.serveis.length);
 		$scope.equip=res.data.dadesVila[0];
 		console.log(res.data);
@@ -96,12 +97,6 @@ $(window).on('resize', function() {
 
 
 .controller('DirectoriCtrl',function($scope,$http,$q,$rootScope,$timeout,$window,$document){
-
-	$timeout(function(){
-	console.log("hola");
-				$(".dirButton").height(($("#mapId").height())/4);
-			},3000);
-
 	$(".dirButton").height(($("#mapId").height())/4);
 	console.log(($("#mapId").height())/4);
 	console.log($("#mapId").height());

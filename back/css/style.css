@@ -200,7 +200,6 @@ a:hover {
 	padding-bottom: 0!important;
 	padding-top: 0!important;
 }
-<<<<<<< HEAD
 .form-control {
   padding: 0.5rem;
   border: 1px solid;
@@ -215,8 +214,6 @@ a:hover {
     outline: 0;
     box-shadow: 0 0 0 0.2rem #4f307e9e;
 }
-=======
->>>>>>> bd51e0967033131f6f88493953fcbeec693c453e
 @media (max-width: 575px){
 	.imglogonav{
 		height: 30px;
