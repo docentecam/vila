@@ -1,24 +1,23 @@
 <?php 
-
-	require("../inc/functions.php");
-
 	$tbl_firamar="firamar";
 	$tbl_galeriafiramar="galeriafiramar";
 	$tbl_activitatsfiramar="activitatsfiramar";
 	$tbl_sponsors="sponsors";
 	$tbl_participants="participants";
 
+	require("../inc/functions.php");
+
 	
 	if(isset($_POST['acc'])&&$_POST['acc']=='l'){
 				$dades= '{"dadesFiramar": ';
 				$dades.= mostrarFiramar($tbl_firamar);
-				$dades.= ',"dadesGaleriafiramar":';	
+				$dades.= ',"dadesGaleriafiramar":';
 				$dades.= mostrarGaleriafiramar($tbl_galeriafiramar);
-				$dades.= ',"dadesActivitatsfiramar":';	
-				$dades.= mostrarActivitatsfiramar($tbl_activitatsfiramar;
-				$dades.= ',"dadesSponsors":';	
+				$dades.= ',"dadesActivitatsfiramar":';
+				$dades.= mostrarActivitatsfiramar($tbl_activitatsfiramar);
+				$dades.= ',"dadesSponsors":';
 				$dades.= mostrarSponsors($tbl_sponsors);
-				$dades.= ',"dadesParticipants":';	
+				$dades.= ',"dadesParticipants":';
 				$dades.= mostrarParticipants($tbl_participants);
 
 				$dades.="}";
@@ -101,5 +100,6 @@
 						
 				return json_encode($rows);
 			}
+
 
 ?>
