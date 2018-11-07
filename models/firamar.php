@@ -15,7 +15,7 @@
 				$dades.= ',"dadesGaleriafiramar":';	
 				$dades.= mostrarGaleriafiramar($tbl_galeriafiramar);
 				$dades.= ',"dadesActivitatsfiramar":';	
-				$dades.= mostrarActivitatsfiramar($tbl_activitatsfiramar;
+				$dades.= mostrarActivitatsfiramar($tbl_activitatsfiramar);
 				$dades.= ',"dadesSponsors":';	
 				$dades.= mostrarSponsors($tbl_sponsors);
 				$dades.= ',"dadesParticipants":';	
