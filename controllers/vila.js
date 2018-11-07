@@ -198,7 +198,7 @@ $(window).on('resize', function() {
 		data.append("acc","l");
 		// data.append("idGaleriaFiramar",$firamar.idGaleriaFiramar);
 	var deferred=$q.defer();
-	$http.post("models/noticies.php", data,{
+	$http.post("models/firamar.php", data,{
 		headers:{
 			"Content-type":undefined
 		},
@@ -207,8 +207,11 @@ $(window).on('resize', function() {
 	.then(function(res){
 		deferred.resolve(res);
 		$rootScope.cargador=false;
-		// $scope.Firamar=res.data[0];
-		console.log(res.data);
+		$scope.firamar=res.data.dadesFiramar;
+		$scope.galeriafiramar=res.data.dadesGaleriafiramar;
+		$scope.activitatsfiramar=res.data.dadesActivitatsfiramar;
+		$scope.sponsors=res.data.dadesSponsors;
+		$scope.participants=res.data.dadesParticipants;
 	})
 	.catch(function(error) {
 		$rootScope.cargador=false;

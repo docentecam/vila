@@ -9,28 +9,96 @@
 
 	require("../inc/functions.php");
 	
-	session_start();
-	$tbl_galeriafiramar="galeriafiramar";
 	if(isset($_POST['acc'])&&$_POST['acc']=='l'){
-		echo formGaleria($tbl_galeriafiramar);
-	}
-	
-	function formGaleria($tbl_galeriafiramar){
-		$mySql="SELECT `idGaleriaFiramar`, `fotoFiramar`, `dataFiramar` FROM $tbl_galeriafiramar ORDER BY `dataFiramar` DESC";
-		$connexio=connect();
-		$resultGaleria=mysqli_query($connexio,$mySql);
-		disconnect($connexio);
-		$i=0;
-		$dataFiramar='{"dadesGaleries":[';
-		while($row=mySqli_fetch_array($resultGaleria)){
-			if($i!=0){
-		 		$dataFiramar.=",";
-		 	}	
-		 	$i++;
-			$dataFiramar.='{"idGaleriaFiramar":"'.$row['idGaleriaFiramar'].'","fotoFiramar":"'.$row['fotoFiramar'].'","dataFiramar":"'.$row['dataFiramar'].'"}';
+				$dades= '{"dadesFiramar": ';
+				$dades.= mostrarFiramar($tbl_firamar);
+				$dades.= ',"dadesGaleriafiramar":';	
+				$dades.= mostrarGaleriafiramar($tbl_galeriafiramar);
+				$dades.= ',"dadesActivitatsfiramar":';	
+				$dades.= mostrarActivitatsfiramar($tbl_activitatsfiramar);
+				$dades.= ',"dadesSponsors":';	
+				$dades.= mostrarSponsors($tbl_sponsors);
+				$dades.= ',"dadesParticipants":';	
+				$dades.= mostrarParticipants($tbl_participants);
 
-		}
-		$dataFiramar.="]}";
-		return $dataFiramar;
-	}
+				$dades.="}";
+
+				echo $dades;
+			}
+	
+	function mostrarFiramar($tbl_firamar){
+				$mySql="SELECT `dataFiramar`, `txtFiramar`, `titolFiramar`	FROM $tbl_firamar";
+				$connexio=connect();
+				$resultFiramar=mysqli_query($connexio,$mySql); 
+				disconnect($connexio);
+
+				$rows = array(); 
+
+				while($r = mysqli_fetch_array($resultFiramar)) 
+				{
+					$rows[] = $r; 
+				} 
+						
+				return json_encode($rows);
+			}
+	function mostrarGaleriafiramar($tbl_galeriafiramar){
+				$mySql="SELECT `idGaleriaFiramar`, `fotoFiramar`, `dataFiramar`	FROM $tbl_galeriafiramar";
+				$connexio=connect();
+				$resultGaleriafiramar=mysqli_query($connexio,$mySql); 
+				disconnect($connexio);
+
+				$rows = array(); 
+
+				while($r = mysqli_fetch_array($resultGaleriafiramar)) 
+				{
+					$rows[] = $r; 
+				} 
+						
+				return json_encode($rows);
+			}
+	function mostrarActivitatsfiramar($tbl_activitatsfiramar){
+				$mySql="SELECT `idActivitat`, `horaInici`, `horaFi`, `titolActivitat`, `txtActivitat`, `dataFiramar`	FROM $tbl_activitatsfiramar";
+				$connexio=connect();
+				$resultActivitatsfiramar=mysqli_query($connexio,$mySql); 
+				disconnect($connexio);
+
+				$rows = array(); 
+
+				while($r = mysqli_fetch_array($resultActivitatsfiramar)) 
+				{
+					$rows[] = $r; 
+				} 
+						
+				return json_encode($rows);
+			}
+	function mostrarSponsors($tbl_sponsors){
+				$mySql="SELECT `logoSponsor`, `nomSponsor`, `dataFiramar`	FROM $tbl_sponsors";
+				$connexio=connect();
+				$resultSponsors=mysqli_query($connexio,$mySql); 
+				disconnect($connexio);
+
+				$rows = array(); 
+
+				while($r = mysqli_fetch_array($resultSponsors)) 
+				{
+					$rows[] = $r; 
+				} 
+						
+				return json_encode($rows);
+			}
+	function mostrarParticipants($tbl_participants){
+				$mySql="SELECT `idParticipant`, `nomParticipant`, `logoParticipant`, `dataFiramar`	FROM $tbl_participants";
+				$connexio=connect();
+				$resultParticipants=mysqli_query($connexio,$mySql); 
+				disconnect($connexio);
+
+				$rows = array(); 
+
+				while($r = mysqli_fetch_array($resultParticipants)) 
+				{
+					$rows[] = $r; 
+				} 
+						
+				return json_encode($rows);
+			}
 ?>
