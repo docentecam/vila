@@ -54,6 +54,9 @@
      				<li class="nav-item reduceNav">
        					<a class="nav-link" href="#/serveis">Serveis</a>
      				</li>
+     				<li class="nav-item reduceNav">
+       					<a class="nav-link" href="#/categories">Categories</a>
+     				</li>
      			<!-- 	<li class="nav-item reduceNav">
        					<a class="nav-link" href="#/noticies">Noticies</a>
      				</li> -->

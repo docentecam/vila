@@ -16,7 +16,8 @@
 	</div>
 	<div ng-repeat="servei in serveis" class="col-12 tipoTexto">
 			<p class="tipoTextoNegrita">{{servei.nomServei}}:</p>
-			<p>{{servei.txtServei}}</p>
+			<p>{{servei.txtServei+' '+servei[3].nomSubservei}}</p>
+			<p ng-repeat="subservei in servei[3]">{{subservei.nomSubservei}}</p>
 		
 	</div>
 </div>
