@@ -1,15 +1,15 @@
 <div class="row">
-	<div class="col-12 text-center mt-4 tipoSubTitulo">
+	<div class="col-12 text-center mt-4 tipoSubTitulo hidemovil">
 		Benvinguts a
 	</div>
-	<div class="col-12 text-center mb-4">
+	<div class="col-12 text-center mb-4 hidemovil">
 		<img src="img/vilactiva.png">
 	</div>
 
 </div>
 
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-  <ol class="carousel-indicators">
+  <ol class="carousel-indicators hidemovil">
     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
     <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
     <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
@@ -37,12 +37,12 @@
 
 <div class="h_divider mb-1 mt-1"></div>
 
-<div class="tipoTitulo mt-4 mb-3">
+<div class="tipoTitulo mt-2 mb-1 mt-md-4 mb-md-3 txtMovil">
 	Notícies destacades
 </div>
 
 <div class="row">
-	<div ng-repeat="noticia in noticiesDestacades | orderBy:noticia.dataNoticia" ng-href="#/noticies/{{noticia.idNoticia}}" class="col-6">
+	<div ng-repeat="noticia in noticies | orderBy:noticia.dataNoticia | filter:{principal:'S'}" ng-href="#/noticies/{{noticia.idNoticia}}" class="col-6">
 		
 		<div class="row align-items-center">
 			<div class="col">
