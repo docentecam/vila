@@ -23,7 +23,7 @@
 			$rows[$i][1]=replaceFromBBDD($rows[$i][1]);
 			$rows[$i][2]=replaceFromBBDD($rows[$i][2]);
 		}
-		echo json_encode($rows);
+		
 		// $i=0; 
 
 
