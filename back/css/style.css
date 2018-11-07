@@ -214,6 +214,17 @@ a:hover {
     outline: 0;
     box-shadow: 0 0 0 0.2rem #4f307e9e;
 }
+.serveiysubserveiBoxCss i{
+	float: right;
+	font-size: 2.5ex;
+}
+.serveiTituCss{
+	float: right;
+	font-size: 2.5ex;
+}
+.ServeisTextCss{
+	justify-content: center;
+}
 @media (max-width: 575px){
 	.imglogonav{
 		height: 30px;
