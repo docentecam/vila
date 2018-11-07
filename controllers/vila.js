@@ -56,8 +56,11 @@ $(window).on('resize', function() {
 			.then(function(res){
 				deferred.resolve(res);
 				$rootScope.cargador=false;
-				$scope.noticiesDestacades=res.data;
-				console.log(res.data);
+				$scope.vila=res.data.dadesVila[0];
+				$scope.noticies=res.data.dadesNoticies;
+				$scope.banners=res.data.dadesBanners;
+				$scope.carousel=res.data.dadesCarousel;
+				$scope.associats=res.data.dadesAssociats;
 			})
 			.catch(function(error) {
 				$rootScope.cargador=false;
@@ -80,8 +83,8 @@ $(window).on('resize', function() {
 		deferred.resolve(res);
 		$scope.vila=res.data.dadesVila[0];
 		$scope.serveis=res.data.dadesServeis;
-		$scope.subserveis=res.data.dadesServeis;
-		$scope.equip=res.data.dadesVila[0];
+		$scope.subserveis=res.data.dadesSubserveis;
+		$scope.equip=res.data.dadesEquip[0];
 		$rootScope.cargador=false;
 	})
 	.catch(function(error) {
@@ -223,6 +226,7 @@ $(window).on('resize', function() {
 .controller('ContactaCtrl',function($scope,$http,$q,$rootScope,$timeout,$window,$document){
 	$scope.contactaMissatge=false;
 	$scope.msg="";
+	$scope.fitxaSuccess=true;
 	$scope.contactans={};
 	$scope.contactans.nomContacte="";
 	$scope.contactans.cognomContacte="";
@@ -239,8 +243,6 @@ $(window).on('resize', function() {
 	$scope.contactaSoci.email="";
 	$scope.contactaSoci.personaContacte="";
 	$scope.contactaSoci.horari="";
-	// $scope.fitxaSuccess=true;
-
 	var data = new FormData();
 				data.append("acc","l");
 			var deferred=$q.defer();
@@ -281,6 +283,10 @@ $(window).on('resize', function() {
 		console.log($scope.contactans.checkTipo);
 	}
 	$scope.enviaEmail=function(){
+
+		if($scope.contactans.termes != true){
+				alert("ACCEPTA LES CONDICIONS");
+	}
 
 	//verificar exista email o telefono
 
@@ -348,7 +354,12 @@ $(window).on('resize', function() {
 		}
 }
 $scope.enviaSoci=function(){
+	if($scope.contactaSoci.termes != true){
+				alert("ACCEPTA LES CONDICIONS");
+	}
+
 console.log(isNaN($scope.contactaSoci.telf));
+
 	$scope.llistat=false;
 	if($scope.contactaSoci.email=="" || $scope.contactaSoci.telf==null){
 
@@ -380,7 +391,9 @@ else{
 	.then(function(res){
 		deferred.resolve(res);
 		$rootScope.cargador=false;
+		$scope.fitxaSuccess=false;
 		console.log(res.data);
+		$scope.reload=function(){
 		$scope.contactans=res.data;
 		$scope.contactaSoci.nomComercial="";
 		$scope.contactaSoci.sectorComercial="";
@@ -388,13 +401,17 @@ else{
 		$scope.contactaSoci.telf="";
 		$scope.contactaSoci.email="";
 		$scope.contactaSoci.personaContacte="";
-		$scope.contactaSoci.horari="";
+		$scope.contactaSoci.horari="";						
+		window.location.reload();
+		}
 		if(res.data.trim()=="ok") {
 			$scope.msg="Missatge registrat";
-			$timeout(function(){
-				$scope.contactaMissatge=false;
-				window.location.reload();
-			},3000);
+
+			$scope.msg="Aquest correu electrònic ja està afiliat";
+				$scope.mailIncorrecte=true;
+				$timeout(function(){
+					$scope.mailIncorrecte=false;
+				},3000);
 		}
 		else{
 			$scope.msg="verifica dades";

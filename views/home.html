@@ -42,7 +42,7 @@
 </div>
 
 <div class="row">
-	<div ng-repeat="noticia in noticiesDestacades | orderBy:noticia.dataNoticia" ng-href="#/noticies/{{noticia.idNoticia}}" class="col-6">
+	<div ng-repeat="noticia in noticies | orderBy:noticia.dataNoticia | filter:{principal:'S'}" ng-href="#/noticies/{{noticia.idNoticia}}" class="col-6">
 		
 		<div class="row align-items-center">
 			<div class="col">
