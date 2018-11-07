@@ -56,8 +56,11 @@ $(window).on('resize', function() {
 			.then(function(res){
 				deferred.resolve(res);
 				$rootScope.cargador=false;
-				$scope.noticiesDestacades=res.data;
-				console.log(res.data);
+				$scope.vila=res.data.dadesVila[0];
+				$scope.noticies=res.data.dadesNoticies;
+				$scope.banners=res.data.dadesBanners;
+				$scope.carousel=res.data.dadesCarousel;
+				$scope.associats=res.data.dadesAssociats;
 			})
 			.catch(function(error) {
 				$rootScope.cargador=false;
@@ -80,8 +83,8 @@ $(window).on('resize', function() {
 		deferred.resolve(res);
 		$scope.vila=res.data.dadesVila[0];
 		$scope.serveis=res.data.dadesServeis;
-		$scope.subserveis=res.data.dadesServeis;
-		$scope.equip=res.data.dadesVila[0];
+		$scope.subserveis=res.data.dadesSubserveis;
+		$scope.equip=res.data.dadesEquip[0];
 		$rootScope.cargador=false;
 	})
 	.catch(function(error) {
