@@ -203,7 +203,7 @@ angular.module('vila')
 	}
 })
 .controller('DirectComerCtrl',function($scope,$http,$q,$rootScope,$routeParams,$timeout,$window){
-	console.log("entra");
+	$scope.btnSave=true;
 	$scope.llistatComer=false;
 	$scope.com={};
 	var data = new FormData();
@@ -226,6 +226,7 @@ angular.module('vila')
 		$scope.categories=res.data.catego;
 		$scope.categNotPrinc=res.data.catNotPrinc;
 		$scope.listCatNotPrinc=res.data.listCatNotPrinc;
+		$scope.galeriaAssociats=res.data.galeriaAssociats;
 		$scope.com.categoriaPrinc=res.data.catPrinc[0].idCategoria;
 		$scope.com.idAssociat=$scope.comerc.idAssociat;
 		$scope.com.nomAssociat=$scope.comerc.nomAssociat;
@@ -243,7 +244,8 @@ angular.module('vila')
 		$scope.com.logoUpdate="";
 		$scope.com.email=$scope.comerc.email;
 		$scope.com.URLWeb=$scope.comerc.URLWeb;
-		$rootScope.cargador=false;		
+		$rootScope.cargador=false;
+		$scope.btnSave=false;		
 	})
 	.catch(function(error) {
 		$rootScope.cargador=false;
@@ -327,9 +329,8 @@ angular.module('vila')
 			})
 			.then(function(res){
 				deferred.resolve(res);
-				$scope.listCatNotPrinc=res.data;
-				$scope.categNotPrinc=res.data.catNotPrinc;
-				console.log(res.data);
+				$scope.listCatNotPrinc=res.data['listCatNotPrinc'];
+				$scope.categNotPrinc=res.data['catNotPrinc'];
 				$rootScope.cargador=false;
 				$timeout(function() {
 					$scope.divMsj=false;
@@ -338,6 +339,64 @@ angular.module('vila')
 			.catch(function(error) {
 				$rootScope.cargador=false;
 			});
+	}
+	$scope.delete=function(idCategoria){
+		console.log(idCategoria);
+		var segur=confirm("Segur que vols suprimir aquesta categoria?");
+		if (segur) {
+			var data = new FormData();
+			data.append("idAssociat",$scope.com.idAssociat);
+			data.append("idCategoria",idCategoria);
+			data.append("acc","del");
+			var deferred=$q.defer();
+			$rootScope.cargador=true;
+				$http.post("models/directori.php", data,{
+					headers:{
+						"Content-type":undefined
+					},
+						transformRequest:angular.identity
+				})
+				.then(function(res){
+					deferred.resolve(res);
+					$scope.listCatNotPrinc=res.data['listCatNotPrinc'];
+					$scope.categNotPrinc=res.data['catNotPrinc'];
+					$rootScope.cargador=false;
+					$timeout(function() {
+						$scope.divMsj=false;
+					}, 2000);
+				})
+				.catch(function(error) {
+					$rootScope.cargador=false;
+				});
+		}
+	}
+	$scope.deleteImg=function(idGaleria){
+		var segur=confirm("Segur que vols eliminar aquesta imatge?");
+		if (segur) {
+			var data = new FormData();
+			data.append("idAssociat",$scope.com.idAssociat);
+			data.append("idGaleria",idGaleria);
+			data.append("acc","delImg");
+			var deferred=$q.defer();
+			$rootScope.cargador=true;
+				$http.post("models/directori.php", data,{
+					headers:{
+						"Content-type":undefined
+					},
+						transformRequest:angular.identity
+				})
+				.then(function(res){
+					deferred.resolve(res);
+					$scope.galeriaAssociats=res.data.galeriaAssociats;
+					$rootScope.cargador=false;
+					$timeout(function() {
+						$scope.divMsj=false;
+					}, 2000);
+				})
+				.catch(function(error) {
+					$rootScope.cargador=false;
+				});
+		}
 	}
 })
 .controller('ContactCtrl',function($scope,$http,$q,$rootScope,$timeout,$window){
@@ -403,23 +462,23 @@ angular.module('vila')
 		data.append("acc", "favi");
 	var deferred=$q.defer();
 	
-	$http.post("models/associacio.php", data,{
-	headers:{
-		"Content-type":undefined
-	},
-	transformRequest:angular.identity
+	// $http.post("models/associacio.php", data,{
+	// headers:{
+	// 	"Content-type":undefined
+	// },
+	// transformRequest:angular.identity
 
-	})
-	.then(function(resIcon){
-		deferred.resolve(resIcon);
-		$rootScope.favIcon=resIcon.data[0].favIcon;
-		$rootScope.logo=resIcon.data[0].logo;
-		$rootScope.cargador=false;
-	})
-	.catch(function(error){
-		$rootScope.cargador=false;
+	// })
+	// .then(function(resIcon){
+	// 	deferred.resolve(resIcon);
+	// 	$rootScope.favIcon=resIcon.data[0].favIcon;
+	// 	$rootScope.logo=resIcon.data[0].logo;
+	// 	$rootScope.cargador=false;
+	// })
+	// .catch(function(error){
+	// 	$rootScope.cargador=false;
 
-	});
+	// });
 
 	var data = new FormData();
 		data.append("acc","l");
@@ -493,7 +552,7 @@ angular.module('vila')
 	})
 	.then(function(res){
 		deferred.resolve(res);
-		$scope.contactans=res.data;
+		$scope.serveis=res.data;
 		$rootScope.cargador=false;
 		console.log(res.data);
 	})
@@ -504,22 +563,170 @@ angular.module('vila')
 	$scope.ser={};
 	$scope.msj="";
 	$scope.accionSer="";
-	$scope.reveal=false;
+	$scope.accionSubser="";
+	$scope.reveal=true;
 
-	$scope.EditServei=function(){
-		$scope.reveal=true;
-		if (idPosServei!="-1") {
+	$scope.EditServei=function(PosServei){
+		$scope.reveal=false;
+		if (PosServei!="-1") {
 			$scope.accionSer="Editar"
-			$scope.ser.idServei=$scope.serveis[idPosServei].idServeis;
-			$scope.ser.nomServei=$scope.serveis[idPosServei].nomServeis;
-			$scope.ser.txtServei=$scope.serveis[idPosServei].txtServeis;
+			$scope.ser.idServei=$scope.serveis[PosServei].idServei;
+			$scope.ser.nomServei=$scope.serveis[PosServei].nomServei;
+			$scope.ser.txtServei=$scope.serveis[PosServei].txtServei;
 		}
 		else{
-			$scope.accionSer="Editar"
+			$scope.accionSer="Afegir"
 			$scope.ser.idServei="";
 			$scope.ser.nomServei="";
 			$scope.ser.txtServei="";
 		}
+	}
+	$scope.EditSubservei=function(){
+		$scope.revealSub=false;
+		console.log("Llega");
+		if (PosServei!="-1") {
+			$scope.accionSubser="Editar";
+			console.log("Llega2");
+			console.log($scope.subserveis[PosServei][3]);
+			// $scope.ser.idSubservei=$scope.subserveis[PosServei].idSubservei;
+			// $scope.ser.nomSubservei=$scope.subserveis[PosServei].nomSubservei;
+			// $scope.ser.txtSubservei=$scope.subserveis[PosServei].txtSubservei;
+		}
+		else{
+			// $scope.accionSubser="Afegir";
+			// $scope.ser.idSubservei="";
+			// $scope.ser.nomSubservei="";
+			// $scope.ser.txtSubservei="";
+		}
+	}
+	$scope.submitServei=function(){
+			var data = new FormData();
+				data.append("acc",$scope.accionSer);
+				data.append("idServei",$scope.ser.idServei);
+				data.append("nomServei",$scope.ser.nomServei);
+				data.append("txtServei",$scope.ser.txtServei);
+				var deferred=$q.defer();
+			$rootScope.cargador=true;
+			$http.post("models/serveis.php", data,{
+				headers:{
+					"Content-type":undefined
+				},
+					transformRequest:angular.identity
+			})
+			.then(function(res){
+				deferred.resolve(res);
+				$rootScope.cargador=false;
+				$scope.reveal=true;
+				$scope.divMsj=true;
+				$scope.msj="Les dades s'han actualitzat correctament.";
+				$timeout(function() {
+					$scope.divMsj=false;
+				}, 2000);
+				$scope.serveis=res.data;
+			})
+			.catch(function(error) {
+				$rootScope.cargador=false;
+			});
+	}
+	$scope.submitSubservei=function(){
+			var data = new FormData();
+				data.append("acc",$scope.accionSubser);
+				data.append("idSubservei",$scope.ser.idSubservei);
+				data.append("nomSubservei",$scope.ser.nomSubservei);
+				data.append("txtSubservei",$scope.ser.txtSubservei);
+				data.append("idServei",$scope.ser.idServei);
+				var deferred=$q.defer();
+			$rootScope.cargador=true;
+			$http.post("models/serveis.php", data,{
+				headers:{
+					"Content-type":undefined
+				},
+					transformRequest:angular.identity
+			})
+			.then(function(res){
+				deferred.resolve(res);
+				$rootScope.cargador=false;
+				$scope.revealSub=true;
+				$scope.divMsj=true;
+				$scope.msj="Les dades s'han actualitzat correctament.";
+				$timeout(function() {
+					$scope.divMsj=false;
+				}, 2000);
+				$scope.serveis=res.data;
+			})
+			.catch(function(error) {
+				$rootScope.cargador=false;
+			});
+	}
+	$scope.eliminarServei=function(idServei,nomServei){
+		var respuesta= confirm ("Desitja eliminar el servei "+nomServei+"?")
+		if (respuesta) 
+		{
+			var data = new FormData();
+				data.append("acc","delSer");
+				data.append("idServei",idServei);
+				var deferred=$q.defer();
+				$rootScope.cargador=true;
+				$http.post("models/serveis.php", data,{
+				headers:{
+					"Content-type":undefined
+				},
+				transformRequest:angular.identity
+			
+			})
+			.then(function(res){
+					deferred.resolve(res);
+					$scope.serveis=res.data;
+					$scope.msg="Les dades han estat eliminades correctament";
+					$scope.cargaMsg=true;
+					$timeout(function(){
+						$scope.cargaMsg=false;
+					},2000);
+					$rootScope.cargador=false;
+					$scope.serveis=res.data;
+					
+			})
+			.catch(function(error) {
+				$rootScope.cargador=false;
+			});
+		}
+	}
+	$scope.eliminarSubservei=function(idSubservei,nomSubservei){
+		var respuesta= confirm ("Desitja eliminar el Subservei "+nomSubservei+"?")
+		if (respuesta) 
+		{
+			var data = new FormData();
+				data.append("acc","delSubser");
+				data.append("idSubservei",idSubservei);
+				var deferred=$q.defer();
+				$rootScope.cargador=true;
+				$http.post("models/serveis.php", data,{
+				headers:{
+					"Content-type":undefined
+				},
+				transformRequest:angular.identity
+			
+			})
+			.then(function(res){
+					deferred.resolve(res);
+					$scope.serveis=res.data;
+					$scope.msg="Les dades han estat eliminades correctament";
+					$scope.cargaMsg=true;
+					$timeout(function(){
+						$scope.cargaMsg=false;
+					},2000);
+					$rootScope.cargador=false;
+					$scope.serveis=res.data;
+					
+			})
+			.catch(function(error) {
+				$rootScope.cargador=false;
+			});
+		}
+	}		
+	$scope.cancelSer=function(){
+		$scope.reveal=true;
+		$scope.revealSub=true;
 	}
 
 })

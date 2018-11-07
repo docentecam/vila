@@ -83,6 +83,9 @@ $(window).on('resize', function() {
 		deferred.resolve(res);
 		$scope.vila=res.data.dadesVila[0];
 		$scope.serveis=res.data.dadesServeis;
+		console.log($scope.serveis.length);
+		$scope.equip=res.data.dadesVila[0];
+		console.log(res.data);
 		$scope.subserveis=res.data.dadesSubserveis;
 		$scope.equip=res.data.dadesEquip[0];
 		$rootScope.cargador=false;

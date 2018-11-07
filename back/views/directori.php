@@ -137,7 +137,7 @@
 					<option ng-repeat="categ in categories" ng-selected="com.categoriaPrinc==categ.idCategoria" ng-value="categ.idCategoria">{{categ.nomCategoria}}</option>
 				</select>
 			</div>
-			<a anchor-smooth-scroll="divTop"><input type="button" class="btn btn-primary offset-lg-2" ng-click="guardar()" value="Guardar canvis"></a>
+			<a anchor-smooth-scroll="divTop"><input type="button" class="btn btn-info offset-lg-2" ng-click="guardar()" value="Guardar canvis" ng-disabled="btnSave"></a>
 		</form>
 	</div>
 	<div class="row mt-3">
@@ -146,14 +146,13 @@
 				<tr>
 					<th>Categories no principals</th>
 				</tr>
-			<tr>
+			<tr ng-repeat="categoria in listCatNotPrinc | orderBy:'nomCategoria'">
 				<td>
-					<ul >
-						<li ng-repeat="categoria in listCatNotPrinc">{{categoria.nomCategoria}}</li>
-					</ul>
+					<i class="fas fa-genderless mr-2"></i>
+					{{categoria.nomCategoria}}
 				</td>
 				<td>
-					<i class="fas fa-times text-danger iconSize ml-3 my-2"></i>
+					<i class="fas fa-times text-danger iconSize ml-3 my-2" ng-click="delete(categoria.idCategoria)"></i>
 				</td>
 			</tr>
 			
@@ -163,6 +162,15 @@
 			<option value="-1">---Afegeix una categoria no principal---</option>
 			<option ng-repeat="categoria in categNotPrinc" ng-selected="com.categoriaNotPrinc==categoria.idCategoria" ng-value="categoria.idCategoria">{{categoria.nomCategoria}}</option>
 		</select>
+	</div>
+	<div class="row mt-3">
+		<h2 class="col-12 col-lg-8 offset-lg-2">Galeria</h2>
+		<div class="card-columns col-12 col-lg-8 offset-lg-2">
+			<div class="card  text-center" ng-repeat="galeria in galeriaAssociats">
+				<img class="card-img-top img-fluid" ng-src="{{galeria.fotoGaleria!='' ? '../img/galeriaassociat/'+galeria.fotoGaleria : '../img/noimage.png'}}" alt="{{galeria.descripcio}}">
+				<input type="button" class="btn btn-danger" value="Eliminar" ng-click="deleteImg(galeria.idGaleria)">
+			</div>
+		</div>
 	</div>
 </div>
 <button id="goTop" class="goToTop btn btn-primary " value="Pujar" ng-click="goTop()">
