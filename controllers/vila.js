@@ -56,8 +56,11 @@ $(window).on('resize', function() {
 			.then(function(res){
 				deferred.resolve(res);
 				$rootScope.cargador=false;
-				$scope.noticiesDestacades=res.data;
-				console.log(res.data);
+				$scope.vila=res.data.dadesVila[0];
+				$scope.noticies=res.data.dadesNoticies;
+				$scope.banners=res.data.dadesBanners;
+				$scope.carousel=res.data.dadesCarousel;
+				$scope.associats=res.data.dadesAssociats;
 			})
 			.catch(function(error) {
 				$rootScope.cargador=false;
@@ -80,12 +83,9 @@ $(window).on('resize', function() {
 		deferred.resolve(res);
 		$scope.vila=res.data.dadesVila[0];
 		$scope.serveis=res.data.dadesServeis;
-		$scope.subserveis=res.data.dadesServeis;
-		console.log($scope.serveis.length);
-		$scope.equip=res.data.dadesVila[0];
-		console.log(res.data);
+		$scope.subserveis=res.data.dadesSubserveis;
+		$scope.equip=res.data.dadesEquip[0];
 		$rootScope.cargador=false;
-		console.log($scope.vila);
 	})
 	.catch(function(error) {
 		$rootScope.cargador=false;
@@ -116,7 +116,11 @@ $(window).on('resize', function() {
 	.then(function(res){
 		deferred.resolve(res);
 		$rootScope.cargador=false;
-		$scope.associats=res.data;
+		deferred.resolve(res);
+		$scope.associats=res.data.dadesAssociats;
+		$scope.categoriaassociat=res.data.dadesCategoriaassociat;
+		$scope.galeriaassociats=res.data.dadesGaleriaassociats;
+		$scope.categories=res.data.dadesCategories;
 	})
 	.catch(function(error) {
 		$rootScope.cargador=false;
@@ -198,7 +202,7 @@ $(window).on('resize', function() {
 		data.append("acc","l");
 		// data.append("idGaleriaFiramar",$firamar.idGaleriaFiramar);
 	var deferred=$q.defer();
-	$http.post("models/noticies.php", data,{
+	$http.post("models/firamar.php", data,{
 		headers:{
 			"Content-type":undefined
 		},
@@ -207,8 +211,11 @@ $(window).on('resize', function() {
 	.then(function(res){
 		deferred.resolve(res);
 		$rootScope.cargador=false;
-		// $scope.Firamar=res.data[0];
-		console.log(res.data);
+		$scope.firamar=res.data.dadesFiramar;
+		$scope.galeriafiramar=res.data.dadesGaleriafiramar;
+		$scope.activitatsfiramar=res.data.dadesActivitatsfiramar;
+		$scope.sponsors=res.data.dadesSponsors;
+		$scope.participants=res.data.dadesParticipants;
 	})
 	.catch(function(error) {
 		$rootScope.cargador=false;
