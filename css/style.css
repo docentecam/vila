@@ -312,10 +312,29 @@ info:not(:disabled):not(.disabled):active:focus, .show>.btn-info.dropdown-toggle
   flex-wrap: wrap;
 }
 
+.cover{
+	object-fit: cover;
+}
 
 @media (max-width: 575px){
 	.centrarFooterMovil{
 		text-align: center;
+	}
+	.logoVila{
+		width: 150px;
+	}
+	.hidemovil{
+		display: none;
+	}
+	.txtMovil{
+		font-size: 1.1em;
+		text-align: center;
+	}
+	.h_divider{
+		height: 1px!important;
+	}
+	.carousel-innerPrincipal{
+		height: 200px;
 	}
 }
 
