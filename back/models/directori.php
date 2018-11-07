@@ -12,6 +12,27 @@
 	{
 		header("location: ../");
 	}
+	if(isset($_POST['acc'])&&$_POST['acc']=='delImg'){
+		$mySql="DELETE FROM $tbl_galeriaassociats WHERE idAssociat='".$_POST['idAssociat']."' AND idGaleria='".$_POST['idGaleria']."'";
+		// echo $mySql;
+		$connexio=connect();
+		$resultComerc=mysqli_query($connexio,$mySql);
+		disconnect($connexio);
+		
+		$dadesComerc='{"galeriaAssociats":'.galeriaAssociats($tbl_galeriaassociats,$_POST['idAssociat']).'}';
+		echo $dadesComerc;
+	}
+	if(isset($_POST['acc'])&&$_POST['acc']=='del'){
+		$mySql="DELETE FROM $tbl_categoriaassociat WHERE idAssociat='".$_POST['idAssociat']."' AND idCategoria='".$_POST['idCategoria']."'";
+		// echo $mySql;
+		$connexio=connect();
+		$resultComerc=mysqli_query($connexio,$mySql);
+		disconnect($connexio);
+		
+		$dadesComerc='{"catNotPrinc":'.categAssocNotPrinc($tbl_categories,$tbl_categoriaassociat, $_POST['idAssociat']);
+		$dadesComerc.=',"listCatNotPrinc":'.categNotPrinc($tbl_categories,$tbl_categoriaassociat, $_POST['idAssociat']).'}';
+		echo $dadesComerc;
+	}
 	if(isset($_POST['acc'])&&$_POST['acc']=='af'){
 		$mySql="INSERT INTO $tbl_categoriaassociat (`idCategoria`, `idAssociat`, `principal`) 
 				VALUES ('".$_POST['idCategoria']."','".$_POST['idAssociat']."','N')";
@@ -19,24 +40,13 @@
 		$connexio=connect();
 		$resultComerc=mysqli_query($connexio,$mySql);
 		disconnect($connexio);
-		echo categNotPrinc($tbl_categories,$tbl_categoriaassociat, $_POST['idAssociat']);
+
+		$dadesComerc='{"catNotPrinc":'.categAssocNotPrinc($tbl_categories,$tbl_categoriaassociat, $_POST['idAssociat']);
+		$dadesComerc.=',"listCatNotPrinc":'.categNotPrinc($tbl_categories,$tbl_categoriaassociat, $_POST['idAssociat']).'}';
+		echo $dadesComerc;
+
+
 	}
-	if(isset($_POST['acc'])&&$_POST['acc']=='upChange'){
-		$mySql="DELETE FROM $tbl_categoriaassociat WHERE idAssociat='".$_POST['idAssociat']."' AND principal='S'";
-		$mySql3="DELETE FROM $tbl_categoriaassociat WHERE idAssociat='".$_POST['idAssociat']."' AND idCategoria='".$_POST['idCategoria']."'";
-		$mySql2="INSERT INTO $tbl_categoriaassociat (`idCategoria`, `idAssociat`, `principal`) VALUES ('".$_POST['idCategoria']."','".$_POST['idAssociat']."','S')";
-
-	// echo $mySql;
-	// echo $mySql2;
-		$connexio=connect();
-		$resultCatPrinc=mysqli_query($connexio,$mySql);
-		$resultCatPrinc=mysqli_query($connexio,$mySql3);
-		$resultCatPrinc=mysqli_query($connexio,$mySql2);  
-		disconnect($connexio);
-
-		echo categAssociat($tbl_categoriaassociat, $_POST['idAssociat']);
-	}
-
 	if(isset($_POST['acc'])&&$_POST['acc']=='up'){
 		$mySql="UPDATE $tbl_directori SET `nomAssociat`='".replaceFromHtml($_POST['nomAssociat'])."', `adreca`='".replaceFromHtml($_POST['adreca'])."', `telf1`='".$_POST['telf1']."', `horari`='".replaceFromHtml($_POST['horari'])."', `facebook`='".$_POST['facebook']."', `telf2`='".$_POST['telf2']."', `whatsapp`='".$_POST['whatsapp']."', `latitud`='".$_POST['latitud']."', `longitud`='".$_POST['longitud']."', `txtAssociat`='".replaceFromHtml($_POST['txtAssociat'])."', `URLWeb`='".$_POST['URLWeb']."', `email`='".$_POST['email']."' WHERE idAssociat='".$_POST['idAssociat']."'";
 		$mySql2="DELETE FROM $tbl_categoriaassociat WHERE idAssociat='".$_POST['idAssociat']."' AND principal='S'";
@@ -54,9 +64,9 @@
 	}
 
 	if(isset($_POST['acc'])&&$_POST['acc']=='l'){
-		echo dadesComers($tbl_directori,$tbl_categories,$tbl_categoriaassociat, $_POST['idAssociat']);
+		echo dadesComers($tbl_directori,$tbl_categories,$tbl_categoriaassociat,$tbl_galeriaassociats, $_POST['idAssociat']);
 	}
-	function dadesComers($tbl_directori,$tbl_categories,$tbl_categoriaassociat, $idAssociat){
+	function dadesComers($tbl_directori,$tbl_categories,$tbl_categoriaassociat,$tbl_galeriaassociats, $idAssociat){
 		$mySql="SELECT `a`.`idAssociat`,`a`.`nomAssociat`,`a`.`logoAssociat`,`a`.`horari`,`a`.`txtAssociat`,`a`.`facebook`,`a`.`actiu`,`a`.`adreca`,`a`.`telf1`,`a`.`telf2`,`a`.`whatsapp`,`a`.`email`,`a`.`latitud`,`a`.`longitud`,`a`.`URLWeb`
 				FROM `$tbl_directori` AS a 
 				WHERE `a`.`idAssociat`=".$_POST['idAssociat'];
@@ -84,6 +94,7 @@
 				$dadesComerc.=',"catPrinc":'.categAssociat($tbl_categoriaassociat, $_POST['idAssociat']);
 				$dadesComerc.=',"catNotPrinc":'.categAssocNotPrinc($tbl_categories,$tbl_categoriaassociat, $_POST['idAssociat']);
 				$dadesComerc.=',"listCatNotPrinc":'.categNotPrinc($tbl_categories,$tbl_categoriaassociat, $_POST['idAssociat']);
+				$dadesComerc.=',"galeriaAssociats":'.galeriaAssociats($tbl_galeriaassociats,$_POST['idAssociat']);
 				$dadesComerc.='}';		
 		return $dadesComerc;
 
@@ -152,6 +163,24 @@
 			} 
 			for ($i=0; $i < sizeof($rows); $i++) { 
 				$rows[$i][1]=replaceFromBBDD($rows[$i][1]);
+			}
+			return json_encode($rows);
+	}
+	function galeriaAssociats($tbl_galeriaassociats,$idAssociat){
+		$mySql="SELECT `idGaleria`, `fotoGaleria`, `descripcio`, `idAssociat` 
+				FROM $tbl_galeriaassociats
+				WHERE `idAssociat` ='".$idAssociat."'";
+		// echo $mySql;
+		$connexio=connect();
+		$resultCat=mysqli_query($connexio,$mySql); 
+		disconnect($connexio);
+		$rows = array(); 
+			while($row = mysqli_fetch_array($resultCat)) 
+			{
+				$rows[] = $row; 
+			} 
+			for ($i=0; $i < sizeof($rows); $i++) { 
+				$rows[$i][2]=replaceFromBBDD($rows[$i][2]);
 			}
 			return json_encode($rows);
 	}

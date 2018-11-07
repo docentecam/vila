@@ -203,7 +203,7 @@ angular.module('vila')
 	}
 })
 .controller('DirectComerCtrl',function($scope,$http,$q,$rootScope,$routeParams,$timeout,$window){
-	console.log("entra");
+	$scope.btnSave=true;
 	$scope.llistatComer=false;
 	$scope.com={};
 	var data = new FormData();
@@ -226,6 +226,7 @@ angular.module('vila')
 		$scope.categories=res.data.catego;
 		$scope.categNotPrinc=res.data.catNotPrinc;
 		$scope.listCatNotPrinc=res.data.listCatNotPrinc;
+		$scope.galeriaAssociats=res.data.galeriaAssociats;
 		$scope.com.categoriaPrinc=res.data.catPrinc[0].idCategoria;
 		$scope.com.idAssociat=$scope.comerc.idAssociat;
 		$scope.com.nomAssociat=$scope.comerc.nomAssociat;
@@ -243,7 +244,8 @@ angular.module('vila')
 		$scope.com.logoUpdate="";
 		$scope.com.email=$scope.comerc.email;
 		$scope.com.URLWeb=$scope.comerc.URLWeb;
-		$rootScope.cargador=false;		
+		$rootScope.cargador=false;
+		$scope.btnSave=false;		
 	})
 	.catch(function(error) {
 		$rootScope.cargador=false;
@@ -327,9 +329,8 @@ angular.module('vila')
 			})
 			.then(function(res){
 				deferred.resolve(res);
-				$scope.listCatNotPrinc=res.data;
-				$scope.categNotPrinc=res.data.catNotPrinc;
-				console.log(res.data);
+				$scope.listCatNotPrinc=res.data['listCatNotPrinc'];
+				$scope.categNotPrinc=res.data['catNotPrinc'];
 				$rootScope.cargador=false;
 				$timeout(function() {
 					$scope.divMsj=false;
@@ -338,6 +339,64 @@ angular.module('vila')
 			.catch(function(error) {
 				$rootScope.cargador=false;
 			});
+	}
+	$scope.delete=function(idCategoria){
+		console.log(idCategoria);
+		var segur=confirm("Segur que vols suprimir aquesta categoria?");
+		if (segur) {
+			var data = new FormData();
+			data.append("idAssociat",$scope.com.idAssociat);
+			data.append("idCategoria",idCategoria);
+			data.append("acc","del");
+			var deferred=$q.defer();
+			$rootScope.cargador=true;
+				$http.post("models/directori.php", data,{
+					headers:{
+						"Content-type":undefined
+					},
+						transformRequest:angular.identity
+				})
+				.then(function(res){
+					deferred.resolve(res);
+					$scope.listCatNotPrinc=res.data['listCatNotPrinc'];
+					$scope.categNotPrinc=res.data['catNotPrinc'];
+					$rootScope.cargador=false;
+					$timeout(function() {
+						$scope.divMsj=false;
+					}, 2000);
+				})
+				.catch(function(error) {
+					$rootScope.cargador=false;
+				});
+		}
+	}
+	$scope.deleteImg=function(idGaleria){
+		var segur=confirm("Segur que vols eliminar aquesta imatge?");
+		if (segur) {
+			var data = new FormData();
+			data.append("idAssociat",$scope.com.idAssociat);
+			data.append("idGaleria",idGaleria);
+			data.append("acc","delImg");
+			var deferred=$q.defer();
+			$rootScope.cargador=true;
+				$http.post("models/directori.php", data,{
+					headers:{
+						"Content-type":undefined
+					},
+						transformRequest:angular.identity
+				})
+				.then(function(res){
+					deferred.resolve(res);
+					$scope.galeriaAssociats=res.data.galeriaAssociats;
+					$rootScope.cargador=false;
+					$timeout(function() {
+						$scope.divMsj=false;
+					}, 2000);
+				})
+				.catch(function(error) {
+					$rootScope.cargador=false;
+				});
+		}
 	}
 })
 .controller('ContactCtrl',function($scope,$http,$q,$rootScope,$timeout,$window){
