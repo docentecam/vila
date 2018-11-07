@@ -81,11 +81,8 @@ $(window).on('resize', function() {
 		$scope.vila=res.data.dadesVila[0];
 		$scope.serveis=res.data.dadesServeis;
 		$scope.subserveis=res.data.dadesServeis;
-		console.log($scope.serveis.length);
 		$scope.equip=res.data.dadesVila[0];
-		console.log(res.data);
 		$rootScope.cargador=false;
-		console.log($scope.vila);
 	})
 	.catch(function(error) {
 		$rootScope.cargador=false;
@@ -116,7 +113,11 @@ $(window).on('resize', function() {
 	.then(function(res){
 		deferred.resolve(res);
 		$rootScope.cargador=false;
-		$scope.associats=res.data;
+		deferred.resolve(res);
+		$scope.associats=res.data.dadesAssociats;
+		$scope.categoriaassociat=res.data.dadesCategoriaassociat;
+		$scope.galeriaassociats=res.data.dadesGaleriaassociats;
+		$scope.categories=res.data.dadesCategories;
 	})
 	.catch(function(error) {
 		$rootScope.cargador=false;
