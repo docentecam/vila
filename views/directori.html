@@ -24,8 +24,8 @@
 		<div class="col-6 my-2 pr-3">
 			<div class="container estiloAso py-5">
 				<div class="row">
-
-					<div ng-repeat="associat in associats | orderBy: random" ng-href="#/directori/{{associat.idAssociat}}" class="col px-0">
+				<div>
+					<div ng-repeat="associat in associats " ng-href="#/directori/{{associat.idAssociat}}" class="col px-0">
 						<img ng-src="{{associats.logoAssociat!='' ? 'img/associats/'+associats.logoAssociat : 'img/noimage.png'}}" class="imagecontainer-img lazyload" alt="associat">
 					
 						<div class="col px-0">
@@ -50,7 +50,7 @@
 							</div>
 						</div>
 					</div>
-
+				</div>
 				</div>
 			</div>
 		</div>	
