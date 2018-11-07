@@ -1,8 +1,9 @@
 <div class="row">
 	<div class="col-12 tipoTitulo text-center">
-		FIRAMAR (AÑO){{firamar.titolFiramar}} {{firamar.dataFiramar}}
+		<span>{{firamar.titolFiramar}}</span> 
+		<span>{{firamar.dataFiramar|limitTo:4}}</span>
 	</div>
-	<div class="col-12 tipoTexto">
+	<div class="col-12 tipoTexto text-center">
 		<p>
 		{{firamar.txtFiramar}}
 		</p>
@@ -61,3 +62,5 @@
 		ng repeat en párrafos que sean links? (creo)
 	</div>
 </div>
+
+<!-- ALTER TABLE `activitatsfiramar` ADD `idActivitat` INT NOT NULL AUTO_INCREMENT FIRST, ADD PRIMARY KEY (`idActivitat`); -->
