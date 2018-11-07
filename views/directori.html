@@ -23,38 +23,49 @@
 	<div class="row">
 		<div class="col-6 my-2 pr-3">
 			<div class="container estiloAso py-5">
-				<div class="row">
-				<div>
-					<div ng-repeat="associat in associats " ng-href="#/directori/{{associat.idAssociat}}" class="col px-0">
-						<img ng-src="{{associats.logoAssociat!='' ? 'img/associats/'+associats.logoAssociat : 'img/noimage.png'}}" class="imagecontainer-img lazyload" alt="associat">
+
+				<div ng-repeat="associat in associats " ng-href="#/directori/{{associat.idAssociat}}" class="col px-0">
+
+					<div class="row align-items-center">
+						<div class="col">
+							<div class="card">
+								<div class="group-item">
+									<div class="imagecontainer is-cover">
+										<a ng-href="#/directori/{{associat.idAssociat}}">
+										<img ng-src="{{associat.logoAssociat!='' ? 'img/associats/'+associat.logoAssociat : 'img/noimage.png'}}" class="imagecontainer-img lazyload" alt="associat">
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
 					
+						
 						<div class="col px-0">
 							<div class="tipoSubTitulo">
 								<a ng-href="#/associat{{associat.idAssociats}}">
-								Títol botiga{{associats.nomAssociat}}
+								{{associat.nomAssociat}}
 								</a>
 							</div>
 							<div class="tipoTexto">
-								categoria
-								{{categoriaassociat.principal}}
+									categoria
+									{{categoriaassociat.principal}}
 							</div>
 							<div class="tipoTexto">
-								C/ jsflasjf---
-								{{associats.adreca}}
+								{{associat.adreca}}
 							</div>
 							<div class="tipoTexto">
-								745394505
-								{{associats.telf1}}
-								{{associats.telf2}}
-								{{associats.email}}
+								{{associat.telf1}}
+								{{associat.telf2}}
+								{{associat.email}}
 							</div>
 						</div>
+
 					</div>
 				</div>
-				</div>
+
 			</div>
-		</div>	
-	</div>
+		</div>
+	</div>	
 </div>
 
 <!-- <div class="row" ng-hide="llistat">
