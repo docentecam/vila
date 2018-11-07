@@ -225,7 +225,7 @@ info:not(:disabled):not(.disabled):active:focus, .show>.btn-info.dropdown-toggle
 
 .carousel-innerPrincipal{
 	width: 100%;
-	height: 500px!important;
+	height: 100%;
 	}
 
 .carousel-innerAsso{
