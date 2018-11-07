@@ -325,9 +325,6 @@ footer{
   flex-wrap: wrap;
 }
 
-.cover{
-	object-fit: cover;
-}
 
 @media (max-width: 575px){
 	.centrarFooterMovil{
@@ -347,7 +344,17 @@ footer{
 		height: 1px!important;
 	}
 	.carousel-innerPrincipal{
-		height: 200px;
+		height: 300px;
+	}
+	.provaCar{
+	background-image: url("../img/slider_1.jpg");
+	background-size: cover;
+  	background-position: 50% 50%;
+  	width: 100%;
+ 	height: 100%;
+	}
+	.provaCar img {
+  	visibility: hidden; /*HOLA! esto sirve para que desaparezca el tag img y para que el SEO crea que hay un tag img igualmente, porque poner imágenes por background-image es muy feo*/
 	}
 }
 
@@ -355,12 +362,18 @@ footer{
 	.centrarFooterMovil{
 		text-align: center;
 	}
+	.hidemovil_bossa{
+		display: none;
+	}
 }
 
 @media (min-width: 768px) and (max-width: 991px){
 
 	.centrarFooterMovil{
 		text-align: center;
+	}
+	.hidemovil{
+		display: none;
 	}
 
 }
