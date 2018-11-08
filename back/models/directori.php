@@ -12,6 +12,36 @@
 	{
 		header("location: ../");
 	}
+	if(isset($_POST['acc'])&&$_POST['acc']=='uploadImg'){
+		//$_FILES[‘nombrePost’]. El nombre entre comillas, será el que nos envíen por post o get desde el formulario.
+// $datos="entra en model<br>"; 
+	    $cantImatge=$_POST['cantImatge']+1;
+	    
+	    $j=0;
+	    while($j<$cantImatge) {
+		    $numUp='uploadedFile'.$j;
+		    $fileEx =explode('.',$_FILES[$numUp]["name"]);
+			$file =  date("dmYhisv").'.'.$fileEx[count($fileEx)-1];
+			//$datos.=$j."--".$_FILES[$numUp]["tmp_name"]."-"."../../img/galeriaassociats/".$file."<br>"; 
+			move_uploaded_file($_FILES[$numUp]["tmp_name"], "../../img/galeriaassociats/".$file);
+			$j++;
+	    }
+		  //echo $datos; 
+	}
+	if(isset($_POST['acc'])&&$_POST['acc']=='updateMedia'){
+		$fileEx =explode('.',$_FILES["logoUpdate"]["name"]);
+		$file =  date("dmYhisv").'.'.$fileEx[count($fileEx)-1];
+		$mySql="UPDATE $tbl_directori 
+				SET `".$_POST['nomCamp']."`='".$file."'
+				WHERE idAssociat='".$_POST['idAssociat']."'";
+		$connexio=connect();
+		mysqli_query($connexio,$mySql);
+		disconnect($connexio);
+		move_uploaded_file($_FILES["logoUpdate"]["tmp_name"], "../../img/associats/".$file);
+		unlink('../../img/associats/'.$_POST['logoAssociatOld']);
+
+		echo $file;
+	}
 	if(isset($_POST['acc'])&&$_POST['acc']=='delImg'){
 		$mySql="DELETE FROM $tbl_galeriaassociats WHERE idAssociat='".$_POST['idAssociat']."' AND idGaleria='".$_POST['idGaleria']."'";
 		// echo $mySql;
