@@ -43,7 +43,6 @@
 
 <div class="row">
 	<div ng-repeat="noticia in noticies | orderBy:noticia.dataNoticia | filter:{principal:'S'}" ng-href="#/noticies/{{noticia.idNoticia}}" class="col-6">
-		
 		<div class="row align-items-center">
 			<div class="col">
 				<div class="card">
@@ -77,13 +76,10 @@
 				</div>
 			</div>
 		</div>
-
-		
 	</div>
 </div>
 
-
-<div class="h_divider mb-1"></div>
+<div class="h_divider mb-3 mt-3"></div>
 	<div class="container">
 		<div class="row">	
 			<div class="col-5 px-0">
@@ -154,7 +150,9 @@
 	  <div class="container carousel-inner no-padding carousel-innerAsso">
 	    <div class="carousel-item active">
 	      <div class="col-xs-3 col-sm-3 col-md-3 carouAsoc">
+	      	<a ng-href="#/directori/{{associat.idAssociat}}">
 	        <img src="img/associat.jpg">
+	    	</a>
 	      </div>    
 	      <div class="col-xs-3 col-sm-3 col-md-3 carouAsoc">
 	        <img src="img/associat.jpg">
@@ -172,30 +170,9 @@
 	      </div>    
 	      <div class="col-xs-3 col-sm-3 col-md-3 carouAsoc">
 	        <img src="img/associat.jpg">
-	      </div>   
-	      <div class="col-xs-3 col-sm-3 col-md-3 carouAsoc">
-	        <img src="img/associat.jpg">
-	      </div>   
-	      <div class="col-xs-3 col-sm-3 col-md-3 carouAsoc">
-	        <img src="img/associat.jpg">
-	    </div>  
+	      </div>
 	    </div>
-	    <div class="carousel-item">
-	      <div class="col-xs-3 col-sm-3 col-md-3 carouAsoc">
-	        <img src="img/associat.jpg">
-	      </div>    
-	      <div class="col-xs-3 col-sm-3 col-md-3 carouAsoc">
-	        <img src="img/associat.jpg">
-	      </div>   
-	      <div class="col-xs-3 col-sm-3 col-md-3 carouAsoc">
-	        <img src="img/associat.jpg">
-	      </div>   
-	      <div class="col-xs-3 col-sm-3 col-md-3 carouAsoc">
-	        <img src="img/associat.jpg">
-	      </div>  
-	    </div>
-	  </div>
-	  
+	  </div>  
 	  <a class="carousel-control-prev" data-target="#carouselAsso" data-slide="prev">
 	    <span class="carousel-control-prev-icon"></span>
 	  </a>
@@ -204,3 +181,11 @@
 	  </a>
 
 	</div>
+
+
+	  -mirar que las rayitas vayan a relacion con la cantidad de bloques
+	  -hacer que cada 4 logoassociats, se cree un nuevo div (controller?)
+	  -hacer que si quedan 2 sueltos, se centren? idk
+	  
+	  -arreglar el navbar más separação
+	  -Vilactiva en tablet+movil klk, hacer q todo quede en la misma linea
