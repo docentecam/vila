@@ -92,49 +92,6 @@ footer{
 	margin-top: 20px;
 	bottom: 0;
 }
- .ca-nav span {
-    width: 16px;
-    height: 27px;
-    background-image: url(img/sprite.1526312413.svg);
-    background-repeat: no-repeat;
-    background-position: -45px -19px;
-    position: absolute;
-    top: 50%;
-    margin-top: -13px;
-    left: 0px;
-    opacity: 0.5;
-    cursor: pointer;
-    text-indent: -9000px;
-    z-index: 1;
-}
-.ca-socis {
-    position: relative;
-    margin: 0 auto;
-    width: 1140px;
-    padding-left: 30px;
-    padding-right: 30px;
-}
-
-.ca-nav span.ca-nav-next {
-    background-position: -61px -19px;
-    left: auto;
-    right: 0px;
-}
-.content-socis .ca-item {
-    position: relative;
-    float: left;
-    width: 189px;
-    height: 100%;
-}
-
-.content-socis .ca-item img {
-    border: 1px solid #CCCCCC;
-}
-
-.content-socis .ca-nav span:hover {
-    opacity: 1.0;
-}
-
 .cargador {
 	position: absolute;
 	text-align: center;
