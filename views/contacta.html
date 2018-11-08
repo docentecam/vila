@@ -5,6 +5,7 @@
 	<div class="col-12 col-md-8 ">
 		<div class="row">
 			<div class="col-lg-12 offset-0  alert alert-danger pt-4 text-dark" role="alert" ng-show="contactaMissatge">{{msg}}</div>
+			<div class="col-lg-12 offset-0  alert alert-danger pt-4 text-dark" role="alert" ng-show="muestraError">{{msg}}</div>
 			<form name="formContacta" ng-submit="enviaEmail()" novalidate ng-hide="contactaMissatge">
 				<div class=" form-row">
 					
@@ -48,13 +49,13 @@
 
 					<!-- emailllllllllllll -->
 			        <div class="form-group col-md-4 mb-3 " ng-class="{ 'has-error' : formContacta.email.$invalid && !formContacta.email.$pristine }">
-			            <input type="email" name="email" class="form-control" ng-model="contactans.email" placeholder="Email" required>
+			            <input type="email" name="email" class="form-control" ng-model="contactans.email" placeholder="Email">
 			            <p ng-show="formContacta.email.$invalid && !formContacta.email.$pristine" class="help-block text-danger">L'adreça de correu electrònic introduïda no és vàlida. {{formEmailInco}}</p>
 
 			        </div>
 						<!-- telefonnnnnnnnnnnn -->
 			        <div class="form-group col-md-4 mb-3" ng-class="{ 'has-error' : formContacta.telefon.$invalid && !formContacta.telefon.$pristine }">
-			            <input type="number" name="telefon" class="form-control" ng-model="contactans.telefon" placeholder="Telèfon " ng-minlength="8" ng-maxlength="9" required>
+			            <input type="number" name="telefon" class="form-control" ng-model="contactans.telefon" placeholder="Telèfon " ng-minlength="8" ng-maxlength="9">
 			            <p ng-show="formContacta.telefon.$error.minlength" class="help-block text-danger">El numero és incorrecte</p>
 						<p ng-show="formContacta.telefon.$error.maxlength" class="help-block text-danger">El numero és massa llarg</p>
 					</div>
@@ -65,7 +66,7 @@
 				    </div><br>
 			        <div class="form-group col-12 col-md-8 tipoTexto">
 					    <div class="form-check">
-					      <input class="form-check-input" type="checkbox" id="gridCheck"  ng-checked="true" ng-model="coctactans.termes">
+					      <input class="form-check-input" type="checkbox" id="gridCheck"  ng-checked="true" ng-model="contactans.termes">
 					      <label class="form-check-label" for="gridCheck">
 
 					          He llegit i accepto la <a class="PolitPriva" ng-href="#politica" target="_blank">Política de Privadesa.</a>
@@ -144,7 +145,6 @@
 										    <input type="text" class="form-control" id="inputEmail" placeholder="Email" name="inputEmail" ng-model="contactaSoci.email" ng-maxlength="100">
 										    <p ng-show="sociVila.inputEmail.$invalid && !sociVila.inputEmail.$pristine" class="help-block text-danger">L'adreça de correu electrònic introduïda no és vàlida{{formEmailInco}}</p>  
 										  	</div>
-											<div ng-show="mailIncorrecte" class="alert alert-danger" role="alert">{{msg}}</div>
 									    </div>
 									    <div class="form-row">
 									    	<span class="tipoTexto"></span><br>
