@@ -21,6 +21,17 @@
 			echo $dades;
 		}
 
+	if(isset($_POST['acc'])&&$_POST['acc']=='la'){
+			$dades= '{"dadesAssociat": ';
+			$dades.= mostrarAssociat($tbl_associats,$_POST['idAssociat']);
+			$dades.= ',"dadesGaleriaassociat":';	
+			$dades.= mostrarGaleriaassociat($tbl_galeriaassociats,$_POST['idAssociat']);
+
+			$dades.="}";
+
+			echo $dades;
+		}
+
 	function mostrarAssociats($tbl_associats){
 			$mySql="SELECT `idAssociat`, `logoAssociat`, `nomAssociat`, `horari`, `txtAssociat`, `facebook`, `adreca`, `telf1`, `telf2`, `whatsapp`, `email`, `latitud`, `longitud`, `URLWeb`	FROM $tbl_associats";
 			$connexio=connect();
@@ -30,6 +41,22 @@
 			$rows = array(); 
 
 			while($r = mysqli_fetch_array($resultAssociats)) 
+			{
+				$rows[] = $r; 
+			} 
+					
+			return json_encode($rows);
+		}
+
+	function mostrarAssociat($tbl_associats,$idAssociat){
+			$mySql="SELECT `idAssociat`, `logoAssociat`, `nomAssociat`, `horari`, `txtAssociat`, `facebook`, `adreca`, `telf1`, `telf2`, `whatsapp`, `email`, `latitud`, `longitud`, `URLWeb`	FROM $tbl_associats WHERE `idAssociat`=".$idAssociat;
+			$connexio=connect();
+			$resultAssociat=mysqli_query($connexio,$mySql); 
+			disconnect($connexio);
+
+			$rows = array(); 
+
+			while($r = mysqli_fetch_array($resultAssociat)) 
 			{
 				$rows[] = $r; 
 			} 
@@ -63,6 +90,23 @@
 			$rows = array(); 
 			$i=0;
 			while($r = mysqli_fetch_array($resultGaleriaassociats)) 
+			{
+				$rows[] = $r; 
+				 $i++;
+			} 
+					
+			return json_encode($rows);
+		}
+
+	function mostrarGaleriaassociat($tbl_galeriaassociats,$idAssociat){
+			$mySql="SELECT `idGaleria`,`fotoGaleria`,`idAssociat`	FROM $tbl_galeriaassociats WHERE `idAssociat`=".$idAssociat;
+			$connexio=connect();
+			$resultGaleriaassociat=mysqli_query($connexio,$mySql); 
+			disconnect($connexio);
+
+			$rows = array(); 
+			$i=0;
+			while($r = mysqli_fetch_array($resultGaleriaassociat)) 
 			{
 				$rows[] = $r; 
 				 $i++;

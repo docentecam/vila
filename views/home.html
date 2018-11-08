@@ -15,14 +15,14 @@
     <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
   </ol>
   <div class="carousel-inner carousel-innerPrincipal">
-    <div class="carousel-item active provaCar">
-      <img class="d-block w-100" scr="img/slider_1.jpg" alt="First slide"> 
+    <div class="carousel-item active center-cropped provaCar">
+      <img class="d-block w-100" src="img/slider_1.jpg" alt="First slide"> 
     </div>
-    <div class="carousel-item provaCar">
-      <img class="d-block w-100" scr="img/slider_2.jpg" alt="Second slide">
+    <div class="carousel-item center-cropped provaCar">
+      <img class="d-block w-100" src="img/slider_2.jpg" alt="Second slide">
     </div>
-    <div class="carousel-item provaCar">
-      <img class="d-block w-100" scr="img/slider_3.jpg" alt="Third slide">
+    <div class="carousel-item center-cropped provaCar">
+      <img class="d-block w-100" src="img/slider_3.jpg" alt="Third slide">
     </div>
   </div>
   <a class="carousel-control-prev" role="button" data-target="#carouselExampleIndicators" data-slide="prev">
@@ -43,7 +43,6 @@
 
 <div class="row">
 	<div ng-repeat="noticia in noticies | orderBy:noticia.dataNoticia | filter:{principal:'S'}" ng-href="#/noticies/{{noticia.idNoticia}}" class="col-6">
-		
 		<div class="row align-items-center">
 			<div class="col">
 				<div class="card">
@@ -77,13 +76,10 @@
 				</div>
 			</div>
 		</div>
-
-		
 	</div>
 </div>
 
-
-<div class="h_divider mb-1"></div>
+<div class="h_divider mb-3 mt-3"></div>
 	<div class="container">
 		<div class="row">	
 			<div class="col-5 px-0">
@@ -153,8 +149,11 @@
 	  
 	  <div class="container carousel-inner no-padding carousel-innerAsso">
 	    <div class="carousel-item active">
-	      <div class="col-xs-3 col-sm-3 col-md-3 carouAsoc">
-	        <img src="img/associat.jpg">
+	      <div class="col-xs-3 col-sm-3 col-md-3 carouAsoc card" ng-repeat="associat in associats">
+	      	<a ng-href="#/directori/{{associat.idAssociat}}">
+	        <img class="card-img-top img-fluid d-md-none" 
+	        ng-src="{{associat.logoAssociat!=''?'img/galeriaassociat/'+associat.logoAssociat:'img/noimage.png'}}">
+	    	</a>
 	      </div>    
 	      <div class="col-xs-3 col-sm-3 col-md-3 carouAsoc">
 	        <img src="img/associat.jpg">
@@ -172,30 +171,9 @@
 	      </div>    
 	      <div class="col-xs-3 col-sm-3 col-md-3 carouAsoc">
 	        <img src="img/associat.jpg">
-	      </div>   
-	      <div class="col-xs-3 col-sm-3 col-md-3 carouAsoc">
-	        <img src="img/associat.jpg">
-	      </div>   
-	      <div class="col-xs-3 col-sm-3 col-md-3 carouAsoc">
-	        <img src="img/associat.jpg">
-	    </div>  
+	      </div>
 	    </div>
-	    <div class="carousel-item">
-	      <div class="col-xs-3 col-sm-3 col-md-3 carouAsoc">
-	        <img src="img/associat.jpg">
-	      </div>    
-	      <div class="col-xs-3 col-sm-3 col-md-3 carouAsoc">
-	        <img src="img/associat.jpg">
-	      </div>   
-	      <div class="col-xs-3 col-sm-3 col-md-3 carouAsoc">
-	        <img src="img/associat.jpg">
-	      </div>   
-	      <div class="col-xs-3 col-sm-3 col-md-3 carouAsoc">
-	        <img src="img/associat.jpg">
-	      </div>  
-	    </div>
-	  </div>
-	  
+	  </div>  
 	  <a class="carousel-control-prev" data-target="#carouselAsso" data-slide="prev">
 	    <span class="carousel-control-prev-icon"></span>
 	  </a>
@@ -204,3 +182,11 @@
 	  </a>
 
 	</div>
+
+
+	  -mirar que las rayitas vayan a relacion con la cantidad de bloques
+	  -hacer que cada 4 logoassociats, se cree un nuevo div (controller?)
+	  -hacer que si quedan 2 sueltos, se centren? idk
+	  
+	  -arreglar el navbar más separação
+	  -Vilactiva en tablet+movil klk, hacer q todo quede en la misma linea

@@ -92,6 +92,11 @@ footer{
 	margin-top: 20px;
 	bottom: 0;
 }
+
+.pruebaModal{
+	width: 100%;
+	height: 100%;
+}
 .cargador {
 	position: absolute;
 	text-align: center;
@@ -323,7 +328,38 @@ footer{
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
 }
+.modal-dialog2 {
+	max-width: 800px;
+	margin: 1rem auto;
+}
+.modal-content {
+	border-radius: 1.5rem;
+}
 
+.modal-body{
+	padding: 2rem;
+
+}
+
+.center-cropped {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  overflow: hidden;
+
+  border: 1px solid black;
+  margin: 0 auto;
+}
+
+.center-cropped img {
+  position: absolute;
+  top: 50%; left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
 
 @media (max-width: 575px){
 	.centrarFooterMovil{
@@ -355,6 +391,12 @@ footer{
 	.provaCar img {
   	visibility: hidden; /*HOLA! esto sirve para que desaparezca el tag img y para que el SEO crea que hay un tag img igualmente, porque poner imágenes por background-image es muy feo*/
 	}
+	.container{
+		margin-left: 0;
+		margin-right: 0;
+		padding-right: 0;
+		padding-left: 0;
+	}
 }
 
 @media (min-width: 576px) and (max-width: 767px){
@@ -363,6 +405,12 @@ footer{
 	}
 	.hidemovil_bossa{
 		display: none;
+	}
+	.container{
+		margin-left: 0;
+		margin-right: 0;
+		padding-right: 0;
+		padding-left: 0;
 	}
 }
 
@@ -373,6 +421,12 @@ footer{
 	}
 	.hidemovil{
 		display: none;
+	}
+	.container{
+		margin-left: 0;
+		margin-right: 0;
+		padding-right: 0;
+		padding-left: 0;
 	}
 
 }

@@ -1,0 +1,61 @@
+<div class="row">
+	<div class="mt-4 col-10 offset-1">
+		<div class="tipoSubTitulo">
+		{{associat.nomAssociat}}
+		</div>
+	
+		<div class="row">
+			<div class="col-10 offset-1">
+				<img ng-src="{{associat.logoAssociat!=''?'img/associats/'+associat.logoAssociat:'img/noimage.png'}}" class="img-fluid imageBordes" alt="associat">
+			<div class="col-12">
+				info tienda<br>
+				{{associat.txtAssociat}}
+				<br><br>
+				horaris<br>
+				{{associat.horari}}
+				<br><br>
+				telefono1<br>
+				{{associat.telf1}}<br>
+				telefono2<br>
+				{{associat.telf2}}<br>
+				whats<br>
+				{{associat.whatsapp}}
+				<br><br>
+				adreça<br>
+				{{associat.adreca}}
+				<br><br>
+				web<br>
+				{{associat.URLWeb}}<br>
+				mail<br>
+				{{associat.email}}
+			</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-12 tipoSubTitulo">
+		ON SOM:
+	</div>
+
+	<div class="col">
+		<img src="img/mapiya.png" class="pruebaImg">
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-12 tipoSubTitulo">
+		GALERIA:
+	</div>
+	<div class="container col-12">
+		<div class="row">
+			<div class="card-columns">
+				<div class="card" ng-repeat="galeria in galeriaassociat">
+					<img class="card-img-top img-fluid d-md-none" ng-src="{{galeria.fotoGaleria!=''?'img/galeriaassociat/'+galeria.fotoGaleria:'img/noimage.png'}}" id="fotoFull">
+					<img class="card-img-top img-fluid d-none d-md-inline" ng-src="{{galeria.fotoGaleria!=''?'img/galeriaassociat/'+galeria.fotoGaleria:'img/noimage.png'}}" data-toggle="modal" data-target="#modalFoto" id="fotoFull" ng-click="modalFoto(galeria.fotoGaleria)">
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

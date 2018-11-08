@@ -17,7 +17,7 @@
 		<div class="divCentro">
 			<form>
 				<fieldset>
-					<div ng-src="">
+					
 					<legend>Iniciar Sessió</legend><br>
 			  		<input class="form-control" type="text" name="txtHNom" id="txtHNom" size="25"  required ng-model="usuari.vila" placeholder="Introduïu el vostre correu" ng-keyup="$event.keyCode == 13 ? login() : null"><br>
 			  		<div class="input-group ">
@@ -31,7 +31,6 @@
 	 				
 	 				<div ng-show="incontra" class="text-danger pt-2">
 						Usuari o contransenya incorrecta
-					</div>
 					</div>
 				</fieldset>
 			</form>
