@@ -15,11 +15,16 @@ app.config(['$routeProvider',function($routeProvider){
   .when('/associacio',{
     templateUrl:'views/associacio.php',
     controller:'AssociCtrl',
-    title: "Manteniment Associacio"
+    title: "Dades Associacio"
   })
   .when('/directori',{
     templateUrl:'views/directori.php',
     controller:'DirectCtrl',
+    title: "Manteniment Directori"
+  })
+  .when('/directori/:idAssociat',{
+    templateUrl:'views/directori.php',
+    controller:'DirectComerCtrl',
     title: "Manteniment Directori"
   })
   .when('/contactans',{
@@ -32,10 +37,20 @@ app.config(['$routeProvider',function($routeProvider){
     controller:'FiramarCtrl',
     title: "Firamar"
   })
-  .when('/solicitutsoc',{
-    templateUrl:'views/contactans.php',
+  .when('/solicitutsoci',{
+    templateUrl:'views/solicitutsoc.php',
     controller:'SociCtrl',
-    title: "Llistat Solicitud de socis"
+    title: "Llistat solicitud de socis"
+  })
+  .when('/categories',{
+    templateUrl:'views/categories.php',
+    controller:'CategCtrl',
+    title: "Manteniment de categories"
+  })
+  .when('/serveis',{
+    templateUrl:'views/serveis.php',
+    controller:'ServeisCtrl',
+    title: "Serveis"
   })
   .when('/logout',{
     templateUrl:'index.php',

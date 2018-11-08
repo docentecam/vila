@@ -14,7 +14,7 @@
 		echo llistatContact($tbl_contactans);
 	}
 	function llistatContact($tbl_contactans){
-		$mySql="SELECT `email`,`idContacte`,`nomContacte`, `cognomContacte`, `tipus`, `telf`, `nomEmpresa`, `txtContacte` FROM $tbl_contactans";
+		$mySql="SELECT `email`,`idContacte`,`nomContacte`, `cognomContacte`, `tipus`, `telf`, `nomEmpresa`, `txtContacte`, DATE_FORMAT(`dataContacte`,'%d/%m/%Y' ) AS 'dataContacte' FROM $tbl_contactans";
 		// echo $mySql;
 		$connexio=connect();
 		$resultContact=mySqli_query($connexio,$mySql);
