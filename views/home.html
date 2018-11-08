@@ -15,14 +15,14 @@
     <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
   </ol>
   <div class="carousel-inner carousel-innerPrincipal">
-    <div class="carousel-item active provaCar">
-      <img class="d-block w-100" scr="img/slider_1.jpg" alt="First slide"> 
+    <div class="carousel-item active center-cropped provaCar">
+      <img class="d-block w-100" src="img/slider_1.jpg" alt="First slide"> 
     </div>
-    <div class="carousel-item provaCar">
-      <img class="d-block w-100" scr="img/slider_2.jpg" alt="Second slide">
+    <div class="carousel-item center-cropped provaCar">
+      <img class="d-block w-100" src="img/slider_2.jpg" alt="Second slide">
     </div>
-    <div class="carousel-item provaCar">
-      <img class="d-block w-100" scr="img/slider_3.jpg" alt="Third slide">
+    <div class="carousel-item center-cropped provaCar">
+      <img class="d-block w-100" src="img/slider_3.jpg" alt="Third slide">
     </div>
   </div>
   <a class="carousel-control-prev" role="button" data-target="#carouselExampleIndicators" data-slide="prev">
@@ -148,10 +148,10 @@
 	  </ul>
 	  
 	  <div class="container carousel-inner no-padding carousel-innerAsso">
-	    <div class="carousel-item active">
-	      <div class="col-xs-3 col-sm-3 col-md-3 carouAsoc">
+	    <div class="carousel-item active" ng-repeat="associat in associats">
+	      <div class="col-xs-3 col-sm-3 col-md-3 carouAsoc card">
 	      	<a ng-href="#/directori/{{associat.idAssociat}}">
-	        <img src="img/associat.jpg">
+	        <img class="card-img-top img-fluid d-md-none" ng-src="{{associat.logoAssociat!=''?'img/galeriaassociat/'+associat.logoAssociat:'img/noimage.png'}}">
 	    	</a>
 	      </div>    
 	      <div class="col-xs-3 col-sm-3 col-md-3 carouAsoc">
