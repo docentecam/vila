@@ -1,8 +1,9 @@
 <div class="row">
 	<div class="col-12 tipoTitulo text-center">
-		FIRAMAR (AÑO){{firamar.titolFiramar}} {{firamar.dataFiramar}}
+		<span>{{firamar.titolFiramar}}</span> 
+		<span>{{firamar.dataFiramar|limitTo:4}}</span>
 	</div>
-	<div class="col-12 tipoTexto">
+	<div class="col-12 tipoTexto text-center">
 		<p>
 		{{firamar.txtFiramar}}
 		</p>
@@ -34,6 +35,18 @@
 	</div>
 </div>
 
+<div class="modal fade " id="modalFoto" tabindex="-1" role="dialog" aria-labelledby="modalFotoCentred" aria-hidden="true">
+  	<div class="modal-dialog modal-dialog-centered" role="document">
+  		<div class="modal-content">
+			<div class="modal-body">
+	      		<div>
+	      			<img ng-src="img/galeriafiramar/{{fotoModal}}" class="img-fluid pruebaModal">
+	      		</div>
+	     	</div>
+	    </div>
+ 	</div>
+</div>
+
 <div class="row">
 	<div class="col-12 tipoSubTitulo">
 		Participants
@@ -61,3 +74,5 @@
 		ng repeat en párrafos que sean links? (creo)
 	</div>
 </div>
+
+<!-- ALTER TABLE `activitatsfiramar` ADD `idActivitat` INT NOT NULL AUTO_INCREMENT FIRST, ADD PRIMARY KEY (`idActivitat`); -->

@@ -24,6 +24,12 @@ app.config(['$routeProvider',function($routeProvider){
 		title: "Directori"
 	})
 
+		.when('/directori/:idAssociat',{
+		templateUrl:'views/associat.html',
+		controller:'AssociatCtrl',
+		title: "Associat"
+	})
+
 	.when('/firamar',{
 		templateUrl:'views/firamar.html',
 		controller:'FiramarCtrl',

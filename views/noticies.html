@@ -3,7 +3,9 @@
 		<div class="tipoTitulo mt-5">
 			Notícies
 		</div>
+		
 		<div class="h_divider mb-5"></div>
+
 		<div class="row">
 			<div class="col">
 				<div class="row">
@@ -42,11 +44,8 @@
 		<div class="tipoTitulo">
 			<a href="#/noticies">TORNAR A NOTÍCIES</a>
 		</div>
-		<div class="h_divider mb-4"></div>
 
-		<div class="tipoSubTitulo mb-4">
-			{{noticia.titolNoticia}}
-		</div>
+		<div class="h_divider mb-4"></div>
 
 		<div class="row mb-4">
 			<div class="col-12 col-lg-6 mb-4">
@@ -54,14 +53,13 @@
 			</div>
 
 			<div class="col-12 col-lg-6">
+				<div class="tipoSubTitulo mb-4">
+				{{noticia.titolNoticia}}
+				</div>
 				<div class="tipoTexto">
-				<b>NOTÍCIA:</b>
-				<br>
-				{{noticia.txtNoticia}}
-				<br><br>
-				<b>DATA:</b>
-				<br>
 				{{noticia.dataNoticia}}
+				<br><br>
+				{{noticia.txtNoticia}}
 				</div>
 			</div>
 		</div>

@@ -1,6 +1,6 @@
 <div class="AssNotSerAllCss">
   	<div class="AssTituCss">Dades Associació:</div>
-	<!-- <div>{{msj}}</div> -->
+	<div>{{msj}}</div>
 	<form name="formAss" ng-submit="submitAss()">
 	 	<div class="form-row">
 			<div class="form-group col-md-8" ng-class="{ 'has-error' : formAss.nomAss.$invalid && !formAss.nomAss.$pristine }">
@@ -34,15 +34,15 @@
 	        			<input type="email" class="form-control" ng-model="ass.email" id="emailAss" placeholder="correu electronic">
 	      			</div>
 		    </div>
-		<div class="form-group col-md-6" ng-class="{ 'has-error' : formAss.txtPass.$invalid && !formAss.txtPass.$pristine }">
-				<label for="txtPass">Password</label>
-			<div class="input-group">
-		      		<input type="password" class="form-control" id="txtPass" ng-model="ass.pasMail" placeholder="contrasenya">
-		    	<div class="input-group-append">
-		      		<span class="input-group-text" id="inputGroupPrepend" ng-click="showPassAss()"><i class="far fa-eye cursor"></i></span>
-		    	</div>
-			</div>
-		</div>
+			<div class="form-group col-md-6" ng-class="{ 'has-error' : formAss.txtPass.$invalid && !formAss.txtPass.$pristine }">
+					<label for="txtPass">Password</label>
+				<div class="input-group">
+			      		<input type="password" class="form-control" id="txtPass" ng-model="ass.pasMail" placeholder="contrasenya">
+			    	<div class="input-group-append">
+			      		<span class="input-group-text" id="inputGroupPrepend" ng-click="showPassAss()"><i class="far fa-eye cursor"></i></span>
+			    	</div>
+				</div>
+			</div> 	
 		    <div class="form-group col-6" ng-class="{ 'has-error' : formAss.horariAss.$invalid && !formAss.horariAss.$pristine }">
 		      	<label for="horariAss">Horari</label>
 		      	<textarea class="form-control textareaHorariAss" ng-model="ass.horari" id="horariAss" placeholder="horari"></textarea>
