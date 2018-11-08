@@ -1,6 +1,6 @@
 angular.module('vila')
 .controller('IniciCtrl',function($scope,$http,$q,$rootScope,$timeout){
-}
+})
 .controller('AssociCtrl',function($scope,$http,$q,$rootScope,$timeout){
 	var data = new FormData();
 		data.append("acc","favi");
@@ -63,7 +63,7 @@ angular.module('vila')
 	});
 	$scope.submitAss=function(){
 		$scope.divMsj=true;
-		if($scope.ass.nom=="" || $scope.ass.telf=="" || $scope.ass.facebook=="" $scope.ass.URLWeb=="" ||  $scope.ass.email=="" ||  $scope.ass.pasMail=="" ||  $scope.ass.horari=="" ||  $scope.ass.latitud=="" || $scope.ass.longitud=="" || $scope.ass.keyApi=="" || $scope.ass.quiSom=="" || $scope.ass.equip=="" || $scope.ass.LGPD==""){
+		if($scope.ass.nom=="" || $scope.ass.telf=="" || $scope.ass.facebook=="" || $scope.ass.URLWeb=="" ||  $scope.ass.email=="" ||  $scope.ass.pasMail=="" ||  $scope.ass.horari=="" ||  $scope.ass.latitud=="" || $scope.ass.longitud=="" || $scope.ass.keyApi=="" || $scope.ass.quiSom=="" || $scope.ass.equip=="" || $scope.ass.LGPD==""){
 			$scope.msj="Les dades no s'han actualitzat correctament. Sisplau ompli els camps buits";
 			$timeout(function() {
 				$scope.divMsj=false;
@@ -188,10 +188,171 @@ angular.module('vila')
 		$scope.order=columna;
 	}
 })
-.controller('FiramarCtrl',function($scope, $http, $q, $timeout, $rootScope) {
+.controller('FiramarCtrl',function($scope, $http, $q, $timeout, $rootScope, $window) {
+	var data = new FormData();
+		data.append("acc", "favi");
+	var deferred=$q.defer();
+	
+	$http.post("models/associacio.php", data,{
+	headers:{
+		"Content-type":undefined
+	},
+	transformRequest:angular.identity
+
+	})
+	.then(function(resIcon){
+		deferred.resolve(resIcon);
+		$rootScope.favIcon=resIcon.data[0].favIcon;
+		$rootScope.logo=resIcon.data[0].logo;
+		$rootScope.cargador=false;
+	})
+	.catch(function(error){
+		$rootScope.cargador=false;
+	});
+
+	$scope.msj="";
+	$scope.firamar={};
+	$scope.divMsj=false;
+	$scope.firaFull=true;
+	$scope.accio="";
+	$scope.firaSelect=true;
+
+	var data = new FormData();
+		data.append("acc","l");
+    var deferred=$q.defer();
+    $scope.cargador=true;
+	$http.post("models/firamar.php", data,{
+		headers:{
+			"Content-type":undefined
+		},
+		transformRequest:angular.identity
+	
+	})
+	.then(function(res){
+		deferred.resolve(res);
+		$scope.edicions=res.data;
+		console.log(res.data);
+	})
+	.catch(function(error) {
+		$rootScope.cargador=false;
+	});
+
+	$scope.mostraEdicio=function(fecha){
+		$scope.firaFull=true;
+		var data = new FormData();
+		data.append("acc","listEdicion");
+		data.append("dataFiramar",fecha);
+	    var deferred=$q.defer();
+	    $rootScope.cargador=true;
+		$http.post("models/firamar.php", data,{
+			headers:{
+				"Content-type":undefined
+			},
+			transformRequest:angular.identity
+		
+		})
+		.then(function(res){
+
+			deferred.resolve(res);
+			$scope.edicioFiramar=res.data.firamar[0];
+			console.log(res.data.firamar[0].titolFiramar);
+			$scope.galeriaFiramar=res.data.galeriaFiramar;
+			$scope.sponsorsFiramar=res.data.sponsorsFiramar;
+			$scope.participantsFiramar=res.data.participantsFiramar;
+			
+			$rootScope.cargador=false;
+			$scope.firaSelect=false;
+		})
+		.catch(function(error) {
+			$rootScope.cargador=false;
+		});
+
+	}
+	$scope.afegeixE=function(edita=""){
+		$scope.firaSelect=true;
+		$scope.firaFull=false;
+		if (edita!="-1") {
+			$scope.accio="Editar";
+			$scope.firamar.titolFiramar=$scope.edicions[edita].titolFiramar;
+			$scope.firamar.fecha=$scope.edicions[edita].fecha;
+			$scope.firamar.txtFiramar=$scope.edicions[edita].txtFiramar;
+		}
+		else{
+			$scope.accio="Afegir";
+			$scope.firamar.titolFiramar="";
+			$scope.firamar.txtFiramar="";
+			var d=new Date();
+			var yyyy=d.getFullYear();
+			var mm=d.getMonth()<9?"0"+(d.getMonth()+1):(d.getMonth()+1);
+			var dd=d.getDate()<10?"0"+(d.getDate()):(d.getDate());
+			$scope.firamar.fecha=yyyy+"-"+mm+"-"+dd;			
+		}
+		var element = document.getElementById("divTop");
+	    element.scrollIntoView({block: "end", behavior: "smooth"});
+	}
+	$scope.guardaEdicio=function(accio){
+		if($scope.firamar.titolFiramar=="" || $scope.firamar.txtFiramar=="" || $scope.firamar.fecha==""){	
+			$scope.msj="Les dades no s'han actualitzat correctament. Sisplau ompli els camps buits";
+			$scope.divMsj=true;
+			$timeout(function() {
+				$scope.divMsj=false;
+			}, 3000);		}
+		else{
+			var data = new FormData();
+				data.append("acc",$scope.accio);
+				data.append("titolFiramar",$scope.firamar.titolFiramar);
+				data.append("txtFiramar",$scope.firamar.txtFiramar);
+				data.append("fecha",$scope.firamar.fecha);
+		    var deferred=$q.defer();
+		    $rootScope.cargador=true;
+			$http.post("models/firamar.php", data,{
+				headers:{
+					"Content-type":undefined
+				},
+				transformRequest:angular.identity
+			})
+			.then(function(res){
+				console.log(res.data);
+				if(res.data!="0"){
+					$scope.edicions=res.data;
+					$scope.msj="Les dades s'han actualitzat correctament.";
+					$scope.firaFull=true;
+					$scope.divMsj=true;
+				}
+				else{
+					$scope.msj="Fallada desconegut.";
+					$scope.divMsj=true;
+				}
+				$timeout(function() {
+					$scope.divMsj=false;
+				}, 2000);
+				$rootScope.cargador=false;
+			})
+			.catch(function(error) {
+				$rootScope.cargador=false;
+			});
+		}
+	}
+	$scope.cancelaEdicio=function(cancel){
+		$scope.firaFull=true;
+	}
 
 
-});
+
+	window.onscroll = function() {scrollFunction()};
+
+	function scrollFunction() {
+	    if (document.body.scrollTop > 500 || document.documentElement.scrollTop > 500) {
+	        document.getElementById("goTop").style.display = "block";
+	    } else {
+	        document.getElementById("goTop").style.display = "none";
+	    }
+	}
+ 	$scope.goTop=function(){
+ 		var element = document.getElementById("divTop");
+	    element.scrollIntoView({block: "end", behavior: "smooth"});
+ 	}
+})
 .controller('LogoutCtrl',function($scope,$http){
 	$http({
 		method:"GET",

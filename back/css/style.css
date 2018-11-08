@@ -1,6 +1,4 @@
-.navNoline{
-	outline: 0;
-}
+
 .container-fluid{
 	padding: 0;
 	margin: 0;
@@ -150,6 +148,9 @@ a:hover {
 .preloader {
 	margin-top: 18%;
 }
+.navNoline{
+	outline: 0;
+}
 .btnColorCss{
 	background-color: #396b39;
 	color: #FFFFFF;
@@ -185,6 +186,61 @@ a:hover {
 .FacebookAssCss{
 	font-size: 1.5rem;
 }
+#BuAlFinal{
+	align-items: flex-end!important;
+	vertical-align: baseline!important;
+}
+.btn-outline-success{
+    color: #4f307e!important;
+    background-color: transparent;
+    background-image: none;
+    border-color: #4f307e!important;    
+}
+.btn-outline-success:hover{
+    color: #fff!important;
+    background-color: #4f307e!important;
+    border-color: #4f307e!important;
+    box-shadow: none;
+}
+.btn-outline-primary{
+    color: #1d93d1!important;
+    background-color: transparent;
+    background-image: none;
+    border-color: #1d93d1!important;
+}
+.btn-outline-primary:hover{
+    color: #fff!important;
+    background-color: #1d93d1!important;
+    border-color: #1d93d1!important;
+}
+.btn-outline-dark{
+    color: #797778!important;
+    background-color: transparent;
+    background-image: none;
+    border-color: #797778!important;
+}
+.btn-outline-dark:hover{
+    color: #fff!important;
+    background-color: #797778!important;
+    border-color: #797778!important;
+}
+.btn-outline-success,.btn-outline-primary,.btn-outline-dark:focus-within{
+	box-shadow: none!important;
+}
+/*.form-control {
+  padding: 0.5rem;
+  border: 1px solid;
+  font-size: 1rem;
+  color: black;
+  font-weight: bold;
+}
+.form-control:focus {
+    color: #797778;
+ 	background-color:#fff; 
+    border-color:#797778; 
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem #797778;
+}*/
 @media (max-width: 575px){
 	.imglogonav{
 		height: 30px;
