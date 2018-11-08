@@ -199,6 +199,7 @@ $(window).on('resize', function() {
 })
 
 .controller('FiramarCtrl',function($scope,$http,$q,$rootScope,$timeout,$window,$document){
+	$scope.fotoModal="";
 	$scope.llistat=false;
 	$rootScope.cargador=true;
 	var data = new FormData();
@@ -223,6 +224,9 @@ $(window).on('resize', function() {
 	.catch(function(error) {
 		$rootScope.cargador=false;
 		});
+	$scope.modalFoto=function(nomFoto){
+		$scope.fotoModal=nomFoto;
+	}
 
 })
 
