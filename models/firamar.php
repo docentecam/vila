@@ -56,7 +56,7 @@
 				return json_encode($rows);
 			}
 	function mostrarActivitatsfiramar($tbl_activitatsfiramar){
-				$mySql="SELECT `idActivitat`, `horaInici`, `horaFi`, `titolActivitat`, `txtActivitat`, `dataFiramar`	FROM $tbl_activitatsfiramar";
+				$mySql="SELECT `idActivitat`, `horaInici`, `horaFi`, `titolActivitat`, `txtActivitat`, `dataFiramar`	FROM $tbl_activitatsfiramar ORDER BY  `horaInici`";
 				$connexio=connect();
 				$resultActivitatsfiramar=mysqli_query($connexio,$mySql); 
 				disconnect($connexio);

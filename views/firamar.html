@@ -1,5 +1,5 @@
 <div class="row">
-	<div class="col-12 tipoTitulo text-center">
+	<div class="col-12 tipoTitulo  position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
 		<span>{{firamar.titolFiramar}}</span> 
 		<span>{{firamar.dataFiramar|limitTo:4}}</span>
 	</div>
@@ -14,11 +14,21 @@
 	<div class="col-12 tipoSubTitulo">
 		Programa d'activitats
 	</div>
-	<div class="col-12 tipoTexto">
-		ng-repeat de la data activitat, el titulo de la actividad, y el texto de la actividad.
+<!-- 	<div class="container-fluid"> -->
+	<div class="row">
+		<div ng-repeat="firamar in activitatsfiramar" class="col-md-12">
+			<div class="row">
+				 	<div class="col-4">{{firamar.horaInici}}
+				    	<div class="col-4 no-padding">{{firamar.horaFi}}</div>
+					</div><br>
+				    <div class="col-8 tipoTexto"><b>{{firamar.titolActivitat | uppercase}}</b>
+				    	<div class="col-8 tipoTexto">{{firamar.txtActivitat}}</div><br>
+					</div>
+			</div>
+		</div>
 	</div>
+<!-- </div> -->
 </div>
-
 <div class="row">
 	<div class="col-12 tipoSubTitulo">
 		Galeria
@@ -39,8 +49,66 @@
 	<div class="col-12 tipoSubTitulo">
 		Participants
 	</div>
-	<div class="col-12 tipoTexto">
-		meter carousel de 5, como en la home
+	<div id="carouselAsso" class="carousel slide" data-ride="carousel">
+
+	  <ul class="carousel-indicators">
+	    <li data-target="#carouselAsso" data-slide-to="0" class="active"></li>
+	    <li data-target="#carouselAsso" data-slide-to="1"></li>
+	    <li data-target="#carouselAsso" data-slide-to="2"></li>
+	  </ul>
+	  
+	  <div class="container carousel-inner no-padding carousel-innerAsso">
+	    <div class="carousel-item active">
+	      <div class="col-xs-3 col-sm-3 col-md-3 carouAsoc">
+	        <img src="img/associat.jpg">
+	      </div>    
+	      <div class="col-xs-3 col-sm-3 col-md-3 carouAsoc">
+	        <img src="img/associat.jpg">
+	      </div>   
+	      <div class="col-xs-3 col-sm-3 col-md-3 carouAsoc">
+	        <img src="img/associat.jpg">
+	      </div>   
+	      <div class="col-xs-3 col-sm-3 col-md-3 carouAsoc">
+	        <img src="img/associat.jpg">
+	      </div>   
+	    </div>
+	    <div class="carousel-item">
+	      <div class="col-xs-3 col-sm-3 col-md-3 carouAsoc">
+	        <img src="img/associat.jpg">
+	      </div>    
+	      <div class="col-xs-3 col-sm-3 col-md-3 carouAsoc">
+	        <img src="img/associat.jpg">
+	      </div>   
+	      <div class="col-xs-3 col-sm-3 col-md-3 carouAsoc">
+	        <img src="img/associat.jpg">
+	      </div>   
+	      <div class="col-xs-3 col-sm-3 col-md-3 carouAsoc">
+	        <img src="img/associat.jpg">
+	    </div>  
+	    </div>
+	    <div class="carousel-item">
+	      <div class="col-xs-3 col-sm-3 col-md-3 carouAsoc">
+	        <img src="img/associat.jpg">
+	      </div>    
+	      <div class="col-xs-3 col-sm-3 col-md-3 carouAsoc">
+	        <img src="img/associat.jpg">
+	      </div>   
+	      <div class="col-xs-3 col-sm-3 col-md-3 carouAsoc">
+	        <img src="img/associat.jpg">
+	      </div>   
+	      <div class="col-xs-3 col-sm-3 col-md-3 carouAsoc">
+	        <img src="img/associat.jpg">
+	      </div>  
+	    </div>
+	  </div>
+	  
+	  <a class="carousel-control-prev" data-target="#carouselAsso" data-slide="prev">
+	    <span class="carousel-control-prev-icon"></span>
+	  </a>
+	  <a class="carousel-control-next" data-target="#carouselAsso" data-slide="next">
+	    <span class="carousel-control-next-icon"></span>
+	  </a>
+
 	</div>
 </div>
 
@@ -64,3 +132,4 @@
 </div>
 
 <!-- ALTER TABLE `activitatsfiramar` ADD `idActivitat` INT NOT NULL AUTO_INCREMENT FIRST, ADD PRIMARY KEY (`idActivitat`); -->
+
