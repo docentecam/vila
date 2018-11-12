@@ -16,17 +16,22 @@
 		//$_FILES[‘nombrePost’]. El nombre entre comillas, será el que nos envíen por post o get desde el formulario.
 // $datos="entra en model<br>"; 
 	    $cantImatge=$_POST['cantImatge']+1;
-	    
+	    $connexio=connect();
+		
 	    $j=0;
 	    while($j<$cantImatge) {
 		    $numUp='uploadedFile'.$j;
 		    $fileEx =explode('.',$_FILES[$numUp]["name"]);
-			$file =  date("dmYhisv").'.'.$fileEx[count($fileEx)-1];
+			$file =  date("dmYhisv").substr($fileEx[0],-3,3).'.'.$fileEx[count($fileEx)-1];
 			//$datos.=$j."--".$_FILES[$numUp]["tmp_name"]."-"."../../img/galeriaassociats/".$file."<br>"; 
+
 			move_uploaded_file($_FILES[$numUp]["tmp_name"], "../../img/galeriaassociats/".$file);
+			$mySql="INSERT INTO `galeriaassociats`(`fotoGaleria`, `idAssociat`) 	VALUES ('".$file."','".$_POST['idAssociat']."')";
+			mysqli_query($connexio,$mySql);
 			$j++;
 	    }
-		  //echo $datos; 
+	    disconnect($connexio);
+		echo  galeriaAssociats($tbl_galeriaassociats,$_POST['idAssociat']);
 	}
 	if(isset($_POST['acc'])&&$_POST['acc']=='updateMedia'){
 		$fileEx =explode('.',$_FILES["logoUpdate"]["name"]);

@@ -1,4 +1,4 @@
-<div class="AssNotSerAllCss">
+<div class="AssNotiAllCss" id="divTop">
   	<div class="AssTituCss">Dades Associació:</div>
 	<div>{{msj}}</div>
 	<form name="formAss" ng-submit="submitAss()">
@@ -61,15 +61,15 @@
 		    </div>
 			<div class="form-group col-12" ng-class="{ 'has-error' : formAss.ExplicacioAss.$invalid && !formAss.ExplicacioAss.$pristine }">
 		    	<label for="ExplicacioAss">Explicació</label>
-		    	<textarea class="form-control textareaQuiSomAss" ng-model="ass.quiSom" id="ExplicacioAss" placeholder="explicació"></textarea>
+		    	<textarea class="form-control textarea" ng-model="ass.quiSom" id="ExplicacioAss" placeholder="explicació"></textarea>
 	  		</div>	
 	  		<div class="form-group col-12" ng-class="{ 'has-error' : formAss.equipAss.$invalid && !formAss.equipAss.$pristine }">
 	    		<label for="equipAss">Equip Administratiu</label>
-	    		<textarea class="form-control textareaLGPDAss" ng-model="ass.equip" id="equipAss" placeholder="equip"></textarea>
+	    		<textarea class="form-control textarea" ng-model="ass.equip" id="equipAss" placeholder="equip"></textarea>
 	  		</div>
 	  		<div class="form-group col-12" ng-class="{ 'has-error' : formAss.LGPDAss.$invalid && !formAss.LGPDAss.$pristine }">
 	    		<label for="LGPDAss">LGPD</label>
-	    		<textarea class="form-control textareaLGPDAss" ng-model="ass.LGPD" id="LGPDAss" placeholder="LGPD"></textarea>
+	    		<textarea class="form-control textarea" ng-model="ass.LGPD" id="LGPDAss" placeholder="LGPD"></textarea>
 	  		</div>
 	  	<button type="submit" class="btn btn-info" ng-disabled="formAss.$invalid" value="submit-true" formmethod="post">Guardar Canvis</button>
 	</div>	
@@ -112,4 +112,8 @@
 	      </div>  
 	    </div>
 	</div>
+	<button id="goTop" class="goToTop btn btn-primary " value="Pujar" ng-click="goTop()">
+		<span class="d-none d-lg-inline">Pujar</span>
+		<img ng-src="../img/if_arrow-up.png" class="d-lg-none">
+	</button>
 </div>	
