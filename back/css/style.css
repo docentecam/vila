@@ -1,4 +1,3 @@
-
 .container-fluid{
 	padding: 0;
 	margin: 0;
@@ -21,7 +20,25 @@ a:hover {
 	color: black;
     text-decoration: none;
 }
-
+/* santi cambia el nombre de esta id */
+#txtHNom{
+	width: 208px;
+}
+/* santi cambia el nombre de esta id */
+#txtPass{
+	border-radius: 0.25rem 0rem 0rem 0.25rem !important;
+	width: 67%;
+}
+#cargador {
+	position: absolute;
+	text-align: center;
+	width: 100%;
+	height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    background-color: rgba(95, 95, 95, 0.7);
+}
 .inputLog{
 	text-align: center!important;
 }
@@ -34,133 +51,47 @@ a:hover {
 	margin-top: -100px!important;
 	margin-left: -150px!important;
 }
-.colorLink{
-	color:#007bff!important;
-}
-.imagecontainer {
-  position: relative;
-  overflow: hidden;
-}
-.imagecontainer:before {
-  display: block;
-  width: 100%;
-  content: "";
-  padding-bottom: 100%;
-  height: 0;
-}
-.imagecontainer-img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: 0;
-}
-.is-contain.imagecontainer .imagecontainer-img {
-  object-fit: contain;
-  font-family: "object-fit: contain";
-}
-.is-cover.imagecontainer .imagecontainer-img {
-  object-fit: cover;
-  font-family: "object-fit: cover";
-}
-.group {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-}
-.group-item {
-  width: 100%;
-}
+/* santi cambia el nombre de esta class */
 .card{
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-.fontAweCheck{
+/* .fontAweCheck{
 	color: #03db50!important;
-}
+} */
 .fontAweX{
 	color: #ff0000!important;
 }
-#txtHNom{
-	width: 208px;
-}
-#txtPass{
-	border-radius: 0.25rem 0rem 0rem 0.25rem !important;
-	width: 67%;
-}
+
 .whats{
 	color: #00e676!important;
 }
 .phone{
 	color: #339af0!important;
 }
-.mail{
-	color: #ffd700!important;
-}
-.iconSize{
-	font-size: 1.33em;
-}
 .textarea{
 	height: 150px!important; 
 }
-.ultimsEstilo{
-	font-family: 'Asap', sans-serif;
-	font-weight: 700;
-	font-size: 1.8em;
-}
-.AfegirEstilo{
-	font-size: 2.2em;
-	color: #000000;
-	margin-left: 0px;
-}
-.h_divider{ 
-	height:4px; 
-	background: #000 
-}
+
+/* santi cambia el nombre de esta class */
 .afegegant{
 	font-size: 2em;
 }
+
 .buttonAgreg{
 	font-size: 1.5em;
 }
-.imgCssColla{
+
+.imgCssLogoDir{
 	height: 150px;
 }
-.imgCssTrans{
-	height: 35px;
-}
-
-#cargador {
-	position: absolute;
-	text-align: center;
-	width: 100%;
-	height: 100%;
-    left: 0;
-    top: 0;
-    z-index: 1;
-    background-color: rgba(95, 95, 95, 0.7);
-}
-
 .preloader {
 	margin-top: 18%;
 }
 .navNoline{
 	outline: 0;
 }
-.btnColorCss{
-	background-color: #396b39;
-	color: #FFFFFF;
-	
-}
 .divTable tr:nth-child(odd){
 	background-color:#fffcf0;
-}
-.divLogoNav{
-	background-color: #A8A8A8;
 }
 .divTable table th{
 	color: #FFFFFF;
@@ -190,44 +121,47 @@ a:hover {
 .FacebookAssCss{
 	font-size: 1.5rem;
 }
-#BuAlFinal{
-	align-items: flex-end!important;
-	vertical-align: baseline!important;
-}
+/* santi cambia el nombre de esta class */
 .btn-outline-success{
     color: #4f307e!important;
     background-color: transparent;
     background-image: none;
     border-color: #4f307e!important;    
 }
+/* santi cambia el nombre de esta class */
 .btn-outline-success:hover{
     color: #fff!important;
     background-color: #4f307e!important;
     border-color: #4f307e!important;
     box-shadow: none;
 }
+/* santi cambia el nombre de esta class */
 .btn-outline-primary{
     color: #1d93d1!important;
     background-color: transparent;
     background-image: none;
     border-color: #1d93d1!important;
 }
+/* santi cambia el nombre de esta class */
 .btn-outline-primary:hover{
     color: #fff!important;
     background-color: #1d93d1!important;
     border-color: #1d93d1!important;
 }
+/* santi cambia el nombre de esta class */
 .btn-outline-dark{
     color: #797778!important;
     background-color: transparent;
     background-image: none;
     border-color: #797778!important;
 }
+/* santi cambia el nombre de esta class */
 .btn-outline-dark:hover{
     color: #fff!important;
     background-color: #797778!important;
     border-color: #797778!important;
 }
+/* santi cambia el nombre de esta class */
 .btn-outline-success,.btn-outline-primary,.btn-outline-dark:focus-within{
 	box-shadow: none!important;
 }
@@ -252,9 +186,9 @@ a:hover {
 .form-control:focus {
     color: #797778;
  	background-color:#fff; 
-    border-color:#797778; 
+    border-color:#5a0ece; 
     outline: 0;
-    box-shadow: 0 0 0 0.2rem #797778;
+    box-shadow: 0 0 0 0.2rem #4f307e9e;
 }
 .serveiysubserveiBoxCss i{
 	float: right;
@@ -268,83 +202,18 @@ a:hover {
 	justify-content: center;
 }
 @media (max-width: 575px){
-	.imglogonav{
-		height: 30px;
-		width: 30px;
-	}
-	.textTabla{
-		font-size: 1rem;
-	}
-	.titleSocis{
-		font-size: 1.5rem!important;
-	}
 	.iconSize{
 		font-size: 1.75em;
-	}
-	.flechaSociEsdev{
-	text-decoration: none;
-    display: inline-block;
-    padding: 8px 16px;
-	background-color: #808080;
-    color: black;
-    margin-left: 30px;
-    margin-top: 20px;
-	}
-	.flechaSociEsdev:hover{
-	background-color: #ddd;
-    color: black;
-	}
 }
 @media (min-width: 576px) and (max-width: 767px){
-	.imglogonav{
-		height: 30px;
-		width: 30px;
-	}
-	.textTabla{
-		font-size: 0.5rem;
-	}
-	.titleSocis{
-		font-size: 1.5rem!important;
-	}
 	.iconSize{
 		font-size: 1.75em;
-	}
-	.flechaSociEsdev{
-	text-decoration: none;
-    display: inline-block;
-    padding: 8px 16px;
-	background-color: #808080;
-    color: black;
-    margin-left: 30px;
-    margin-top: 20px;
-	}
-	.flechaSociEsdev:hover{
-	background-color: #ddd;
-    color: black;
 	}
 }
 @media (min-width: 768px) and (max-width: 991px){
-	.imglogonav{
-		height: 40px;
-		width: 40px;
-	}
 	.iconSize{
 		font-size: 1.75em;
 	}
-	.flechaSociEsdev{
-	text-decoration: none;
-    display: inline-block;
-    padding: 8px 16px;
-	background-color: #808080;
-    color: black;
-    margin-left: 50px;
-    margin-top: 20px;
-	}
-	.flechaSociEsdev:hover{
-	background-color: #ddd;
-    color: black;
-	}
-
 }
 @media (max-width: 991px){
 	.goToTop{
@@ -367,8 +236,8 @@ a:hover {
 	    border-style: none!important;
 	}
 	.imgBtnTop{
-		height: 50px; 
-		width: 50px;
+		height: 50px!important; 
+		width: 50px!important;
 	}
 
 }
@@ -395,48 +264,15 @@ a:hover {
 	}
 }
 @media (min-width: 992px) and (max-width: 1199px){
-	.imglogonav{
-		height: 40px;
-		width: 40px;
-	}
 	.iconSize{
 		font-size: 1.33em;
 	}
-	.flechaSociEsdev{
-	text-decoration: none;
-    display: inline-block;
-    padding: 8px 16px;
-	background-color: #808080;
-    color: black;
-    margin-left: 50px;
-    margin-top: 20px;
-	}
-	.flechaSociEsdev:hover{
-	background-color: #ddd;
-    color: black;
-	}
 }
 @media (min-width: 1200px){
-	.imglogonav{
-		height: 50px;
-		width: 50px;
-	}
 	.AgregCss {
 	padding-left: 30px;
 	}
 	.iconSize{
 		font-size: 1.33em;
 	}
-	.flechaSociEsdev{
-	text-decoration: none;
-    display: inline-block;
-    padding: 8px 16px;
-	background-color: #808080;
-    color: black;
-    margin-left: 50px;
-    margin-top: 20px;
-	}
-	.flechaSociEsdev:hover{
-	background-color: #ddd;
-    color: black;
-	}	
+}
