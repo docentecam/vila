@@ -162,10 +162,26 @@ angular.module('vila')
 				.catch(function(error) {
 					$rootScope.cargador=false;
 				});
+
     } 
+    window.onscroll = function() {scrollFunction()};
+
+	function scrollFunction() {
+	    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+	        document.getElementById("goTop").style.display = "block";
+	    } else {
+	        document.getElementById("goTop").style.display = "none";
+	    }
+	}
+ 	$scope.goTop=function(){
+ 		var element = document.getElementById("divTop");
+	    element.scrollIntoView({block: "end", behavior: "smooth"});
+ 	}
 })	
 .controller('DirectCtrl',function($scope,$http,$q,$rootScope,$routeParams,$timeout,$window){
 	$scope.llistatComer=true;
+	$scope.afegirComerc=true;
+	$scope.dadesComerc=true;
 	var data = new FormData();
 		data.append("acc","list");
 
@@ -205,6 +221,8 @@ angular.module('vila')
 .controller('DirectComerCtrl',function($scope,$http,$q,$rootScope,$routeParams,$timeout,$window){
 	$scope.btnSave=true;
 	$scope.llistatComer=false;
+	$scope.afegirComerc=true;
+	$scope.dadesComerc=false;
 	$scope.com={};
 	var data = new FormData();
 		data.append("acc","l");
@@ -424,8 +442,8 @@ angular.module('vila')
 				.then(function(res)
 				{
 					deferred.resolve(res);
+					$scope.galeriaAssociats=res.data;
 					console.log(res.data);
-					// $scope.galeriaAssociats=res.data;
 				})
 				.catch(function(error) {
 					$rootScope.cargador=false;
@@ -459,6 +477,11 @@ angular.module('vila')
 				});
 		}
 	}
+})
+.controller('NewComercCtrl',function($scope,$http,$q,$rootScope,$routeParams,$timeout,$window){
+	$scope.afegirComerc=false;
+	$scope.llistatComer=false;
+	$scope.dadesComerc=true;
 })
 .controller('ContactCtrl',function($scope,$http,$q,$rootScope,$timeout,$window){
 	var data = new FormData();
