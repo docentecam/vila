@@ -148,10 +148,11 @@
 	  </ul>
 	  
 	  <div class="container carousel-inner no-padding carousel-innerAsso">
-	    <div class="carousel-item active" ng-repeat="associat in associats">
-	      <div class="col-xs-3 col-sm-3 col-md-3 carouAsoc card">
+	    <div class="carousel-item active">
+	      <div class="col-xs-3 col-sm-3 col-md-3 carouAsoc card" ng-repeat="associat in associats">
 	      	<a ng-href="#/directori/{{associat.idAssociat}}">
-	        <img class="card-img-top img-fluid d-md-none" ng-src="{{associat.logoAssociat!=''?'img/galeriaassociat/'+associat.logoAssociat:'img/noimage.png'}}">
+	        <img class="card-img-top img-fluid d-md-none" 
+	        ng-src="{{associat.logoAssociat!=''?'img/galeriaassociat/'+associat.logoAssociat:'img/noimage.png'}}">
 	    	</a>
 	      </div>    
 	      <div class="col-xs-3 col-sm-3 col-md-3 carouAsoc">

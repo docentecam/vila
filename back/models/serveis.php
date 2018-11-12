@@ -32,7 +32,7 @@
 		$mySql="INSERT INTO $tbl_serveis (`idServei`,`nomServei`, `txtServei`) VALUES (NULL,'".replaceFromHtml($_POST['nomServei'])."','".replaceFromHtml($_POST['txtServei'])."')";
 		}else if(isset($_POST['nomSubservei']))
 		{
-		$mySql="INSERT INTO $tbl_subserveis (`idSubservei`,`nomSubservei`, `txtSubservei`, `idServei`) VALUES (NULL,'".replaceFromHtml($_POST['nomSubservei'])."','".replaceFromHtml($_POST['txtSubservei'])."',NULL)";
+		$mySql="INSERT INTO $tbl_subserveis (`idSubservei`,`nomSubservei`, `txtSubservei`, `idServei`) VALUES (NULL,'".replaceFromHtml($_POST['nomSubservei'])."','".replaceFromHtml($_POST['txtSubservei'])."','".$_POST['idServei']."')";
 		}
 		$connexio=connect();
 		$resultServei=mysqli_query($connexio,$mySql); 

@@ -800,6 +800,7 @@ angular.module('vila')
 	.then(function(res){
 		deferred.resolve(res);
 		$scope.serveis=res.data;
+		console.log($scope.serveis);
 		$rootScope.cargador=false;
 		console.log(res.data);
 	})
@@ -808,10 +809,12 @@ angular.module('vila')
 	});
 	$scope.accionServ="";
 	$scope.ser={};
+	$scope.subSer={};
 	$scope.msj="";
 	$scope.accionSer="";
 	$scope.accionSubser="";
 	$scope.reveal=true;
+	$scope.revealSub=true;
 
 	$scope.EditServei=function(PosServei){
 		$scope.reveal=false;
@@ -828,22 +831,28 @@ angular.module('vila')
 			$scope.ser.txtServei="";
 		}
 	}
-	$scope.EditSubservei=function(){
+	$scope.EditSubservei=function(indexSubservei,idServei){
 		$scope.revealSub=false;
-		console.log("Llega");
-		if (PosServei!="-1") {
+		$scope.subSer.idServei=idServei;
+		console.log("Llega el id servei"+idServei);
+		if (indexSubservei!="-1") {
 			$scope.accionSubser="Editar";
-			console.log("Llega2");
-			console.log($scope.subserveis[PosServei][3]);
-			// $scope.ser.idSubservei=$scope.subserveis[PosServei].idSubservei;
-			// $scope.ser.nomSubservei=$scope.subserveis[PosServei].nomSubservei;
-			// $scope.ser.txtSubservei=$scope.subserveis[PosServei].txtSubservei;
+			for(i=0;i<$scope.serveis.length;i++)
+			{
+				if($scope.serveis[i].idServei==idServei){
+					$scope.subSer.nomSubservei=$scope.serveis[i][3][indexSubservei].nomSubservei;
+					$scope.subSer.txtSubservei=$scope.serveis[i][3][indexSubservei].txtSubservei;
+					console.log("Datos del servei"+$scope.serveis[i][3][indexSubservei].nomSubservei);
+				}
+				
+			}
 		}
 		else{
-			// $scope.accionSubser="Afegir";
-			// $scope.ser.idSubservei="";
-			// $scope.ser.nomSubservei="";
-			// $scope.ser.txtSubservei="";
+			console.log("Llega a Agregar");
+			$scope.accionSubser="Afegir";
+			$scope.subSer.idSubservei="";
+			$scope.subSer.nomSubservei="aaaa";
+			$scope.subSer.txtSubservei="555";
 		}
 	}
 	$scope.submitServei=function(){
@@ -863,6 +872,7 @@ angular.module('vila')
 			.then(function(res){
 				deferred.resolve(res);
 				$rootScope.cargador=false;
+console.log("Devuelve al ins o up"+res.data);
 				$scope.reveal=true;
 				$scope.divMsj=true;
 				$scope.msj="Les dades s'han actualitzat correctament.";
@@ -878,10 +888,10 @@ angular.module('vila')
 	$scope.submitSubservei=function(){
 			var data = new FormData();
 				data.append("acc",$scope.accionSubser);
-				data.append("idSubservei",$scope.ser.idSubservei);
-				data.append("nomSubservei",$scope.ser.nomSubservei);
-				data.append("txtSubservei",$scope.ser.txtSubservei);
-				data.append("idServei",$scope.ser.idServei);
+				data.append("idSubservei",$scope.subSer.idSubservei);
+				data.append("nomSubservei",$scope.subSer.nomSubservei);
+				data.append("txtSubservei",$scope.subSer.txtSubservei);
+				data.append("idServei",$scope.subSer.idServei);
 				var deferred=$q.defer();
 			$rootScope.cargador=true;
 			$http.post("models/serveis.php", data,{
@@ -892,9 +902,21 @@ angular.module('vila')
 			})
 			.then(function(res){
 				deferred.resolve(res);
+				console.log("Devuelve al ins o up"+res.data);
+
+
+
+				//TODO carlos estabas aqui^^^^^^^^^^^^
+
+
+
 				$rootScope.cargador=false;
 				$scope.revealSub=true;
 				$scope.divMsj=true;
+				$scope.subSer.idServei="";
+				$scope.subSer.idSubservei="";
+				$scope.subSer.nomSubservei="";
+				$scope.subSer.txtSubservei="";
 				$scope.msj="Les dades s'han actualitzat correctament.";
 				$timeout(function() {
 					$scope.divMsj=false;
@@ -988,6 +1010,228 @@ angular.module('vila')
 		$scope.revealSub=true;
 	}
 
+})
+.controller('NoticiesCtrl',function($scope,$http,$q,$rootScope,$timeout,$window){
+	var data = new FormData();
+		data.append("acc", "favi");
+	var deferred=$q.defer();
+	
+	$rootScope.cargador=true;
+	$http.post("models/home.php", data,{
+	headers:{
+		"Content-type":undefined
+	},
+	transformRequest:angular.identity
+
+	})
+	.then(function(resIcon){
+		deferred.resolve(resIcon);
+		$rootScope.favIcon=resIcon.data[0].favIcon;
+		$rootScope.logo=resIcon.data[0].logo;
+		$rootScope.cargador=false;
+	})
+	.catch(function(error){
+		$rootScope.cargador=false;
+
+	});
+
+	$scope.not={};
+	$scope.msg="";
+	$scope.reveal=true;
+	$scope.accionNot="";
+	var data = new FormData();
+		data.append("acc","l");
+	var deferred=$q.defer();
+	$rootScope.cargador=true;
+	$http.post("models/noticies.php", data,{
+		headers:{
+			"Content-type":undefined
+		},
+			transformRequest:angular.identity
+	})
+
+	.then(function(res){
+		deferred.resolve(res);
+		$scope.noticies=res.data;
+		$rootScope.cargador=false;
+	})
+	.catch(function(error){
+		$rootScope.cargador=false;f
+	});
+	window.onscroll = function() {scrollFunction()};
+
+	function scrollFunction() {
+	    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+	        document.getElementById("goTop").style.display = "block";
+
+	    } else {
+	        document.getElementById("goTop").style.display = "none";
+	    }
+	}
+ 	$scope.goTop=function(){
+ 		var element = document.getElementById("NotiEditTop");
+	    element.scrollIntoView({block: "end", behavior: "smooth"});
+ 	}
+	$scope.EditNoticia=function(PosNoti){
+		$scope.reveal=false;
+		$scope.not.fotoNew="";
+		if(PosNoti!="-1"){
+			$scope.accionNot="Editar";
+			$scope.not.idNoticia=$scope.noticies[PosNoti].idNoticia;
+			$scope.not.titolNoticia=$scope.noticies[PosNoti].titolNoticia;
+			$scope.not.dataNoticia=$scope.noticies[PosNoti].dataNoticia;
+			$scope.not.txtNoticia=$scope.noticies[PosNoti].txtNoticia;
+			$scope.not.fotoNoticia=$scope.noticies[PosNoti].fotoNoticia;
+			$scope.not.principal=$scope.noticies[PosNoti].principal;		
+		}
+		else{
+			$scope.accionNot="Afegir";
+			$scope.not.idNoticia="";
+			$scope.not.titolNoticia="";
+			var d=new Date();
+			var yyyy=d.getFullYear();
+			var mm=d.getMonth()<9?"0"+(d.getMonth()+1):(d.getMonth()+1);
+			var dd=d.getDate()<10?"0"+(d.getDate()):(d.getDate());
+			$scope.not.dataNoticia=yyyy+"-"+mm+"-"+dd+"T"+"00:00";
+			$scope.not.txtNoticia="";
+			$scope.not.fotoNoticia="";
+			$scope.not.principal="N";
+			}
+		var element = document.getElementById("NotiEditTop");
+	    element.scrollIntoView({block: "end", behavior: "smooth"});
+	}
+	$scope.accioNoticies=function(){
+		var data = new FormData();
+			data.append("idNoticia", $scope.not.idNoticia);
+			data.append("titolNoticia", $scope.not.titolNoticia);
+			data.append("dataNoticia", $scope.not.dataNoticia);
+			data.append("txtNoticia", $scope.not.txtNoticia);
+			data.append("fotoNoticia", $scope.not.fotoNoticia);
+			data.append("principal", $scope.not.principal);
+		var deferred=$q.defer();
+	    $rootScope.cargador=true;
+		$http.post("models/esdeveniments.php", data,{
+			headers:{
+				"Content-type":undefined
+			},
+			transformRequest:angular.identity
+		
+		})
+		.then(function(res){
+			deferred.resolve(res);
+			$scope.noticies=res.data;			 	
+			$scope.reveal=true;
+			$scope.msg="Les dades han estat actualitzades correctament";
+			$scope.cargaMsg=true;
+			$timeout(function(){
+				$scope.cargaMsg=false;
+			},2000);
+			$rootScope.cargador=false;
+		})
+		.catch(function(error){
+			$rootScope.cargador=false;
+		});
+	}
+
+	$scope.eliminarNoticies=function(idNoticia,titolNoticia, fotoNoticia){
+		var respuesta= confirm ("Desitja eliminar l'esdeveniment "+titolNoticia+"?")
+		if (respuesta) 
+		{
+			var data = new FormData();
+				data.append("acc","delNot");
+				data.append("idNoticia",idNoticia);
+				data.append("fotoNoticia",fotoNoticia);
+				var deferred=$q.defer();
+				$rootScope.cargador=true;
+				$http.post("models/noticies.php", data,{
+				headers:{
+					"Content-type":undefined
+				},
+				transformRequest:angular.identity
+			
+			})
+			.then(function(res){
+					deferred.resolve(res);
+					$scope.esdeveniments=res.data;
+					$scope.reveal=true;
+					$scope.msg="Les dades han estat eliminades correctament";
+					$scope.cargaMsg=true;
+					$timeout(function(){
+						$scope.cargaMsg=false;
+					},2000);
+					$rootScope.cargador=false;
+					
+			})
+			.catch(function(error) {
+				$rootScope.cargador=false;
+			});
+		}
+	}	
+	$scope.cancelEsd=function(){
+		$scope.reveal=true;
+	}
+	$scope.cambiaPrinc=function(tipoPrinc,idEsdev){
+		var deferred=$q.defer();
+		var data = new FormData();
+		data.append("acc","updatePrincipal");
+		data.append("idEsdev",idEsdev);
+		data.append("tipoPrinc",tipoPrinc);
+		data.append('idSoci',$routeParams.idSoci);
+		$rootScope.cargador=true;
+		$http.post("models/esdeveniments.php", data,{
+		headers:{
+			"Content-type":undefined
+		},
+			transformRequest:angular.identity
+		})
+		.then(function(res){
+					deferred.resolve(res);
+					$scope.esdeveniments=res.data;
+					$rootScope.cargador=false;					
+				})
+		.catch(function(error) {
+				$rootScope.cargador=false;
+			});
+	}
+	$scope.getFileDetails=function(e){
+		$scope.esd.fotoNew=e.files[0];
+	}
+	$scope.esdevDesp=function(idEsdev,canviTipEsdRec){		
+		if(canviTipEsdRec=="Pendent"){
+			$scope.msg= "Seleccioneu un altre tipus";
+			$scope.cargaMsg=true;
+			$timeout(function(){
+				$scope.cargaMsg=false;
+			},2000);
+			$rootScope.cargador=false;
+		}
+		else{
+		var data = new FormData();
+			data.append("acc","updateTipusEsdev");
+			data.append("tipo", canviTipEsdRec);
+			data.append("idEsdev", idEsdev);
+			data.append("idSoci", $routeParams.idSoci);
+			$http.post("models/esdeveniments.php", data,{
+		headers:{
+			"Content-type":undefined
+		},
+			transformRequest:angular.identity
+		})
+		.then(function(res){
+					deferred.resolve(res);
+					$scope.msg= "Tipus Actualitzat";
+					$scope.cargaMsg=true;
+					$timeout(function(){
+						$scope.cargaMsg=false;
+					},2000);
+					$rootScope.cargador=false;
+				})
+		.catch(function(error) {
+				$rootScope.cargador=false;
+			});
+		}
+	}
+			
 })
 .controller('CategCtrl',function($scope,$http,$q,$rootScope,$timeout,$window){
 	// var data = new FormData();
