@@ -401,10 +401,8 @@ ul, li{
 		display: none;
 	}
 	.container{
-		margin-left: 0;
-		margin-right: 0;
-		padding-right: 0;
-		padding-left: 0;
+		padding-left: 0!important;
+		padding-right: 0!important;
 	}
 
 }
