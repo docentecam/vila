@@ -166,26 +166,24 @@ a:hover {
 	color: #FFFFFF;
 	background-color: #4f307e;
 }
-.AssNotSerAllCss{
+.AssNotiAllCss{
 	margin-right: 15%;
 	margin-left: 15%;
+}
+.SerAllCss{
+	margin-right: 7%;
+	margin-left: 7%;
 }
 .AssTituCss{
 	font-weight: bold;
 	font-size: 1.5vw;
 	margin-bottom: 2%;
 }
-.textareaQuiSomAss{
+.textareaQuiSomAss, .textareaEquipAss, .textareaLGPDAss{
 	height: 100px!important;
 }
 .textareaHorariAss{
 	height: 90px!important;
-}
-.textareaLGPDAss{
-	height: 100px!important;
-}
-.textareaEquipAss{
-	height: 100px!important;
 }
 .FacebookAssCss{
 	font-size: 1.5rem;
