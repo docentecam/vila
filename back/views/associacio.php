@@ -72,8 +72,8 @@
 	    		<textarea class="form-control textareaLGPDAss" ng-model="ass.LGPD" id="LGPDAss" placeholder="LGPD"></textarea>
 	  		</div>
 	  	<button type="submit" class="btn btn-info" ng-disabled="formAss.$invalid" value="submit-true" formmethod="post">Guardar Canvis</button>
+	</div>	
 	</form>
- 	</div>
 	<div class="form-row">
 		<div class="form-group col-md-6 col-lg-3 offset-lg-1 text-center">
 	      <div class="form-row">

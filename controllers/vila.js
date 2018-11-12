@@ -199,12 +199,10 @@ $(window).on('resize', function() {
 })
 
 .controller('FiramarCtrl',function($scope,$http,$q,$rootScope,$timeout,$window,$document){
-	$scope.fotoModal="";
 	$scope.llistat=false;
 	$rootScope.cargador=true;
 	var data = new FormData();
 		data.append("acc","l");
-		// data.append("idGaleriaFiramar",$firamar.idGaleriaFiramar);
 	var deferred=$q.defer();
 	$http.post("models/firamar.php", data,{
 		headers:{
@@ -225,9 +223,6 @@ $(window).on('resize', function() {
 	.catch(function(error) {
 		$rootScope.cargador=false;
 		});
-	$scope.modalFoto=function(nomFoto){
-		$scope.fotoModal=nomFoto;
-	}
 
 })
 
@@ -315,7 +310,6 @@ $(window).on('resize', function() {
 
 	
 	// console.log("llega");
-		// $scope.llistat=false;
 		// var data = new FormData();
 		// 	data.append("acc","i");
 		// 	data.append("nomContacte",$scope.contactans.nomContacte);

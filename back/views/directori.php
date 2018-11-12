@@ -53,7 +53,7 @@
 				    <div class="form-row">
 				        <div class="form-group col-12">
 				        	<label for="inputFoto" class="col-12">Logo del comerç</label>
-				        	<img class="img-fluid imgCssColla col-10" ng-src="{{com.logoAssociat!='' ? '../img/'+com.logoAssociat : '../img/noimage.png'}}" alt="">
+				        	<img class="img-fluid imgCssColla col-10" ng-src="{{com.logoAssociat!='' ? '../img/associats/'+com.logoAssociat : '../img/noimage.png'}}" alt="">
 				        </div>
 				        <div class="form-group col-12">
 				            <label for="btnExVila" class="cursor text-primary col-12"><u>Examinar</u>&nbsp;<i class="fas fa-search add-examinar cursor" aria-hidden="true"></i></label>
@@ -165,9 +165,17 @@
 	</div>
 	<div class="row mt-3">
 		<h2 class="col-12 col-lg-8 offset-lg-2">Galeria</h2>
+
+
+		<label for="insertImg" class="cursor text-primary col-12">
+		<i class="col-12 offset-md-2 fas fa-plus-square iconSize mb-3"title="Afegeix imatges"></i>
+		</label>
+		<input type="file" id="insertImg" class="align-self-end" name="insertImg" multiple accept="image/jpg, image/png" onchange="angular.element(this).scope().uploadGaleria(this)" ng-show="false"/>
+
+
 		<div class="card-columns col-12 col-lg-8 offset-lg-2">
 			<div class="card  text-center" ng-repeat="galeria in galeriaAssociats">
-				<img class="card-img-top img-fluid" ng-src="{{galeria.fotoGaleria!='' ? '../img/galeriaassociat/'+galeria.fotoGaleria : '../img/noimage.png'}}" alt="{{galeria.descripcio}}">
+				<img class="card-img-top img-fluid" ng-src="{{galeria.fotoGaleria!='' ? '../img/galeriaassociats/'+galeria.fotoGaleria : '../img/noimage.png'}}" alt="{{galeria.descripcio}}">
 				<input type="button" class="btn btn-danger" value="Eliminar" ng-click="deleteImg(galeria.idGaleria)">
 			</div>
 		</div>

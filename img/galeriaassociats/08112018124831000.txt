@@ -1,0 +1,21 @@
+document.getElementById('myElement').type = 'text';
+
+key=AIzaSyA1hkXtz0ySj60IvKG2jdi9kG69Na7m7pA
+
+
+
+aplicacion "casa oficis"
+
+pagina inicial login, una vez hecho login saldra "boton fitxa producte" te llevara una pagina, en esta saldrá un 
+desplega si entras como profesor saldra por defecto su especialidad y disabled, si entra como director todas las 
+especialidades, desplegable con los modulos de la especialidad, literal (nombre de la ficha producto), fecha 
+inicio y final, alumnos (),
+ 
+pantalla mantenimiento donde gestionar casas oficis (nombre, año inicio y fin, activa o no activa)
+
+especialidades asociadas a cada casa de oficis (nombre, año inicio y fin, activa o no activa)
+
+alumnos asociados a estas especialidades 
+
+solo director podra editar toda aplicacion y matricular a alumnos a una especialidad
+
