@@ -839,6 +839,8 @@ angular.module('vila')
 			for(i=0;i<$scope.serveis.length;i++)
 			{
 				if($scope.serveis[i].idServei==idServei){
+					$scope.subSer.idServei=idServei;
+					$scope.subSer.idSubservei=$scope.serveis[i][3][indexSubservei].idSubservei;
 					$scope.subSer.nomSubservei=$scope.serveis[i][3][indexSubservei].nomSubservei;
 					$scope.subSer.txtSubservei=$scope.serveis[i][3][indexSubservei].txtSubservei;
 				}
