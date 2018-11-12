@@ -52,6 +52,11 @@ app.config(['$routeProvider',function($routeProvider){
     controller:'ServeisCtrl',
     title: "Serveis"
   })
+  .when('/noticies',{
+    templateUrl:'views/noticies.php',
+    controller:'NoticiesCtrl',
+    title: "Noticies"
+  })
   .when('/logout',{
     templateUrl:'index.php',
     controller:'LogoutCtrl',

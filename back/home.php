@@ -57,9 +57,9 @@
      				<li class="nav-item reduceNav">
        					<a class="nav-link" href="#/categories">Categories</a>
      				</li>
-     			<!-- 	<li class="nav-item reduceNav">
+     				<li class="nav-item reduceNav">
        					<a class="nav-link" href="#/noticies">Noticies</a>
-     				</li> -->
+     				</li>
      				<li class="nav-item p d-block d-lg-none reduceNav">
 
     					<a class="nav-link pt-1 pl-5 fas fa-sign-out-alt fa-2x" href="#/logout"></a>
