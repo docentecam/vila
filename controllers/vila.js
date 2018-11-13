@@ -25,23 +25,6 @@ angular.module('vila')
 
 .controller('HomeCtrl',function($scope,$http,$q,$rootScope,$timeout,$window,$document){
 	$rootScope.cargador=true;
-
-	var TIMEOUT = null;
-$(window).on('resize', function() {
-    if(TIMEOUT === null) {
-        TIMEOUT = window.setTimeout(function() {
-            TIMEOUT = null;
-            //fb_iframe_widget class is added after first FB.FXBML.parse()
-            //fb_iframe_widget_fluid is added in same situation, but only for mobile devices (tablets, phones)
-            //By removing those classes FB.XFBML.parse() will reset the plugin widths.
-            $('.fb-page').removeClass('fb_iframe_widget fb_iframe_widget_fluid');
-            FB.XFBML.parse();
-        }, 300);
-    }
-});
-
-
-
 	var data = new FormData();
 				data.append("acc","l");
 
@@ -199,6 +182,7 @@ $(window).on('resize', function() {
 })
 
 .controller('FiramarCtrl',function($scope,$http,$q,$rootScope,$timeout,$window,$document){
+	$scope.fotoModal="";
 	$scope.llistat=false;
 	$rootScope.cargador=true;
 	var data = new FormData();
@@ -223,6 +207,9 @@ $(window).on('resize', function() {
 	.catch(function(error) {
 		$rootScope.cargador=false;
 		});
+	$scope.modalFoto=function(nomFoto){
+		$scope.fotoModal=nomFoto;
+	}
 
 })
 
