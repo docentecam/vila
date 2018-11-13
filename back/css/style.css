@@ -119,6 +119,13 @@ a:hover {
 .FacebookAssCss{
 	font-size: 1.5rem;
 }
+.imgCssAss{
+	height: 78%;
+}
+.passwordAss{
+	border-radius: 0.25rem 0rem 0rem 0.25rem !important;
+	width: 67%;
+}
 /* santi cambia el nombre de esta class */
 .btn-outline-success{
     color: #4f307e!important;
@@ -163,13 +170,7 @@ a:hover {
 .btn-outline-success,.btn-outline-primary,.btn-outline-dark:focus-within{
 	box-shadow: none!important;
 }
-.imgCssAss{
-	height: 78%;
-}
-.passwordAss{
-	border-radius: 0.25rem 0rem 0rem 0.25rem !important;
-	width: 67%;
-}
+
 .inputGroupPrepend{
 	padding-bottom: 0!important;
 	padding-top: 0!important;
