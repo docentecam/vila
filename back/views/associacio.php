@@ -1,4 +1,4 @@
-<div class="AssNotSerAllCss">
+<div class="AssNotiAllCss" id="divTop">
   	<div class="AssTituCss">Dades Associació:</div>
 	<div>{{msj}}</div>
 	<form name="formAss" ng-submit="submitAss()">
@@ -112,4 +112,8 @@
 	      </div>  
 	    </div>
 	</div>
+	<button id="goTop" class="goToTop btn btn-primary " value="Pujar" ng-click="goTop()">
+		<span class="d-none d-lg-inline">Pujar</span>
+		<img ng-src="../img/if_arrow-up.png" class="d-lg-none">
+	</button>
 </div>	

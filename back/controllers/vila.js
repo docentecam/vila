@@ -813,9 +813,7 @@ angular.module('vila')
 	.then(function(res){
 		deferred.resolve(res);
 		$scope.serveis=res.data;
-		console.log($scope.serveis);
 		$rootScope.cargador=false;
-		console.log(res.data);
 	})
 	.catch(function(error) {
 		$rootScope.cargador=false;
@@ -830,6 +828,7 @@ angular.module('vila')
 	$scope.revealSub=true;
 
 	$scope.EditServei=function(PosServei){
+		$scope.revealSub=true;
 		$scope.reveal=false;
 		if (PosServei!="-1") {
 			$scope.accionSer="Editar"
@@ -845,27 +844,27 @@ angular.module('vila')
 		}
 	}
 	$scope.EditSubservei=function(indexSubservei,idServei){
+		$scope.reveal=true;
 		$scope.revealSub=false;
 		$scope.subSer.idServei=idServei;
-		console.log("Llega el id servei"+idServei);
 		if (indexSubservei!="-1") {
 			$scope.accionSubser="Editar";
 			for(i=0;i<$scope.serveis.length;i++)
 			{
 				if($scope.serveis[i].idServei==idServei){
+					$scope.subSer.idServei=idServei;
+					$scope.subSer.idSubservei=$scope.serveis[i][3][indexSubservei].idSubservei;
 					$scope.subSer.nomSubservei=$scope.serveis[i][3][indexSubservei].nomSubservei;
 					$scope.subSer.txtSubservei=$scope.serveis[i][3][indexSubservei].txtSubservei;
-					console.log("Datos del servei"+$scope.serveis[i][3][indexSubservei].nomSubservei);
 				}
 				
 			}
 		}
 		else{
-			console.log("Llega a Agregar");
 			$scope.accionSubser="Afegir";
 			$scope.subSer.idSubservei="";
-			$scope.subSer.nomSubservei="aaaa";
-			$scope.subSer.txtSubservei="555";
+			$scope.subSer.nomSubservei="";
+			$scope.subSer.txtSubservei="";
 		}
 	}
 	$scope.submitServei=function(){
@@ -885,7 +884,6 @@ angular.module('vila')
 			.then(function(res){
 				deferred.resolve(res);
 				$rootScope.cargador=false;
-console.log("Devuelve al ins o up"+res.data);
 				$scope.reveal=true;
 				$scope.divMsj=true;
 				$scope.msj="Les dades s'han actualitzat correctament.";
@@ -915,21 +913,9 @@ console.log("Devuelve al ins o up"+res.data);
 			})
 			.then(function(res){
 				deferred.resolve(res);
-				console.log("Devuelve al ins o up"+res.data);
-
-
-
-				//TODO carlos estabas aqui^^^^^^^^^^^^
-
-
-
 				$rootScope.cargador=false;
 				$scope.revealSub=true;
 				$scope.divMsj=true;
-				$scope.subSer.idServei="";
-				$scope.subSer.idSubservei="";
-				$scope.subSer.nomSubservei="";
-				$scope.subSer.txtSubservei="";
 				$scope.msj="Les dades s'han actualitzat correctament.";
 				$timeout(function() {
 					$scope.divMsj=false;
@@ -984,6 +970,7 @@ console.log("Devuelve al ins o up"+res.data);
  	$scope.goTop=function(){
  		var element = document.getElementById("divTop");
 	    element.scrollIntoView({block: "end", behavior: "smooth"});
+	    console.log("hola")
  	}
 	$scope.eliminarSubservei=function(idSubservei,nomSubservei){
 		var respuesta= confirm ("Desitja eliminar el Subservei "+nomSubservei+"?")
