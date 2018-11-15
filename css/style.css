@@ -336,6 +336,7 @@ ul, li{
 	text-align: center;
 }
 
+
 @media (max-width: 575px){
 	.centrarFooterMovil{
 		text-align: center;
@@ -412,6 +413,10 @@ ul, li{
 	}
 	.tipoSubtitulo{
 		text-align: center;	}
+
+.titlesHome{
+	margin-left: 2%;
+}
 
 }
 @media (min-width: 768px){ /*ESTO ES PARA PANTALLAS DE 768 < */
