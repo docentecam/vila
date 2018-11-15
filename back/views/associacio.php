@@ -55,7 +55,7 @@
 		      <label for="longitudAss">Longitud</label>
 		      <input type="text" class="form-control" ng-model="ass.longitud" id="longitudAss" placeholder="longitud">
 		    </div>
-		    <div class="form-group col-2" ng-class="{ 'has-error' : formAss.keyApiAss.$invalid && !formAss.keyApiAss.$pristine }">
+		    <div class="form-group col-lg-2 col-sm-12" ng-class="{ 'has-error' : formAss.keyApiAss.$invalid && !formAss.keyApiAss.$pristine }">
 		      <label for="keyApiAss">API Key</label>
 		      <input type="text" class="form-control" id="keyApiAss" ng-model="ass.keyApi" placeholder="key Api">
 		    </div>
@@ -112,8 +112,8 @@
 	      </div>  
 	    </div>
 	</div>
-	<button id="goTop" class="goToTop btn btn-primary " value="Pujar" ng-click="goTop()">
+	<!-- <button id="goTop" class="goToTop btn btn-primary " value="Pujar" ng-click="goTop()">
 		<span class="d-none d-lg-inline">Pujar</span>
 		<img ng-src="../img/if_arrow-up.png" class="d-lg-none">
-	</button>
+	</button> -->
 </div>	
