@@ -13,13 +13,13 @@
 </div>
 
 <div class="row">
-	<div class="tipoTitulo my-5">
+	<div class="tipoTitulo my-3">
 		Associats
 	</div>
 </div>
 
 <div class="row">	
-	<div ng-repeat="associat in associats " ng-href="#/directori/{{associat.idAssociat}}" class="col-6">
+	<div ng-repeat="associat in associats " ng-href="#/directori/{{associat.idAssociat}}" class="col-6 mb-4">
 		<div class="row align-items-center estiloAso">
 			<div class="col">
 				<div class="card">
@@ -60,56 +60,16 @@
 	</div>		
 </div>
 
-<!-- <div class="row" ng-hide="llistat">
-	<div class="mt-4 col-10 offset-1">
-		<div class="tipoTitulo">
-			<a href="#/noticies">TORNAR A DIRECTORI</a>
-		</div>
-		<div class="h_divider mb-4"></div>
 
-		<div class="tipoSubTitulo mb-4">
-			{{associats.nomAssociat}}
-		</div>
+<!-- 
 
-		<div class="row mb-4">
-			<div class="col-12 col-lg-6 mb-4">
-			<img ng-src="{{associat.logoAssociat!=''?'img/noticies/'+associat.logoAssociat:'img/noimage.png'}}" class="img-fluid imageBordes" alt="associat">
-			</div>
+Hacer que aparezca sólo: EL TELÉFONO 1 (en caso de que no haya) TELÉFONO 2 (en caso de que no haya) MAIL
 
-			<div class="col-12 col-lg-6">
-				<div class="tipoTexto">
-				<b>info:</b>
-				<br>
-				{{associat.txtAssociat}}
-				<br><br>
-				<b>horari:</b>
-				<br>
-				{{associat.horari}}
-				<br><br>
-				<b>telefono:</b>
-				<br>
-				{{associat.telf1}}
-				{{associat.telf2}}
-				{{associat.whatsapp}}
-				<br><br>
-				<b>adreça:</b>
-				<br>
-				{{associat.adreca}}
-				<br><br>
-				<b>xarxes:</b>
-				<br>
-				{{associat.facebook}}
-				{{associat.URLWeb}}
-				</div>
-			</div>
-		</div>
+preguntamos en el mail a la vila: ¿todo el mundo tendrá un teléfono?
+respuesta: pendiente
 
-		<div>
-			ON SOM?
-		</div>
+IMPORTANTE!
+asegurarse de tener respuesta antes de solucionar el problema
+                                                                -Raquel
 
-		<div>
-			GALERIA
-		</div>
-	</div>
-</div> -->
+ -->
