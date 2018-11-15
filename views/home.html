@@ -35,16 +35,16 @@
   </a>
 </div>
 
-<div class="h_divider mb-1 mt-1"></div>
+<div class="h_divider mb-1 mt-1 hideMovil"></div>
 
 <div class="tipoTitulo mt-2 mb-1 mt-md-4 mb-md-3 txtMovil">
 	Notícies destacades
 </div>
 
 <div class="row">
-	<div ng-repeat="noticia in noticies | orderBy:noticia.dataNoticia | filter:{principal:'S'}" ng-href="#/noticies/{{noticia.idNoticia}}" class="col-6">
+	<div ng-repeat="noticia in noticies | orderBy:noticia.dataNoticia | filter:{principal:'S'}" ng-href="#/noticies/{{noticia.idNoticia}}" class="col-12 col-md-6">
 		<div class="row align-items-center">
-			<div class="col">
+			<div class="col-12 col-md-6 px-0">
 				<div class="card">
 					<div class="group-item">
 						<div class="imagecontainer is-cover">	
@@ -57,7 +57,7 @@
 			</div>
 			
 			
-			<div class="col">
+			<div class="col-12 col-md-6">
 				<div class="tipoSubTitulo mb-1">
 					<a ng-href="#/noticia/{{noticia.idNoticia}}">
 					{{noticia.titolNoticia}}

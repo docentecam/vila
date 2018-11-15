@@ -375,6 +375,12 @@ ul, li{
 	.bannerAlto{
 		height: 100px;
 	}
+	.hideMovil{
+		display: none;
+	}
+	.tipoSubtitulo{
+		text-align: center;	}
+
 }
 
 @media (min-width: 576px) and (max-width: 767px){
@@ -387,6 +393,8 @@ ul, li{
 	.bannerAlto{
 		height: 100px;
 	}
+	.tipoSubtitulo{
+		text-align: center;	}
 
 }
 
@@ -402,6 +410,8 @@ ul, li{
 		padding-left: 0!important;
 		padding-right: 0!important;
 	}
+	.tipoSubtitulo{
+		text-align: center;	}
 
 }
 @media (min-width: 768px){ /*ESTO ES PARA PANTALLAS DE 768 < */
@@ -412,6 +422,8 @@ ul, li{
 		display: block;
 		margin:auto;
 	}
+	.tipoSubtitulo{
+		text-align: center;	}
 }
 @media (min-width: 992px) and (max-width: 1199px){
 
