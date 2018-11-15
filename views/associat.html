@@ -1,35 +1,37 @@
 <div class="row">
-	<div class="mt-4 col-10 offset-1">
-		<div class="tipoSubTitulo">
+	<div class="my-3 col-10 offset-1">
+		<div class="tipoSubTituloCenter mb-3">
 		{{associat.nomAssociat}}
 		</div>
 	
 		<div class="row">
-			<div class="col-10 offset-1">
+			<div class="col-4">
 				<img ng-src="{{associat.logoAssociat!=''?'img/associats/'+associat.logoAssociat:'img/noimage.png'}}" class="img-fluid imageBordes" alt="associat">
-			<div class="col-12">
-				info tienda<br>
+			</div>
+			<div class="col-8">
+				Info tienda:<br>
 				{{associat.txtAssociat}}
 				<br><br>
-				horaris<br>
+				Horaris:<br>
 				{{associat.horari}}
 				<br><br>
-				telefono1<br>
+				Telefono1:<br>
 				{{associat.telf1}}<br>
-				telefono2<br>
+				Telefono2:<br>
 				{{associat.telf2}}<br>
-				whats<br>
+				Whats:<br>
 				{{associat.whatsapp}}
 				<br><br>
-				adreça<br>
+				Adreça:<br>
 				{{associat.adreca}}
 				<br><br>
-				web<br>
-				{{associat.URLWeb}}<br>
-				mail<br>
+				Web:<br>
+				{{associat.URLWeb}}
+				<br><br>
+				Mail:<br>
 				{{associat.email}}
 			</div>
-			</div>
+			
 		</div>
 	</div>
 </div>
