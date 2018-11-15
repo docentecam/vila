@@ -24,7 +24,7 @@
 		}
 		$connexio=connect();	
 		$resultServei=mysqli_query($connexio,$mySql);
-		disconnect($connexio);
+		disconnect($connexio); 
 		echo serveis($tbl_serveis, $tbl_subserveis);
 	}
 	if(isset($_POST['acc'])&&$_POST['acc']=='Afegir'){
