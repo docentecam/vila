@@ -71,7 +71,7 @@
 				return json_encode($rows);
 			}
 	function mostrarSponsors($tbl_sponsors){
-				$mySql="SELECT `logoSponsor`, `nomSponsor`, `dataFiramar`	FROM $tbl_sponsors";
+				$mySql="SELECT `logoSponsor`, `dataFiramar`	FROM $tbl_sponsors";
 				$connexio=connect();
 				$resultSponsors=mysqli_query($connexio,$mySql); 
 				disconnect($connexio);

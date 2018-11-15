@@ -13,13 +13,14 @@
 			SET `nomServei`='".replaceFromHtml($_POST['nomServei'])."', 
 				`txtServei`='".replaceFromHtml($_POST['txtServei'])."'	
 			WHERE idServei='".$_POST['idServei']."'";
-		}
+		}	
 		else if(isset($_POST['nomSubservei']))
 		{	
 		$mySql="UPDATE $tbl_subserveis 
 			SET `nomSubservei`='".replaceFromHtml($_POST['nomSubservei'])."', 
 				`txtSubservei`='".replaceFromHtml($_POST['txtSubservei'])."'	
 			WHERE idSubservei='".$_POST['idSubservei']."'";
+
 		}
 		$connexio=connect();	
 		$resultServei=mysqli_query($connexio,$mySql);
@@ -54,11 +55,10 @@
 	}
 	if(isset($_POST['acc'])&&$_POST['acc']=='delSubser'){
 		$mySql="DELETE FROM $tbl_subserveis 
-				WHERE `idServei`=".$_POST['idServei'];
+				WHERE `idSubservei`=".$_POST['idSubservei'];
 	
 	$connexio=connect();
-	$resultServei2=mysqli_query($connexio,$mySql);
-	$resultServei=mysqli_query($connexio,$mySql2);
+	$resultSubervei=mysqli_query($connexio,$mySql);
 	disconnect($connexio);
 	echo serveis($tbl_serveis, $tbl_subserveis);
 	}
