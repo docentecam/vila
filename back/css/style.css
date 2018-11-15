@@ -159,6 +159,9 @@ a:hover {
 .ServeisTextCss{
 	justify-content: center;
 }
+.ServeiIconCss{
+	justify-content: center;	
+}
 @media (max-width: 575px){
 	
 	.iconSize{

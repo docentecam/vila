@@ -1,6 +1,6 @@
 <?php 
 	require("../../inc/functions.php");
-	$tbl_noticies="esdeveniments";
+	$tbl_noticies="noticies";
 	
 
 	if(isset($_POST['acc'])&&$_POST['acc']=='l'){
@@ -71,7 +71,7 @@
 
 	if(isset($_POST['acc'])&&$_POST['acc']=='updatePrincipal'){
 
-		$mySql="UPDATE $tbl_noticies SET `principal` = '".$_POST['principal']."' WHERE `noticies`.`idNoticia` =".$_POST['idNoticia'];
+		$mySql="UPDATE $tbl_noticies SET `principal` = '".$_POST['principal']."' WHERE `noticies`.'".$_POST['idNoticia'];
 		$connexio=connect();
 		$resultNoti=mysqli_query($connexio,$mySql);
 		disconnect($connexio);
@@ -79,27 +79,18 @@
 	}
 	function noticies($tbl_noticies){
 		$mySql="SELECT `idNoticia`,`titolNoticia`,`dataNoticia`,`txtNoticia`,`fotoNoticia`,`principal`
-				FROM $tbl_noticies";
+				FROM $tbl_noticies ORDER BY dataNoticia DESC";
 		$connexio=connect();
 		$resultNoti=mysqli_query($connexio,$mySql); 
-
-		// $rows = array();
-		// while($r = mysqli_fetch_array($resultNoti)) 
-		// {
-		// 	$mySql2="SELECT `idSubservei`, `nomSubservei`, `txtSubservei`, `idServei` FROM `$tbl_subserveis` WHERE idServei=".$r[0];
-		// 	$rowsSub = array(); 
-		// 	$resultSubServeis=mysqli_query($connexio,$mySql2); 
-		// 	while($rSub = mysqli_fetch_array($resultSubServeis)) 
-		// 	{
-		// 		$rowsSub[] = $rSub; 
-		// 	}
-		// 	array_push($r, $rowsSub);
-		// 	$rows[] = $r; 	
-		// } 
 		disconnect($connexio);
+		$rows = array(); 
+			while($row = mysqli_fetch_array($resultNoti)) 
+			{
+				$rows[] = $row; 
+			} 
 		for ($i=0; $i < sizeof($rows); $i++) { 
 			$rows[$i][1]=replaceFromBBDD($rows[$i][1]);
-			$rows[$i][2]=replaceFromBBDD($rows[$i][2]);
+			$rows[$i][3]=replaceFromBBDD($rows[$i][3]);
 		}
 		return json_encode($rows);
 	}
