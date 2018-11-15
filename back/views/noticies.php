@@ -7,7 +7,7 @@
 
 	<br>	
 	<div class="AssNotiAllCss" id="NotiEditTop">
-		<form  class="formNot" ng-submit="submitServei()" ng-hide="">
+		<form  class="formNot" ng-submit="submitServei()" ng-hide="reveal">
 			<br>
 			<div class="row">
 				<div class="col" ng-class="{ 'has-error' : formServei.nomNot.$invalid && !formServei.nomNot.$pristine }">
@@ -47,7 +47,7 @@
 	<div class="row text-center">
 		<h2 class="col my-3"> Noticies </h2>
 	</div>
-	<i class="offset-md-1 fas fa-plus-square" ng-click="EditNoticia('-1')" ng-show="reveal" title="Afegeix una Noticia"></i>
+	<i class="offset-md-1 fas fa-plus-square iconSize" ng-click="EditNoticia('-1')" ng-show="reveal" title="Afegeix una Noticia"></i>
 	<br>
 	<br>
 	<div class="row justify-content-center">
@@ -67,10 +67,10 @@
 						<span class="col-12">{{noticia.txtNoticia}}</span>
 					</div>
 					<div class="col-12 col-sm-12">
-						<i class="far fa-star fa" ng-if="noticia.principal=='N'" ng-click="cambiaPrinc('S', noticia.idNoticia)" title="Afegir com a favorit"></i>
-						<i class="fas fa-star fa"  ng-if="noticia.principal=='S'" ng-click="cambiaPrinc('N', noticia.idNoticia)" title="Quitar com a favorit"></i>
-						<i class="far fa-edit" ng-click="EditNoticia($index)" title="Editar"></i>
-						<i class="far fa-times-circle fa fontAweX" ng-click="eliminarNoticies(noticia.idNoticia, noticia.titolNoticia, noticia.fotoNoticia)" title="Eliminar"></i>
+						<i class="far fa-star iconSize " ng-if="noticia.principal=='N'" ng-click="cambiaPrinc('S', noticia.idNoticia)" title="Afegir com a favorit"></i>
+						<i class="fas fa-star iconSize"  ng-if="noticia.principal=='S'" ng-click="cambiaPrinc('N', noticia.idNoticia)" title="Quitar com a favorit"></i>
+						<i class="far fa-edit iconSize" ng-click="EditNoticia($index)" title="Editar"></i>
+						<i class="far fa-times-circle iconSize fontAweX" ng-click="eliminarNoticies(noticia.idNoticia, noticia.titolNoticia, noticia.fotoNoticia)" title="Eliminar"></i>
 					</div>
 				</div>
 			</div>

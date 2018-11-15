@@ -29,7 +29,7 @@ angular.module('vila')
 	var data = new FormData();
 		data.append("acc","l");
 	var deferred=$q.defer();
-	// $rootScope.cargador=true;
+	$rootScope.cargador=true;
 	$http.post("models/associacio.php", data,{
 		headers:{
 			"Content-type":undefined
@@ -98,7 +98,6 @@ angular.module('vila')
 			})
 			.then(function(res){
 				deferred.resolve(res);
-				console.log(res.data);
 				$rootScope.cargador=false;
 				$scope.divMsj=true;
 				$scope.msj="Les dades s'han actualitzat correctament.";
@@ -145,7 +144,6 @@ angular.module('vila')
 				})
 				.then(function(res)
 				{
-					console.log(res.data);
 					deferred.resolve(res);
 					if(nomCamp=="logoVila"){
 						$scope.ass.logoVila=res.data;
@@ -970,7 +968,6 @@ angular.module('vila')
  	$scope.goTop=function(){
  		var element = document.getElementById("divTop");
 	    element.scrollIntoView({block: "end", behavior: "smooth"});
-	    console.log("hola")
  	}
 	$scope.eliminarSubservei=function(idSubservei,nomSubservei){
 		var respuesta= confirm ("Desitja eliminar el Subservei "+nomSubservei+"?")
@@ -1058,22 +1055,22 @@ angular.module('vila')
 		$rootScope.cargador=false;
 	})
 	.catch(function(error){
-		$rootScope.cargador=false;f
+		$rootScope.cargador=false;
 	});
-	// window.onscroll = function() {scrollFunction()};
+	window.onscroll = function() {scrollFunction()};
 
-	// function scrollFunction() {
-	//     if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-	//         document.getElementById("goTop").style.display = "block";
+	function scrollFunction() {
+	    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+	        document.getElementById("goTop").style.display = "block";
 
-	//     } else {
-	//         document.getElementById("goTop").style.display = "none";
-	//     }
-	// }
- // 	$scope.goTop=function(){
- // 		var element = document.getElementById("NotiEditTop");
-	//     element.scrollIntoView({block: "end", behavior: "smooth"});
- // 	}
+	    } else {
+	        document.getElementById("goTop").style.display = "none";
+	    }
+	}
+ 	$scope.goTop=function(){
+ 		var element = document.getElementById("NotiEditTop");
+	    element.scrollIntoView({block: "end", behavior: "smooth"});
+ 	}
 	$scope.EditNoticia=function(PosNoti){
 		$scope.reveal=false;
 		$scope.not.fotoNew="";
@@ -1100,8 +1097,8 @@ angular.module('vila')
 			$scope.not.fotoNoticia="";
 			$scope.not.principal="N";
 			}
-		// var element = document.getElementById("NotiEditTop");
-	 //    element.scrollIntoView({block: "end", behavior: "smooth"});
+		var element = document.getElementById("NotiEditTop");
+	    element.scrollIntoView({block: "end", behavior: "smooth"});
 	}
 	$scope.accioNoticies=function(){
 		var data = new FormData();
@@ -1176,7 +1173,7 @@ angular.module('vila')
 	$scope.cambiaPrinc=function(principal,idNoticies){
 		if($scope.totalPrincipal==2)
 		{
-			alert("Només p");
+			alert("Només pot triar 2 notícies");
 		}
 		else{
 
