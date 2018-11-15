@@ -71,57 +71,28 @@
 	  </ul>
 	  
 	  <div class="container carousel-inner no-padding carousel-innerAsso">
-	    <div class="carousel-item active">
-	      <div class="col-xs-3 col-sm-3 col-md-3 carouAsoc">
-	        <img src="img/associat.jpg">
-	      </div>    
-	      <div class="col-xs-3 col-sm-3 col-md-3 carouAsoc">
-	        <img src="img/associat.jpg">
-	      </div>   
-	      <div class="col-xs-3 col-sm-3 col-md-3 carouAsoc">
-	        <img src="img/associat.jpg">
-	      </div>   
-	      <div class="col-xs-3 col-sm-3 col-md-3 carouAsoc">
-	        <img src="img/associat.jpg">
-	      </div>   
-	    </div>
-	    <div class="carousel-item">
-	      <div class="col-xs-3 col-sm-3 col-md-3 carouAsoc">
-	        <img src="img/associat.jpg">
-	      </div>    
-	      <div class="col-xs-3 col-sm-3 col-md-3 carouAsoc">
-	        <img src="img/associat.jpg">
-	      </div>   
-	      <div class="col-xs-3 col-sm-3 col-md-3 carouAsoc">
-	        <img src="img/associat.jpg">
-	      </div>   
-	      <div class="col-xs-3 col-sm-3 col-md-3 carouAsoc">
-	        <img src="img/associat.jpg">
-	    </div>  
-	    </div>
-	    <div class="carousel-item">
-	      <div class="col-xs-3 col-sm-3 col-md-3 carouAsoc">
-	        <img src="img/associat.jpg">
-	      </div>    
-	      <div class="col-xs-3 col-sm-3 col-md-3 carouAsoc">
-	        <img src="img/associat.jpg">
-	      </div>   
-	      <div class="col-xs-3 col-sm-3 col-md-3 carouAsoc">
-	        <img src="img/associat.jpg">
-	      </div>   
-	      <div class="col-xs-3 col-sm-3 col-md-3 carouAsoc">
-	        <img src="img/associat.jpg">
-	      </div>  
-	    </div>
-	  </div>
-	  
-	  <a class="carousel-control-prev" data-target="#carouselAsso" data-slide="prev">
-	    <span class="carousel-control-prev-icon"></span>
-	  </a>
-	  <a class="carousel-control-next" data-target="#carouselAsso" data-slide="next">
-	    <span class="carousel-control-next-icon"></span>
-	  </a>
 
+	    <div class="carousel-item active">
+	      <div class="col-xs-3 col-sm-3 col-md-3 carouAsoc card" ng-repeat="participant in participants">
+	        <img class="card-img-top img-fluid d-none d-md-inline" 
+	        ng-src="{{participant.logoParticipant!=''?'img/participants/'+participant.logoParticipant:'img/noimage.png'}}">
+	      </div>
+	    </div>
+
+		<div class="carousel-item">
+			<div class="col-xs-3 col-sm-3 col-md-3 carouAsoc card" ng-repeat="participant in participants">
+				<img class="card-img-top img-fluid d-none d-md-inline" 
+				ng-src="{{participant.logoParticipant!=''?'img/participants/'+participant.logoParticipant:'img/noimage.png'}}">
+			</div>
+		</div>
+
+	</div>
+		<a class="carousel-control-prev" data-target="#carouselAsso" data-slide="prev">
+			<span class="carousel-control-prev-icon"></span>
+		</a>
+		<a class="carousel-control-next" data-target="#carouselAsso" data-slide="next">
+			<span class="carousel-control-next-icon"></span>
+		</a>
 	</div>
 </div>
 

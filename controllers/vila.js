@@ -44,7 +44,7 @@ angular.module('vila')
 				$scope.banners=res.data.dadesBanners;
 				$scope.carousel=res.data.dadesCarousel;
 				$scope.associats=res.data.dadesAssociats;
-				console.log(res.data);
+				console.log($scope.banners);
 			})
 			.catch(function(error) {
 				$rootScope.cargador=false;
