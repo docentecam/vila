@@ -18,50 +18,46 @@
 	</div>
 </div>
 
-<div class="container">
-<!-- 	 ng-show="llistat" -->
-	<div class="row">
-				<div ng-repeat="associat in associats " ng-href="#/directori/{{associat.idAssociat}}" class="col-6 px-0 container estiloAso py-5 mb-5">
-
-					<div class="row align-items-center">
-							<div class="card">
-								<div class="group-item">
-									<div class="imagecontainer is-cover">
-										<a ng-href="#/directori/{{associat.idAssociat}}">
-										<img ng-src="{{associat.logoAssociat!='' ? 'img/associats/'+associat.logoAssociat : 'img/noimage.png'}}" class="imagecontainer-img lazyload" alt="associat">
-										</a>
-									</div>
-								</div>
-							</div>
-						
-					
-						
-						<div class="col px-0">
-							<div class="tipoSubTitulo">
-								<a ng-href="#/associat{{associat.idAssociats}}">
-								{{associat.nomAssociat}}
-								</a>
-							</div>
-							<div class="tipoTexto">
-									categoria
-									{{categoriaassociat.principal}}
-							</div>
-							<div class="tipoTexto">
-								{{associat.adreca}}
-							</div>
-							<div class="tipoTexto">
-								{{associat.telf1}}
-								{{associat.telf2}}
-								{{associat.email}}
-							</div>
+<div class="row">	
+	<div ng-repeat="associat in associats " ng-href="#/directori/{{associat.idAssociat}}" class="col-6">
+		<div class="row align-items-center estiloAso">
+			<div class="col">
+				<div class="card">
+					<div class="group-item">
+						<div class="imagecontainer is-cover">	
+							<a ng-href="#/directori/{{associat.idAssociat}}">
+								<img ng-src="{{associat.logoAssociat!=''?'img/associats/'+associat.logoAssociat:'img/noimage.png'}}" class="imagecontainer-img lazyload" alt="associat">
+							</a>
 						</div>
-
 					</div>
 				</div>
-
+			</div>
 			
+			
+			<div class="col">
+				<div class="tipoSubTitulo mb-1">
+					<a ng-href="#/directori/{{associat.idAssociat}}">
+					{{associat.nomAssociat}}
+					</a>
+				</div>
 
-	</div>	
+				<div class="tipoTexto mb-1">
+					categoria
+					{{categoriaassociat.principal}}
+				</div>
+
+				<div class="tipoTexto">
+					{{associat.adreca}}
+				</div>
+
+				<div class="tipoTexto">
+					{{associat.telf1}}
+					{{associat.telf2}}
+					{{associat.email}}
+				</div>
+			</div>
+		</div>
+	</div>		
 </div>
 
 <!-- <div class="row" ng-hide="llistat">

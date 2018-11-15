@@ -61,6 +61,7 @@ $(window).on('resize', function() {
 				$scope.banners=res.data.dadesBanners;
 				$scope.carousel=res.data.dadesCarousel;
 				$scope.associats=res.data.dadesAssociats;
+				console.log(res.data);
 			})
 			.catch(function(error) {
 				$rootScope.cargador=false;
@@ -134,7 +135,7 @@ $(window).on('resize', function() {
 	$scope.llistat=false;
 	$rootScope.cargador=true;
 	var data = new FormData();
-		data.append("acc","l");
+		data.append("acc","la");
 		data.append("idAssociat",$routeParams.idAssociat);
 	var deferred=$q.defer();
 	$http.post("models/directori.php", data,{
@@ -146,7 +147,8 @@ $(window).on('resize', function() {
 	.then(function(res){
 		deferred.resolve(res);
 		$rootScope.cargador=false;
-		$scope.associat=res.data[0];
+		$scope.associat=res.data.dadesAssociat[0];
+		$scope.galeriaassociat=res.data.dadesGaleriaassociat;
 	})
 	.catch(function(error) {
 		$rootScope.cargador=false;

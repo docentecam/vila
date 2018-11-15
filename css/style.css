@@ -218,6 +218,11 @@ ul, li{
   font-family: "object-fit: contain";
 }
 
+.is-cover.imagecontainer .imagecontainer-img {
+ object-fit: cover;
+ font-family: "object-fit: cover";
+}
+
 .imagecontainer:hover .imagecontainer-img {
   transform: scale(1.1);
 }
