@@ -5,9 +5,8 @@
 	<div class="col-12 col-md-8 ">
 		<div class="row">
 			<div class="col-lg-12 offset-0  alert alert-danger pt-4 text-dark" role="alert" ng-show="contactaMissatge">{{msg}}</div>
-			<div class="col-lg-12 offset-0  alert alert-danger pt-4 text-dark" role="alert" ng-show="muestraError">{{msg}}</div>
 			<form name="formContacta" ng-submit="enviaEmail()" novalidate ng-hide="contactaMissatge">
-				<div class=" form-row">
+				<div class="form-row">
 					
 					<!-- nommmmmmmmm -->
 					<div class="form-group col-md-4 mb-3" ng-class="{ 'has-error' : formContacta.nomContacte.$invalid && !formContacta.nomContacte.$pristine }">
@@ -117,6 +116,7 @@
 								          <span aria-hidden="true">&times;</span>
 								        </button>
 								 	</div>
+								 	<div class="col-lg-12 offset-0  alert alert-danger pt-4 text-dark" role="alert" ng-show="muestraError">{{msg}}</div>
 									<form name="sociVila" id="sociVila" ng-submit="enviaSoci()" novalidate>
 										<div class="form-row">
 										  <div class="form-group col-12 mb-3" ng-class="{ 'has-error' : sociVila.inputnomComercial.$invalid && !sociVila.inputnomComercial.$pristine }">
@@ -177,10 +177,10 @@
 							</div>
 						</div><br>
 						<div ng-hide="fitxaSuccess">
-							<span class="my-2 mb-4">Benvingut</span><br>
-							<span class="">Ara ets un més de la {{contactaLlistat.nom}}!</span><br>
+							<span class="my-2 mb-4">Benvingut/a</span><br>
+							<span class="colorRosa">Ara ets un més de la {{contactaLlistat.nom}}!</span><br>
 							<span>Les teves dades s'han registrat correctament i en breus rebràs un correu electrònic de benvinguda. </span><br>
-							<button ng-click="reload()" class="btn btn-info">D'acord</button>
+							<button ng-click="recarga()" class="btn btn-info">D'acord</button>
 						</div>
 				</div>
 			</div>

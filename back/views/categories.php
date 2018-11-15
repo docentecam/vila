@@ -29,30 +29,33 @@
 			</div> 
 			<div class="form-row">
 			    <div class="form-group col-12 col-lg-4 offset-lg-4">
-			   		<label for="txtNom">Nom Associat</label>
+			   		<label for="txtNom">Nom de la categoria</label>
 			    	<input type="text" class="form-control" id="txtNom" ng-model="cat.nomCategoria" maxlength="50">
 			    </div>
 			</div>
 			<div class="form-row">
 				<div class="form-group col-12 col-md-8 col-lg-4 offset-md-4 offset-lg-7">
-					<button type="button" value="{{accion}}" ng-click="edit(accion)" class="btn  btnColorCss">{{accion}}</button>
+					<button type="button" value="{{accion}}" ng-click="edit(categoria.idCategoria)" class="btn  btnColorCss">{{accion}}</button>
 					<button type="button" value="cancelar" ng-click="cancel('')" class=" btn btn-danger">Cancelar</button>
 				</div>
 			</div>
 		</form>
 	</div>
 	<div  ng-show="divMsj" class="col-6 offset-3 text-center alert alert-warning">{{msj}}</div>
+	<div class="row">
+		<a class=" fas fa-plus-square iconSize mb-3 col-12 col-lg-9 offset-lg-1" title="Afegir nou comerç" ng-click="muestraFormCat(-1)"></a>
+	</div>
 	<div class="row table-responsive divTable">
 		<table border="1" class="divTable col-12 col-lg-10 offset-lg-1 text-center tablaSocis">
 			<tr>
-				<th >Pictograma</th>
-				<th class="cursor" ng-click="columnOrder('nomCategoria')">Categoria</th>
+				<th>Pictograma</th>
+				<th>Categoria</th>
 				<th>Accions</th>
 			</tr>
-			<tr ng-repeat="categoria in categories | orderBy:order">
+			<tr ng-repeat="categoria in categories">
 				<td>{{categoria.pictograma}}</td>
 				<td>{{categoria.nomCategoria}}</td>
-				<td><i class="far fa-edit text-dark iconSize my-2" ng-click="muestraFormCat(categoria.idCategoria)"></i><i ng-show="categoria[3]==0" class="fas fa-times text-danger iconSize ml-3 my-2"></i></td>
+				<td><i class="far fa-edit text-dark iconSize my-2" ng-click="muestraFormCat($index)"></i><i ng-show="categoria[3]==0" class="fas fa-times text-danger iconSize ml-3 my-2"></i></td>
 			</tr>
 		</table>	
 	</div>

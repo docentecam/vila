@@ -42,8 +42,8 @@
 			<tbody>
 				<tr ng-repeat="servei in serveis">
 			      <th scope="row" class="align-middle">{{$index+1}}</th> 
-			      <td class="align-middle">{{servei.nomServei}}: {{servei.txtServei}}<span class="serveiysubserveiBoxCss"><i ng-click="EditServei($index)" class="far fa-edit iconSize"></i>&nbsp<i class="far fa-times-circle fontAweX iconSize" ng-click="eliminarServei(servei.idServei, servei.nomServei)"></i></span></td>
-			      <td> <span class="serveiysubserveiBoxCss" ng-repeat="subservei in servei[3]"><div>{{subservei.nomSubservei}}: <br><i class="far fa-edit iconSize" ng-click="EditSubservei($index,servei.idServei)"></i><i class="far fa-times-circle fontAweX iconSize" ng-click="eliminarSubservei(subservei.idSubservei, subservei.nomSubservei)"></i></div><br><div><p>{{subservei.txtSubservei}}</p></div></span><br><i class="fas fa-plus" ng-click="EditSubservei('-1',servei.idServei)"></i></td>
+			      <td class="align-middle">{{servei.nomServei}}:<span class="serveiysubserveiBoxCss"><i ng-click="EditServei($index)" class="far fa-edit iconSize"></i>&nbsp<i class="far fa-times-circle fontAweX iconSize" ng-click="eliminarServei(servei.idServei, servei.nomServei)"></i><p>{{servei.txtServei}}</p></span></td>
+			      <td> <span class="serveiysubserveiBoxCss" ng-repeat="subservei in servei[3]"><div>{{subservei.nomSubservei}}:<p>{{subservei.txtSubservei}}</p><i class="far fa-edit iconSize ServeiIconCss" ng-click="EditSubservei($index,servei.idServei)"></i><i class="far fa-times-circle fontAweX iconSize ServeiIconCss" ng-click="eliminarSubservei(subservei.idSubservei, subservei.nomSubservei)"></i></div><br><div></div></span><br><i class="fas fa-plus" ng-click="EditSubservei('-1',servei.idServei)"></i></td>
 			    </tr>
 			</tbody>
 		</table>	

@@ -88,7 +88,9 @@ ul, li{
 	margin: 0;
     padding: 0;
 }
-
+.colorRosa{
+	color: #cb418e;
+}
 .btn-info
 {
 	background-color:#cb418e!important;

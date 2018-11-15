@@ -30,7 +30,7 @@ app.config(['$routeProvider',function($routeProvider){
   .when('/newComerc',{
     templateUrl:'views/directori.php',
     controller:'NewComercCtrl',
-    title: "Nou Comerc"
+    title: "Nou Comerç"
   })
   .when('/contactans',{
     templateUrl:'views/contactans.php',
