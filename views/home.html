@@ -139,25 +139,24 @@
 	      	<a ng-href="#/directori/{{associat.idAssociat}}">
 	        <img class="card-img-top img-fluid d-none d-md-inline" 
 	        ng-src="{{associat.logoAssociat!=''?'img/associats/'+associat.logoAssociat:'img/noimage.png'}}">
-
 	    	</a>
-	      </div>  
-	      <div class="col-xs-3 col-sm-3 col-md-3 carouAsoc">
-	        <img src="img/associat.jpg">
-	      </div>   
-	      <div class="col-xs-3 col-sm-3 col-md-3 carouAsoc">
-	        <img src="img/associat.jpg">
-	      </div>   
+
+	      </div>
+
 	    </div>
+
 	    <div class="carousel-item">
-	      <div class="col-xs-3 col-sm-3 col-md-3 carouAsoc">
-	        <img src="img/associat.jpg">
-	      </div>    
-	      <div class="col-xs-3 col-sm-3 col-md-3 carouAsoc">
-	        <img src="img/associat.jpg">
+	      <div class="col-xs-3 col-sm-3 col-md-3 carouAsoc card" ng-repeat="associat in associats">
+
+	      	<a ng-href="#/directori/{{associat.idAssociat}}">
+	        <img class="card-img-top img-fluid d-none d-md-inline" 
+	        ng-src="{{associat.logoAssociat!=''?'img/associats/'+associat.logoAssociat:'img/noimage.png'}}">
+	    	</a>
+
 	      </div>
 	    </div>
-	  </div>  
+	  </div>
+
 	  <a class="carousel-control-prev" data-target="#carouselAsso" data-slide="prev">
 	    <span class="carousel-control-prev-icon"></span>
 	  </a>
@@ -168,9 +167,12 @@
 	</div>
 
 
-	  -mirar que las rayitas vayan a relacion con la cantidad de bloques
-	  -hacer que cada 4 logoassociats, se cree un nuevo div (controller?)
-	  -hacer que si quedan 2 sueltos, se centren? idk
-	  
-	  -arreglar el navbar más separação
-	  -Vilactiva en tablet+movil klk, hacer q todo quede en la misma linea
+<!--
+	-mirar que las rayitas vayan a relacion con la cantidad de bloques
+	-hacer que cada 4 logoassociats, se cree un nuevo div (controller?)
+	-hacer que si quedan 2 sueltos, se centren? idk???
+
+	-arreglar el navbar más separação
+	-Vilactiva en tablet+movil klk, hacer q todo quede en la misma linea
+
+-->
