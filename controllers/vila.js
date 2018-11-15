@@ -44,7 +44,7 @@ angular.module('vila')
 				$scope.banners=res.data.dadesBanners;
 				$scope.carousel=res.data.dadesCarousel;
 				$scope.associats=res.data.dadesAssociats;
-				console.log(res.data);
+				;
 			})
 			.catch(function(error) {
 				$rootScope.cargador=false;
@@ -73,6 +73,7 @@ angular.module('vila')
 		$scope.subserveis=res.data.dadesSubserveis;
 		$scope.equip=res.data.dadesEquip[0];
 		$rootScope.cargador=false;
+		console.log("hola");
 	})
 	.catch(function(error) {
 		$rootScope.cargador=false;
@@ -136,6 +137,9 @@ angular.module('vila')
 	.catch(function(error) {
 		$rootScope.cargador=false;
 		});
+	$scope.modalFoto=function(nomFoto){
+		$scope.fotoModal=nomFoto;
+	}
 })
 
 .controller('NoticiesCtrl',function($scope,$http,$q,$rootScope,$timeout,$window,$document){
