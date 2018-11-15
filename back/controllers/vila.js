@@ -217,9 +217,30 @@ angular.module('vila')
 	$scope.columnOrder=function(columna){
 		$scope.order=columna;
 	}
+	$scope.offOn=function (directori, active) {
+		var data = new FormData();
+			data.append("idAssociat",directori);
+			data.append("actiu",active);
+			data.append("acc","U");	
+		var deferred=$q.defer();
+		$rootScope.cargador=true;
+		$http.post("models/directori.php", data,{
+			headers:{
+				"Content-type":undefined
+			},
+				transformRequest:angular.identity
+		})
+		.then(function(res){
+			deferred.resolve(res);
+			$scope.directoris=res.data;
+			$rootScope.cargador=false;
+		})
+		.catch(function(error) {
+			$rootScope.cargador=false;
+		});
+	}
 })
 .controller('DirectComerCtrl',function($scope,$http,$q,$rootScope,$routeParams,$timeout,$window, $document){
-	$scope.btnSave=true;
 	$scope.llistatComer=false;
 	$scope.afegirComerc=true;
 	$scope.dadesComerc=false;
@@ -262,8 +283,7 @@ angular.module('vila')
 		$scope.com.logoUpdate="";
 		$scope.com.email=$scope.comerc.email;
 		$scope.com.URLWeb=$scope.comerc.URLWeb;
-		$rootScope.cargador=false;
-		$scope.btnSave=false;		
+		$rootScope.cargador=false;		
 	})
 	.catch(function(error) {
 		$rootScope.cargador=false;
@@ -310,7 +330,17 @@ angular.module('vila')
     } 
 	$scope.guardar=function(){
 		$scope.divMsj=true;
-		if($scope.com.nomAssociat=="" || $scope.com.adreca=="" || $scope.com.facebook=="" || $scope.com.URLWeb=="" || $scope.com.latitud==""|| $scope.com.longitud=="" || $scope.com.horari=="" || $scope.com.txtAssociat==""){
+		if(isNaN($scope.com.telf2)){
+			$scope.com.telf2=null;
+		}
+		if(isNaN($scope.com.whatsapp)){
+			$scope.com.whatsapp=null;
+		}
+		else if($scope.com.nomAssociat=="" || $scope.com.adreca=="" 
+			|| $scope.com.facebook=="" || $scope.com.URLWeb=="" 
+			|| $scope.com.latitud==""|| $scope.com.longitud=="" 
+			|| $scope.com.horari=="" || $scope.com.txtAssociat==""
+			|| $scope.com.telf1==""){
 			$scope.msj="Les dades no s'han actualitzat correctament. Sisplau ompli els camps buits";
 			$timeout(function() {
 				$scope.divMsj=false;
@@ -345,6 +375,7 @@ angular.module('vila')
 			.then(function(res){
 				deferred.resolve(res);
 				$rootScope.cargador=false;
+				console.log(res.data);
 				$timeout(function() {
 					$scope.divMsj=false;
 				}, 2000);
@@ -482,10 +513,32 @@ angular.module('vila')
 	$scope.afegirComerc=false;
 	$scope.llistatComer=false;
 	$scope.dadesComerc=true;
+	$scope.btnAfegir=true;
+	$scope.comerc={};
+	$scope.comerc.logoAssociat="";
+	$scope.comerc.categoriaPrinc="-1";
+	var data = new FormData();
+	data.append("acc", "selCat");
+		var deferred=$q.defer();
+		$http.post("models/directori.php", data,{
+			headers:{
+				"Content-type":undefined
+			},
+				transformRequest:angular.identity
+			})
+			.then(function(res)
+			{
+				deferred.resolve(res);
+				$scope.categories=res.data;
+				console.log(res.data);
+			})
+			.catch(function(error) {
+				$rootScope.cargador=false;
+			});
 	window.onscroll = function() {scrollFunction()};
 
 	function scrollFunction() {
-	    if (document.body.scrollTop > 500 || document.documentElement.scrollTop > 500) {
+	    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
 	        document.getElementById("goTop").style.display = "block";
 	    } else {
 	        document.getElementById("goTop").style.display = "none";
@@ -494,6 +547,57 @@ angular.module('vila')
  	$scope.goTop=function(){
  		var element = document.getElementById("divUpTop");
 	    element.scrollIntoView({block: "end", behavior: "smooth"});
+ 	}
+ 	$scope.verificar=function(){
+ 		if($scope.comerc.nomAssociat=="" || $scope.comerc.adreca=="" 
+ 			|| $scope.comerc.facebook=="" || $scope.comerc.URLWeb=="" 
+ 			|| $scope.comerc.latitud==""|| $scope.comerc.longitud=="" 
+ 			|| $scope.comerc.horari=="" || $scope.comerc.txtAssociat=="" 
+ 			|| $scope.comerc.telf1==null || $scope.comerc.logoAssociat==""
+ 			|| $scope.comerc.categoriaPrinc=="-1" 
+ 			&& ($scope.comerc.telf2==null && $scope.comerc.whatsapp==null 
+ 				&& $scope.comerc.email==null)){
+		}
+		else{
+			$scope.btnAfegir=false;
+		}	
+ 	}
+ 	$scope.insert=function(){
+ 		$scope.divMsj=true;
+		$scope.msj="Les dades s'han actualitzat correctament.";
+		var data = new FormData();
+			data.append("idAssociat",$scope.comerc.idAssociat);
+			data.append("nomAssociat",$scope.comerc.nomAssociat);
+			data.append("adreca",$scope.comerc.adreca);
+			data.append("telf1",$scope.comerc.telf1);
+			data.append("telf2",$scope.comerc.telf2);
+			data.append("whatsapp",$scope.comerc.whatsapp);
+			data.append("facebook",$scope.comerc.facebook);
+			data.append("URLWeb",$scope.comerc.URLWeb);
+			data.append("horari",$scope.comerc.horari);
+			data.append("txtAssociat",$scope.comerc.txtAssociat);
+			data.append("email",$scope.comerc.email);
+			data.append("latitud",$scope.comerc.latitud);
+			data.append("longitud",$scope.comerc.longitud);
+			data.append("idCategoria",$scope.comerc.categPrinc);
+			data.append("acc","afeg");
+			var deferred=$q.defer();
+		$rootScope.cargador=true;
+		$http.post("models/directori.php", data,{
+			headers:{
+				"Content-type":undefined
+			},
+				transformRequest:angular.identity
+		})
+		.then(function(res){
+			deferred.resolve(res);
+			$rootScope.cargador=false;
+			window.location.href="#/directori/"+res.data;
+		})
+		.catch(function(error) {
+			$rootScope.cargador=false;
+		});
+		
  	}
 })
 .controller('ContactCtrl',function($scope,$http,$q,$rootScope,$timeout,$window){
@@ -1291,15 +1395,13 @@ angular.module('vila')
  		var element = document.getElementById("divTop");
 	    element.scrollIntoView({block: "end", behavior: "smooth"});
  	}
-	$scope.columnOrder=function(columna){
-		$scope.order=columna;
-	}
 	$scope.muestraFormCat=function(idEdit=""){
-		$scope.dadesCateg=false
+		$scope.dadesCateg=false;
 		if(idEdit!="-1"){
 			$scope.accion="Edita";
-			$scope.cat.idCategoria=$scope.categories.idCategoria;
-			$scope.cat.nomCategoria=$scope.categories.nomCategoria;
+			$scope.cat.idCategoria=$scope.categories[idEdit].idCategoria;
+			$scope.cat.nomCategoria=$scope.categories[idEdit].nomCategoria;
+			$scope.cat.pictograma=$scope.categories[idEdit].pictograma;
 		}
 		else{
 			$scope.accion="Afegir";
@@ -1309,7 +1411,75 @@ angular.module('vila')
 	$scope.cancel=function(listSocis){
 		$scope.dadesCateg=true;		
 	}
+	$scope.edit=function(){
+		if($scope.cat.nomCategoria=="" || $scope.cat.pictograma==""){
+			$scope.msj="Les dades no s'han actualitzat correctament. Sisplau ompli els camps buits";
+			$scope.divMsj=true;
+			$timeout(function() {
+				$scope.divMsj=false;
+			}, 3000);}
+		else if (!isNaN($scope.soci.nom) || !isNaN($scope.soci.cog1)) {
+			$scope.msj="No es poden posar números. Sisplau verifici els camps";
+			$scope.divMsj=true;
+			$timeout(function() {
+				$scope.divMsj=false;
+			}, 3000); 	
+		}
+		else if (!isNaN($scope.soci.cog2) && $scope.soci.cog2!=0) {
+			$scope.msj="No es poden posar números. Sisplau verifici els camps";
+			$scope.divMsj=true;
+			$timeout(function() {
+				$scope.divMsj=false;
+			}, 3000); 	
+		}
+		else{
+
+			var data = new FormData();
+				data.append("idSoci",$scope.soci.idSoci);
+				data.append("nom",$scope.soci.nom);
+				data.append("rol",$scope.soci.rol);
+				data.append("cog1",$scope.soci.cog1);
+				data.append("cog2",$scope.soci.cog2);
+				data.append("mail",$scope.soci.mail);
+				data.append("telf",$scope.soci.telf);
+				data.append("acc",$scope.accion);
+				
+
+				var deferred=$q.defer();
+			$rootScope.cargador=true;
+			$http.post("models/socis.php", data,{
+				headers:{
+					"Content-type":undefined
+				},
+					transformRequest:angular.identity
+			})
+
+			.then(function(res){
+				deferred.resolve(res);
+				if(res.data!="0"){
+					$scope.socis=res.data.socis;
+					$scope.sociUser=res.data.sociUser;
+					$scope.msj="Les dades s'han actualitzat correctament.";
+					$scope.divDades=true;
+					$scope.divMsj=true;
+				}
+				else{
+					$scope.msj="Usuari existent.";
+					$scope.divMsj=true;
+
+				}
+				$timeout(function() {
+					$scope.divMsj=false;
+				}, 2000);
+				$rootScope.cargador=false;				
+			})
+			.catch(function(error) {
+				$rootScope.cargador=false;
+			});
+		}
+	}
 })
+
 .controller('LogoutCtrl',function($scope,$http){
 	$http({
 		method:"GET",
