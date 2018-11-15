@@ -25,23 +25,6 @@ angular.module('vila')
 
 .controller('HomeCtrl',function($scope,$http,$q,$rootScope,$timeout,$window,$document){
 	$rootScope.cargador=true;
-
-	var TIMEOUT = null;
-$(window).on('resize', function() {
-    if(TIMEOUT === null) {
-        TIMEOUT = window.setTimeout(function() {
-            TIMEOUT = null;
-            //fb_iframe_widget class is added after first FB.FXBML.parse()
-            //fb_iframe_widget_fluid is added in same situation, but only for mobile devices (tablets, phones)
-            //By removing those classes FB.XFBML.parse() will reset the plugin widths.
-            $('.fb-page').removeClass('fb_iframe_widget fb_iframe_widget_fluid');
-            FB.XFBML.parse();
-        }, 300);
-    }
-});
-
-
-
 	var data = new FormData();
 				data.append("acc","l");
 
@@ -61,6 +44,7 @@ $(window).on('resize', function() {
 				$scope.banners=res.data.dadesBanners;
 				$scope.carousel=res.data.dadesCarousel;
 				$scope.associats=res.data.dadesAssociats;
+				console.log(res.data);
 			})
 			.catch(function(error) {
 				$rootScope.cargador=false;
@@ -134,7 +118,7 @@ $(window).on('resize', function() {
 	$scope.llistat=false;
 	$rootScope.cargador=true;
 	var data = new FormData();
-		data.append("acc","l");
+		data.append("acc","la");
 		data.append("idAssociat",$routeParams.idAssociat);
 	var deferred=$q.defer();
 	$http.post("models/directori.php", data,{
@@ -146,7 +130,8 @@ $(window).on('resize', function() {
 	.then(function(res){
 		deferred.resolve(res);
 		$rootScope.cargador=false;
-		$scope.associat=res.data[0];
+		$scope.associat=res.data.dadesAssociat[0];
+		$scope.galeriaassociat=res.data.dadesGaleriaassociat;
 	})
 	.catch(function(error) {
 		$rootScope.cargador=false;
@@ -199,6 +184,7 @@ $(window).on('resize', function() {
 })
 
 .controller('FiramarCtrl',function($scope,$http,$q,$rootScope,$timeout,$window,$document){
+	$scope.fotoModal="";
 	$scope.llistat=false;
 	$rootScope.cargador=true;
 	var data = new FormData();
@@ -223,6 +209,9 @@ $(window).on('resize', function() {
 	.catch(function(error) {
 		$rootScope.cargador=false;
 		});
+	$scope.modalFoto=function(nomFoto){
+		$scope.fotoModal=nomFoto;
+	}
 
 })
 

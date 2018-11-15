@@ -3,7 +3,7 @@
 		<span>{{firamar.titolFiramar}}</span> 
 		<span>{{firamar.dataFiramar|limitTo:4}}</span>
 	</div>
-	<div class="col-12 tipoTexto">
+	<div class="col-12 tipoTexto text-center">
 		<p>
 		{{firamar.txtFiramar}}
 		</p>
@@ -44,6 +44,19 @@
 		</div>
 	</div>
 </div>
+
+<div class="modal fade " id="modalFoto" tabindex="-1" role="dialog" aria-hidden="true">
+  	<div class="modal-dialog modal-dialog-centered" role="document">
+  		<div class="modal-content">
+			<div class="modal-body">
+	      		<div>
+	      			<img ng-src="img/galeriafiramar/{{fotoModal}}" class="img-fluid sizeModal">
+	      		</div>
+	     	</div>
+	    </div>
+ 	</div>
+</div>
+
 
 <div class="row">
 	<div class="col-12 tipoSubTitulo">
@@ -113,13 +126,17 @@
 </div>
 
 <div class="row">
-	<div class="col-12 tipoSubTitulo">
+	<div class="col-4 tipoSubTitulo">
 		Sponsors
 	</div>
-	<div class="col-12 tipoTexto">
-		¿fotos fijas de los sponsors? en plan, que haya un col y ahí dentro entren los q hayan? 
-		no sé cómo hacerlo bien para q si un año hay 5 y otro 3 se quede bien centrado siempre.
+	<div class="col-6 text-center">
+		<div ng-repeat="sponsor in sponsors" class="col-12 tipoTexto">
+		<img class=" img-fluid text-center" ng-src="{{sponsor.logoSponsor!=''?'img/sponsors/'+sponsor.logoSponsor:'img/noimage.png'}}" title="sponsors" alt="sponsors" > 
+		</div>
 	</div>
+	
+	¿fotos fijas de los sponsors? en plan, que haya un col y ahí dentro entren los q hayan? 
+	no sé cómo hacerlo bien para q si un año hay 5 y otro 3 se quede bien centrado siempre.
 </div>
 
 <div class="row">

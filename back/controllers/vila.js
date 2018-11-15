@@ -178,7 +178,7 @@ angular.module('vila')
 	    element.scrollIntoView({block: "end", behavior: "smooth"});
  	}
 })	
-.controller('DirectCtrl',function($scope,$http,$q,$rootScope,$routeParams,$timeout,$window){
+.controller('DirectCtrl',function($scope,$http,$q,$rootScope,$routeParams,$timeout,$window, $document){
 	$scope.llistatComer=true;
 	$scope.afegirComerc=true;
 	$scope.dadesComerc=true;
@@ -218,7 +218,7 @@ angular.module('vila')
 		$scope.order=columna;
 	}
 })
-.controller('DirectComerCtrl',function($scope,$http,$q,$rootScope,$routeParams,$timeout,$window){
+.controller('DirectComerCtrl',function($scope,$http,$q,$rootScope,$routeParams,$timeout,$window, $document){
 	$scope.btnSave=true;
 	$scope.llistatComer=false;
 	$scope.afegirComerc=true;
@@ -278,7 +278,7 @@ angular.module('vila')
 	    }
 	}
  	$scope.goTop=function(){
- 		var element = document.getElementById("divTop");
+ 		var element = document.getElementById("upTop");
 	    element.scrollIntoView({block: "end", behavior: "smooth"});
  	}
 	$scope.getFileDetails = function (e,nomCamp) {
@@ -478,10 +478,23 @@ angular.module('vila')
 		}
 	}
 })
-.controller('NewComercCtrl',function($scope,$http,$q,$rootScope,$routeParams,$timeout,$window){
+.controller('NewComercCtrl',function($scope,$http,$q,$rootScope,$routeParams,$timeout,$window, $document){
 	$scope.afegirComerc=false;
 	$scope.llistatComer=false;
 	$scope.dadesComerc=true;
+	window.onscroll = function() {scrollFunction()};
+
+	function scrollFunction() {
+	    if (document.body.scrollTop > 500 || document.documentElement.scrollTop > 500) {
+	        document.getElementById("goTop").style.display = "block";
+	    } else {
+	        document.getElementById("goTop").style.display = "none";
+	    }
+	}
+ 	$scope.goTop=function(){
+ 		var element = document.getElementById("divUpTop");
+	    element.scrollIntoView({block: "end", behavior: "smooth"});
+ 	}
 })
 .controller('ContactCtrl',function($scope,$http,$q,$rootScope,$timeout,$window){
 	var data = new FormData();

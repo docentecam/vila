@@ -7,14 +7,14 @@
 		header("location: ../");
 	}
  ?> 
- <div>
-	<div ng-show="llistatComer" class="row text-center mt-4 mb-3 titleSocis">
+ <div ng-show="llistatComer" >
+	<div id="divTop" class="row text-center mt-4 mb-3 titleSocis">
 		<h1 class="col">Llistat de comerços</h1>
 	</div>
 	<div>
 		<a class=" fas fa-plus-square iconSize mb-3" title="Afegir nou comerç" ng-href="#/newComerc"></a>
 	</div>
-	<div ng-show="llistatComer" class="row table-responsive divTable">
+	<div class="row table-responsive divTable">
 		<table border="1" class="divTable col-12 col-lg-10 offset-lg-1 text-center tablaSocis">
 			<tr>
 				<th class="cursor" ng-click="columnOrder('nomAssociat')">Nom del Comerç</th>
@@ -43,11 +43,16 @@
 			</tr>
 		</table>	
 	</div>
+
+	<button id="goTop" class="goToTop btn btn-primary " value="Pujar" ng-click="goTop()">
+		<span class="d-none d-lg-inline">Pujar</span>
+		<img ng-src="../img/if_arrow-up.png" class="d-lg-none imgBtnTop">
+	</button>
  </div>
 
 
  <div ng-hide="dadesComerc">
- 	<div id="divTop" class="row text-center mt-4 mb-3 titleSocis">
+ 	<div id="upTop" class="row text-center mt-4 mb-3 titleSocis">
 		<h1 class="col">Dades del comerç</h1>
 	</div>
 	<div class="row">
@@ -185,11 +190,18 @@
 			</div>
 		</div>
 	</div>
+	<div class="row">
+		<button id="goTop" class="goToTop btn btn-primary " value="Pujar" ng-click="goTop()">
+			<span class="d-none d-lg-inline">Pujar</span>
+			<img ng-src="../img/if_arrow-up.png" class="d-lg-none imgBtnTop">
+		</button>	
+	</div>
+	
 </div>
 
 
 <div ng-hide="afegirComerc">
- 	<div id="divTop" class="row text-center mt-4 mb-3 titleSocis">
+ 	<div id="divUpTop" class="row text-center mt-4 mb-3 titleSocis">
 		<h1 class="col">Dades del comerç</h1>
 	</div>
 	<div class="row">
@@ -327,8 +339,9 @@
 			</div>
 		</div>
 	</div>
+	<button id="goTop" class="goToTop btn btn-primary " value="Pujar" ng-click="goTop()">
+		<span class="d-none d-lg-inline">Pujar</span>
+		<img ng-src="../img/if_arrow-up.png" class="d-lg-none imgBtnTop">
+	</button>
 </div>
-<button id="goTop" class="goToTop btn btn-primary " value="Pujar" ng-click="goTop()">
-	<span class="d-none d-lg-inline">Pujar</span>
-	<img ng-src="../img/if_arrow-up.png" class="d-lg-none imgBtnTop">
-</button>
+
