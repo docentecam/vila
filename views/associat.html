@@ -1,34 +1,26 @@
 <div class="row">
-	<div class="my-3 col-10 offset-1">
+	<div class="container my-3">
 		<div class="tipoSubTituloCenter mb-3">
 		{{associat.nomAssociat}}
 		</div>
 	
 		<div class="row">
-			<div class="col-4">
+			<div class="col-12 col-md-6 mb-4">
 				<img ng-src="{{associat.logoAssociat!=''?'img/associats/'+associat.logoAssociat:'img/noimage.png'}}" class="img-fluid imageBordes" alt="associat">
 			</div>
-			<div class="col-8">
-				Info tienda:<br>
+			<div class="col-12 col-md-6">
 				{{associat.txtAssociat}}
 				<br><br>
 				Horaris:<br>
 				{{associat.horari}}
-				<br><br>
-				Telefono1:<br>
 				{{associat.telf1}}<br>
-				Telefono2:<br>
 				{{associat.telf2}}<br>
-				Whats:<br>
 				{{associat.whatsapp}}
-				<br><br>
-				Adreça:<br>
+				<br>
 				{{associat.adreca}}
-				<br><br>
-				Web:<br>
+				<br>
 				{{associat.URLWeb}}
-				<br><br>
-				Mail:<br>
+				<br>
 				{{associat.email}}
 			</div>
 			
@@ -54,10 +46,21 @@
 		<div class="row">
 			<div class="card-columns">
 				<div class="card" ng-repeat="galeria in galeriaassociat">
-					<img class="card-img-top img-fluid d-md-none" ng-src="{{galeria.fotoGaleria!=''?'img/galeriaassociat/'+galeria.fotoGaleria:'img/noimage.png'}}" id="fotoFull">
-					<img class="card-img-top img-fluid d-none d-md-inline" ng-src="{{galeria.fotoGaleria!=''?'img/galeriaassociat/'+galeria.fotoGaleria:'img/noimage.png'}}" data-toggle="modal" data-target="#modalFoto" id="fotoFull" ng-click="modalFoto(galeria.fotoGaleria)">
+					<img class="card-img-top img-fluid d-md-none" ng-src="{{galeria.fotoGaleria!=''?'img/galeriaassociats/'+galeria.fotoGaleria:'img/noimage.png'}}" id="fotoFull">
+					<img class="card-img-top img-fluid d-none d-md-inline" ng-src="{{galeria.fotoGaleria!=''?'img/galeriaassociats/'+galeria.fotoGaleria:'img/noimage.png'}}" data-toggle="modal" data-target="#modalFoto" id="fotoFull" ng-click="modalFoto(galeria.fotoGaleria)">
 				</div>
 			</div>
 		</div>
 	</div>
+</div>
+<div class="modal fade " id="modalFoto" tabindex="-1" role="dialog" aria-hidden="true">
+  	<div class="modal-dialog modal-dialog-centered" role="document">
+  		<div class="modal-content">
+			<div class="modal-body">
+	      		<div>
+	      			<img ng-src="img/galeriaassociats/{{fotoModal}}" class="img-fluid sizeModal">
+	      		</div>
+	     	</div>
+	    </div>
+ 	</div>
 </div>

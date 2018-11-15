@@ -42,10 +42,10 @@
 </div>
 
 <div class="row">
-	<div ng-repeat="noticia in noticies | orderBy:noticia.dataNoticia | filter:{principal:'S'}" ng-href="#/noticies/{{noticia.idNoticia}}" class="col-12 col-md-6">
+	<div ng-repeat="noticia in noticies | orderBy:noticia.dataNoticia | filter:{principal:'S'}" ng-href="#/noticies/{{noticia.idNoticia}}" class="col-12 col-md-6 mb-3">
 		<div class="row align-items-center">
 			<div class="col-12 col-md-6 px-0">
-				<div class="card">
+				<div class="card mb-3">
 					<div class="group-item">
 						<div class="imagecontainer is-cover">	
 							<a ng-href="#/noticia/{{noticia.idNoticia}}">
