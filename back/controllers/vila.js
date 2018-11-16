@@ -99,10 +99,10 @@ angular.module('vila')
 			.then(function(res){
 				deferred.resolve(res);
 				$rootScope.cargador=false;
-				$scope.divMsj=true;
+				$scope.cargaMsj=true;
 				$scope.msj="Les dades s'han actualitzat correctament.";
 				$timeout(function() {
-					$scope.divMsj=false;
+					$scope.cargaMsj=false;
 				}, 2000);
 			})
 			.catch(function(error) {
@@ -942,6 +942,8 @@ angular.module('vila')
 			$scope.ser.nomServei="";
 			$scope.ser.txtServei="";
 		}
+		var element = document.getElementById("SerEditTop");
+	    element.scrollIntoView({block: "end", behavior: "smooth"});
 	}
 	$scope.EditSubservei=function(indexSubservei,idServei){
 		$scope.reveal=true;
@@ -966,6 +968,8 @@ angular.module('vila')
 			$scope.subSer.nomSubservei="";
 			$scope.subSer.txtSubservei="";
 		}
+		var element = document.getElementById("SubserEditTop");
+	    element.scrollIntoView({block: "end", behavior: "smooth"});
 	}
 	$scope.submitServei=function(){
 			var data = new FormData();
@@ -985,10 +989,10 @@ angular.module('vila')
 				deferred.resolve(res);
 				$rootScope.cargador=false;
 				$scope.reveal=true;
-				$scope.divMsj=true;
+				$scope.cargaMsj=true;
 				$scope.msj="Les dades s'han actualitzat correctament.";
 				$timeout(function() {
-					$scope.divMsj=false;
+					$scope.cargaMsj=false;
 				}, 2000);
 				$scope.serveis=res.data;
 			})
@@ -1015,10 +1019,10 @@ angular.module('vila')
 				deferred.resolve(res);
 				$rootScope.cargador=false;
 				$scope.revealSub=true;
-				$scope.divMsj=true;
+				$scope.cargaMsj=true;
 				$scope.msj="Les dades s'han actualitzat correctament.";
 				$timeout(function() {
-					$scope.divMsj=false;
+					$scope.cargaMsj=false;
 				}, 2000);
 				$scope.serveis=res.data;
 			})
@@ -1043,20 +1047,20 @@ angular.module('vila')
 			
 			})
 			.then(function(res){
-					deferred.resolve(res);
-					$scope.serveis=res.data;
-					$scope.msg="Les dades han estat eliminades correctament";
-					$scope.cargaMsg=true;
-					$timeout(function(){
-						$scope.cargaMsg=false;
-					},2000);
-					$rootScope.cargador=false;
-					$scope.serveis=res.data;
+				deferred.resolve(res);
+				$scope.serveis=res.data;
+				$scope.msj="Les dades han estat eliminades correctament";
+				$scope.cargaMsj=true;
+				$timeout(function(){
+					$scope.cargaMsj=false;
+				},2000);
+				$rootScope.cargador=false;
+				$scope.serveis=res.data;
 			})
 			.catch(function(error) {
 				$rootScope.cargador=false;
-			});
-		}
+			});	
+		}	
 	}
 	window.onscroll = function() {scrollFunction()};
 
@@ -1090,10 +1094,10 @@ angular.module('vila')
 			.then(function(res){
 					deferred.resolve(res);
 					$scope.serveis=res.data;
-					$scope.msg="Les dades han estat eliminades correctament";
-					$scope.cargaMsg=true;
+					$scope.msj="Les dades han estat eliminades correctament";
+					$scope.cargaMsj=true;
 					$timeout(function(){
-						$scope.cargaMsg=false;
+						$scope.cargaMsj=false;
 					},2000);
 					$rootScope.cargador=false;
 					$scope.serveis=res.data;
@@ -1135,7 +1139,7 @@ angular.module('vila')
 	});
 
 	$scope.not={};
-	$scope.msg="";
+	$scope.msj="";
 	$scope.reveal=true;
 	$scope.accionNot="";
 	var data = new FormData();
@@ -1153,7 +1157,6 @@ angular.module('vila')
 		deferred.resolve(res);
 		$scope.noticies=res.data.dadesNoticies;
 		$scope.totalPrincipal=res.data.cantNoticiesPrincipal;
-		console.log(res.data);
 		$rootScope.cargador=false;
 	})
 	.catch(function(error){
@@ -1175,7 +1178,7 @@ angular.module('vila')
  	}
 	$scope.EditNoticia=function(PosNoti){
 		$scope.reveal=false;
-		$scope.not.fotoNew="";
+		$scope.not.fotoNoticia="";
 		if(PosNoti!="-1"){
 			$scope.accionNot="Editar";
 			$scope.not.idNoticia=$scope.noticies[PosNoti].idNoticia;
@@ -1183,6 +1186,7 @@ angular.module('vila')
 			$scope.not.dataNoticia=$scope.noticies[PosNoti].dataNoticia;
 			$scope.not.txtNoticia=$scope.noticies[PosNoti].txtNoticia;
 			$scope.not.fotoNoticia=$scope.noticies[PosNoti].fotoNoticia;
+			$scope.not.fotoNoticiaOld=$scope.noticies[PosNoti].fotoNoticia;
 			$scope.not.principal=$scope.noticies[PosNoti].principal;		
 		}
 		else{
@@ -1197,6 +1201,7 @@ angular.module('vila')
 			$scope.not.dataNoticia=yyyy+"-"+mm+"-"+dd;
 			$scope.not.txtNoticia="";
 			$scope.not.fotoNoticia="";
+			$scope.not.fotoNoticiaOld="";
 			$scope.not.principal="N";
 			}
 		var element = document.getElementById("NotiEditTop");
@@ -1211,6 +1216,7 @@ angular.module('vila')
 			data.append("txtNoticia", $scope.not.txtNoticia);
 			data.append("fotoNoticia", $scope.not.fotoNoticia);
 			data.append("principal", $scope.not.principal);
+			data.append("fotoNoticiaOld", $scope.not.fotoNoticiaOld);
 		var deferred=$q.defer();
 	    $rootScope.cargador=true;
 		$http.post("models/noticies.php", data,{
@@ -1225,10 +1231,10 @@ angular.module('vila')
 			$scope.noticies=res.data;			 	
 			console.log(res.data);
 			$scope.reveal=true;
-			$scope.msg="Les dades han estat actualitzades correctament";
-			$scope.cargaMsg=true;
+			$scope.msj="Les dades han estat actualitzades correctament";
+			$scope.cargaMsj=true;
 			$timeout(function(){
-				$scope.cargaMsg=false;
+				$scope.cargaMsj=false;
 			},2000);
 			$rootScope.cargador=false;
 		})
@@ -1258,10 +1264,10 @@ angular.module('vila')
 					deferred.resolve(res);
 					$scope.noticies=res.data;
 					$scope.reveal=true;
-					$scope.msg="Les dades han estat eliminades correctament";
-					$scope.cargaMsg=true;
+					$scope.msj="Les dades han estat eliminades correctament";
+					$scope.cargaMsj=true;
 					$timeout(function(){
-						$scope.cargaMsg=false;
+						$scope.cargaMsj=false;
 					},2000);
 					$rootScope.cargador=false;
 					
@@ -1307,7 +1313,7 @@ angular.module('vila')
 		}
 	}
 	$scope.getFileDetails=function(e){
-		$scope.not.fotoNew=e.files[0];
+		$scope.not.fotoNoticia=e.files[0];
 	}		
 })
 .controller('CategCtrl',function($scope,$http,$q,$rootScope,$timeout,$window){
@@ -1375,6 +1381,7 @@ angular.module('vila')
 			$scope.cat.idCategoria=$scope.categories[idEdit].idCategoria;
 			$scope.cat.nomCategoria=$scope.categories[idEdit].nomCategoria;
 			$scope.cat.pictograma=$scope.categories[idEdit].pictograma;
+			$scope.cat.pictogramaOld=$scope.categories[idEdit].pictograma;
 		}
 		else{
 			$scope.accion="Afegir";
@@ -1384,43 +1391,25 @@ angular.module('vila')
 	$scope.cancel=function(listSocis){
 		$scope.dadesCateg=true;		
 	}
-	$scope.edit=function(){
-		if($scope.cat.nomCategoria=="" || $scope.cat.pictograma==""){
+	$scope.edit=function(accion){
+		console.log(accion);
+		if($scope.cat.nomCategoria==""){
 			$scope.msj="Les dades no s'han actualitzat correctament. Sisplau ompli els camps buits";
 			$scope.divMsj=true;
 			$timeout(function() {
 				$scope.divMsj=false;
 			}, 3000);}
-		else if (!isNaN($scope.soci.nom) || !isNaN($scope.soci.cog1)) {
-			$scope.msj="No es poden posar números. Sisplau verifici els camps";
-			$scope.divMsj=true;
-			$timeout(function() {
-				$scope.divMsj=false;
-			}, 3000); 	
-		}
-		else if (!isNaN($scope.soci.cog2) && $scope.soci.cog2!=0) {
-			$scope.msj="No es poden posar números. Sisplau verifici els camps";
-			$scope.divMsj=true;
-			$timeout(function() {
-				$scope.divMsj=false;
-			}, 3000); 	
-		}
 		else{
-
+			$scope.msj="Les dades s'han actualitzat correctament.";
 			var data = new FormData();
-				data.append("idSoci",$scope.soci.idSoci);
-				data.append("nom",$scope.soci.nom);
-				data.append("rol",$scope.soci.rol);
-				data.append("cog1",$scope.soci.cog1);
-				data.append("cog2",$scope.soci.cog2);
-				data.append("mail",$scope.soci.mail);
-				data.append("telf",$scope.soci.telf);
 				data.append("acc",$scope.accion);
-				
-
+				data.append("idCategoria",$scope.cat.idCategoria);
+				data.append("nomCategoria",$scope.cat.nomCategoria);
+				data.append("logoUpdate", $scope.cat.pictograma);
+				data.append("pictogramaOld", $scope.cat.pictograma);
 				var deferred=$q.defer();
 			$rootScope.cargador=true;
-			$http.post("models/socis.php", data,{
+			$http.post("models/categories.php", data,{
 				headers:{
 					"Content-type":undefined
 				},
@@ -1429,22 +1418,45 @@ angular.module('vila')
 
 			.then(function(res){
 				deferred.resolve(res);
-				if(res.data!="0"){
-					$scope.socis=res.data.socis;
-					$scope.sociUser=res.data.sociUser;
-					$scope.msj="Les dades s'han actualitzat correctament.";
-					$scope.divDades=true;
-					$scope.divMsj=true;
-				}
-				else{
-					$scope.msj="Usuari existent.";
-					$scope.divMsj=true;
-
-				}
+				$scope.categories=res.data;
+				//$scope.msj="Les dades s'han actualitzat correctament.";
+				// $scope.dadesCateg=true;
 				$timeout(function() {
 					$scope.divMsj=false;
 				}, 2000);
-				$rootScope.cargador=false;				
+				$rootScope.cargador=false;
+				console.log(res.data);				
+			})
+			.catch(function(error) {
+				$rootScope.cargador=false;
+			});
+		}
+	}
+	$scope.getFileDetails = function (e) {
+		$scope.cat.pictograma=e.files[0].name;
+		$scope.cat.logoUpdate=e.files[0];		
+    } 
+	$scope.elimina=function(idCategoria){
+		console.log(idCategoria);
+		var confirmar=confirm("Segur que vol eliminar aquesta categoria?")
+		if(confirmar){
+	    	var data = new FormData();
+				data.append("idCategoria",idCategoria);
+				data.append("acc","elim");
+				
+			$scope.cargador=true;
+			$http.post("models/categories.php", data,{
+				headers:{
+					"Content-type":undefined
+				},
+					transformRequest:angular.identity
+			})
+
+			.then(function(res){
+				deferred.resolve(res);
+				$scope.categories=res.data;
+				$scope.cargador=false;
+				console.log(res.data);
 			})
 			.catch(function(error) {
 				$rootScope.cargador=false;

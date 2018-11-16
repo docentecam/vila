@@ -214,15 +214,7 @@ ul, li{
 .group-item {
   width: 100%;
 }
-.group {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-}
+
 .h_divider{ 
 	height:2px; 
 	background: #4f307e;
