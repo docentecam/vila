@@ -123,7 +123,9 @@
 		Edicions anteriors
 	</div>
 	<div class="col-12 tipoTexto">
-		ng repeat en párrafos que sean links? (creo)
+		<div ng-repeat="dadesTotesEdicion in dadesTotesEdicions" class="col-3 tipoTexto">
+			<a ng-href="" ng-click="llistatEdicioFirmar(dadesTotesEdicion.dataFiramar)">{{dadesTotesEdicion.dataFiramar |limitTo:4}}-{{dadesTotesEdicion.titolFiramar }}</a>
+		</div>
 	</div>
 
 </div>
