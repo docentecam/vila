@@ -48,8 +48,8 @@
 			</tbody>
 		</table>	
 	</div>
-	<!-- <button id="goTop" class="goToTop btn btn-primary " value="Pujar" ng-click="goTop()">
+	<button id="goTop" class="goToTop btn btn-primary " value="Pujar" ng-click="goTop()">
 		<span class="d-none d-lg-inline">Pujar</span>
-		<img ng-src="../img/if_arrow-up.png" class="d-lg-none">
-	</button> -->
+		<img ng-src="../img/if_arrow-up.png" class="d-lg-none imgBtnTop">
+	</button>
 </div>

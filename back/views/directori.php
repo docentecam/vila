@@ -33,17 +33,17 @@
 				<td>{{directori.nomAssociat}}</td>
 				<td>{{directori.nomCategoria}}</td>
 				<td>{{directori.adreca}}</td>
-				<td>{{directori.telf1}}<span ng-if="directori.telf1==null">---</span></td>
-				<td>{{directori.telf2}}<span ng-show="directori.telf2==null">---</span></td>
-				<td>{{directori.whatsapp}}<span ng-show="directori.whatsapp==null">---</span><a ng-href="https://api.whatsapp.com/send?phone=34{{directori.whatsapp}}" class="fab fa-whatsapp ml-2 iconSize whats rounded" target="_blank" title="Enviar whatsapp"></a></td>
-				<td>{{directori.email}}</td>
+				<td>{{directori.telf1}}<span ng-if="directori.telf1==''">---</span></td>
+				<td>{{directori.telf2}}<span ng-show="directori.telf2==''">---</span></td>
+				<td>{{directori.whatsapp}}<span ng-show="directori.whatsapp==''">---</span><a ng-href="https://api.whatsapp.com/send?phone=34{{directori.whatsapp}}" class="fab fa-whatsapp ml-2 iconSize whats rounded" target="_blank" title="Enviar whatsapp" ng-show="directori.whatsapp!=''"></a></td>
+				<td><span ng-show="directori.email==''">---</span><a class="emailTableCss" ng-href="mailto:{{soci.mail}}" target="_blank" title="Enviar correu">{{directori.email}}</a></td>
 				<td>{{directori.horari}}</td>
 				<td>{{directori.URLWeb}}</td>
 				<td><a class="far fa-edit text-dark iconSize" ng-href="#/directori/{{directori.idAssociat}}" title="Editar les dades del comerç"></a><i class="fas fa-power-off fontAweX mx-2 mx-md-4 iconSize" ng-click="offOn(directori.idAssociat,'N')" title="Donar de baixa"></i>  </td>
 			</tr>
 		</table>	
 	</div>
-	<div class="row text-center mt-5 mb-3 titleSocis" ng-if="(socis | filter:{'actiu':'N'}).length!=0">
+	<div class="row text-center mt-5 mb-3 titleSocis" ng-if="(directoris | filter:{'actiu':'N'}).length!=0">
 		<h1 class="col">Llistat d'Associats inactius</h1>
 	</div>
 	<div class="row table-responsive divTable">
@@ -60,9 +60,9 @@
 				
 				<td>{{directori.nomAssociat}}</td>
 				<td>{{directori.telf1}}</td>
-				<td>{{directori.telf2}}<span ng-show="directori.telf2==null">---</span></td>
-				<td>{{directori.whatsapp}}<span ng-show="directori.whatsapp==null">---</span><a ng-href="https://api.whatsapp.com/send?phone=34{{directori.whatsapp}}" class="fab fa-whatsapp ml-2 iconSize whats rounded" target="_blank" title="Enviar whatsapp"></a></td>
-				<td>{{directori.email}}</td>
+				<td>{{directori.telf2}}<span ng-show="directori.telf2==''">---</span></td>
+				<td>{{directori.whatsapp}}<span ng-show="directori.whatsapp==''">---</span><a ng-href="https://api.whatsapp.com/send?phone=34{{directori.whatsapp}}" class="fab fa-whatsapp ml-2 iconSize whats rounded" target="_blank" title="Enviar whatsapp" ng-show="directori.whatsapp!=''"></a></td>
+				<td>{{directori.email}}<span ng-show="directori.email==''">---</span></td>
 				<td><i class="fas fa-power-off fontAweCheck iconSize" ng-click="offOn(directori.idAssociat,'S')" title="Donar d'alta"></i>  </td>
 			</tr>
 		</table>	
@@ -218,26 +218,26 @@
 			<div class="form-row">
 			    <div class="form-group col-md-6 col-lg-4 offset-lg-2">
 			   		<label for="txtNom">Nom Associat</label>
-			    	<input type="text" class="form-control" id="txtNom" ng-model="comerc.nomAssociat" ng-init="comerc.nomAssociat=''" maxlength="50" ng-blur="verificar()">
+			    	<input type="text" class="form-control" id="txtNom" ng-model="asso.nomAssociat" ng-init="asso.nomAssociat=''" maxlength="50" ng-blur="verificar()">
 			    </div>
 			    <div class="form-group col-md-6 col-lg-4">
 			    	<label for="inputAdre">Adreça</label>
-			    	<input type="text" class="form-control" id="inputAdre" ng-model="comerc.adreca" ng-init="comerc.adreca=''" maxlength="150" ng-blur="verificar()">
+			    	<input type="text" class="form-control" id="inputAdre" ng-model="asso.adreca" ng-init="asso.adreca=''" maxlength="150" ng-blur="verificar()">
 			    </div>
 			</div>
 			<div class="form-row">
 				<div class="col-lg-1 offset-lg-1"></div>
 			    <div class="form-group col-md-2 col-lg">
 			   		<label for="inputTelf1">Telèfon 1</label>
-			    	<input type="number" class="form-control" id="inputTelf1" ng-model="comerc.telf1" ng-init="comerc.telf1=''" maxlength="9" ng-blur="verificar()">
+			    	<input type="number" class="form-control" id="inputTelf1" ng-model="asso.telf1" ng-init="asso.telf1=''" maxlength="9" ng-blur="verificar()">
 			    </div>
 			    <div class="form-group col-md-2 col-lg">
 			   		<label for="inputTelf2">Telèfon 2</label>
-			    	<input type="number" class="form-control" id="inputTelf2" ng-model="comerc.telf2" ng-init="comerc.telf2=''" maxlength="9" ng-blur="verificar()">
+			    	<input type="number" class="form-control" id="inputTelf2" ng-model="asso.telf2" ng-init="asso.telf2=''" maxlength="9" ng-blur="verificar()">
 			    </div>
 			    <div class="form-group col-md-2 col-lg">
 			   		<label for="inputWhats">Whatsapp</label>
-			    	<input type="number" class="form-control" id="inputWhats" ng-model="comerc.whatsapp" ng-init="comerc.whatsapp=''" maxlength="9" ng-blur="verificar()">
+			    	<input type="number" class="form-control" id="inputWhats" ng-model="asso.whatsapp" ng-init="asso.whatsapp=''" maxlength="9" ng-blur="verificar()">
 			    </div>
 			    <div class="col-lg-2"></div>
 			</div>
@@ -248,50 +248,49 @@
 						<div class="input-group-prepend">
 							<span class="input-group-text " id="inputGroupPrepend"><p class="fas fa-at mx-2 my-2"></p></span>
 						</div>
-						<input type="email" class="form-control" id="inputMail" ng-model="comerc.email" ng-init="comerc.email=''" maxlength="150" ng-blur="verificar()">
+						<input type="email" class="form-control" id="inputMail" ng-model="asso.email" ng-init="asso.email=''" maxlength="150" ng-blur="verificar()">
 			    	</div>
 			    </div>
 			    <div class="form-group col-md-6 col-lg-3">
 			    	<label for="inputFace">Facebook</label>
-			    	<input type="text" class="form-control" id="inputFace" ng-model="comerc.facebook" ng-init="comerc.facebook=''" maxlength="100" ng-blur="verificar()">
+			    	<input type="text" class="form-control" id="inputFace" ng-model="asso.facebook" ng-init="asso.facebook=''" maxlength="100" ng-blur="verificar()">
 			    </div>
 			    <div class="form-group col-md-6 col-lg-3">
 			    	<label for="inputURL">Enllaç pàgina Web</label>
-			    	<input type="text" class="form-control" id="inputURL" ng-model="comerc.URLWeb" ng-init="comerc.URLWeb=''" maxlength="100" ng-blur="verificar()">
+			    	<input type="text" class="form-control" id="inputURL" ng-model="asso.URLWeb" ng-init="asso.URLWeb=''" maxlength="100" ng-blur="verificar()">
 			    </div>
 			</div>
 			<div class="form-row">
 			    <div class="form-group col-md-3 col-lg-4 offset-lg-2">
 			    	<label for="inputLat">Latitud</label>
-			    	<input type="text" class="form-control" id="inputLat" ng-model="comerc.latitud" ng-init="comerc.latitud=''" maxlength="9" ng-blur="verificar()">
+			    	<input type="text" class="form-control" id="inputLat" ng-model="asso.latitud" ng-init="asso.latitud=''" maxlength="9" ng-blur="verificar()">
 			    </div>
 			    <div class="form-group col-md-3 col-lg-4">
 			    	<label for="inputLong">Longitud</label>
-			    	<input type="text" class="form-control" id="inputLong" ng-model="comerc.longitud" ng-init="comerc.longitud=''" maxlength="9" ng-blur="verificar()">
+			    	<input type="text" class="form-control" id="inputLong" ng-model="asso.longitud" ng-init="asso.longitud=''" maxlength="9" ng-blur="verificar()">
 			    </div>
 			</div>
 			<div class="form-row">
 			    <div class="form-group col-12 col-lg-8 offset-lg-2">
 			    	<label for="inputHorari">Horari Comerç</label>
-			       	<textarea class="form-control textarea" id="inputHorari" ng-model="comerc.horari" ng-init="comerc.horari=''" ng-blur="verificar()"></textarea>
+			       	<textarea class="form-control textarea" id="inputHorari" ng-model="asso.horari" ng-init="asso.horari=''" ng-blur="verificar()"></textarea>
 			    </div>
 			    <div class="form-group col-12 col-lg-8 offset-lg-2">
 			    	<label for="inputDesc">Descripció Comerç</label>
-			       	<textarea class="form-control textarea" id="inputDesc" ng-model="comerc.txtAssociat" ng-init="comerc.txtAssociat=''" ng-blur="verificar()"></textarea>
+			       	<textarea class="form-control textarea" id="inputDesc" ng-model="asso.txtAssociat" ng-init="asso.txtAssociat=''" ng-blur="verificar()"></textarea>
 			    </div>
 			</div>
 			<div class="form-row">
 				<div class="col-12 col-lg-8 offset-lg-2">
 					<label>Categoria Principal</label>
-					<select class="form-control" name="selCatPrin" id="selCatPrin" ng-model="comerc.categPrinc">
+					<select class="form-control" name="selCatPrin" id="selCatPrin" ng-model="asso.categPrinc" ng-change="verificar()">
 						<option value="-1">---Selecciona categoria principal---</option>
-						<option ng-repeat="categ in categories" ng-selected="comerc.categPrinc==categ.idCategoria" ng-value="categ.idCategoria">{{categ.nomCategoria}}</option>
+						<option ng-repeat="categ in categories" ng-selected="asso.categPrinc==categ.idCategoria" ng-value="categ.idCategoria">{{categ.nomCategoria}}</option>
 					</select>
 				</div>
 			</div>
-			<input type="button" class="btn btn-info offset-lg-2 mt-3" ng-click="insert()" value="Afegir associat" >
+			<input type="button" class="btn btn-info offset-lg-2 mt-3" ng-click="insert()" value="Afegir associat" ng-disabled="btnAfegir">
 		</form>
-		<div  ng-show="divMsj" class="col-6 offset-3 text-center alert alert-warning">{{msj}}</div>
 	</div>
 </div>
 <button id="goTop" class="goToTop btn btn-primary " value="Pujar" ng-click="goTop()">
