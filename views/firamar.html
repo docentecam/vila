@@ -101,10 +101,18 @@
 </div>
 
 <div class="row">
-	<div class="col-12 text-center">
-		<div class="container">
-			<div ng-repeat="sponsor in sponsors" class="col-3 tipoTexto">
-			<img class=" img-fluid text-center" ng-src="{{sponsor.logoSponsor!=''?'img/sponsors/'+sponsor.logoSponsor:'img/noimage.png'}}" title="sponsors" alt="sponsors" > 
+	<div ng-repeat="sponsor in sponsors" class="col-3">
+		<div class="row align-items-center">
+			<div class="col">
+				<div class="card">
+					<div class="group">
+						<div class="group-item">
+							<div class="imagecontainer is-cover">
+								<img class=" img-fluid text-center" ng-src="{{sponsor.logoSponsor!=''?'img/sponsors/'+sponsor.logoSponsor:'img/noimage.png'}}" title="sponsors" alt="sponsors" class="imagecontainer-img lazyload">
+							</div> 
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>

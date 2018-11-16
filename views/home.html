@@ -131,30 +131,40 @@
 	    <li data-target="#carouselAsso" data-slide-to="2"></li>
 	  </ul>
 	  
-	  <div class="container carousel-inner no-padding carousel-innerAsso">
-	    <div class="carousel-item active">
-	      <div class="col-xs-3 col-sm-3 col-md-3 carouAsoc card" ng-repeat="associat in associats">
+<div class="row">
+	<div class="col px-0">
+		<div class="row">
+		  <div class="container carousel-inner no-padding carousel-innerAsso">
+		    <div class="carousel-item active">		
+		      <div class="col-xs-3 col-sm-3 col-md-3 carouAsoc card" ng-repeat="associat in associats">
+				<div class="card">
+					<div class="group-item">
+						<div class="imagecontainer is-cover">
+					      	<a ng-href="#/directori/{{associat.idAssociat}}">
+					        <img class="card-img-top img-fluid d-none d-md-inline" 
+					        ng-src="{{associat.logoAssociat!=''?'img/associats/'+associat.logoAssociat:'img/noimage.png'}}">
+					    	</a>
 
-	      	<a ng-href="#/directori/{{associat.idAssociat}}">
-	        <img class="card-img-top img-fluid d-none d-md-inline" 
-	        ng-src="{{associat.logoAssociat!=''?'img/associats/'+associat.logoAssociat:'img/noimage.png'}}">
-	    	</a>
+		      			</div>
+					</div>
+				</div>
+			</div>		      
+		    </div>
 
-	      </div>
+		    <!-- <div class="carousel-item">
+		      <div class="col-xs-3 col-sm-3 col-md-3 carouAsoc card" ng-repeat="associat in associats">
 
-	    </div>
+		      	<a ng-href="#/directori/{{associat.idAssociat}}">
+		        <img class="card-img-top img-fluid d-none d-md-inline" 
+		        ng-src="{{associat.logoAssociat!=''?'img/associats/'+associat.logoAssociat:'img/noimage.png'}}">
+		    	</a>
 
-	    <div class="carousel-item">
-	      <div class="col-xs-3 col-sm-3 col-md-3 carouAsoc card" ng-repeat="associat in associats">
-
-	      	<a ng-href="#/directori/{{associat.idAssociat}}">
-	        <img class="card-img-top img-fluid d-none d-md-inline" 
-	        ng-src="{{associat.logoAssociat!=''?'img/associats/'+associat.logoAssociat:'img/noimage.png'}}">
-	    	</a>
-
-	      </div>
-	    </div>
-	  </div>
+		      </div>
+		    </div> -->
+		  </div>
+		</div>
+	</div>
+</div>
 
 	  <a class="carousel-control-prev" data-target="#carouselAsso" data-slide="prev">
 	    <span class="carousel-control-prev-icon"></span>
