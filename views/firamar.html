@@ -96,19 +96,28 @@
 	</div>
 </div>
 
+<div class="col-4 tipoSubTitulo">
+	Sponsors
+</div>
+
 <div class="row">
-	<div class="col-4 tipoSubTitulo">
-		Sponsors
-	</div>
-	<div class="col-6 text-center">
-		<div ng-repeat="sponsor in sponsors" class="col-12 tipoTexto">
-		<img class=" img-fluid text-center" ng-src="{{sponsor.logoSponsor!=''?'img/sponsors/'+sponsor.logoSponsor:'img/noimage.png'}}" title="sponsors" alt="sponsors" > 
+	<div class="col-12 text-center">
+		<div class="container">
+			<div ng-repeat="sponsor in sponsors" class="col-3 tipoTexto">
+			<img class=" img-fluid text-center" ng-src="{{sponsor.logoSponsor!=''?'img/sponsors/'+sponsor.logoSponsor:'img/noimage.png'}}" title="sponsors" alt="sponsors" > 
+			</div>
 		</div>
 	</div>
-	
-	¿fotos fijas de los sponsors? en plan, que haya un col y ahí dentro entren los q hayan? 
-	no sé cómo hacerlo bien para q si un año hay 5 y otro 3 se quede bien centrado siempre.
 </div>
+	
+	<!-- 
+
+	¿fotos fijas de los sponsors? en plan, que haya un col y ahí dentro entren los q hayan? 
+
+	no sé cómo hacerlo bien para q si un año hay 5 y otro 3 se quede bien centrado siempre.
+
+	-->
+
 
 <div class="row">
 	<div class="col-12 tipoSubTitulo">
