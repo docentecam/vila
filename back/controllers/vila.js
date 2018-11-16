@@ -256,7 +256,7 @@ angular.module('vila')
 	})
 	.then(function(res){
 		deferred.resolve(res);
-		console.log(res.data);
+		console.log(res.data.catPrinc[0].idCategoria);
 		$scope.com.categoriaPrinc="-1";
 		$scope.com.categoriaNotPrinc="-1";
 		$scope.comerc=res.data.comerc[0];
@@ -512,9 +512,9 @@ angular.module('vila')
 	$scope.llistatComer=false;
 	$scope.dadesComerc=true;
 	$scope.btnAfegir=true;
-	$scope.comerc={};
-	$scope.comerc.logoAssociat="";
-	$scope.comerc.categoriaPrinc="-1";
+	$scope.asso={};
+	$scope.asso.logoAssociat="";
+	$scope.asso.categPrinc="-1";
 	var data = new FormData();
 	data.append("acc", "selCat");
 		var deferred=$q.defer();
@@ -547,37 +547,34 @@ angular.module('vila')
 	    element.scrollIntoView({block: "end", behavior: "smooth"});
  	}
  	$scope.verificar=function(){
- 		if($scope.comerc.nomAssociat=="" || $scope.comerc.adreca=="" 
- 			|| $scope.comerc.facebook=="" || $scope.comerc.URLWeb=="" 
- 			|| $scope.comerc.latitud==""|| $scope.comerc.longitud=="" 
- 			|| $scope.comerc.horari=="" || $scope.comerc.txtAssociat=="" 
- 			|| $scope.comerc.telf1==null || $scope.comerc.logoAssociat==""
- 			|| $scope.comerc.categoriaPrinc=="-1" 
- 			&& ($scope.comerc.telf2==null && $scope.comerc.whatsapp==null 
- 				&& $scope.comerc.email==null)){
+ 		if($scope.asso.nomAssociat=="" || $scope.asso.adreca=="" 
+ 			|| $scope.asso.facebook=="" || $scope.asso.URLWeb=="" 
+ 			|| $scope.asso.latitud=="" || $scope.asso.longitud=="" 
+ 			|| $scope.asso.horari=="" || $scope.asso.txtAssociat=="" 
+ 			|| $scope.asso.telf1=="" || $scope.asso.categPrinc=="-1"
+ 			){
+ 			$scope.btnAfegir=true;
 		}
 		else{
 			$scope.btnAfegir=false;
 		}	
  	}
  	$scope.insert=function(){
- 		$scope.divMsj=true;
-		$scope.msj="Les dades s'han actualitzat correctament.";
 		var data = new FormData();
-			data.append("idAssociat",$scope.comerc.idAssociat);
-			data.append("nomAssociat",$scope.comerc.nomAssociat);
-			data.append("adreca",$scope.comerc.adreca);
-			data.append("telf1",$scope.comerc.telf1);
-			data.append("telf2",$scope.comerc.telf2);
-			data.append("whatsapp",$scope.comerc.whatsapp);
-			data.append("facebook",$scope.comerc.facebook);
-			data.append("URLWeb",$scope.comerc.URLWeb);
-			data.append("horari",$scope.comerc.horari);
-			data.append("txtAssociat",$scope.comerc.txtAssociat);
-			data.append("email",$scope.comerc.email);
-			data.append("latitud",$scope.comerc.latitud);
-			data.append("longitud",$scope.comerc.longitud);
-			data.append("idCategoria",$scope.comerc.categPrinc);
+			data.append("idAssociat",$scope.asso.idAssociat);
+			data.append("nomAssociat",$scope.asso.nomAssociat);
+			data.append("adreca",$scope.asso.adreca);
+			data.append("telf1",$scope.asso.telf1);
+			data.append("telf2",$scope.asso.telf2);
+			data.append("whatsapp",$scope.asso.whatsapp);
+			data.append("facebook",$scope.asso.facebook);
+			data.append("URLWeb",$scope.asso.URLWeb);
+			data.append("horari",$scope.asso.horari);
+			data.append("txtAssociat",$scope.asso.txtAssociat);
+			data.append("email",$scope.asso.email);
+			data.append("latitud",$scope.asso.latitud);
+			data.append("longitud",$scope.asso.longitud);
+			data.append("idCategoria",$scope.asso.categPrinc);
 			data.append("acc","afeg");
 			var deferred=$q.defer();
 		$rootScope.cargador=true;
@@ -591,6 +588,7 @@ angular.module('vila')
 			deferred.resolve(res);
 			$rootScope.cargador=false;
 			window.location.href="#/directori/"+res.data;
+			console.log(res.data);
 		})
 		.catch(function(error) {
 			$rootScope.cargador=false;

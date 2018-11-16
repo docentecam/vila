@@ -1,6 +1,3 @@
-.navNoline{
-	outline: 0;
-}
 .container-fluid{
 	padding: 0;
 	margin: 0;
@@ -40,6 +37,9 @@ a:hover {
     z-index: 1;
     background-color: rgba(95, 95, 95, 0.7);
 }
+.navNoline{
+	outline: 0;
+}
 .inputLog{
 	text-align: center!important;
 }
@@ -52,7 +52,6 @@ a:hover {
 	margin-top: -100px!important;
 	margin-left: -150px!important;
 }
-
 .card{
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
@@ -87,9 +86,6 @@ a:hover {
 .imgCssColla{
 	height: 150px;
 }
-
-
-
 .preloader {
 	margin-top: 18%;
 }
@@ -162,6 +158,9 @@ a:hover {
 .ServeiIconCss{
 	justify-content: center;	
 }
+.emailTableCss{
+	text-decoration: underline!important;
+}
 @media (max-width: 575px){
 	
 	.iconSize{
@@ -191,8 +190,6 @@ a:hover {
 	.iconSize{
 		font-size: 1.75em;
 	}
-	
-
 }
 @media (max-width: 991px){
 	.goToTop{
