@@ -1,13 +1,13 @@
 <?php
 	session_start();
 	?>
-	<div class="col-12 offset-3 text-center alert alert-warning" ng-show="cargaMsg">
+	<div class="col-12 text-center alert alert-warning" ng-show="cargaMsg">
 		{{msg}}
 	</div>
 
 	<br>	
 	<div class="AssNotiAllCss" id="NotiEditTop">
-		<form  class="formNot" ng-submit="submitServei()" ng-hide="reveal">
+		<form  class="formNot" ng-submit="accioNoticies()" ng-hide="reveal">
 			<br>
 			<div class="row">
 				<div class="col" ng-class="{ 'has-error' : formServei.nomNot.$invalid && !formServei.nomNot.$pristine }">
@@ -25,14 +25,14 @@
 					<input type="date" class="form-control" name="dataNot" ng-model="not.dataNoticia">
 				</div>
 			</div>
-			<br>
-			<div class="row">
+			<!-- <br> -->
+			<!-- <div class="row">
 				<label class="col-2">Es favorit?</label>
 				<select ng-model="not.principal">
 					<option value="S" ng-selected="not.principal=='S'">Si</option>
 					<option value="N" ng-selected="not.principal=='N'">No</option>
 				</select>
-			</div>
+			</div> -->
 			<div class="row">
 				<label class="cursor text-primary col" for="btnExaminar">Afegeix una imatge <i class="fas fa-camera add-examinar text-primary cursor" aria-hidden="true"></i></label>
 				<input type="file" id="btnExaminar" name="btnExaminar" accept="image/jpg, image/jpeg, image/png"  multiple onchange="angular.element(this).scope().getFileDetails(this)" ng-show="false"/>
@@ -55,7 +55,7 @@
 			<div class="row text-center">
 				<div class="col-12 text-center">
 					
-						<img class="img-fluid" ng-src="{{noticia.fotoNoticia!='' ? '../img/noticies/'+noticia.fotoNoticia : '../img/noimage.png'}}" alt="">
+						<img class="img-fluid" ng-src="{{noticia.fotoNoticia!='' ? '../../img/noticies/'+noticia.fotoNoticia : '../img/noimage.png'}}" alt="">
 
 				</div>
 				<div class="col-12">

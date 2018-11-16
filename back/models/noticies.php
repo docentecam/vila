@@ -4,7 +4,13 @@
 	
 
 	if(isset($_POST['acc'])&&$_POST['acc']=='l'){
-		echo noticies($tbl_noticies);
+		$dades= '{"dadesNoticies": ';
+		$dades.= noticies($tbl_noticies);
+		$dades.= ',"cantNoticiesPrincipal":';	
+		$dades.= cantPrinc($tbl_noticies);
+		$dades.="}";
+
+		echo $dades;
 	}
 	if(isset($_POST['acc'])&&$_POST['acc']=='Editar'){
 		$mySql="UPDATE $tbl_noticies 
@@ -71,11 +77,17 @@
 
 	if(isset($_POST['acc'])&&$_POST['acc']=='updatePrincipal'){
 
-		$mySql="UPDATE $tbl_noticies SET `principal` = '".$_POST['principal']."' WHERE `noticies`.'".$_POST['idNoticia'];
+		$mySql="UPDATE $tbl_noticies SET `principal` = '".$_POST['principal']."' WHERE `idNoticia`='".$_POST['idNoticia']."'";
 		$connexio=connect();
 		$resultNoti=mysqli_query($connexio,$mySql);
 		disconnect($connexio);
-		echo noticies($tbl_noticies);
+		$dades= '{"dadesNoticies": ';
+		$dades.= noticies($tbl_noticies);
+		$dades.= ',"cantNoticiesPrincipal":';	
+		$dades.= cantPrinc($tbl_noticies);
+		$dades.="}";
+
+		echo $dades;
 	}
 	function noticies($tbl_noticies){
 		$mySql="SELECT `idNoticia`,`titolNoticia`,`dataNoticia`,`txtNoticia`,`fotoNoticia`,`principal`
@@ -93,5 +105,13 @@
 			$rows[$i][3]=replaceFromBBDD($rows[$i][3]);
 		}
 		return json_encode($rows);
+	}
+	function cantPrinc($tbl_noticies){
+		$mySql="SELECT COUNT(principal) AS 'cantidad' FROM `noticies` WHERE `principal`='S'";
+		$connexio=connect();
+		$resultNoti=mysqli_query($connexio,$mySql);
+		$row=mysqli_fetch_row($resultNoti); 
+		disconnect($connexio);
+		return $row[0];
 	}
 ?>
