@@ -18,12 +18,12 @@
 	<div class="row">
 		<div ng-repeat="firamar in activitatsfiramar" class="col-md-12">
 			<div class="row">
-				 	<div class="col-4">{{firamar.horaInici}}
-				    	<div class="col-4 no-padding">{{firamar.horaFi}}</div>
-					</div><br>
-				    <div class="col-8 tipoTexto"><b>{{firamar.titolActivitat | uppercase}}</b>
-				    	<div class="col-8 tipoTexto">{{firamar.txtActivitat}}</div><br>
-					</div>
+			 	<div class="col-4">{{firamar.horaInici}}
+			    	<div class="col-4 no-padding">{{firamar.horaFi}}</div>
+				</div><br>
+			    <div class="col-8 tipoTexto"><b>{{firamar.titolActivitat | uppercase}}</b>
+			    	<div class="col-8 tipoTexto">{{firamar.txtActivitat}}</div><br>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -71,73 +71,52 @@
 	  </ul>
 	  
 	  <div class="container carousel-inner no-padding carousel-innerAsso">
+
 	    <div class="carousel-item active">
-	      <div class="col-xs-3 col-sm-3 col-md-3 carouAsoc">
-	        <img src="img/associat.jpg">
-	      </div>    
-	      <div class="col-xs-3 col-sm-3 col-md-3 carouAsoc">
-	        <img src="img/associat.jpg">
-	      </div>   
-	      <div class="col-xs-3 col-sm-3 col-md-3 carouAsoc">
-	        <img src="img/associat.jpg">
-	      </div>   
-	      <div class="col-xs-3 col-sm-3 col-md-3 carouAsoc">
-	        <img src="img/associat.jpg">
-	      </div>   
+	      <div class="col-xs-3 col-sm-3 col-md-3 carouAsoc card" ng-repeat="participant in participants">
+	        <img class="card-img-top img-fluid d-none d-md-inline" 
+	        ng-src="{{participant.logoParticipant!=''?'img/participants/'+participant.logoParticipant:'img/noimage.png'}}">
+	      </div>
 	    </div>
-	    <div class="carousel-item">
-	      <div class="col-xs-3 col-sm-3 col-md-3 carouAsoc">
-	        <img src="img/associat.jpg">
-	      </div>    
-	      <div class="col-xs-3 col-sm-3 col-md-3 carouAsoc">
-	        <img src="img/associat.jpg">
-	      </div>   
-	      <div class="col-xs-3 col-sm-3 col-md-3 carouAsoc">
-	        <img src="img/associat.jpg">
-	      </div>   
-	      <div class="col-xs-3 col-sm-3 col-md-3 carouAsoc">
-	        <img src="img/associat.jpg">
-	    </div>  
-	    </div>
-	    <div class="carousel-item">
-	      <div class="col-xs-3 col-sm-3 col-md-3 carouAsoc">
-	        <img src="img/associat.jpg">
-	      </div>    
-	      <div class="col-xs-3 col-sm-3 col-md-3 carouAsoc">
-	        <img src="img/associat.jpg">
-	      </div>   
-	      <div class="col-xs-3 col-sm-3 col-md-3 carouAsoc">
-	        <img src="img/associat.jpg">
-	      </div>   
-	      <div class="col-xs-3 col-sm-3 col-md-3 carouAsoc">
-	        <img src="img/associat.jpg">
-	      </div>  
-	    </div>
-	  </div>
-	  
-	  <a class="carousel-control-prev" data-target="#carouselAsso" data-slide="prev">
-	    <span class="carousel-control-prev-icon"></span>
-	  </a>
-	  <a class="carousel-control-next" data-target="#carouselAsso" data-slide="next">
-	    <span class="carousel-control-next-icon"></span>
-	  </a>
+
+		<div class="carousel-item">
+			<div class="col-xs-3 col-sm-3 col-md-3 carouAsoc card" ng-repeat="participant in participants">
+				<img class="card-img-top img-fluid d-none d-md-inline" 
+				ng-src="{{participant.logoParticipant!=''?'img/participants/'+participant.logoParticipant:'img/noimage.png'}}">
+			</div>
+		</div>
 
 	</div>
+		<a class="carousel-control-prev" data-target="#carouselAsso" data-slide="prev">
+			<span class="carousel-control-prev-icon"></span>
+		</a>
+		<a class="carousel-control-next" data-target="#carouselAsso" data-slide="next">
+			<span class="carousel-control-next-icon"></span>
+		</a>
+	</div>
+</div>
+
+<div class="col-4 tipoSubTitulo">
+	Sponsors
 </div>
 
 <div class="row">
-	<div class="col-4 tipoSubTitulo">
-		Sponsors
-	</div>
-	<div class="col-6 text-center">
-		<div ng-repeat="sponsor in sponsors" class="col-12 tipoTexto">
-		<img class=" img-fluid text-center" ng-src="{{sponsor.logoSponsor!=''?'img/sponsors/'+sponsor.logoSponsor:'img/noimage.png'}}" title="sponsors" alt="sponsors" > 
+	<div class="col-12 text-center">
+		<div class="container">
+			<div ng-repeat="sponsor in sponsors" class="col-3 tipoTexto">
+			<img class=" img-fluid text-center" ng-src="{{sponsor.logoSponsor!=''?'img/sponsors/'+sponsor.logoSponsor:'img/noimage.png'}}" title="sponsors" alt="sponsors" > 
+			</div>
 		</div>
 	</div>
-	
-	¿fotos fijas de los sponsors? en plan, que haya un col y ahí dentro entren los q hayan? 
-	no sé cómo hacerlo bien para q si un año hay 5 y otro 3 se quede bien centrado siempre.
 </div>
+	
+	<!-- 
+
+	¿fotos fijas de los sponsors? en plan, que haya un col y ahí dentro entren los q hayan? 
+
+	no sé cómo hacerlo bien para q si un año hay 5 y otro 3 se quede bien centrado siempre.
+
+	-->
 
 <div class="row">
 	<div class="col-12 tipoSubTitulo">

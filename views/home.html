@@ -88,30 +88,30 @@
 						<iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fvilactiva&tabs=timeline&width=300&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="300" height="500" style="border:none;overflow:hidden;display:block;margin:auto;" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
 					</div>
 				</div>
-			</div>	
-			<div class="col-md-7 px-0 col-sm-12 mt-2 mt-sm-0">
-				<div class="group">
-					<div class="group-item bannerAlto">
-						<div class="imagecontainer is-contain bannerAlto">
-							<img class="imagecontainer-img lazyload"
-								 src="img/banner1.jpg">
-						</div>
-					</div>
-					<div class="group-item bannerAlto">
-						<div class="imagecontainer is-contain bannerAlto">
-							<img class="imagecontainer-img lazyload"
-								 src="img/banner2.jpg">
-						</div>
-					</div>
-					<div class="group-item bannerAlto">
-						<div class="imagecontainer is-contain bannerAlto">
-							<img class="imagecontainer-img lazyload"
-								 src="img/banner3.jpg">
-						</div>
-					</div>
-				</div>
 			</div>
 
+			<!-- 
+				          banners 
+			-->
+
+			<div ng-repeat="banner in banners">
+				<a ng-href="{{banner.URLWeb}}" target="_blank">
+				aaaaaaaaaaaaaaaaaaa
+				<div class="col-md-7 px-0 col-sm-12 mt-2 mt-sm-0">
+					<div class="group">
+						<div class="group-item bannerAlto">
+							<div class="imagecontainer is-contain bannerAlto">
+								<img class="imagecontainer-img lazyload"
+
+									 ng-src="{{banner.fotoBanner!=''?'img/banners/'+banner.fotoBanner:'img/noimage.png'}}" 
+
+									 alt="banner">
+							</div>
+						</div>					
+					</div>
+				</div>
+				</a>
+			</div>
 
 		</div>
 	</div>
@@ -125,7 +125,6 @@
 	</div>
 
 	<div id="carouselAsso" class="carousel slide" data-ride="carousel">
-
 	  <ul class="carousel-indicators">
 	    <li data-target="#carouselAsso" data-slide-to="0" class="active"></li>
 	    <li data-target="#carouselAsso" data-slide-to="1"></li>

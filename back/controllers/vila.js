@@ -1151,8 +1151,8 @@ angular.module('vila')
 
 	.then(function(res){
 		deferred.resolve(res);
-		$scope.noticies=res.data;
-		$scope.totalPrincipal=2;
+		$scope.noticies=res.data.dadesNoticies;
+		$scope.totalPrincipal=res.data.cantNoticiesPrincipal;
 		console.log(res.data);
 		$rootScope.cargador=false;
 	})
@@ -1204,6 +1204,7 @@ angular.module('vila')
 	}
 	$scope.accioNoticies=function(){
 		var data = new FormData();
+			data.append("acc", $scope.accionNot);
 			data.append("idNoticia", $scope.not.idNoticia);
 			data.append("titolNoticia", $scope.not.titolNoticia);
 			data.append("dataNoticia", $scope.not.dataNoticia);
@@ -1212,7 +1213,7 @@ angular.module('vila')
 			data.append("principal", $scope.not.principal);
 		var deferred=$q.defer();
 	    $rootScope.cargador=true;
-		$http.post("models/esdeveniments.php", data,{
+		$http.post("models/noticies.php", data,{
 			headers:{
 				"Content-type":undefined
 			},
@@ -1222,6 +1223,7 @@ angular.module('vila')
 		.then(function(res){
 			deferred.resolve(res);
 			$scope.noticies=res.data;			 	
+			console.log(res.data);
 			$scope.reveal=true;
 			$scope.msg="Les dades han estat actualitzades correctament";
 			$scope.cargaMsg=true;
@@ -1272,10 +1274,11 @@ angular.module('vila')
 	$scope.cancelNot=function(){
 		$scope.reveal=true;
 	}
-	$scope.cambiaPrinc=function(principal,idNoticies){
-		if($scope.totalPrincipal==2)
+	$scope.cambiaPrinc=function(principal,idNoticia){
+		console.log(principal+" "+$scope.totalPrincipal+" "+idNoticia);
+		if(principal=='S' && $scope.totalPrincipal==2)
 		{
-			alert("Només pot triar 2 notícies");
+			alert("Només pot triar 2 notícies favorites");
 		}
 		else{
 
@@ -1283,8 +1286,8 @@ angular.module('vila')
 		var deferred=$q.defer();
 		var data = new FormData();
 		data.append("acc","updatePrincipal");
-		data.append("principal",$scope.not.principal);
-		data.append("idNoticia",$scope.not.idNoticia);	
+		data.append("principal",principal);
+		data.append("idNoticia",idNoticia);	
 		$rootScope.cargador=true;
 		$http.post("models/noticies.php", data,{
 		headers:{
@@ -1294,7 +1297,8 @@ angular.module('vila')
 		})
 		.then(function(res){
 					deferred.resolve(res);
-					$scope.noticies=res.data;
+					$scope.noticies=res.data.dadesNoticies;
+					$scope.totalPrincipal=res.data.cantNoticiesPrincipal;
 					$rootScope.cargador=false;					
 				})
 		.catch(function(error) {
