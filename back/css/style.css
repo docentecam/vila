@@ -1,6 +1,3 @@
-.navNoline{
-	outline: 0;
-}
 .container-fluid{
 	padding: 0;
 	margin: 0;
@@ -40,6 +37,9 @@ a:hover {
     z-index: 1;
     background-color: rgba(95, 95, 95, 0.7);
 }
+.navNoline{
+	outline: 0;
+}
 .inputLog{
 	text-align: center!important;
 }
@@ -52,7 +52,6 @@ a:hover {
 	margin-top: -100px!important;
 	margin-left: -150px!important;
 }
-
 .card{
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
@@ -87,16 +86,12 @@ a:hover {
 .imgCssColla{
 	height: 150px;
 }
-
-
-
 .preloader {
 	margin-top: 18%;
 }
 .btnColorCss{
 	background-color: #396b39;
-	color: #FFFFFF;
-	
+	color: #FFFFFF;	
 }
 .divTable tr:nth-child(odd){
 	background-color:#fffcf0;
@@ -108,14 +103,21 @@ a:hover {
 	color: #FFFFFF;
 	background-color: #4f307e;
 }
-.AssNotSerAllCss{
+.AssNotiAllCss{
 	margin-right: 15%;
 	margin-left: 15%;
+}
+.SerAllCss{
+	margin-right: 7%;
+	margin-left: 7%;
 }
 .AssTituCss{
 	font-weight: bold;
 	font-size: 1.5vw;
 	margin-bottom: 2%;
+}
+.textareaQuiSomAss, .textareaEquipAss, .textareaLGPDAss{
+	height: 100px!important;
 }
 .textareaHorariAss{
 	height: 90px!important;
@@ -129,6 +131,50 @@ a:hover {
 .passwordAss{
 	border-radius: 0.25rem 0rem 0rem 0.25rem !important;
 	width: 67%;
+}
+/* santi cambia el nombre de esta class */
+.btn-outline-success{
+    color: #4f307e!important;
+    background-color: transparent;
+    background-image: none;
+    border-color: #4f307e!important;    
+}
+/* santi cambia el nombre de esta class */
+.btn-outline-success:hover{
+    color: #fff!important;
+    background-color: #4f307e!important;
+    border-color: #4f307e!important;
+    box-shadow: none;
+}
+/* santi cambia el nombre de esta class */
+.btn-outline-primary{
+    color: #1d93d1!important;
+    background-color: transparent;
+    background-image: none;
+    border-color: #1d93d1!important;
+}
+/* santi cambia el nombre de esta class */
+.btn-outline-primary:hover{
+    color: #fff!important;
+    background-color: #1d93d1!important;
+    border-color: #1d93d1!important;
+}
+/* santi cambia el nombre de esta class */
+.btn-outline-dark{
+    color: #797778!important;
+    background-color: transparent;
+    background-image: none;
+    border-color: #797778!important;
+}
+/* santi cambia el nombre de esta class */
+.btn-outline-dark:hover{
+    color: #fff!important;
+    background-color: #797778!important;
+    border-color: #797778!important;
+}
+/* santi cambia el nombre de esta class */
+.btn-outline-success,.btn-outline-primary,.btn-outline-dark:focus-within{
+	box-shadow: none!important;
 }
 .inputGroupPrepend{
 	padding-bottom: 0!important;
@@ -162,8 +208,10 @@ a:hover {
 .ServeiIconCss{
 	justify-content: center;	
 }
+.emailTableCss{
+	text-decoration: underline!important;
+}
 @media (max-width: 575px){
-	
 	.iconSize{
 		font-size: 1.75em;
 	}
@@ -191,8 +239,6 @@ a:hover {
 	.iconSize{
 		font-size: 1.75em;
 	}
-	
-
 }
 @media (max-width: 991px){
 	.goToTop{

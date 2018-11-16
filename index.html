@@ -33,6 +33,7 @@
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample10" aria-controls="navbarsExample10" aria-expanded="true" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 				</button>
+				
 				<div class="d-inline d-lg-none col-12 text-center"> 
 					<img class="img-fluid logoVila" ng-src="img/vilactiva.png">
 				</div>
@@ -76,7 +77,6 @@
 						</li>
 					</ul>
 				</div>
-				
 			</div>
 		</nav>
 		<div class="h_divider hidemovil"></div>
@@ -86,6 +86,7 @@
 				<div id="cargador" class="cargador" ng-show="cargador">
 					<img ng-src="img/loading.svg" class="preloader">
 				</div>
+
 				<div data-ng-view=""></div>
 			</div>
 		</div>
@@ -99,15 +100,13 @@
 						<img class="img-fluid" ng-src="img/{{vila.logoVila}}" title="Vila activa" alt="vila activa"><br>
 						{{vila.nom}}
 				</div>
-
-				<div class="col text-center">
-					<div>
-						<a ng-href="{{vila.facebook}}" target="_blank">
-							<i class="fab fa-facebook-square fa-3x " ng-href="{{vila.facebook}}" target="_blank"></i>
-						</a>
+					<div class="col text-center">
+						<div>
+							<a ng-href="{{vila.facebook}}" target="_blank">
+								<i class="fab fa-facebook-square fa-3x " ng-href="{{vila.facebook}}" target="_blank"></i>
+							</a>
+						</div>
 					</div>
-				</div>
-
 				<div class="col text-right">
 					<ul>
 						<li>Parle'm-ne!</li>
@@ -117,12 +116,12 @@
 					</ul>
 				</div>
 			</div>
-			</div>
+
 			<div class="row">
 				<div class="h_divider_w col-8 offset-2"></div>
 			</div>
-				<div class="col-12 col-md-10 offset-md-1 tipoTexto  text-center my-4">Web dissenyat i elaborat pels/les alumnes de la Casa d’Oficis Barris Digitals de Barcelona Activa<img class="col-9 col-md-5 col-lg-2 img-fluid mt-3" ng-src="img/logosProjecte/logoBassa.PNG">
-				</div>		
+			<div class="col-12 col-md-10 offset-md-1 tipoTexto  text-center my-4">Web dissenyat i elaborat pels/les alumnes de la Casa d’Oficis Barris Digitals de Barcelona Activa<img class="col-9 col-md-5 col-lg-2 img-fluid mt-3" ng-src="img/logosProjecte/logoBassa.PNG">
+			</div>		
 		</footer>
 
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

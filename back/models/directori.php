@@ -17,20 +17,23 @@
 	}
 	if(isset($_POST['acc'])&&$_POST['acc']=='afeg'){
 		$mySql="INSERT INTO $tbl_directori (`nomAssociat`, `horari`, `txtAssociat`, `facebook`, `actiu`, `adreca`, `telf1`, `telf2`, `whatsapp`, `email`, `latitud`, `longitud`, `URLWeb`) 
-				VALUES ('".replaceFromHtml($_POST['nomAssociat'])."', '".replaceFromHtml($_POST['horari'])."', '".replaceFromHtml($_POST['txtAssociat'])."', '".$_POST['facebook']."', 'S', '".replaceFromHtml($_POST['adreca'])."', ".$_POST['telf1'].",".$_POST['telf2'].", ".$_POST['whatsapp'].", '".$_POST['email']."', '".$_POST['latitud']."', '".$_POST['longitud']."', '".$_POST['URLWeb']."')";
+				VALUES ('".replaceFromHtml($_POST['nomAssociat'])."', '".replaceFromHtml($_POST['horari'])."', '".replaceFromHtml($_POST['txtAssociat'])."', '".$_POST['facebook']."', 'S', '".replaceFromHtml($_POST['adreca'])."', '".$_POST['telf1']."','".$_POST['telf2']."', '".$_POST['whatsapp']."', '".$_POST['email']."', '".$_POST['latitud']."', '".$_POST['longitud']."', '".$_POST['URLWeb']."')";
 		$connexio=connect();
 		$resultComerc=mysqli_query($connexio,$mySql);
 		$idAssociat=mysqli_insert_id($connexio);
+				// $idAssociat="3";
 		$mySql2="INSERT INTO $tbl_categoriaassociat (`idCategoria`, `idAssociat`, `principal`) 
 				VALUES ('".$_POST['idCategoria']."','".$idAssociat."','S')";
 			$resultCateg=mysqli_query($connexio,$mySql2);
 		disconnect($connexio);
 		echo $idAssociat;
+				// echo $mySql;
+				// echo $mySql2;
 	}
 
 	if(isset($_POST['acc'])&&$_POST['acc']=='uploadImg'){
 		//$_FILES[‘nombrePost’]. El nombre entre comillas, será el que nos envíen por post o get desde el formulario.
-// $datos="entra en model<br>"; 
+		// $datos="entra en model<br>"; 
 	    $cantImatge=$_POST['cantImatge']+1;
 	    $connexio=connect();
 		
