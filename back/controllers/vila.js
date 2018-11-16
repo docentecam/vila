@@ -256,7 +256,7 @@ angular.module('vila')
 	})
 	.then(function(res){
 		deferred.resolve(res);
-		console.log(res.data);
+		console.log(res.data.catPrinc[0].idCategoria);
 		$scope.com.categoriaPrinc="-1";
 		$scope.com.categoriaNotPrinc="-1";
 		$scope.comerc=res.data.comerc[0];
@@ -512,9 +512,9 @@ angular.module('vila')
 	$scope.llistatComer=false;
 	$scope.dadesComerc=true;
 	$scope.btnAfegir=true;
-	$scope.comerc={};
-	$scope.comerc.logoAssociat="";
-	$scope.comerc.categoriaPrinc="-1";
+	$scope.asso={};
+	$scope.asso.logoAssociat="";
+	$scope.asso.categPrinc="-1";
 	var data = new FormData();
 	data.append("acc", "selCat");
 		var deferred=$q.defer();
@@ -547,37 +547,34 @@ angular.module('vila')
 	    element.scrollIntoView({block: "end", behavior: "smooth"});
  	}
  	$scope.verificar=function(){
- 		if($scope.comerc.nomAssociat=="" || $scope.comerc.adreca=="" 
- 			|| $scope.comerc.facebook=="" || $scope.comerc.URLWeb=="" 
- 			|| $scope.comerc.latitud==""|| $scope.comerc.longitud=="" 
- 			|| $scope.comerc.horari=="" || $scope.comerc.txtAssociat=="" 
- 			|| $scope.comerc.telf1==null || $scope.comerc.logoAssociat==""
- 			|| $scope.comerc.categoriaPrinc=="-1" 
- 			&& ($scope.comerc.telf2==null && $scope.comerc.whatsapp==null 
- 				&& $scope.comerc.email==null)){
+ 		if($scope.asso.nomAssociat=="" || $scope.asso.adreca=="" 
+ 			|| $scope.asso.facebook=="" || $scope.asso.URLWeb=="" 
+ 			|| $scope.asso.latitud=="" || $scope.asso.longitud=="" 
+ 			|| $scope.asso.horari=="" || $scope.asso.txtAssociat=="" 
+ 			|| $scope.asso.telf1=="" || $scope.asso.categPrinc=="-1"
+ 			){
+ 			$scope.btnAfegir=true;
 		}
 		else{
 			$scope.btnAfegir=false;
 		}	
  	}
  	$scope.insert=function(){
- 		$scope.divMsj=true;
-		$scope.msj="Les dades s'han actualitzat correctament.";
 		var data = new FormData();
-			data.append("idAssociat",$scope.comerc.idAssociat);
-			data.append("nomAssociat",$scope.comerc.nomAssociat);
-			data.append("adreca",$scope.comerc.adreca);
-			data.append("telf1",$scope.comerc.telf1);
-			data.append("telf2",$scope.comerc.telf2);
-			data.append("whatsapp",$scope.comerc.whatsapp);
-			data.append("facebook",$scope.comerc.facebook);
-			data.append("URLWeb",$scope.comerc.URLWeb);
-			data.append("horari",$scope.comerc.horari);
-			data.append("txtAssociat",$scope.comerc.txtAssociat);
-			data.append("email",$scope.comerc.email);
-			data.append("latitud",$scope.comerc.latitud);
-			data.append("longitud",$scope.comerc.longitud);
-			data.append("idCategoria",$scope.comerc.categPrinc);
+			data.append("idAssociat",$scope.asso.idAssociat);
+			data.append("nomAssociat",$scope.asso.nomAssociat);
+			data.append("adreca",$scope.asso.adreca);
+			data.append("telf1",$scope.asso.telf1);
+			data.append("telf2",$scope.asso.telf2);
+			data.append("whatsapp",$scope.asso.whatsapp);
+			data.append("facebook",$scope.asso.facebook);
+			data.append("URLWeb",$scope.asso.URLWeb);
+			data.append("horari",$scope.asso.horari);
+			data.append("txtAssociat",$scope.asso.txtAssociat);
+			data.append("email",$scope.asso.email);
+			data.append("latitud",$scope.asso.latitud);
+			data.append("longitud",$scope.asso.longitud);
+			data.append("idCategoria",$scope.asso.categPrinc);
 			data.append("acc","afeg");
 			var deferred=$q.defer();
 		$rootScope.cargador=true;
@@ -591,6 +588,7 @@ angular.module('vila')
 			deferred.resolve(res);
 			$rootScope.cargador=false;
 			window.location.href="#/directori/"+res.data;
+			console.log(res.data);
 		})
 		.catch(function(error) {
 			$rootScope.cargador=false;
@@ -1383,6 +1381,7 @@ angular.module('vila')
 			$scope.cat.idCategoria=$scope.categories[idEdit].idCategoria;
 			$scope.cat.nomCategoria=$scope.categories[idEdit].nomCategoria;
 			$scope.cat.pictograma=$scope.categories[idEdit].pictograma;
+			$scope.cat.pictogramaOld=$scope.categories[idEdit].pictograma;
 		}
 		else{
 			$scope.accion="Afegir";
@@ -1392,43 +1391,25 @@ angular.module('vila')
 	$scope.cancel=function(listSocis){
 		$scope.dadesCateg=true;		
 	}
-	$scope.edit=function(){
-		if($scope.cat.nomCategoria=="" || $scope.cat.pictograma==""){
+	$scope.edit=function(accion){
+		console.log(accion);
+		if($scope.cat.nomCategoria==""){
 			$scope.msj="Les dades no s'han actualitzat correctament. Sisplau ompli els camps buits";
 			$scope.divMsj=true;
 			$timeout(function() {
 				$scope.divMsj=false;
 			}, 3000);}
-		else if (!isNaN($scope.soci.nom) || !isNaN($scope.soci.cog1)) {
-			$scope.msj="No es poden posar números. Sisplau verifici els camps";
-			$scope.divMsj=true;
-			$timeout(function() {
-				$scope.divMsj=false;
-			}, 3000); 	
-		}
-		else if (!isNaN($scope.soci.cog2) && $scope.soci.cog2!=0) {
-			$scope.msj="No es poden posar números. Sisplau verifici els camps";
-			$scope.divMsj=true;
-			$timeout(function() {
-				$scope.divMsj=false;
-			}, 3000); 	
-		}
 		else{
-
+			$scope.msj="Les dades s'han actualitzat correctament.";
 			var data = new FormData();
-				data.append("idSoci",$scope.soci.idSoci);
-				data.append("nom",$scope.soci.nom);
-				data.append("rol",$scope.soci.rol);
-				data.append("cog1",$scope.soci.cog1);
-				data.append("cog2",$scope.soci.cog2);
-				data.append("mail",$scope.soci.mail);
-				data.append("telf",$scope.soci.telf);
 				data.append("acc",$scope.accion);
-				
-
+				data.append("idCategoria",$scope.cat.idCategoria);
+				data.append("nomCategoria",$scope.cat.nomCategoria);
+				data.append("logoUpdate", $scope.cat.pictograma);
+				data.append("pictogramaOld", $scope.cat.pictograma);
 				var deferred=$q.defer();
 			$rootScope.cargador=true;
-			$http.post("models/socis.php", data,{
+			$http.post("models/categories.php", data,{
 				headers:{
 					"Content-type":undefined
 				},
@@ -1437,22 +1418,45 @@ angular.module('vila')
 
 			.then(function(res){
 				deferred.resolve(res);
-				if(res.data!="0"){
-					$scope.socis=res.data.socis;
-					$scope.sociUser=res.data.sociUser;
-					$scope.msj="Les dades s'han actualitzat correctament.";
-					$scope.divDades=true;
-					$scope.divMsj=true;
-				}
-				else{
-					$scope.msj="Usuari existent.";
-					$scope.divMsj=true;
-
-				}
+				$scope.categories=res.data;
+				//$scope.msj="Les dades s'han actualitzat correctament.";
+				// $scope.dadesCateg=true;
 				$timeout(function() {
 					$scope.divMsj=false;
 				}, 2000);
-				$rootScope.cargador=false;				
+				$rootScope.cargador=false;
+				console.log(res.data);				
+			})
+			.catch(function(error) {
+				$rootScope.cargador=false;
+			});
+		}
+	}
+	$scope.getFileDetails = function (e) {
+		$scope.cat.pictograma=e.files[0].name;
+		$scope.cat.logoUpdate=e.files[0];		
+    } 
+	$scope.elimina=function(idCategoria){
+		console.log(idCategoria);
+		var confirmar=confirm("Segur que vol eliminar aquesta categoria?")
+		if(confirmar){
+	    	var data = new FormData();
+				data.append("idCategoria",idCategoria);
+				data.append("acc","elim");
+				
+			$scope.cargador=true;
+			$http.post("models/categories.php", data,{
+				headers:{
+					"Content-type":undefined
+				},
+					transformRequest:angular.identity
+			})
+
+			.then(function(res){
+				deferred.resolve(res);
+				$scope.categories=res.data;
+				$scope.cargador=false;
+				console.log(res.data);
 			})
 			.catch(function(error) {
 				$rootScope.cargador=false;

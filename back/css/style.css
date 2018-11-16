@@ -1,6 +1,3 @@
-.navNoline{
-	outline: 0;
-}
 .container-fluid{
 	padding: 0;
 	margin: 0;
@@ -40,6 +37,9 @@ a:hover {
     z-index: 1;
     background-color: rgba(95, 95, 95, 0.7);
 }
+.navNoline{
+	outline: 0;
+}
 .inputLog{
 	text-align: center!important;
 }
@@ -52,7 +52,6 @@ a:hover {
 	margin-top: -100px!important;
 	margin-left: -150px!important;
 }
-
 .card{
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
@@ -84,7 +83,7 @@ a:hover {
 .buttonAgreg{
 	font-size: 1.5em;
 }
-.imgCssColla{
+.imgCssLogoDir{
 	height: 150px;
 }
 .preloader {
@@ -209,10 +208,35 @@ a:hover {
 .ServeiIconCss{
 	justify-content: center;	
 }
+<<<<<<< HEAD
 .textBoxNotCss{
 	position: bottom;
 }
 @media (max-width: 575px){	
+=======
+.emailTableCss{
+	text-decoration: underline!important;
+}
+.tdImgCat{
+	width: 550px;
+}
+.divColInput{
+	padding: 0px!important;
+}
+.inputColorBG{
+	background-color: #FFFFFF!important;
+}
+.examinarImg{
+	background-color: #FFFFFF;
+	border: none;
+	color: blue; 
+}
+.imgPictogramaCateg{
+	height: 150px;
+	width: 150px;
+}
+@media (max-width: 575px){
+>>>>>>> ff6071307c563d020fdc04b8ffee811dbf37adf8
 	.iconSize{
 		font-size: 1.75em;
 	}
@@ -256,8 +280,6 @@ a:hover {
 	    height: 33vw;
 	    object-fit: cover;
 	}
-
-}
 @media (max-width: 991px){
 	.goToTop{
 	    display: none;
