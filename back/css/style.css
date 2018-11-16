@@ -83,7 +83,7 @@ a:hover {
 .buttonAgreg{
 	font-size: 1.5em;
 }
-.imgCssColla{
+.imgCssLogoDir{
 	height: 150px;
 }
 .preloader {
@@ -210,6 +210,24 @@ a:hover {
 }
 .emailTableCss{
 	text-decoration: underline!important;
+}
+.tdImgCat{
+	width: 550px;
+}
+.divColInput{
+	padding: 0px!important;
+}
+.inputColorBG{
+	background-color: #FFFFFF!important;
+}
+.examinarImg{
+	background-color: #FFFFFF;
+	border: none;
+	color: blue; 
+}
+.imgPictogramaCateg{
+	height: 150px;
+	width: 150px;
 }
 @media (max-width: 575px){
 	.iconSize{
