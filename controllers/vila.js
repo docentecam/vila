@@ -1,24 +1,32 @@
 angular.module('vila')
-.controller('IndexCtrl',function($scope,$http,$rootScope){
-		// $rootScope.cargador=true;	
-		// $http({
-		// 	method : "GET",
-		// 	url : "models/index.php?acc=l"
-		// })
-		// .then(function mySuccess(response) {
+.controller('IndexCtrl',function($scope,$http,$rootScope,$q){
+		$rootScope.cargador=true;
+	var data = new FormData();
+				data.append("acc","l");
+
+			var deferred=$q.defer();
 			
-		// 	$scope.footerContent=response.data.dadesFooter;
-		// 	$scope.footerContentTrans=response.data.transportFooter;
-		// 	$rootScope.cargador=false;
-		// }, 
-		// function myError(response) {
-		
-		// })
-		// .finally(function()
-		// { 
-		  
-		    
-		// })
+			$http.post("models/index.php", data,{
+				headers:{
+					"Content-type":undefined
+				},
+					transformRequest:angular.identity
+			})
+			.then(function(res){
+				deferred.resolve(res);
+				// $rootScope.cargador=false;
+				$scope.vila=res.data[0];
+				// $scope.noticies=res.data.dadesNoticies;
+				// $scope.banners=res.data.dadesBanners;
+				// $scope.carousel=res.data.dadesCarousel;
+				// $scope.associats=res.data.dadesAssociats;
+				 console.log(res.data);
+				// ;
+
+			})
+			.catch(function(error) {
+				$rootScope.cargador=false;
+			});
 
 })
 
@@ -204,7 +212,6 @@ angular.module('vila')
 	})
 	.then(function(res){
 		deferred.resolve(res);
-		console.log(res.data);
 		$rootScope.cargador=false;
 		$scope.firamar=res.data.dadesFiramar[0];
 		$scope.galeriafiramar=res.data.dadesGaleriafiramar;
