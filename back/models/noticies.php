@@ -17,7 +17,6 @@
 			SET `titolNoticia`='".replaceFromHtml($_POST['titolNoticia'])."', 
 				`dataNoticia`='".$_POST['dataNoticia']."',
 				`txtNoticia`='".replaceFromHtml($_POST['txtNoticia'])."', 
-				`fotoNoticia`='".$_POST['fotoNoticia']."', 
 				`principal`='".$_POST['principal']."'	
 			WHERE idNoticia='".$_POST['idNoticia']."'";
 
@@ -26,18 +25,18 @@
 		disconnect($connexio);
 
 
-		if (isset($_FILES['fotoNew'])&&$_FILES['fotoNew']!=""){
-			$file = date("YmdHis").$_FILES['fotoNew']["name"];
+		if (isset($_FILES['fotoNoticia'])&&$_FILES['fotoNoticia']!=""){
+			$file = date("YmdHis").$_FILES['fotoNoticia']["name"];
 			$mySql="UPDATE $tbl_noticies
 			SET `fotoNoticia`='".$file."'
 			WHERE idNoticia=".$_POST['idNoticia'];
 			$connexio=connect();
 			$resultNoti=mysqli_query($connexio,$mySql);
 			disconnect($connexio);
-			move_uploaded_file($_FILES["fotoNew"]["tmp_name"], "../../img/noticies/".$file);
-			if (isset($_POST['fotoNoticia'])&&$_POST['fotoNoticia']!="")
+			move_uploaded_file($_FILES["fotoNoticia"]["tmp_name"], "../../img/noticies/".$file);
+			if (isset($_POST['fotoNoticiaOld'])&&$_POST['fotoNoticiaOld']!="")
 			{
-				unlink("../../img/noticies/".$_POST['fotoNoticia']);
+				unlink("../../img/noticies/".$_POST['fotoNoticiaOld']);
 			}	
 		}
 		echo noticies($tbl_noticies);
@@ -49,27 +48,28 @@
 			$resultNoti=mysqli_query($connexio,$mySql); 
 			$idNoticiaInsert=mysqli_insert_id($connexio);
 			disconnect($connexio);
-		if (isset($_FILES['fotoNew'])&&$_FILES['fotoNew']!=""){
-			$file = date("YmdHis").$_FILES['fotoNew']["name"];
+		if (isset($_FILES['fotoNoticia'])&&$_FILES['fotoNoticia']!=""){
+			$file = date("YmdHis").$_FILES['fotoNoticia']["name"];
 			$mySql="UPDATE $tbl_noticies
 			SET `fotoNoticia`='".$file."'
 			WHERE idNoticia=$idNoticiaInsert";
 			$connexio=connect();
 			$resultNoti=mysqli_query($connexio,$mySql);
 			disconnect($connexio);
-			move_uploaded_file($_FILES["fotoNew"]["tmp_name"], "../../img/noticies/".$file);
+			move_uploaded_file($_FILES["fotoNoticia"]["tmp_name"], "../../img/noticies/".$file);
 		}
 		echo noticies($tbl_noticies);
  	}	
 	if(isset($_POST['acc'])&&$_POST['acc']=='delNot'){
 		$mySql="DELETE FROM $tbl_noticies 
 				WHERE `idNoticia`=".$_POST['idNoticia'];
-	$connexio=connect();
-	$resultNoti=mysqli_query($connexio,$mySql);
-	disconnect($connexio);
-	if(isset($_POST['fotoNoticia'])&&$_POST['fotoNoticia']!='')
+		$connexio=connect();
+		$resultNoti=mysqli_query($connexio,$mySql);
+		disconnect($connexio);
+		if(isset($_POST['fotoNoticia'])&&$_POST['fotoNoticia']!='')
 		{
 			unlink("../../img/noticies/".$_POST['fotoNoticia']);
+		
 		}
 		
 		echo noticies($tbl_noticies);
