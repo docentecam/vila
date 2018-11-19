@@ -114,14 +114,14 @@ function firaEdicion($tbl_firamar,$tbl_participants,$tbl_sponsors,$tbl_galeriafi
 					$rows[] = $r; 
 				} 
 				$datos.=json_encode($rows);
-				$datos.=',"participants":';
+				$datos.=',"participantsFiramar":';
 				$rows = array(); 
 				while($r = mysqli_fetch_array($resultParticipants)) 
 				{
 					$rows[] = $r; 
 				}
 				$datos.=json_encode($rows);
-				$datos.=',"sponsors":';
+				$datos.=',"sponsorsFiramar":';
 				$rows = array(); 
 				while($r = mysqli_fetch_array($resultSponsors)) 
 				{
