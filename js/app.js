@@ -10,7 +10,7 @@ app.config(['$routeProvider',function($routeProvider){
 	.when('/',{
 		templateUrl:'views/home.html',
 		controller:'HomeCtrl',
-		title: "Vila"
+		title: "Vila Activa"
 	})
 	.when('/associacio',{
 		templateUrl:'views/associacio.html',
