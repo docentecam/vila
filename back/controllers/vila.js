@@ -663,7 +663,6 @@ angular.module('vila')
 		.then(function(res){
 			deferred.resolve(res);
 			$scope.edicioFiramar=res.data.firamar[0];
-			console.log(res.data.firamar[0].titolFiramar);
 			$scope.galeriaFiramar=res.data.galeriaFiramar;
 			$scope.sponsorsFiramar=res.data.sponsorsFiramar;
 			$scope.participantsFiramar=res.data.participantsFiramar;
