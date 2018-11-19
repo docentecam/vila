@@ -47,7 +47,6 @@
 			<div class="card-columns">
 				<div class="card" ng-repeat="galeria in galeriaassociat">
 					<img class="card-img-top img-fluid d-md-none" ng-src="{{galeria.fotoGaleria!=''?'img/galeriaassociats/'+galeria.fotoGaleria:'img/noimage.png'}}" id="fotoFull">
-
 					<img class="card-img-top img-fluid d-none d-md-inline" ng-src="{{galeria.fotoGaleria!=''?'img/galeriaassociats/'+galeria.fotoGaleria:'img/noimage.png'}}" data-toggle="modal" data-target="#modalFoto" id="fotoFull" ng-click="modalFoto(galeria.fotoGaleria)">
 				</div>
 			</div>

@@ -1,7 +1,11 @@
 
-<div id="divTop" class="row text-center mt-4 mb-3">
-  <div class="col-12 " ><h1 class="titleSocis">Firamar</h1></div>
-</div>
+	<div id="divTop" class="row text-center mt-4 mb-3">
+	  <div class="col-12">
+
+	  	<h1>Firamar</h1>
+	  
+	  </div>
+	</div>
 
 <div  ng-show="divMsj" class="col-6 offset-3 text-center alert alert-warning">{{msj}}</div>
 
@@ -17,16 +21,16 @@
 			<tr ng-repeat="edicion in edicions | orderBy:'-fecha'">
 				<td><a class="cursor" ng-click="mostraEdicio(edicion.fecha)">{{edicion.titolFiramar}}</a></td>
 				<td>
-					<button id="BuAlFinal" type="button" class="btn btn-outline-success my-1">
-		   				<span ng-click="afegeixE()" title="Edita Gegant">Principal</span>
+					<button type="button" class="btn btn-outline-success my-1">
+		   				<span ng-click="afegeixE()" title="Edicio principal">Principal</span>
 		   			</button>
-		   			<button id="BuAlFinal" type="button" class="btn btn-outline-primary" ng-show="$index==1">
-		   				<span ng-click="afegeixE()" title="Edita Gegant">Hacer Principal</span>
+		   			<button type="button" class="btn btn-outline-primary" ng-show="$index==1">
+		   				<span ng-click="afegeixE()" title="Fes principal una edicio">Hacer Principal</span>
 		   			</button>
 		   		</td>
 		   		<td>
-		   			<button id="BuAlFinal" type="button" class="btn btn-outline-dark mx-2">
-		   				<span ng-click="afegeixE($index)" title="Edita Gegant">Edita</span>
+		   			<button type="button" class="btn btn-outline-dark mx-2">
+		   				<span ng-click="afegeixE($index)" title="Edita aquesta edicio">Edita</span>
 		   			</button>
 				</td>
 			</tr>
@@ -187,13 +191,50 @@
 		</div>
 	</form>
 	</div>
-	
-<div class="mt-lg-5" ng-hide="firaSelect">
-	
-	<div class="row">
-		<h1>{{edicioFiramar.titolFiramar}}</h1>
 
+<div class="mt-lg-5" ng-hide="firaSelect">
+
+	<div class="row text-center mt-4 mb-3">
+  		<div class="col-12">
+  			
+  			<h1>{{edicioFiramar.titolFiramar}}</h1>
+  		
+  		</div>
+  		<div class="col-12">
+  			
+  			<p>{{edicioFiramar.txtFiramar}}</p>
+  		
+  		</div>
 	</div>
+
+<div class="row text-center mt-4 mb-3">
+	<div class="col-12 " ><h1 class="titleSocis">Galeria</h1></div>
+</div>	
+
+	<div class="row">
+		<div class="card-columns offset-2 mt-4 mb-4">
+			<div class="card" ng-repeat="galeria in galeriaFiramar">
+				<img class="card-img-top img-fluid d-md-none" ng-src="{{galeria.fotoFiramar!=''?'../img/galeriaFiramar/'+galeria.fotoFiramar:'img/noimage.png'}}" id="fotoFull" >
+				<img class="card-img-top img-fluid d-none d-md-inline" ng-src="{{galeria.fotoFiramar!=''?'../img/galeriaFiramar/'+galeria.fotoFiramar:'img/noimage.png'}}" data-toggle="modal" data-target="#modalFoto" id="fotoFull" ng-click="modalFoto(galeria.fotoFiramar)">
+			</div>
+		</div>
+	</div>
+
+<div class="row text-center mt-4 mb-3">
+	<div class="col-12 " ><h1 class="titleSocis">Sponsors</h1></div>
+</div>
+
+	<div class="row justify-content-center offset-2">
+		<div class="col-lg-2 " ng-repeat="sponsor in sponsorsFiramar">
+		
+			<img class="rounded img-thumbnail img-fluid" ng-src="{{sponsor.logoSponsor!=''?'../img/sponsors/'+sponsor.logoSponsor:'../img/noimage.png'}}">
+		
+		</div>
+	</div>
+
+<div class="row text-center mt-4 mb-3">
+	<div class="col-12 " ><h1 class="titleSocis">Participants</h1></div>
+</div>
 
 
 

@@ -113,7 +113,7 @@ a:hover {
 }
 .AssTituCss{
 	font-weight: bold;
-	font-size: 1.5vw;
+	font-size: 130%;
 	margin-bottom: 2%;
 }
 .textareaQuiSomAss, .textareaEquipAss, .textareaLGPDAss{
@@ -208,6 +208,12 @@ a:hover {
 .ServeiIconCss{
 	justify-content: center;	
 }
+<<<<<<< HEAD
+.textBoxNotCss{
+	position: bottom;
+}
+@media (max-width: 575px){	
+=======
 .emailTableCss{
 	text-decoration: underline!important;
 }
@@ -226,9 +232,15 @@ a:hover {
 	color: blue; 
 }
 @media (max-width: 575px){
+>>>>>>> ff6071307c563d020fdc04b8ffee811dbf37adf8
 	.iconSize{
 		font-size: 1.75em;
 	}
+	.imgNotCss{
+		margin-top: 2%;
+	    width: 100%;
+	    height: 80vw!important;
+	}	
 }
 @media (min-width: 576px) and (max-width: 767px){
 	.imglogonav{
@@ -244,6 +256,11 @@ a:hover {
 	.iconSize{
 		font-size: 1.75em;
 	}
+	.imgNotCss{
+		margin-top: 2%;
+	    width: 100%;
+	    height: 75vw!important;
+	}
 }
 @media (min-width: 768px) and (max-width: 991px){
 	.imglogonav{
@@ -253,7 +270,12 @@ a:hover {
 	.iconSize{
 		font-size: 1.75em;
 	}
-}
+	.imgNotCss{
+		margin-top: 2%;
+	    width: 100%;
+	    height: 33vw;
+	    object-fit: cover;
+	}
 @media (max-width: 991px){
 	.goToTop{
 	    display: none;
@@ -278,7 +300,12 @@ a:hover {
 		height: 50px; 
 		width: 50px;
 	}
-
+	.imgNotCss{
+		margin-top: 2%;
+	    width: 100%;
+	    height: 33vw;
+	    object-fit: cover;
+	}
 }
 @media (min-width: 992px){
 	.goToTop{
@@ -301,6 +328,12 @@ a:hover {
 	    border-color: none!important;
 	    border-style: none!important;
 	}
+	.imgNotCss{
+		margin-top: 2%;
+	    width: 100%;
+	    height: 33vw;
+	    object-fit: cover;
+	}
 }
 @media (min-width: 992px) and (max-width: 1199px){
 	.imglogonav{
@@ -309,6 +342,12 @@ a:hover {
 	}
 	.iconSize{
 		font-size: 1.33em;
+	}
+	.imgNotCss{
+		margin-top: 2%;
+	    width: 100%;
+	    height: 33vw;
+	    object-fit: cover;
 	}
 }
 @media (min-width: 1200px){
@@ -322,5 +361,11 @@ a:hover {
 	.iconSize{
 		padding: 0px;
 		font-size: 1.5em;
+	}
+		.imgNotCss{
+		margin-top: 2%;
+	    width: 100%;
+	    height: 20vw;
+	    object-fit: cover;
 	}
 }	

@@ -213,11 +213,13 @@ angular.module('vila')
 	.then(function(res){
 		deferred.resolve(res);
 		$rootScope.cargador=false;
+		console.log(res.data);
 		$scope.firamar=res.data.dadesFiramar[0];
 		$scope.galeriafiramar=res.data.dadesGaleriafiramar;
 		$scope.activitatsfiramar=res.data.dadesActivitatsfiramar;
 		$scope.sponsors=res.data.dadesSponsors;
 		$scope.participants=res.data.dadesParticipants;
+		$scope.dadesTotesEdicions=res.data.dadesTotesEdicions;
 	})
 	.catch(function(error) {
 		$rootScope.cargador=false;
@@ -225,7 +227,35 @@ angular.module('vila')
 	$scope.modalFoto=function(nomFoto){
 		$scope.fotoModal=nomFoto;
 	}
+	$scope.llistatEdicioFirmar=function(dataFiramar){
+	$rootScope.cargador=true;
+		var data = new FormData();
+					data.append("acc","l");
+					data.append("dataFiramar",dataFiramar);
+				var deferred=$q.defer();
+				
+				$http.post("models/firamar.php", data,{
+					headers:{
+						"Content-type":undefined
+					},
+						transformRequest:angular.identity
+				})
+				.then(function(res){
+					deferred.resolve(res);
+					$rootScope.cargador=false;
+					$scope.firamar=res.data.dadesFiramar[0];
+					$scope.galeriafiramar=res.data.dadesGaleriafiramar;
+					$scope.activitatsfiramar=res.data.dadesActivitatsfiramar;
+					$scope.sponsors=res.data.dadesSponsors;
+					$scope.participants=res.data.dadesParticipants;
+					$scope.dadesTotesEdicions=res.data.dadesTotesEdicions;
 
+				})
+				.catch(function(error) {
+					$rootScope.cargador=false;
+				});
+
+	}
 })
 
 .controller('ContactaCtrl',function($scope,$http,$q,$rootScope,$timeout,$window,$document){
