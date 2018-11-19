@@ -5,47 +5,47 @@
 	<div class="col-12 text-center mb-4 hidemovil">
 		<img src="img/vilactiva.png">
 	</div>
-
 </div>
 
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-  <ol class="carousel-indicators hidemovil">
-    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-  </ol>
-  <div class="carousel-inner carousel-innerPrincipal">
-    <div class="carousel-item active center-cropped provaCar">
-      <img class="d-block w-100" src="img/slider_1.jpg" alt="First slide"> 
-    </div>
-    <div class="carousel-item center-cropped provaCar">
-      <img class="d-block w-100" src="img/slider_2.jpg" alt="Second slide">
-    </div>
-    <div class="carousel-item center-cropped provaCar">
-      <img class="d-block w-100" src="img/slider_3.jpg" alt="Third slide">
-    </div>
-  </div>
-  <a class="carousel-control-prev" role="button" data-target="#carouselExampleIndicators" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" role="button" data-target="#carouselExampleIndicators" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
+	<ol class="carousel-indicators hidemovil">
+		<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+		<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+		<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+	</ol>
+	<div class="carousel-inner carousel-innerPrincipal">
+		<div class="carousel-item active center-cropped provaCar">
+			<img class="d-block w-100" src="img/slider_1.jpg" alt="First slide"> 
+		</div>
+		<div class="carousel-item center-cropped provaCar">
+			<img class="d-block w-100" src="img/slider_2.jpg" alt="Second slide">
+		</div>
+		<div class="carousel-item center-cropped provaCar">
+			<img class="d-block w-100" src="img/slider_3.jpg" alt="Third slide">
+		</div>
+	</div>
+
+	<a class="carousel-control-prev" role="button" data-target="#carouselExampleIndicators" data-slide="prev">
+		<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+		<span class="sr-only">Previous</span>
+	</a>
+	<a class="carousel-control-next" role="button" data-target="#carouselExampleIndicators" data-slide="next">
+    	<span class="carousel-control-next-icon" aria-hidden="true"></span>
+ 		<span class="sr-only">Next</span>
+	</a>
 </div>
 
-<div class="h_divider mb-1 mt-1"></div>
+<div class="h_divider mb-1 mt-1 hideMovil"></div>
 
-<div class="tipoTitulo mt-2 mb-1 mt-md-4 mb-md-3 txtMovil">
+<div class="tipoTitulo mt-2 mb-1 mt-md-4 mb-md-3 txtMovil titlesHome">
 	Notícies destacades
 </div>
 
 <div class="row">
-	<div ng-repeat="noticia in noticies | orderBy:noticia.dataNoticia | filter:{principal:'S'}" ng-href="#/noticies/{{noticia.idNoticia}}" class="col-6">
+	<div ng-repeat="noticia in noticies | orderBy:noticia.dataNoticia | filter:{principal:'S'}" ng-href="#/noticies/{{noticia.idNoticia}}" class="col-12 col-md-6 mb-3">
 		<div class="row align-items-center">
-			<div class="col">
-				<div class="card">
+			<div class="col-12 col-md-6 px-0">
+				<div class="card mb-3">
 					<div class="group-item">
 						<div class="imagecontainer is-cover">	
 							<a ng-href="#/noticia/{{noticia.idNoticia}}">
@@ -55,9 +55,8 @@
 					</div>
 				</div>
 			</div>
-			
-			
-			<div class="col">
+
+			<div class="col-12 col-md-6">
 				<div class="tipoSubTitulo mb-1">
 					<a ng-href="#/noticia/{{noticia.idNoticia}}">
 					{{noticia.titolNoticia}}
@@ -80,99 +79,86 @@
 </div>
 
 <div class="h_divider mb-3 mt-3"></div>
-	<div class="container">
-		<div class="row">	
-			<div class="col-5 px-0">
-					<div class="fb-page center-block">
-						<iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fvilactiva&tabs=timeline&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" data-adapt-container-width="true" style="border:none;overflow:hidden" scrolling="no" allowTransparency="true" allow="encrypted-media" id="frameFb"></iframe>
-					</div>
-			</div>	
-<!-- 			
 
-			<div class="col-md-7 px-0 col-sm-12">
-					<div class="card mb-2 bannerAlto">
-						 <img class="card-img" src="img/banner1.jpg" alt="Card image">
-					</div>
-					<div class="card mb-2 bannerAlto">
-						 <img class="card-img" src="img/banner2.jpg" alt="Card image">
-					</div>
-					<div class="card mb-2 bannerAlto">
-						 <img class="card-img" src="img/banner3.jpg" alt="Card image">
-					</div>
-			</div> -->
-
-<!-- ***********NO TOCAR!!!!!!!! estoy probando esto = https://jsfiddle.net/x2p17f31/131/************** -->
-
-
-			<div class="col-md-7 px-0 col-sm-12">
-				<div class="group">
-					<div class="group-item">
-						<div class="imagecontainer is-contain bannerAlto">
-							<img class="imagecontainer-img lazyload"
-								 src="img/banner1.jpg">
-						</div>
-					</div>
-					<div class="group-item">
-						<div class="imagecontainer is-contain bannerAlto">
-							<img class="imagecontainer-img lazyload"
-								 src="img/banner2.jpg">
-						</div>
-					</div>
-					<div class="group-item">
-						<div class="imagecontainer is-contain bannerAlto">
-							<img class="imagecontainer-img lazyload"
-								 src="img/banner3.jpg">
-						</div>
-					</div>
+<div class="container">
+	<div class="row">	
+		<div class="col-md-5 px-0">
+			<div class="row">
+				<div class="col-12 px-0">
+					<iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fvilactiva&tabs=timeline&width=300&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="300" height="500" style="border:none;overflow:hidden;display:block;margin:auto;" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
 				</div>
 			</div>
-
-
+		</div>
+		<!-- 
+			          banners 
+		-->
+		<div ng-repeat="banner in banners">
+			<a ng-href="{{banner.URLWeb}}" target="_blank">
+			aaaaaaaaaaaaaaaaaaa
+			<div class="col-md-7 px-0 col-sm-12 mt-2 mt-sm-0">
+				<div class="group">
+					<div class="group-item bannerAlto">
+						<div class="imagecontainer is-contain bannerAlto">
+							<img class="imagecontainer-img lazyload" ng-src="{{banner.fotoBanner!=''?'img/banners/'+banner.fotoBanner:'img/noimage.png'}}" alt="banner">
+						</div>
+					</div>					
+				</div>
+			</div>
+			</a>
 		</div>
 	</div>
-	<div class="h_divider mb-1 mt-1"></div>
-	<div class="row">
+</div>
 
-		<div class="tipoTitulo mt-4 mb-3">
-			Associats
-		</div>
+<div class="h_divider mb-1 mt-1"></div>
 
+<div class="row">
+	<div class="tipoTitulo mt-4 mb-3 txtMovil">
+		Associats
 	</div>
+</div>
 
 	<div id="carouselAsso" class="carousel slide" data-ride="carousel">
-
 	  <ul class="carousel-indicators">
 	    <li data-target="#carouselAsso" data-slide-to="0" class="active"></li>
 	    <li data-target="#carouselAsso" data-slide-to="1"></li>
 	    <li data-target="#carouselAsso" data-slide-to="2"></li>
 	  </ul>
 	  
-	  <div class="container carousel-inner no-padding carousel-innerAsso">
-	    <div class="carousel-item active" ng-repeat="associat in associats">
-	      <div class="col-xs-3 col-sm-3 col-md-3 carouAsoc card">
-	      	<a ng-href="#/directori/{{associat.idAssociat}}">
-	        <img class="card-img-top img-fluid d-md-none" ng-src="{{associat.logoAssociat!=''?'img/galeriaassociat/'+associat.logoAssociat:'img/noimage.png'}}">
-	    	</a>
-	      </div>    
-	      <div class="col-xs-3 col-sm-3 col-md-3 carouAsoc">
-	        <img src="img/associat.jpg">
-	      </div>   
-	      <div class="col-xs-3 col-sm-3 col-md-3 carouAsoc">
-	        <img src="img/associat.jpg">
-	      </div>   
-	      <div class="col-xs-3 col-sm-3 col-md-3 carouAsoc">
-	        <img src="img/associat.jpg">
-	      </div>   
-	    </div>
-	    <div class="carousel-item">
-	      <div class="col-xs-3 col-sm-3 col-md-3 carouAsoc">
-	        <img src="img/associat.jpg">
-	      </div>    
-	      <div class="col-xs-3 col-sm-3 col-md-3 carouAsoc">
-	        <img src="img/associat.jpg">
-	      </div>
-	    </div>
-	  </div>  
+<div class="row">
+	<div class="col px-0">
+		<div class="row">
+		  <div class="container carousel-inner no-padding carousel-innerAsso">
+		    <div class="carousel-item active">		
+		      <div class="col-xs-3 col-sm-3 col-md-3 carouAsoc card" ng-repeat="associat in associats">
+				<div class="card">
+					<div class="group-item">
+						<div class="imagecontainer is-cover">
+					      	<a ng-href="#/directori/{{associat.idAssociat}}">
+					        <img class="card-img-top img-fluid d-none d-md-inline" 
+					        ng-src="{{associat.logoAssociat!=''?'img/associats/'+associat.logoAssociat:'img/noimage.png'}}">
+					    	</a>
+
+		      			</div>
+					</div>
+				</div>
+			</div>		      
+		    </div>
+
+		    <!-- <div class="carousel-item">
+		      <div class="col-xs-3 col-sm-3 col-md-3 carouAsoc card" ng-repeat="associat in associats">
+
+		      	<a ng-href="#/directori/{{associat.idAssociat}}">
+		        <img class="card-img-top img-fluid d-none d-md-inline" 
+		        ng-src="{{associat.logoAssociat!=''?'img/associats/'+associat.logoAssociat:'img/noimage.png'}}">
+		    	</a>
+
+		      </div>
+		    </div> -->
+		  </div>
+		</div>
+	</div>
+</div>
+
 	  <a class="carousel-control-prev" data-target="#carouselAsso" data-slide="prev">
 	    <span class="carousel-control-prev-icon"></span>
 	  </a>
@@ -180,12 +166,36 @@
 	    <span class="carousel-control-next-icon"></span>
 	  </a>
 
+
+			<a ng-href="#/directori/{{associat.idAssociat}}">
+				<img class="card-img-top img-fluid d-none d-md-inline" ng-src="{{associat.logoAssociat!=''?'img/associats/'+associat.logoAssociat:'img/noimage.png'}}">
+			</a>
+			</div>
+		</div>
+
+		<div class="carousel-item">
+			<div class="col-xs-3 col-sm-3 col-md-3 carouAsoc card" ng-repeat="associat in associats">
+				<a ng-href="#/directori/{{associat.idAssociat}}">
+					<img class="card-img-top img-fluid d-none d-md-inline" ng-src="{{associat.logoAssociat!=''?'img/associats/'+associat.logoAssociat:'img/noimage.png'}}">
+				</a>
+			</div>
+		</div>
 	</div>
 
+	<a class="carousel-control-prev" data-target="#carouselAsso" data-slide="prev">
+		<span class="carousel-control-prev-icon"></span>
+	</a>
+	<a class="carousel-control-next" data-target="#carouselAsso" data-slide="next">
+		<span class="carousel-control-next-icon"></span>
+	</a>
+</div>
 
-	  -mirar que las rayitas vayan a relacion con la cantidad de bloques
-	  -hacer que cada 4 logoassociats, se cree un nuevo div (controller?)
-	  -hacer que si quedan 2 sueltos, se centren? idk
-	  
-	  -arreglar el navbar más separação
-	  -Vilactiva en tablet+movil klk, hacer q todo quede en la misma linea
+<!--
+	-mirar que las rayitas vayan a relacion con la cantidad de bloques
+	-hacer que cada 4 logoassociats, se cree un nuevo div (controller?)
+	-hacer que si quedan 2 sueltos, se centren? idk???
+
+	-arreglar el navbar más separação
+	-Vilactiva en tablet+movil klk, hacer q todo quede en la misma linea
+
+-->

@@ -1,5 +1,5 @@
 <div class="row">
-	<div class="col-12 tipoTitulo text-center">
+	<div class="col-12 tipoTitulo  position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light">
 		<span>{{firamar.titolFiramar}}</span> 
 		<span>{{firamar.dataFiramar|limitTo:4}}</span>
 	</div>
@@ -14,11 +14,21 @@
 	<div class="col-12 tipoSubTitulo">
 		Programa d'activitats
 	</div>
-	<div class="col-12 tipoTexto">
-		ng-repeat de la data activitat, el titulo de la actividad, y el texto de la actividad.
+<!-- 	<div class="container-fluid"> -->
+	<div class="row">
+		<div ng-repeat="firamar in activitatsfiramar" class="col-md-12">
+			<div class="row">
+				 	<div class="col-4">{{firamar.horaInici |limitTo:5}}
+				    	<div class="col-4 no-padding">{{firamar.horaFi |limitTo:5}}</div>
+					</div><br>
+				    <div class="col-8 tipoTexto"><b>{{firamar.titolActivitat | uppercase}}</b>
+				    	<div class="col-8 tipoTexto">{{firamar.txtActivitat}}</div><br>
+					</div>
+			</div>
+		</div>
 	</div>
+<!-- </div> -->
 </div>
-
 <div class="row">
 	<div class="col-12 tipoSubTitulo">
 		Galeria
@@ -35,43 +45,95 @@
 	</div>
 </div>
 
-<div class="modal fade " id="modalFoto" tabindex="-1" role="dialog" aria-labelledby="modalFotoCentred" aria-hidden="true">
+<div class="modal fade " id="modalFoto" tabindex="-1" role="dialog" aria-hidden="true">
   	<div class="modal-dialog modal-dialog-centered" role="document">
   		<div class="modal-content">
 			<div class="modal-body">
 	      		<div>
-	      			<img ng-src="img/galeriafiramar/{{fotoModal}}" class="img-fluid pruebaModal">
+	      			<img ng-src="img/galeriafiramar/{{fotoModal}}" class="img-fluid sizeModal">
 	      		</div>
 	     	</div>
 	    </div>
  	</div>
 </div>
 
+
 <div class="row">
 	<div class="col-12 tipoSubTitulo">
 		Participants
 	</div>
-	<div class="col-12 tipoTexto">
-		meter carousel de 5, como en la home
+	<div id="carouselAsso" class="carousel slide" data-ride="carousel">
+
+		<ul class="carousel-indicators">
+			<li data-target="#carouselAsso" data-slide-to="0" class="active"></li>
+			<li data-target="#carouselAsso" data-slide-to="1"></li>
+			<li data-target="#carouselAsso" data-slide-to="2"></li>
+		</ul>
+	  
+		<div class="container carousel-inner no-padding carousel-innerAsso">
+
+			<div class="carousel-item active">
+				<div class="col-xs-3 col-sm-3 col-md-3 carouAsoc card" ng-repeat="participant in participants">
+					<img class="card-img-top img-fluid d-none d-md-inline" ng-src="{{participant.logoParticipant!=''?'img/participants/'+participant.logoParticipant:'img/noimage.png'}}">
+				</div>
+			</div>
+
+			<div class="carousel-item">
+				<div class="col-xs-3 col-sm-3 col-md-3 carouAsoc card" ng-repeat="participant in participants">
+					<img class="card-img-top img-fluid d-none d-md-inline" 
+					ng-src="{{participant.logoParticipant!=''?'img/participants/'+participant.logoParticipant:'img/noimage.png'}}">
+				</div>
+			</div>
+		</div>
+
+		<a class="carousel-control-prev" data-target="#carouselAsso" data-slide="prev">
+			<span class="carousel-control-prev-icon"></span>
+		</a>
+		<a class="carousel-control-next" data-target="#carouselAsso" data-slide="next">
+			<span class="carousel-control-next-icon"></span>
+		</a>
 	</div>
 </div>
 
+<div class="col-4 tipoSubTitulo">
+	Sponsors
+</div>
+
 <div class="row">
-	<div class="col-12 tipoSubTitulo">
-		Sponsors
-	</div>
-	<div class="col-12 tipoTexto">
-		¿fotos fijas de los sponsors? en plan, que haya un col y ahí dentro entren los q hayan? 
-		no sé cómo hacerlo bien para q si un año hay 5 y otro 3 se quede bien centrado siempre.
+
+	<div ng-repeat="sponsor in sponsors" class="col-3">
+		<div class="row align-items-center">
+			<div class="col">
+				<div class="card">
+					<div class="group">
+						<div class="group-item">
+							<div class="imagecontainer is-cover">
+								<img class=" img-fluid text-center" ng-src="{{sponsor.logoSponsor!=''?'img/sponsors/'+sponsor.logoSponsor:'img/noimage.png'}}" title="sponsors" alt="sponsors" class="imagecontainer-img lazyload">
+							</div> 
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 </div>
+	
+	<!-- 
+
+	¿fotos fijas de los sponsors? en plan, que haya un col y ahí dentro entren los q hayan? 
+
+	no sé cómo hacerlo bien para q si un año hay 5 y otro 3 se quede bien centrado siempre.
+
+	-->
 
 <div class="row">
 	<div class="col-12 tipoSubTitulo">
 		Edicions anteriors
 	</div>
 	<div class="col-12 tipoTexto">
-		ng repeat en párrafos que sean links? (creo)
+		<div ng-repeat="dadesTotesEdicion in dadesTotesEdicions" class="col-3 tipoTexto">
+			<a ng-href="" ng-click="llistatEdicioFirmar(dadesTotesEdicion.dataFiramar)">{{dadesTotesEdicion.dataFiramar |limitTo:4}}-{{dadesTotesEdicion.titolFiramar }}</a>
+		</div>
 	</div>
 </div>
 

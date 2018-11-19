@@ -20,12 +20,17 @@ app.config(['$routeProvider',function($routeProvider){
   .when('/directori',{
     templateUrl:'views/directori.php',
     controller:'DirectCtrl',
-    title: "Manteniment Directori"
+    title: "Llistat de comerços"
   })
   .when('/directori/:idAssociat',{
     templateUrl:'views/directori.php',
     controller:'DirectComerCtrl',
-    title: "Manteniment Directori"
+    title: "Manteniment del comerç"
+  })
+  .when('/newComerc',{
+    templateUrl:'views/directori.php',
+    controller:'NewComercCtrl',
+    title: "Nou Comerç"
   })
   .when('/contactans',{
     templateUrl:'views/contactans.php',
@@ -51,6 +56,11 @@ app.config(['$routeProvider',function($routeProvider){
     templateUrl:'views/serveis.php',
     controller:'ServeisCtrl',
     title: "Serveis"
+  })
+  .when('/noticies',{
+    templateUrl:'views/noticies.php',
+    controller:'NoticiesCtrl',
+    title: "Noticies"
   })
   .when('/logout',{
     templateUrl:'index.php',

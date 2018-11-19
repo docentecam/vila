@@ -12,21 +12,45 @@
 	{
 		header("location: ../");
 	}
+	if(isset($_POST['acc'])&&$_POST['acc']=='selCat'){
+		echo categories($tbl_categories);
+	}
+	if(isset($_POST['acc'])&&$_POST['acc']=='afeg'){
+		$mySql="INSERT INTO $tbl_directori (`nomAssociat`, `horari`, `txtAssociat`, `facebook`, `actiu`, `adreca`, `telf1`, `telf2`, `whatsapp`, `email`, `latitud`, `longitud`, `URLWeb`) 
+				VALUES ('".replaceFromHtml($_POST['nomAssociat'])."', '".replaceFromHtml($_POST['horari'])."', '".replaceFromHtml($_POST['txtAssociat'])."', '".$_POST['facebook']."', 'S', '".replaceFromHtml($_POST['adreca'])."', '".$_POST['telf1']."','".$_POST['telf2']."', '".$_POST['whatsapp']."', '".$_POST['email']."', '".$_POST['latitud']."', '".$_POST['longitud']."', '".$_POST['URLWeb']."')";
+		$connexio=connect();
+		$resultComerc=mysqli_query($connexio,$mySql);
+		$idAssociat=mysqli_insert_id($connexio);
+				// $idAssociat="3";
+		$mySql2="INSERT INTO $tbl_categoriaassociat (`idCategoria`, `idAssociat`, `principal`) 
+				VALUES ('".$_POST['idCategoria']."','".$idAssociat."','S')";
+			$resultCateg=mysqli_query($connexio,$mySql2);
+		disconnect($connexio);
+		echo $idAssociat;
+				// echo $mySql;
+				// echo $mySql2;
+	}
+
 	if(isset($_POST['acc'])&&$_POST['acc']=='uploadImg'){
 		//$_FILES[‘nombrePost’]. El nombre entre comillas, será el que nos envíen por post o get desde el formulario.
-// $datos="entra en model<br>"; 
+		// $datos="entra en model<br>"; 
 	    $cantImatge=$_POST['cantImatge']+1;
-	    
+	    $connexio=connect();
+		
 	    $j=0;
 	    while($j<$cantImatge) {
 		    $numUp='uploadedFile'.$j;
 		    $fileEx =explode('.',$_FILES[$numUp]["name"]);
-			$file =  date("dmYhisv").'.'.$fileEx[count($fileEx)-1];
+			$file =  date("dmYhisv").substr($fileEx[0],-3,3).'.'.$fileEx[count($fileEx)-1];
 			//$datos.=$j."--".$_FILES[$numUp]["tmp_name"]."-"."../../img/galeriaassociats/".$file."<br>"; 
+
 			move_uploaded_file($_FILES[$numUp]["tmp_name"], "../../img/galeriaassociats/".$file);
+			$mySql="INSERT INTO `galeriaassociats`(`fotoGaleria`, `idAssociat`) 	VALUES ('".$file."','".$_POST['idAssociat']."')";
+			mysqli_query($connexio,$mySql);
 			$j++;
 	    }
-		  //echo $datos; 
+	    disconnect($connexio);
+		echo  galeriaAssociats($tbl_galeriaassociats,$_POST['idAssociat']);
 	}
 	if(isset($_POST['acc'])&&$_POST['acc']=='updateMedia'){
 		$fileEx =explode('.',$_FILES["logoUpdate"]["name"]);
@@ -63,6 +87,7 @@
 		$dadesComerc.=',"listCatNotPrinc":'.categNotPrinc($tbl_categories,$tbl_categoriaassociat, $_POST['idAssociat']).'}';
 		echo $dadesComerc;
 	}
+
 	if(isset($_POST['acc'])&&$_POST['acc']=='af'){
 		$mySql="INSERT INTO $tbl_categoriaassociat (`idCategoria`, `idAssociat`, `principal`) 
 				VALUES ('".$_POST['idCategoria']."','".$_POST['idAssociat']."','N')";
@@ -78,7 +103,7 @@
 
 	}
 	if(isset($_POST['acc'])&&$_POST['acc']=='up'){
-		$mySql="UPDATE $tbl_directori SET `nomAssociat`='".replaceFromHtml($_POST['nomAssociat'])."', `adreca`='".replaceFromHtml($_POST['adreca'])."', `telf1`='".$_POST['telf1']."', `horari`='".replaceFromHtml($_POST['horari'])."', `facebook`='".$_POST['facebook']."', `telf2`='".$_POST['telf2']."', `whatsapp`='".$_POST['whatsapp']."', `latitud`='".$_POST['latitud']."', `longitud`='".$_POST['longitud']."', `txtAssociat`='".replaceFromHtml($_POST['txtAssociat'])."', `URLWeb`='".$_POST['URLWeb']."', `email`='".$_POST['email']."' WHERE idAssociat='".$_POST['idAssociat']."'";
+		$mySql="UPDATE $tbl_directori SET `nomAssociat`='".replaceFromHtml($_POST['nomAssociat'])."', `adreca`='".replaceFromHtml($_POST['adreca'])."', `telf1`=".$_POST['telf1'].", `horari`='".replaceFromHtml($_POST['horari'])."', `facebook`='".$_POST['facebook']."', `telf2`=".$_POST['telf2'].", `whatsapp`=".$_POST['whatsapp'].", `latitud`='".$_POST['latitud']."', `longitud`='".$_POST['longitud']."', `txtAssociat`='".replaceFromHtml($_POST['txtAssociat'])."', `URLWeb`='".$_POST['URLWeb']."', `email`='".$_POST['email']."' WHERE idAssociat='".$_POST['idAssociat']."'";
 		$mySql2="DELETE FROM $tbl_categoriaassociat WHERE idAssociat='".$_POST['idAssociat']."' AND principal='S'";
 		$mySql3="DELETE FROM $tbl_categoriaassociat WHERE idAssociat='".$_POST['idAssociat']."' AND idCategoria='".$_POST['idCategoria']."'";
 		$mySql4="INSERT INTO $tbl_categoriaassociat (`idCategoria`, `idAssociat`, `principal`) VALUES ('".$_POST['idCategoria']."','".$_POST['idAssociat']."','S')";
@@ -90,7 +115,7 @@
 		$resultCatPrinc=mysqli_query($connexio,$mySql4); 
 		disconnect($connexio);
 
-		echo dadesComers($tbl_directori,$tbl_categories,$tbl_categoriaassociat, $_POST['idAssociat']);
+		echo dadesComers($tbl_directori,$tbl_categories,$tbl_categoriaassociat,$tbl_galeriaassociats, $_POST['idAssociat']);
 	}
 
 	if(isset($_POST['acc'])&&$_POST['acc']=='l'){
@@ -214,7 +239,15 @@
 			}
 			return json_encode($rows);
 	}
+	if(isset($_POST['acc'])&&$_POST['acc']=='U'){
+		$mySql="UPDATE $tbl_directori SET `actiu`='".$_POST['actiu']."' WHERE idAssociat='".$_POST['idAssociat']."'";
 
+		$connexio=connect();
+		$resultSocis=mysqli_query($connexio,$mySql); 
+		disconnect($connexio);
+
+		echo llistatDirectori($tbl_directori,$tbl_categories,$tbl_categoriaassociat);
+	}
 	if(isset($_POST['acc'])&&$_POST['acc']=='list'){
 		echo llistatDirectori($tbl_directori,$tbl_categories,$tbl_categoriaassociat);
 	}
@@ -223,7 +256,8 @@
 				FROM `$tbl_categoriaassociat` AS ca
 				    LEFT JOIN `$tbl_directori` AS a ON `ca`.`idAssociat` = `a`.`idAssociat`
 				    LEFT JOIN `$tbl_categories` AS c ON `ca`.`idCategoria` = `c`.`idCategoria`
-				WHERE (`ca`.`principal` ='S')";
+				WHERE (`ca`.`principal` ='S') 
+				ORDER BY `a`.`nomAssociat` ASC";
 
 				// echo $mySql;
 		$connexio=connect();

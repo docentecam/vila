@@ -107,7 +107,7 @@
 		}
 
 	function mostrarAssociats($tbl_associats){
-			$mySql="SELECT `idAssociat`, `idAssociat`	FROM $tbl_associats";
+			$mySql="SELECT `idAssociat`, `logoAssociat`	FROM $tbl_associats";
 			$connexio=connect();
 			$resultAssociats=mysqli_query($connexio,$mySql); 
 			disconnect($connexio);

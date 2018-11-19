@@ -5,9 +5,8 @@
 	<div class="col-12 col-md-8 ">
 		<div class="row">
 			<div class="col-lg-12 offset-0  alert alert-danger pt-4 text-dark" role="alert" ng-show="contactaMissatge">{{msg}}</div>
-			<div class="col-lg-12 offset-0  alert alert-danger pt-4 text-dark" role="alert" ng-show="muestraError">{{msg}}</div>
 			<form name="formContacta" ng-submit="enviaEmail()" novalidate ng-hide="contactaMissatge">
-				<div class=" form-row">
+				<div class="form-row">
 					
 					<!-- nommmmmmmmm -->
 					<div class="form-group col-md-4 mb-3" ng-class="{ 'has-error' : formContacta.nomContacte.$invalid && !formContacta.nomContacte.$pristine }">
@@ -76,8 +75,9 @@
 		        	<div class="col-12">
 						<button class="col-4 col-md-2 offset-md-6 my-md-4 mb-4 mt-md-4 mr-md-3 btn btn-info btn-lg btnAfi tipoTexto" type="submit"  ng-disabled="formContacta.$invalid">Envia</button>
 					</div>
-				</div>	
+				</div>
 			</form>
+
 			<input type="button" class="col-md-4 offset-1 my-md-4 mt-md-4 mb-4 btn btn-dark btnAfi tipoTexto" data-toggle="modal" data-target="#modalFitxa" id="fitxaFull" ng-click="modalFitxa" value="Vols fer-te soci">	
 		</div>
 	</div>
@@ -91,10 +91,10 @@
 				<div class="col-12 mt-3">
 					<span><b>Telèfon:</b></span><br>
 						<a class="fab fa-whatsapp fa-2x ml-1 Whatsapp" ng-href="https://api.whatsapp.com/send?phone=34{{contactaLlistat.telf}}"  target="_blank" title="Enviar whatsapp"></a>
-						<a class="tipoTexto ColorNegro" ng-href="tel:{{contactaLlistat.telf}}" target="_blank" title="Trucar per telèfon">
+						<a class="tipoTexto ColorNegre" ng-href="tel:{{contactaLlistat.telf}}" target="_blank" title="Trucar per telèfon">
 					<span>{{contactaLlistat.telf}}</span></a><br>
 					<span><b>Correu electrònic:</b></span><br>
-						<a class="tipoTexto ml-1 ColorNegro" ng-href="mailto:{{contactaLlistat.email}}" target="_blank" title="Enviar correu">{{contactaLlistat.email}}</a><br>
+						<a class="tipoTexto ml-1 ColorNegre" ng-href="mailto:{{contactaLlistat.email}}" target="_blank" title="Enviar correu">{{contactaLlistat.email}}</a><br>
 					<span><b>Horaris per contactar:</b></span><br>
 					<span class="tipoTexto">
 						<div>{{contactaLlistat.horari}}</div>
@@ -103,7 +103,7 @@
 				</div> 
 		</div>
 	</div>
-
+</div>
 
 <div class="modal fade" id="modalFitxa" tabindex="-1" role="dialog" aria-labelledby="modalFitxaCentered" aria-hidden="true">
 	<div class="modal-dialog modal-dialog2 modal-dialog-centered col-12" role="document">
@@ -117,6 +117,7 @@
 								          <span aria-hidden="true">&times;</span>
 								        </button>
 								 	</div>
+								 	<div class="col-lg-12 offset-0  alert alert-danger pt-4 text-dark" role="alert" ng-show="muestraError">{{msg}}</div>
 									<form name="sociVila" id="sociVila" ng-submit="enviaSoci()" novalidate>
 										<div class="form-row">
 										  <div class="form-group col-12 mb-3" ng-class="{ 'has-error' : sociVila.inputnomComercial.$invalid && !sociVila.inputnomComercial.$pristine }">
@@ -155,7 +156,7 @@
 									    </div>
 									    
 								    	<div class="form-row">
-									    	<span class="tipoTexto"><b>Horari preferent per contactar-te</b></span><br>
+									    	<span class="tipoTexto ml-2"><b>Horari preferit per contactar-te</b></span><br>
 									    	<div class="form-group col-12" ng-class="{ 'has-error' : sociVila.horari.$invalid && !sociVila.horari.$pristine }">
 									    	<textarea name="horari" class=" form-control" type="text" ng-model="contactaSoci.horari" required></textarea>
 											<!-- <p ng-show="sociVila.horari.$error.maxlength" class="help-block text-danger">El nom és massa llarg{{forNomLlarg}}</p> -->
@@ -177,10 +178,10 @@
 							</div>
 						</div><br>
 						<div ng-hide="fitxaSuccess">
-							<span class="my-2 mb-4">Benvingut</span><br>
-							<span class="">Ara ets un més de la {{contactaLlistat.nom}}!</span><br>
+							<span class="my-2 mb-4">Benvingut/a</span><br>
+							<span class="colorRosa">Ara ets un més de la {{contactaLlistat.nom}}!</span><br>
 							<span>Les teves dades s'han registrat correctament i en breus rebràs un correu electrònic de benvinguda. </span><br>
-							<button ng-click="reload()" class="btn btn-info">D'acord</button>
+							<button ng-click="recarga()" class="btn btn-info">D'acord</button>
 						</div>
 				</div>
 			</div>
