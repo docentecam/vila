@@ -1380,6 +1380,7 @@ angular.module('vila')
 		else{
 			$scope.accion="Afegir";
 			$scope.cat.nomCategoria="";
+			$scope.cat.pictograma="";
 		}
 	}
 	$scope.cancel=function(listSocis){

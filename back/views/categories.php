@@ -49,7 +49,7 @@
 				<th>Accions</th>
 			</tr>
 			<tr ng-repeat="categoria in categories">
-				<td class="tdImgCat"><div class="row"><img class="col-12 img-fluid imgPictogramaCateg" ng-src="{{categoria.pictograma!='' ? '../img/pictogramas/'+categoria.pictograma : '../img/noimage.png'}}" alt=""></div></td>
+				<td class="tdImgCat"><div class="row text-center"><img class="col-10 col-md-6 col-lg-4 offset-1 offset-md-3 offset-lg-4 img-fluid imgPictogramaCateg" ng-src="{{categoria.pictograma!='' ? '../img/pictogramas/'+categoria.pictograma : '../img/noimage.png'}}" alt=""></div></td>
 				<td>{{categoria.nomCategoria}}</td>
 				<td><i class="far fa-edit text-dark iconSize my-2" ng-click="muestraFormCat($index)"></i><i ng-show="categoria[3]==0" class="fas fa-times text-danger iconSize ml-3 my-2" ng-click="elimina(categoria.idCategoria)"></i></td>
 			</tr>

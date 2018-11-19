@@ -83,7 +83,7 @@ a:hover {
 .buttonAgreg{
 	font-size: 1.5em;
 }
-.imgCssLogoDir{
+.imgCssLogoDir, .imgPictogramaCateg{
 	height: 150px;
 }
 .preloader {
@@ -224,10 +224,6 @@ a:hover {
 	background-color: #FFFFFF;
 	border: none;
 	color: blue; 
-}
-.imgPictogramaCateg{
-	height: 150px;
-	width: 150px;
 }
 @media (max-width: 575px){
 	.iconSize{

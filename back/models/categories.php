@@ -26,7 +26,7 @@
 		//  	$resultCateg=mysqli_query($connexio,$mySql); 
 		// disconnect($connexio);
 		// if (isset($_FILES['fotoNew']) && $_FILES['fotoNew']!="") {
-			$fileEx =explode('.',$_FILES["fotoNew"]["name"]);
+			$fileEx =explode('.',$_FILES["logoUpdate"]["name"]);
 			$file =  date("dmYhisv").'.'.$fileEx[count($fileEx)-1];
 			$mySql2="UPDATE $tbl_categories
 					SET `pictograma`='".$file."'
@@ -34,7 +34,7 @@
 				//$connexio=connect();
 			// $resultCateg=mysqli_query($connexio,$mySql2);
 			// disconnect($connexio);
-			move_uploaded_file($_FILES["fotoNew"]["tmp_name"],"../../img/pictogramas/".$file);
+			move_uploaded_file($_FILES["logoUpdate"]["tmp_name"],"../../img/pictogramas/".$file);
 			//unlink('../../img/pictogramas/'.$_POST['pictogramaOld']);
 			
 		// }
