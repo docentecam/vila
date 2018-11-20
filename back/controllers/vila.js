@@ -299,7 +299,7 @@ angular.module('vila')
 	})
 	.then(function(res){
 		deferred.resolve(res);
-		console.log(res.data.catPrinc[0].idCategoria);
+		console.log(res.data);
 		$scope.com.categoriaPrinc="-1";
 		$scope.com.categoriaNotPrinc="-1";
 		$scope.comerc=res.data.comerc[0];

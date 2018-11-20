@@ -8,14 +8,14 @@
 	}
  ?> 
  <div ng-show="llistatComer" >
-	<div id="divTop" class="row text-center mt-4 mb-3 titleSocis" ng-if="(socis | filter:{'actiu':'S'}).length!=0">
+	<div id="divTop" class="row text-center mt-4 mb-3 titleSocis" ng-if="(socis | filter:{'activo':'S'}).length!=0">
 		<h1 class="col">Llistat d'Associats actius</h1>
 	</div>
 	<div class="row">
 		<a class=" fas fa-plus-square iconSize mb-3 col-12 col-lg-9 offset-lg-1" title="Afegir nou comerç" ng-href="#/newComerc"></a>
 	</div>
 	<div class="row table-responsive divTable">
-		<table border="1" class="divTable col-12 col-lg-10 offset-lg-1 text-center tablaSocis" ng-if="(directoris | filter:{'actiu':'S'}).length!=0">
+		<table border="1" class="divTable col-12 col-lg-10 offset-lg-1 text-center tablaSocis" ng-if="(directoris | filter:{'activo':'S'}).length!=0">
 			<tr>
 				<th class="cursor" ng-click="columnOrder('nomAssociat')">Nom del Comerç</th>
 				<th class="cursor" ng-click="columnOrder('nomCategoria')">Categoria Principal</th>
@@ -28,26 +28,26 @@
 				<th>Pàgina Web</th>
 				<th>Accions</th>
 			</tr>
-			<tr ng-repeat="directori in directoris | orderBy:order | filter:{'actiu':'S'}">
+			<tr ng-repeat="directori in directoris | orderBy:order | filter:{'activo':'S'}">
 				
 				<td>{{directori.nomAssociat}}</td>
 				<td>{{directori.nomCategoria}}</td>
 				<td>{{directori.adreca}}</td>
-				<td>{{directori.telf1}}<span ng-if="directori.telf1==''">---</span></td>
-				<td>{{directori.telf2}}<span ng-show="directori.telf2==''">---</span></td>
-				<td>{{directori.whatsapp}}<span ng-show="directori.whatsapp==''">---</span><a ng-href="https://api.whatsapp.com/send?phone=34{{directori.whatsapp}}" class="fab fa-whatsapp ml-2 iconSize whats rounded" target="_blank" title="Enviar whatsapp" ng-show="directori.whatsapp!=''"></a></td>
-				<td><span ng-show="directori.email==''">---</span><a class="emailTableCss" ng-href="mailto:{{soci.mail}}" target="_blank" title="Enviar correu">{{directori.email}}</a></td>
+				<td>{{directori.telf1}}<span ng-if="directori.telf1=='' || directori.telf1==null">---</span></td>
+				<td>{{directori.telf2}}<span ng-show="directori.telf2=='' || directori.telf2==null">---</span></td>
+				<td>{{directori.whatsapp}}<span ng-show="directori.whatsapp=='' || directori.whatsapp==null">---</span><a ng-href="https://api.whatsapp.com/send?phone=34{{directori.whatsapp}}" class="fab fa-whatsapp ml-2 iconSize whats rounded" target="_blank" title="Enviar whatsapp" ng-show="directori.whatsapp!=''"></a></td>
+				<td><span ng-show="directori.email=='' || directori.email==null">---</span><a class="emailTableCss" ng-href="mailto:{{soci.mail}}" target="_blank" title="Enviar correu">{{directori.email}}</a></td>
 				<td>{{directori.horari}}</td>
 				<td>{{directori.URLWeb}}</td>
 				<td><a class="far fa-edit text-dark iconSize" ng-href="#/directori/{{directori.idAssociat}}" title="Editar les dades del comerç"></a><i class="fas fa-power-off fontAweX mx-2 mx-md-4 iconSize" ng-click="offOn(directori.idAssociat,'N')" title="Donar de baixa"></i>  </td>
 			</tr>
 		</table>	
 	</div>
-	<div class="row text-center mt-5 mb-3 titleSocis" ng-if="(directoris | filter:{'actiu':'N'}).length!=0">
+	<div class="row text-center mt-5 mb-3 titleSocis" ng-if="(directoris | filter:{'activo':'N'}).length!=0">
 		<h1 class="col">Llistat d'Associats inactius</h1>
 	</div>
 	<div class="row table-responsive divTable">
-		<table border="1" class="divTable col-12 col-lg-10 offset-lg-1 text-center tablaSocis" ng-if="(directoris | filter:{'actiu':'N'}).length!=0">
+		<table border="1" class="divTable col-12 col-lg-10 offset-lg-1 text-center tablaSocis" ng-if="(directoris | filter:{'activo':'N'}).length!=0">
 			<tr>
 				<th class="cursor" ng-click="columnOrder('nomAssociat')">Nom del Comerç</th>
 				<th>Telèfon 1</th>
@@ -56,7 +56,7 @@
 				<th class="cursor" ng-click="columnOrder('email')">Correu electrònic</th>
 				<th>Accions</th>
 			</tr>
-			<tr ng-repeat="directori in directoris | orderBy:order | filter:{'actiu':'N'}">
+			<tr ng-repeat="directori in directoris | orderBy:order | filter:{'activo':'N'}">
 				
 				<td>{{directori.nomAssociat}}</td>
 				<td>{{directori.telf1}}</td>
