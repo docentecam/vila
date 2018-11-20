@@ -8,14 +8,14 @@
 	}
  ?> 
  <div ng-show="llistatComer" >
-	<div id="divTop" class="row text-center mt-4 mb-3 titleSocis" ng-if="(socis | filter:{'actiu':'S'}).length!=0">
-		<h1 class="col">Llistat d'Associats actius</h1>
+	<div id="divTop" class="row text-center mt-4 mb-3 titleSocis" ng-if="(socis | filter:{'activo':'S'}).length!=0">
+		<h1 class="col">Llistat d'Associats activos</h1>
 	</div>
 	<div class="row">
 		<a class=" fas fa-plus-square iconSize mb-3 col-12 col-lg-9 offset-lg-1" title="Afegir nou comerç" ng-href="#/newComerc"></a>
 	</div>
 	<div class="row table-responsive divTable">
-		<table border="1" class="divTable col-12 col-lg-10 offset-lg-1 text-center tablaSocis" ng-if="(directoris | filter:{'actiu':'S'}).length!=0">
+		<table border="1" class="divTable col-12 col-lg-10 offset-lg-1 text-center tablaSocis" ng-if="(directoris | filter:{'activo':'S'}).length!=0">
 			<tr>
 				<th class="cursor" ng-click="columnOrder('nomAssociat')">Nom del Comerç</th>
 				<th class="cursor" ng-click="columnOrder('nomCategoria')">Categoria Principal</th>
@@ -28,7 +28,7 @@
 				<th>Pàgina Web</th>
 				<th>Accions</th>
 			</tr>
-			<tr ng-repeat="directori in directoris | orderBy:order | filter:{'actiu':'S'}">
+			<tr ng-repeat="directori in directoris | orderBy:order | filter:{'activo':'S'}">
 				
 				<td>{{directori.nomAssociat}}</td>
 				<td>{{directori.nomCategoria}}</td>
@@ -43,11 +43,11 @@
 			</tr>
 		</table>	
 	</div>
-	<div class="row text-center mt-5 mb-3 titleSocis" ng-if="(directoris | filter:{'actiu':'N'}).length!=0">
-		<h1 class="col">Llistat d'Associats inactius</h1>
+	<div class="row text-center mt-5 mb-3 titleSocis" ng-if="(directoris | filter:{'activo':'N'}).length!=0">
+		<h1 class="col">Llistat d'Associats inactivos</h1>
 	</div>
 	<div class="row table-responsive divTable">
-		<table border="1" class="divTable col-12 col-lg-10 offset-lg-1 text-center tablaSocis" ng-if="(directoris | filter:{'actiu':'N'}).length!=0">
+		<table border="1" class="divTable col-12 col-lg-10 offset-lg-1 text-center tablaSocis" ng-if="(directoris | filter:{'activo':'N'}).length!=0">
 			<tr>
 				<th class="cursor" ng-click="columnOrder('nomAssociat')">Nom del Comerç</th>
 				<th>Telèfon 1</th>
@@ -56,7 +56,7 @@
 				<th class="cursor" ng-click="columnOrder('email')">Correu electrònic</th>
 				<th>Accions</th>
 			</tr>
-			<tr ng-repeat="directori in directoris | orderBy:order | filter:{'actiu':'N'}">
+			<tr ng-repeat="directori in directoris | orderBy:order | filter:{'activo':'N'}">
 				
 				<td>{{directori.nomAssociat}}</td>
 				<td>{{directori.telf1}}</td>
