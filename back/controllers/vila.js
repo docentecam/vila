@@ -3,25 +3,25 @@ angular.module('vila')
 })
 .controller('AssociCtrl',function($scope,$http,$q,$rootScope,$timeout){
 	var data = new FormData();
-		data.append("acc","favi");
+		data.append("acc", "l");
 	var deferred=$q.defer();
-	$rootScope.cargador=true;
-
+	
 	$http.post("models/associacio.php", data,{
-		headers:{
-			"Content-type":undefined
-		},
-		transformRequest:angular.identity
-	})
-	.then(function(res){
-		deferred.resolve(res);
-		$rootScope.cargador=false;
-		$timeout(function() {
+	headers:{
+		"Content-type":undefined
+	},
+	transformRequest:angular.identity
 
-		}, 2000);
 	})
-	.catch(function(error) {
+	.then(function(resIcon){
+		deferred.resolve(resIcon);
+		$rootScope.favIcon=resIcon.data[0].favIcon;
+		$rootScope.logo=resIcon.data[0].logoBolsa;
 		$rootScope.cargador=false;
+	})
+	.catch(function(error){
+		$rootScope.cargador=false;
+
 	});
 	$scope.accion="";
 	$scope.ass={};
@@ -177,6 +177,27 @@ angular.module('vila')
  	}
 })	
 .controller('DirectCtrl',function($scope,$http,$q,$rootScope,$routeParams,$timeout,$window, $document){
+	var data = new FormData();
+		data.append("acc", "l");
+	var deferred=$q.defer();
+	
+	$http.post("models/associacio.php", data,{
+	headers:{
+		"Content-type":undefined
+	},
+	transformRequest:angular.identity
+
+	})
+	.then(function(resIcon){
+		deferred.resolve(resIcon);
+		$rootScope.favIcon=resIcon.data[0].favIcon;
+		$rootScope.logo=resIcon.data[0].logoBolsa;
+		$rootScope.cargador=false;
+	})
+	.catch(function(error){
+		$rootScope.cargador=false;
+
+	});
 	$scope.llistatComer=true;
 	$scope.afegirComerc=true;
 	$scope.dadesComerc=true;
@@ -195,6 +216,7 @@ angular.module('vila')
 		deferred.resolve(res);
 		$scope.directoris=res.data;
 		$rootScope.cargador=false;
+		console.log(res.data);
 	})
 	.catch(function(error) {
 		$rootScope.cargador=false;
@@ -218,7 +240,7 @@ angular.module('vila')
 	$scope.offOn=function (directori, active) {
 		var data = new FormData();
 			data.append("idAssociat",directori);
-			data.append("actiu",active);
+			data.append("activo",active);
 			data.append("acc","U");	
 		var deferred=$q.defer();
 		$rootScope.cargador=true;
@@ -239,6 +261,27 @@ angular.module('vila')
 	}
 })
 .controller('DirectComerCtrl',function($scope,$http,$q,$rootScope,$routeParams,$timeout,$window, $document){
+	var data = new FormData();
+		data.append("acc", "l");
+	var deferred=$q.defer();
+	
+	$http.post("models/associacio.php", data,{
+	headers:{
+		"Content-type":undefined
+	},
+	transformRequest:angular.identity
+
+	})
+	.then(function(resIcon){
+		deferred.resolve(resIcon);
+		$rootScope.favIcon=resIcon.data[0].favIcon;
+		$rootScope.logo=resIcon.data[0].logoBolsa;
+		$rootScope.cargador=false;
+	})
+	.catch(function(error){
+		$rootScope.cargador=false;
+
+	});
 	$scope.llistatComer=false;
 	$scope.afegirComerc=true;
 	$scope.dadesComerc=false;
@@ -256,7 +299,7 @@ angular.module('vila')
 	})
 	.then(function(res){
 		deferred.resolve(res);
-		console.log(res.data.catPrinc[0].idCategoria);
+		console.log(res.data);
 		$scope.com.categoriaPrinc="-1";
 		$scope.com.categoriaNotPrinc="-1";
 		$scope.comerc=res.data.comerc[0];
@@ -508,6 +551,28 @@ angular.module('vila')
 	}
 })
 .controller('NewComercCtrl',function($scope,$http,$q,$rootScope,$routeParams,$timeout,$window, $document){
+	var data = new FormData();
+		data.append("acc", "l");
+	var deferred=$q.defer();
+	
+	$http.post("models/associacio.php", data,{
+	headers:{
+		"Content-type":undefined
+	},
+	transformRequest:angular.identity
+
+	})
+	.then(function(resIcon){
+		deferred.resolve(resIcon);
+		$rootScope.favIcon=resIcon.data[0].favIcon;
+		$rootScope.logo=resIcon.data[0].logoBolsa;
+		$rootScope.cargador=false;
+	})
+	.catch(function(error){
+		$rootScope.cargador=false;
+
+	});
+
 	$scope.afegirComerc=false;
 	$scope.llistatComer=false;
 	$scope.dadesComerc=true;
@@ -598,7 +663,7 @@ angular.module('vila')
 })
 .controller('ContactCtrl',function($scope,$http,$q,$rootScope,$timeout,$window){
 	var data = new FormData();
-		data.append("acc", "favi");
+		data.append("acc", "l");
 	var deferred=$q.defer();
 	
 	$http.post("models/associacio.php", data,{
@@ -611,7 +676,7 @@ angular.module('vila')
 	.then(function(resIcon){
 		deferred.resolve(resIcon);
 		$rootScope.favIcon=resIcon.data[0].favIcon;
-		$rootScope.logo=resIcon.data[0].logo;
+		$rootScope.logo=resIcon.data[0].logoBolsa;
 		$rootScope.cargador=false;
 	})
 	.catch(function(error){
@@ -657,7 +722,7 @@ angular.module('vila')
 .controller('SociCtrl',function($scope,$http,$q,$rootScope,$timeout,$window){
 
 	var data = new FormData();
-		data.append("acc", "favi");
+		data.append("acc", "l");
 	var deferred=$q.defer();
 	$http.post("models/associacio.php", data,{
 	headers:{
@@ -669,31 +734,13 @@ angular.module('vila')
 	.then(function(resIcon){
 		deferred.resolve(resIcon);
 		$rootScope.favIcon=resIcon.data[0].favIcon;
-		$rootScope.logo=resIcon.data[0].logo;
+		$rootScope.logo=resIcon.data[0].logoBolsa;
 		$rootScope.cargador=false;
 	})
 	.catch(function(error){
 		$rootScope.cargador=false;
 	});
 
-
-	// $http.post("models/associacio.php", data,{
-	// headers:{
-	// 	"Content-type":undefined
-	// },
-	// transformRequest:angular.identity
-
-	// })
-	// .then(function(resIcon){
-	// 	deferred.resolve(resIcon);
-	// 	$rootScope.favIcon=resIcon.data[0].favIcon;
-	// 	$rootScope.logo=resIcon.data[0].logo;
-	// 	$rootScope.cargador=false;
-	// })
-	// .catch(function(error){
-	// 	$rootScope.cargador=false;
-
-	// });
 
 	var data = new FormData();
 		data.append("acc","l");
@@ -735,7 +782,7 @@ angular.module('vila')
 })
 .controller('FiramarCtrl',function($scope, $http, $q, $timeout, $rootScope) {
 	var data = new FormData();
-		data.append("acc", "favi");
+		data.append("acc", "l");
 	var deferred=$q.defer();
 	
 	$http.post("models/associacio.php", data,{
@@ -748,7 +795,7 @@ angular.module('vila')
 	.then(function(resIcon){
 		deferred.resolve(resIcon);
 		$rootScope.favIcon=resIcon.data[0].favIcon;
-		$rootScope.logo=resIcon.data[0].logo;
+		$rootScope.logo=resIcon.data[0].logoBolsa;
 		$rootScope.cargador=false;
 	})
 	.catch(function(error){
@@ -880,7 +927,7 @@ angular.module('vila')
 })
 .controller('ServeisCtrl',function($scope, $http, $q, $timeout, $rootScope) {
 	var data = new FormData();
-		data.append("acc", "favi");
+		data.append("acc", "l");
 	var deferred=$q.defer();
 	
 	$http.post("models/associacio.php", data,{
@@ -893,7 +940,7 @@ angular.module('vila')
 	.then(function(resIcon){
 		deferred.resolve(resIcon);
 		$rootScope.favIcon=resIcon.data[0].favIcon;
-		$rootScope.logo=resIcon.data[0].logo;
+		$rootScope.logo=resIcon.data[0].logoBolsa;
 		$rootScope.cargador=false;
 	})
 	.catch(function(error){
@@ -1115,11 +1162,11 @@ angular.module('vila')
 })
 .controller('NoticiesCtrl',function($scope,$http,$q,$rootScope,$timeout,$window){
 	var data = new FormData();
-		data.append("acc", "favi");
+		data.append("acc", "l");
 	var deferred=$q.defer();
 	
 	$rootScope.cargador=true;
-	$http.post("models/home.php", data,{
+	$http.post("models/associacio.php", data,{
 	headers:{
 		"Content-type":undefined
 	},
@@ -1129,7 +1176,7 @@ angular.module('vila')
 	.then(function(resIcon){
 		deferred.resolve(resIcon);
 		$rootScope.favIcon=resIcon.data[0].favIcon;
-		$rootScope.logo=resIcon.data[0].logo;
+		$rootScope.logo=resIcon.data[0].logoBolsa;
 		$rootScope.cargador=false;
 	})
 	.catch(function(error){
@@ -1316,27 +1363,27 @@ angular.module('vila')
 	}		
 })
 .controller('CategCtrl',function($scope,$http,$q,$rootScope,$timeout,$window){
-	// var data = new FormData();
-	// 	data.append("acc", "favi");
-	// var deferred=$q.defer();
+	var data = new FormData();
+		data.append("acc", "l");
+	var deferred=$q.defer();
 	
-	// $http.post("models/associacio.php", data,{
-	// headers:{
-	// 	"Content-type":undefined
-	// },
-	// transformRequest:angular.identity
+	$http.post("models/associacio.php", data,{
+	headers:{
+		"Content-type":undefined
+	},
+	transformRequest:angular.identity
 
-	// })
-	// .then(function(resIcon){
-	// 	deferred.resolve(resIcon);
-	// 	$rootScope.favIcon=resIcon.data[0].favIcon;
-	// 	$rootScope.logo=resIcon.data[0].logo;
-	// 	$rootScope.cargador=false;
-	// })
-	// .catch(function(error){
-	// 	$rootScope.cargador=false;
+	})
+	.then(function(resIcon){
+		deferred.resolve(resIcon);
+		$rootScope.favIcon=resIcon.data[0].favIcon;
+		$rootScope.logo=resIcon.data[0].logoBolsa;
+		$rootScope.cargador=false;
+	})
+	.catch(function(error){
+		$rootScope.cargador=false;
 
-	// });
+	});
 
 	$scope.dadesCateg=true;
 	$scope.cat={};
@@ -1464,7 +1511,132 @@ angular.module('vila')
 		}
 	}
 })
+.controller('CarCtrl',function($scope,$http,$q,$rootScope,$timeout,$window){
 
+	var data = new FormData();
+		data.append("acc", "l");
+	var deferred=$q.defer();
+	$http.post("models/associacio.php", data,{
+	headers:{
+		"Content-type":undefined
+	},
+	transformRequest:angular.identity
+
+	})
+	.then(function(resIcon){
+		deferred.resolve(resIcon);
+		$rootScope.favIcon=resIcon.data[0].favIcon;
+		$rootScope.logo=resIcon.data[0].logoBolsa;
+		$rootScope.cargador=false;
+	})
+	.catch(function(error){
+		$rootScope.cargador=false;
+	});
+
+	$scope.car={};
+	var data = new FormData();
+		data.append("acc","c");
+    var deferred=$q.defer();
+
+	$http.post("models/carousel.php", data,{
+
+		headers:{
+			"Content-type":undefined
+		},
+		transformRequest:angular.identity
+	})
+	.then(function(res){
+		deferred.resolve(res);
+		$scope.imatgesCar=res.data;
+		$rootScope.cargador=false;
+		console.log(res.data);
+	})
+	.catch(function(error) {
+		$rootScope.cargador=false;
+	});
+
+	window.onscroll = function() {scrollFunction()};
+
+	function scrollFunction() {
+	    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+	        document.getElementById("goTop").style.display = "block";
+	    } else {
+	        document.getElementById("goTop").style.display = "none";
+	    }
+	}
+ 	$scope.goTop=function(){
+ 		var element = document.getElementById("divTop");
+	    element.scrollIntoView({block: "end", behavior: "smooth"});
+ 	}
+	$scope.columnOrder=function(columna){
+		$scope.order=columna;
+	}
+	$scope.uploadGaleria=function(e){
+			$scope.filesImages = [];
+			$scope.$apply(function () {
+			// Guardamos los ficheros en un array.
+				for (var i = 0; i < e.files.length; i++) {
+				    $scope.filesImages.push(e.files[i]);
+					$scope.message=e.files[i]['name'];
+					console.log($scope.filesImages.length+$scope.message);
+				}
+            });  
+            var data = new FormData();
+
+            data.append("acc", "uploadImg");
+            data.append("idCarousel",$scope.car.idCarousel);
+			for (var i in $scope.filesImages) {
+			        data.append("uploadedFile"+i, $scope.filesImages[i]);
+			        console.log("uploadedFile"+i, $scope.filesImages[i]);
+			}
+
+			data.append("cantImatge", i);
+			 var deferred=$q.defer();
+			 $http.post("models/carousel.php", data,{
+				headers:{
+					"Content-type":undefined
+				},
+					transformRequest:angular.identity
+				})
+				.then(function(res)
+				{
+					deferred.resolve(res);
+					$scope.imatgesCar=res.data;
+					console.log(res.data);
+				})
+				.catch(function(error) {
+					$rootScope.cargador=false;
+				});
+	}
+	$scope.deleteImg=function(idCarousel){
+		var segur=confirm("Segur que vols eliminar aquesta imatge?");
+		if (segur) {
+			var data = new FormData();
+			data.append("idCarousel",idCarousel);
+			data.append("acc","delImg");
+			var deferred=$q.defer();
+			$rootScope.cargador=true;
+				$http.post("models/carousel.php", data,{
+					headers:{
+						"Content-type":undefined
+					},
+						transformRequest:angular.identity
+				})
+				.then(function(res){
+					deferred.resolve(res);
+					$scope.imatgesCar=res.data;
+					$rootScope.cargador=false;
+					$timeout(function() {
+						$scope.divMsj=false;
+					}, 2000);
+				})
+				.catch(function(error) {
+					$rootScope.cargador=false;
+				});
+		}
+	}
+
+})
 .controller('LogoutCtrl',function($scope,$http){
 	$http({
 		method:"GET",

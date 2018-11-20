@@ -10,7 +10,7 @@
 			$dades= '{"dadesAssociats": ';
 			$dades.= mostrarAssociats($tbl_associats);
 			$dades.= ',"dadesCategoriaassociat":';	
-			$dades.= mostrarCategoriaassociat($tbl_categoriaassociat);
+			$dades.= mostrarCategoriaassociat($tbl_categoriaassociat,$tbl_categories,$tbl_associats);
 			$dades.= ',"dadesGaleriaassociats":';	
 			$dades.= mostrarGaleriaassociats($tbl_galeriaassociats);
 			$dades.= ',"dadesCategories":';	
@@ -64,8 +64,11 @@
 			return json_encode($rows);
 		}
 		
-	function mostrarCategoriaassociat($tbl_categoriaassociat){
-			$mySql="SELECT `idCategoria`,`idAssociat`,`principal`	FROM $tbl_categoriaassociat";
+	function mostrarCategoriaassociat($tbl_categoriaassociat,$tbl_categories,$tbl_associats){
+			$mySql="SELECT ca.`idCategoria`,ca.`idAssociat`,ca.`principal`, c.`nomCategoria`
+					FROM $tbl_categories AS c
+					LEFT JOIN `$tbl_categoriaassociat` AS ca 
+					ON `ca`.`idCategoria` = `c`.`idCategoria` ";
 			$connexio=connect();
 			$resultCategoriaassociat=mysqli_query($connexio,$mySql); 
 			disconnect($connexio);

@@ -23,7 +23,7 @@
 			  		<div class="input-group ">
 			  			<div class="input-group-append">
 			  				<input class="form-control border-right-0" id="txtPass" name="txtPass" type="password" size="40" required ng-model="usuari.contra" placeholder="Contrasenya" ng-keyup="$event.keyCode == 13 ? login() : null">
-				           <span class="input-group-text mr-4" id="inputGroupPrepend" ng-click="changePass()"><i class="far fa-eye cursor"></i></span>
+				           <span class="input-group-text mr-4" id="inputGroupPrepend" ng-click="changePass()"><i class="far fa-eye cursor" ng-hide="hidePass" title="Ocultar contrasenya"></i><i class="far fa-eye-slash cursor" ng-show="hidePass" title="Mostrar contrasenya"></i></span>
 				  		</div>	
 				    </div>
 			  		<small><label class="cursor mt-3" data-toggle="modal" data-target="#exampleModal">Recuperar contrasenya</label></small><br><br>
