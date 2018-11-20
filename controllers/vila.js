@@ -220,6 +220,7 @@ angular.module('vila')
 		$scope.sponsors=res.data.dadesSponsors;
 		$scope.participants=res.data.dadesParticipants;
 		$scope.dadesTotesEdicions=res.data.dadesTotesEdicions;
+			console.log(res.data.dadesParticipants);
 	})
 	.catch(function(error) {
 		$rootScope.cargador=false;

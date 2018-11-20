@@ -127,6 +127,17 @@ ul, li{
     z-index: 1;
     background-color: rgba(95, 95, 95, 0.7);
 }
+
+/*.carousel-control-next-icon {
+    background-image: url(data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' f…3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E);
+}*/
+.carousel-control-next-icon, .carousel-control-prev-icon {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background: #cb418e no-repeat center center;
+    background-size: 100% 100%;
+}
 .carouAsoc{
   display: inline-block;
   margin-left:-4px;

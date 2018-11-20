@@ -1,3 +1,63 @@
+
+<div class="row">
+	<div class="col-12 tipoSubTitulo mt-4">
+		Participants
+	</div>
+	<div class="d-none d-md-inline">
+		<div id="carouselNoMovil" class="carousel slide" data-ride="carousel">
+	<!-- 	<ol class="carousel-indicators">
+			<li data-target="#carouselNoMovil" data-slide-to="0" class="active"></li>
+			<li data-target="#carouselNoMovil" data-slide-to="1"></li>
+			<li data-target="#carouselNoMovil" data-slide-to="2"></li>
+		</ol> -->
+		<div class="carousel-inner carousel-innerPrincipal">
+			<div class="carousel-item" ng-repeat="participant in participants" ng-class="{'active': $index==0}">
+				<img class=" img-fluid col-3" ng-src="{{participant.logoParticipant!=''?'img/participants/'+participant.logoParticipant:'img/noimage.png'}}" alt="Participant {{$index}}">
+				<img class=" img-fluid col-3" ng-src="{{participant.logoParticipant!=''?'img/participants/'+participant.logoParticipant:'img/noimage.png'}}" alt="Participant {{$index}}">
+				<img class=" img-fluid col-3" ng-src="{{participant.logoParticipant!=''?'img/participants/'+participant.logoParticipant:'img/noimage.png'}}" alt="Participant {{$index}}">
+				<img class=" img-fluid col-3" ng-src="{{participant.logoParticipant!=''?'img/participants/'+participant.logoParticipant:'img/noimage.png'}}" alt="Participant {{$index}}">
+		    </div>
+			</div>
+		
+
+		<a class="carousel-control-prev" role="button" data-target="#carouselNoMovil" data-slide="prev">
+			<span class="carousel-control-prev-icon" aria-hidden="true" ></span>
+			<span class="sr-only">Anterior</span>
+		</a>
+		<a class="carousel-control-next" role="button" data-target="#carouselNoMovil" data-slide="next">
+	    	<span class="carousel-control-next-icon" aria-hidden="true"></span>
+	 		<span class="sr-only">Següent</span>
+		</a>
+		</div>
+	</div>
+</div>
+
+	<div class="d-md-none">
+		<div id="carouselMovil" class="carousel slide" data-ride="carousel">
+	<!-- 	<ol class="carousel-indicators">
+			<li data-target="#carouselMovil" data-slide-to="0" class="active"></li>
+			<li data-target="#carouselMovil" data-slide-to="1"></li>
+			<li data-target="#carouselMovil" data-slide-to="2"></li>
+		</ol> -->
+		<div class="carousel-inner carousel">
+			<div class="carousel-item" ng-repeat="participant in participants" ng-class="{'active': $index==0}">
+				<img class=" img-fluid col-12" ng-src="{{participant.logoParticipant!=''?'img/participants/'+participant.logoParticipant:'img/noimage.png'}}" alt="Participant {{$index}}">
+		    </div>
+			</div>
+		</div>
+
+		<a class="carousel-control-prev" role="button" data-target="#carouselMovil" data-slide="prev">
+			<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+			<span class="sr-only">Anterior</span>
+		</a>
+		<a class="carousel-control-next" role="button" data-target="#carouselMovil" data-slide="next">
+	    	<span class="carousel-control-next-icon" aria-hidden="true"></span>
+	 		<span class="sr-only">Següent</span>
+		</a>
+	</div>
+	
+</div>
+
 <div class="row">
 	<div class="col-12 tipoTitulo text-center">
 		<span>{{firamar.titolFiramar}}</span> 
@@ -16,18 +76,17 @@
 	</div>
 <!-- 	<div class="container-fluid"> -->
 	<div class="row">
-		<div ng-repeat="firamar in activitatsfiramar" class="col-md-12">
+		<div ng-repeat="firamar in activitatsfiramar" class="col-12 mt-2">
 			<div class="row">
-					<div>
-						<i class="far fa-clock colorRosa"></i>
-					</div>
-				 	<div class="col-10 colorRosa">{{firamar.horaInici |limitTo:5}}
-				    	<div class="col-10 no-padding colorRosa">{{firamar.horaFi |limitTo:5}}</div>
-					</div><br>
-				    <div class="col-12 tipoTexto"><b>{{firamar.titolActivitat | uppercase}}</b>
-				    	<div class="col-12 tipoTexto">{{firamar.txtActivitat}}</div><br>
-					</div>
-					<div class="h_divider_w col-8 offset-2"></div>
+				
+			 	<div class="colorRosa"><i class="far fa-clock colorRosa no-padding pr-1"></i>{{firamar.horaInici |limitTo:5}}h -</div>
+			 	<div class="colorRosa no-padding">{{firamar.horaFi |limitTo:5}}h</div> 
+			 		
+				<div class="col-12">
+					<h6 class="col-12 col-10 offset-lg-2 text-center mt-2 far fa-calendar colorRosa">&nbsp;&nbsp;{{firamar.titolActivitat | uppercase}}</h6> 
+					<p class="col-12 col-10 offset-lg-2 tipoTexto ">{{firamar.txtActivitat}}</p><br>
+				</div>
+				<div class="h_divider_w col-8 offset-2"></div>
 			</div>
 		</div>
 	</div>
@@ -62,42 +121,6 @@
 </div>
 
 
-<div class="row">
-	<div class="col-12 tipoSubTitulo mt-4">
-		Participants
-	</div>
-	<div id="carouselAsso" class="carousel slide" data-ride="carousel">
-
-		<ul class="carousel-indicators">
-			<li data-target="#carouselAsso" data-slide-to="0" class="active"></li>
-			<li data-target="#carouselAsso" data-slide-to="1"></li>
-			<li data-target="#carouselAsso" data-slide-to="2"></li>
-		</ul>
-	  
-		<div class="container carousel-inner no-padding carousel-innerAsso">
-
-			<div class="carousel-item active">
-				<div class="col-xs-3 col-sm-3 col-md-3 carouAsoc card" ng-repeat="participant in participants">
-					<img class="card-img-top img-fluid d-none d-md-inline" ng-src="{{participant.logoParticipant!=''?'img/participants/'+participant.logoParticipant:'img/noimage.png'}}">
-				</div>
-			</div>
-
-			<div class="carousel-item">
-				<div class="col-xs-3 col-sm-3 col-md-3 carouAsoc card" ng-repeat="participant in participants">
-					<img class="card-img-top img-fluid d-none d-md-inline" 
-					ng-src="{{participant.logoParticipant!=''?'img/participants/'+participant.logoParticipant:'img/noimage.png'}}">
-				</div>
-			</div>
-		</div>
-
-		<a class="carousel-control-prev" data-target="#carouselAsso" data-slide="prev">
-			<span class="carousel-control-prev-icon"></span>
-		</a>
-		<a class="carousel-control-next" data-target="#carouselAsso" data-slide="next">
-			<span class="carousel-control-next-icon"></span>
-		</a>
-	</div>
-</div>
 
 <div class="col-4 tipoSubTitulo mt-4">
 	Sponsors
@@ -135,7 +158,7 @@
 		Edicions anteriors
 	</div>
 	<div class="col-12">
-		<div ng-repeat="dadesTotesEdicion in dadesTotesEdicions" class="col-3 tipoTexto colorRosa">
+		<div ng-repeat="dadesTotesEdicion in dadesTotesEdicions" class="col-12 colorRosa">
 			<a class="cursor" ng-href="" ng-click="llistatEdicioFirmar(dadesTotesEdicion.dataFiramar)"><b>{{dadesTotesEdicion.dataFiramar |limitTo:4}}</b>-{{dadesTotesEdicion.titolFiramar }}</a>
 		</div>
 	</div>
