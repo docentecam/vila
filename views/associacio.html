@@ -1,24 +1,23 @@
 <div class="row">
-	<div class=" tipoTitulo mt-5  text-center col-12 ">
+	<div class=" tipoTitulo mt-5  text-center col-12  ">
 		Qui Som?
 	</div>
-	<div class="text-center col-12 tipoTexto">
+	<div class="text-center col-12 tipoTexto caixaDecolorGris padding">
 		<p>
 		{{vila.quiSom}}
 		
 		</p>
 	</div>
-	
 </div>
+
 <div class="row">
 	<div class="tipoTitulo mt-5 col-12 text-center tipoTitulo">
 		Serveis
 	</div>
 	<div ng-repeat="servei in serveis" class="col-12 tipoTexto">
-			<p class="tipoTextoNegrita">{{servei.nomServei}}:</p>
-			<p>{{servei.txtServei+' '+servei[3].nomSubservei}}</p>
-			<p ng-repeat="subservei in servei[3]">{{subservei.nomSubservei}}</p>
-		
+		<p class="tipoTextoNegrita">{{servei.nomServei}}:</p>
+		<p>{{servei.txtServei+' '+servei[3].nomSubservei}}</p>
+		<p ng-repeat="subservei in servei[3]">{{subservei.nomSubservei}}</p>
 	</div>
 </div>
 
@@ -26,7 +25,7 @@
 	<div class="tipoTitulo mt-5 col-12 text-center tipoTitulo">
 		Equip
 	</div>
-	<div class="tipoTexto text-center col-12">
+	<div class="tipoTexto text-center col-12 caixaDecolorGris padding">
 		{{vila.equip}}
 	</div>
 </div>

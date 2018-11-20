@@ -1,13 +1,15 @@
 <div class="row" ng-show="llistat">
-	<div class="mt-4 col-10 offset-1">
-		<div class="tipoTitulo mt-5">
+	<div class="mt-4 col-10 offset-1 px-0">
+		<div class="tipoTitulo mt-md-5 txtMovil">
 			Notícies
 		</div>
-		<div class="h_divider mb-5"></div>
+		
+		<div class="h_divider mb-5 hideMovil"></div>
+
 		<div class="row">
-			<div class="col">
+			<div class="col px-0">
 				<div class="row">
-					<div ng-repeat="noticia in noticies | orderBy:'-dataAng'" ng-href="#/noticies/{{noticia.idNoticia}}" class="col-lg-4 col-md-6 px-md-2 px-xl-4 pt-md-2 pt-xl-4">
+					<div ng-repeat="noticia in noticies | orderBy:'-dataAng'" ng-href="#/noticies/{{noticia.idNoticia}}" class="col-lg-4 col-md-6 px-md-2 px-xl-4 pt-md-2 pt-xl-4 px-0">
 						<div class="card">
 							<div class="group-item">
 								<div class="imagecontainer is-cover">
@@ -20,7 +22,7 @@
 						<div class="tipoTextoCenter">
 							{{noticia.dataNoticia}}
 						</div>
-						<div class="tipoSubTituloCenter">
+						<div class="tipoSubTitulo">
 							<a ng-href="#/noticia/{{noticia.idNoticia}}">
 							{{noticia.titolNoticia}}
 							</a>
@@ -42,11 +44,8 @@
 		<div class="tipoTitulo">
 			<a href="#/noticies">TORNAR A NOTÍCIES</a>
 		</div>
-		<div class="h_divider mb-4"></div>
 
-		<div class="tipoSubTitulo mb-4">
-			{{noticia.titolNoticia}}
-		</div>
+		<div class="h_divider mb-4"></div>
 
 		<div class="row mb-4">
 			<div class="col-12 col-lg-6 mb-4">
@@ -54,14 +53,13 @@
 			</div>
 
 			<div class="col-12 col-lg-6">
+				<div class="tipoSubTitulo mb-4">
+				{{noticia.titolNoticia}}
+				</div>
 				<div class="tipoTexto">
-				<b>NOTÍCIA:</b>
-				<br>
-				{{noticia.txtNoticia}}
-				<br><br>
-				<b>DATA:</b>
-				<br>
 				{{noticia.dataNoticia}}
+				<br><br>
+				{{noticia.txtNoticia}}
 				</div>
 			</div>
 		</div>

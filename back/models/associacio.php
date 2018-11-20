@@ -7,31 +7,6 @@
 	if(isset($_POST['acc'])&&$_POST['acc']=='l'){
 		echo dadesVila($tbl_vila);
 	}
-
-	// if(isset($_POST['acc'])&&$_POST['acc']==''){
-	//     $cantImatge=$_POST['cantImatge']+1;
-	//     $j=0;
-	//     while($j<$cantImatge)
-	//     {
-	//     	$numUp='uploadedFile'.$j;
-	//     	$file = $_FILES[$numUp]["name"];
-	// 		move_uploaded_file($_FILES[$numUp]["tmp_name"], $file);
-	// 		unlink($_POST['logoDelete']);
-	// 		$j++;
-	//     }
-	// }
-	// if(isset($_POST['acc'])&&$_POST['acc']=='subeFichero'){
-	//     $cantImatge=$_POST['cantImatge']+1;
-	//     $j=0;
-	//     while($j<$cantImatge)
-	//     {
-	//     	$numUp='uploadedFile'.$j;
-	//     	$file = $_FILES[$numUp]["name"];
-	// 		move_uploaded_file($_FILES[$numUp]["tmp_name"], $file);
-	// 		unlink($_POST['logoDelete']);
-	// 		$j++;
-	//     }
-	// }
 	if(isset($_POST['acc'])&&$_POST['acc']=='updateMedia'){
 		$fileEx =explode('.',$_FILES["logoUpdate"]["name"]);
 		$file =  date("dmYhisv").'.'.$fileEx[count($fileEx)-1];
@@ -50,6 +25,7 @@
 	 	$connexio=connect();
 		$resultVila=mysqli_query($connexio,$mySql);
 		disconnect($connexio);
+		echo dadesVila($tbl_vila, $_POST['idVila']);
 
 	 }
 	 

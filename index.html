@@ -2,7 +2,7 @@
 <html data-ng-app="vila" ng-controller="IndexCtrl">
 	<head>
 		<title ng-bind="title"></title>
-		<link rel="icon" ng-href="img/" type="image/x-icon">
+		<link rel="icon" ng-href="img/{{vila.favIcon}}" type="image/x-icon">
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
   		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -28,45 +28,65 @@
 		</script>
 	</head>
 	<body>
-		<nav class="navbar navbar-expand-lg navbar-dark">
-		    <div class="container">
-		        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar10">
-		            <span class="navbar-toggler-icon icon-white"></span>
-		        </button>
-		        <div class="navbar-collapse collapse navReduced" id="navbar10">
-		            <ul class="navbar-nav nav-fill w-100">
-		                <li class="nav-item d-none d-lg-inline my-auto">
-		                    <a class="nav-link" ng-href="#">
-		                    	<img class="img-fluid logoVila" ng-src="img/a_vilactiva.png" alt="Vilactiva">INICI
-		                    </a>
-		                </li>
-		                <li class="nav-item my-auto reduceNav">
-		                    <a class="nav-link" ng-href="#associacio">ASSOCIACIÓ</a>
-		                </li>
-		                <li class="nav-item my-auto reduceNav">
-		                    <a class="nav-link" ng-href="#directori">DIRECTORI</a>
-		                </li>
-		                <li class="nav-item my-auto reduceNav">
-		                    <a class="nav-link" ng-href="#noticies">NOTÍCIES</a>
-		                </li>
-		                <li class="nav-item my-auto reduceNav">
-		                    <a class="nav-link" ng-href="#firamar">FIRAMAR</a>
-		                </li>
-		                <li class="nav-item my-auto reduceNav">
-		                    <a class="nav-link" ng-href="#contacta">CONTACTA'NS</a>
-		                </li>
-		            </ul>
-		        </div>
-		    </div>
-		</nav>
+		<nav class="navbar navbar-expand-lg navbar-light bg-lg-light rounded">
+			<div class="container">
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample10" aria-controls="navbarsExample10" aria-expanded="true" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+				</button>
+				
+				<div class="d-inline d-lg-none col-12 text-center"> 
+					<img class="img-fluid logoVila" ng-src="img/vilactiva.png">
+				</div>
 
-		<div class="h_divider"></div>
+				<div class="navbar-collapse justify-content-md-center collapse show navReduced" id="navbarsExample10">
+					<ul class="navbar-nav">
+						<li class="nav-item d-inline my-auto nav-fill w-100">
+							<a class="nav-link" ng-href="#">
+							<img class="img-fluid hidemovil" ng-src="img/a_vilactiva.png" alt="Vilactiva">
+							</a>
+						</li>
+						<li class="nav-item active my-auto reduceNav">
+							<a class="nav-link" ng-href="#">
+							INICI
+							</a>
+						</li>
+						<li class="nav-item my-auto reduceNav">
+							<a class="nav-link" ng-href="#associacio">
+							ASSOCIACIÓ
+							</a>
+						</li>
+						<li class="nav-item my-auto reduceNav">
+							<a class="nav-link" ng-href="#directori">
+							DIRECTORI
+							</a>
+						</li>
+						<li class="nav-item my-auto reduceNav">
+							<a class="nav-link" ng-href="#noticies">
+							NOTÍCIES
+							</a>
+						</li>
+						<li class="nav-item my-auto reduceNav">
+							<a class="nav-link" ng-href="#firamar">
+							FIRAMAR
+							</a>
+						</li>
+						<li class="nav-item my-auto reduceNav">
+							<a class="nav-link" ng-href="#contacta">
+							CONTACTA'NS
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<div class="h_divider hidemovil"></div>
 
 		<div class="row">
 			<div class="container col-sm-12 col-xl-8"> 
 				<div id="cargador" class="cargador" ng-show="cargador">
 					<img ng-src="img/loading.svg" class="preloader">
 				</div>
+
 				<div data-ng-view=""></div>
 			</div>
 		</div>
@@ -77,52 +97,39 @@
 			<div class="container tipoTexto">
 			<div class="row justify-content-center">
 				<div class="col"> 
-						<img src="img/vilactiva.png"><br>
-						Associació de comerciants de la Vila Olímpica, Barcelona{{vila.nom}}
+						<img class="img-fluid" ng-src="img/{{vila.logoVila}}" title="Vila activa" alt="vila activa"><br>
+						{{vila.nom}}
 				</div>
-
-				<div class="col text-center">
-					<div>
-						<a ng-href="{{vila.facebook}}" target="_blank">
-							<i class="fab fa-facebook-square fa-3x " ng-href="{{vila.facebook}}" target="_blank"></i>
-						</a>
+					<div class="col text-center">
+						<div>
+							<a ng-href="{{vila.facebook}}" target="_blank">
+								<i class="fab fa-facebook-square fa-3x " ng-href="{{vila.facebook}}" target="_blank"></i>
+							</a>
+						</div>
 					</div>
-				</div>
-
 				<div class="col text-right">
 					<ul>
 						<li>Parle'm-ne!</li>
-						<li><a class="tipoTexto ml-1" ng-href="mailto:{{vila.email}}" target="_blank" title="Enviar correu">vilactiva@gmail.com{{vila.email}}</a></li>
-						<li><a ng-href="tel:{{vila.telf}}" target="_blank" title="Trucar per telèfon">649 89 53 84{{vila.telf}}</a></li>
+						<li><i class="far fa-envelope"></i><a class="tipoTexto ml-1" ng-href="mailto:{{vila.email}}" target="_blank" title="Enviar correu">{{vila.email}}</a></li>
+						
+						<li><i class="fas fa-mobile-alt"></i><a ng-href="tel:{{vila.telf}}" target="_blank" title="Trucar per telèfon">{{vila.telf}}</a></li>
 					</ul>
 				</div>
 			</div>
-			</div>
 
-			
 			<div class="row">
 				<div class="h_divider_w col-8 offset-2"></div>
-				<div class="col-12 text-center tipoTexto mb-4">Pàgina realitzada amb la col·laboració dels alumnes de la Casa d'Oficis Barris Digitals i Barcelona Activa</div>
 			</div>
-			<div class="container">
-				<div class="row align-items-center">
-					<div class="img-fluid p-2">
-						<img ng-src="img/logos/logoAjuntament.png">
-					</div>
-					<div class="img-fluid p-2">
-						<img ng-src="img/logos/logoCasesOificis.png">
-					</div>
-					<div class="img-fluid p-2">
-						<img ng-src="img/logos/logoGeneralitat.png">
-					</div>
-					<div class="img-fluid p-2">
-						<img ng-src="img/logos/logoSoc.png">
-					</div>
-					<div class="img-fluid p-2">
-						<img ng-src="img/logos/logoMinisteri.jpg">
-					</div>
-				</div>
+<!-- VERIFICAR LO BUENO -->
+			<div class="row justify-content-center">
+				<div class="col-12 col-md-10 offset-md-1 tipoTexto text-center my-4">Web dissenyat i elaborat pels/les alumnes de la Casa d’Oficis Barris Digitals de Barcelona Activa<img class="col-9 col-md-5 col-lg-3 img-fluid" ng-src="img/logosProjecte/logoBassa_1.png">
+				</div>	
 			</div>
+				
+
+			<div class="col-12 col-md-10 offset-md-1 tipoTexto my-4">Web dissenyat i elaborat pels/les alumnes de la Casa d’Oficis Barris Digitals de Barcelona Activa<img class="col-9 col-md-5 col-lg-2 img-fluid mt-3 mt-md-0" ng-src="img/logosProjecte/logoBassa.PNG">
+			</div>		
+<!-- VERIFICAR LO BUENO -->
 		</footer>
 
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

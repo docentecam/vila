@@ -1,6 +1,6 @@
 <div class="row">
-	<div class="col-12 col-md-9 mt-5">
-		<img src="img/mapiya.png" class="pruebaImg" id="mapId">
+	<div class="col-12 col-md-9 mt-5" id="mapId">
+		<img src="img/mapiya.png" class="pruebaImg">
 	</div>
 	<div class="col-12 col-md-3">
 		<div class="mt-5">
@@ -13,100 +13,65 @@
 </div>
 
 <div class="row">
-	<div class="tipoTitulo my-5">
+	<div class="tipoTitulo my-3">
 		Associats
 	</div>
 </div>
 
-<div class="container">
-<!-- 	 ng-show="llistat" -->
-	<div class="row">
-		<div class="col-6 my-2 pr-3">
-			<div class="container estiloAso py-5">
-				<div class="row">
-
-					<div ng-repeat="associat in associats | orderBy: random" ng-href="#/directori/{{associat.idAssociat}}" class="col px-0">
-						<img ng-src="{{associats.logoAssociat!='' ? 'img/associats/'+associats.logoAssociat : 'img/noimage.png'}}" class="imagecontainer-img lazyload" alt="associat">
-					
-						<div class="col px-0">
-							<div class="tipoSubTitulo">
-								<a ng-href="#/associat{{associat.idAssociats}}">
-								Títol botiga{{associats.nomAssociat}}
+<div class="row">	
+	<div ng-repeat="associat in associats " ng-href="#/directori/{{associat.idAssociat}}" class="col-12 col-md-6 mb-4">
+		<div class="row align-items-center estiloAso">
+			<div class="col">
+				<div class="card">
+					<div class="group">
+						<div class="group-item">
+							<div class="imagecontainer is-cover">	
+								<a ng-href="#/directori/{{associat.idAssociat}}">
+									<img ng-src="{{associat.logoAssociat!=''?'img/associats/'+associat.logoAssociat:'img/noimage.png'}}" class="imagecontainer-img lazyload" alt="associat">
 								</a>
-							</div>
-							<div class="tipoTexto">
-								categoria
-								{{categoriaassociat.principal}}
-							</div>
-							<div class="tipoTexto">
-								C/ jsflasjf---
-								{{associats.adreca}}
-							</div>
-							<div class="tipoTexto">
-								745394505
-								{{associats.telf1}}
-								{{associats.telf2}}
-								{{associats.email}}
 							</div>
 						</div>
 					</div>
-
 				</div>
 			</div>
-		</div>	
-	</div>
+			
+			
+			<div class="col">
+				<div class="tipoSubTitulo mb-1">
+					<a ng-href="#/directori/{{associat.idAssociat}}">
+					{{associat.nomAssociat}}
+					</a>
+				</div>
+
+				<div class="tipoTexto mb-1">
+					categoria
+					{{categoriaassociat.principal}}
+				</div>
+
+				<div class="tipoTexto">
+					{{associat.adreca}}
+				</div>
+
+				<div class="tipoTexto">
+					{{associat.telf1}}
+					{{associat.telf2}}
+					{{associat.email}}
+				</div>
+			</div>
+		</div>
+	</div>		
 </div>
 
-<!-- <div class="row" ng-hide="llistat">
-	<div class="mt-4 col-10 offset-1">
-		<div class="tipoTitulo">
-			<a href="#/noticies">TORNAR A DIRECTORI</a>
-		</div>
-		<div class="h_divider mb-4"></div>
 
-		<div class="tipoSubTitulo mb-4">
-			{{associats.nomAssociat}}
-		</div>
+<!-- 
 
-		<div class="row mb-4">
-			<div class="col-12 col-lg-6 mb-4">
-			<img ng-src="{{associat.logoAssociat!=''?'img/noticies/'+associat.logoAssociat:'img/noimage.png'}}" class="img-fluid imageBordes" alt="associat">
-			</div>
+Hacer que aparezca sólo: EL TELÉFONO 1 (en caso de que no haya) TELÉFONO 2 (en caso de que no haya) MAIL
 
-			<div class="col-12 col-lg-6">
-				<div class="tipoTexto">
-				<b>info:</b>
-				<br>
-				{{associat.txtAssociat}}
-				<br><br>
-				<b>horari:</b>
-				<br>
-				{{associat.horari}}
-				<br><br>
-				<b>telefono:</b>
-				<br>
-				{{associat.telf1}}
-				{{associat.telf2}}
-				{{associat.whatsapp}}
-				<br><br>
-				<b>adreça:</b>
-				<br>
-				{{associat.adreca}}
-				<br><br>
-				<b>xarxes:</b>
-				<br>
-				{{associat.facebook}}
-				{{associat.URLWeb}}
-				</div>
-			</div>
-		</div>
+preguntamos en el mail a la vila: ¿todo el mundo tendrá un teléfono?
+respuesta: pendiente
 
-		<div>
-			ON SOM?
-		</div>
+IMPORTANTE!
+asegurarse de tener respuesta antes de solucionar el problema
+                                                                -Raquel
 
-		<div>
-			GALERIA
-		</div>
-	</div>
-</div> -->
+ -->
