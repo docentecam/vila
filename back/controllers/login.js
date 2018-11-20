@@ -2,10 +2,10 @@ var appLogin= angular.module('vilaLogin', []);
 appLogin.controller ('LoginCtrl', function($scope, $http, $q, $timeout, $rootScope) {
 	
 	var data = new FormData();
-		data.append("acc", "favi");
+		data.append("acc", "l");
 	var deferred=$q.defer();
 	
-	$http.post("models/home.php", data,{
+	$http.post("models/associacio.php", data,{
 	headers:{
 		"Content-type":undefined
 	},
@@ -31,12 +31,16 @@ appLogin.controller ('LoginCtrl', function($scope, $http, $q, $timeout, $rootSco
 			$scope.divError=true;
 			$scope.msgError="";
 			$scope.tipe=true;
+			$scope.hidePass=true;
 	$scope.changePass=function(){
+		
 		if ($scope.tipe) {
 			document.getElementById('txtPass').type = 'text';
+			$scope.hidePass=false;
 		}
 		else{
 			document.getElementById('txtPass').type = 'password';
+			$scope.hidePass=true;
 		}
 		$('#txtPass').focus();
 		$scope.tipe=!$scope.tipe;
@@ -75,15 +79,16 @@ appLogin.controller ('LoginCtrl', function($scope, $http, $q, $timeout, $rootSco
 		});
 	}
 	$scope.recontra=function(){
+		console.log($scope.usuari.vila);
 		$scope.divError=false;
 		var data = new FormData();
 			data.append("acc","Envia");
-			data.append("mail",$scope.usuari.soci);
+			data.append("mail",$scope.usuari.vila);
 			
 		var deferred=$q.defer();
 
 		$rootScope.cargador=true;
-		$http.post("models/home.php",data,{
+		$http.post("models/login.php",data,{
 			headers:{
 				"Content-type":undefined
 			},
@@ -92,7 +97,7 @@ appLogin.controller ('LoginCtrl', function($scope, $http, $q, $timeout, $rootSco
 		.then(function (res) {
 			deferred.resolve(res);
 			console.log(res.data);
-			$scope.usuari.soci="";
+			$scope.usuari.vila="";
 			$scope.usuari.contra="";
 			if(res.data==0){
 				$scope.msgError="Verifica adreça";

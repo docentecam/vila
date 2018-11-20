@@ -62,6 +62,11 @@ app.config(['$routeProvider',function($routeProvider){
     controller:'NoticiesCtrl',
     title: "Noticies"
   })
+  .when('/carousel',{
+    templateUrl:'views/carousel.php',
+    controller:'CarCtrl',
+    title: "Manteniment carousel"
+  })
   .when('/logout',{
     templateUrl:'index.php',
     controller:'LogoutCtrl',

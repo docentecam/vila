@@ -20,12 +20,12 @@
 				<th class="cursor" ng-click="columnOrder('nomAssociat')">Nom del Comerç</th>
 				<th class="cursor" ng-click="columnOrder('nomCategoria')">Categoria Principal</th>
 				<th class="cursor" ng-click="columnOrder('adreca')">Adreça</th>
-				<th class="cursor" ng-click="columnOrder('telf1')">Telèfon 1</th>
-				<th class="cursor" ng-click="columnOrder('telf2')">Telèfon 2</th>
-				<th class="cursor" ng-click="columnOrder('whatsapp')">Whatsapp</th>
+				<th>Telèfon 1</th>
+				<th>Telèfon 2</th>
+				<th>Whatsapp</th>
 				<th class="cursor" ng-click="columnOrder('email')">Correu electrònic</th>
-				<th class="cursor" ng-click="columnOrder('horari')">Horari</th>
-				<th class="cursor" ng-click="columnOrder('URLWeb')">Pàgina Web</th>
+				<th>Horari</th>
+				<th>Pàgina Web</th>
 				<th>Accions</th>
 			</tr>
 			<tr ng-repeat="directori in directoris | orderBy:order | filter:{'actiu':'S'}">
@@ -50,9 +50,9 @@
 		<table border="1" class="divTable col-12 col-lg-10 offset-lg-1 text-center tablaSocis" ng-if="(directoris | filter:{'actiu':'N'}).length!=0">
 			<tr>
 				<th class="cursor" ng-click="columnOrder('nomAssociat')">Nom del Comerç</th>
-				<th class="cursor" ng-click="columnOrder('telf1')">Telèfon 1</th>
-				<th class="cursor" ng-click="columnOrder('telf2')">Telèfon 2</th>
-				<th class="cursor" ng-click="columnOrder('whatsapp')">Whatsapp</th>
+				<th>Telèfon 1</th>
+				<th>Telèfon 2</th>
+				<th>Whatsapp</th>
 				<th class="cursor" ng-click="columnOrder('email')">Correu electrònic</th>
 				<th>Accions</th>
 			</tr>
