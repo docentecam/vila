@@ -119,6 +119,7 @@ angular.module('vila')
 		$scope.categoriaassociat=res.data.dadesCategoriaassociat;
 		$scope.galeriaassociats=res.data.dadesGaleriaassociats;
 		$scope.categories=res.data.dadesCategories;
+		console.log($scope.categoriaassociat);
 	})
 	.catch(function(error) {
 		$rootScope.cargador=false;
