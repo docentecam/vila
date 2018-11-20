@@ -216,6 +216,7 @@ angular.module('vila')
 		deferred.resolve(res);
 		$scope.directoris=res.data;
 		$rootScope.cargador=false;
+		console.log(res.data);
 	})
 	.catch(function(error) {
 		$rootScope.cargador=false;
@@ -239,7 +240,7 @@ angular.module('vila')
 	$scope.offOn=function (directori, active) {
 		var data = new FormData();
 			data.append("idAssociat",directori);
-			data.append("actiu",active);
+			data.append("activo",active);
 			data.append("acc","U");	
 		var deferred=$q.defer();
 		$rootScope.cargador=true;

@@ -16,7 +16,7 @@
 		echo categories($tbl_categories);
 	}
 	if(isset($_POST['acc'])&&$_POST['acc']=='afeg'){
-		$mySql="INSERT INTO $tbl_directori (`nomAssociat`, `horari`, `txtAssociat`, `facebook`, `actiu`, `adreca`, `telf1`, `telf2`, `whatsapp`, `email`, `latitud`, `longitud`, `URLWeb`) 
+		$mySql="INSERT INTO $tbl_directori (`nomAssociat`, `horari`, `txtAssociat`, `facebook`, ``, `adreca`, `telf1`, `telf2`, `whatsapp`, `email`, `latitud`, `longitud`, `URLWeb`) 
 				VALUES ('".replaceFromHtml($_POST['nomAssociat'])."', '".replaceFromHtml($_POST['horari'])."', '".replaceFromHtml($_POST['txtAssociat'])."', '".$_POST['facebook']."', 'S', '".replaceFromHtml($_POST['adreca'])."', '".$_POST['telf1']."','".$_POST['telf2']."', '".$_POST['whatsapp']."', '".$_POST['email']."', '".$_POST['latitud']."', '".$_POST['longitud']."', '".$_POST['URLWeb']."')";
 		$connexio=connect();
 		$resultComerc=mysqli_query($connexio,$mySql);
@@ -122,7 +122,7 @@
 		echo dadesComers($tbl_directori,$tbl_categories,$tbl_categoriaassociat,$tbl_galeriaassociats, $_POST['idAssociat']);
 	}
 	function dadesComers($tbl_directori,$tbl_categories,$tbl_categoriaassociat,$tbl_galeriaassociats, $idAssociat){
-		$mySql="SELECT `a`.`idAssociat`,`a`.`nomAssociat`,`a`.`logoAssociat`,`a`.`horari`,`a`.`txtAssociat`,`a`.`facebook`,`a`.`actiu`,`a`.`adreca`,`a`.`telf1`,`a`.`telf2`,`a`.`whatsapp`,`a`.`email`,`a`.`latitud`,`a`.`longitud`,`a`.`URLWeb`
+		$mySql="SELECT `a`.`idAssociat`,`a`.`nomAssociat`,`a`.`logoAssociat`,`a`.`horari`,`a`.`txtAssociat`,`a`.`facebook`,`a`.``,`a`.`adreca`,`a`.`telf1`,`a`.`telf2`,`a`.`whatsapp`,`a`.`email`,`a`.`latitud`,`a`.`longitud`,`a`.`URLWeb`
 				FROM `$tbl_directori` AS a 
 				WHERE `a`.`idAssociat`=".$_POST['idAssociat'];
 				// echo $mySql;
@@ -240,7 +240,7 @@
 			return json_encode($rows);
 	}
 	if(isset($_POST['acc'])&&$_POST['acc']=='U'){
-		$mySql="UPDATE $tbl_directori SET `actiu`='".$_POST['actiu']."' WHERE idAssociat='".$_POST['idAssociat']."'";
+		$mySql="UPDATE $tbl_directori SET `activo`='".$_POST['activo']."' WHERE idAssociat='".$_POST['idAssociat']."'";
 
 		$connexio=connect();
 		$resultSocis=mysqli_query($connexio,$mySql); 
@@ -252,7 +252,7 @@
 		echo llistatDirectori($tbl_directori,$tbl_categories,$tbl_categoriaassociat);
 	}
 	function llistatDirectori($tbl_directori,$tbl_categories,$tbl_categoriaassociat){
-		$mySql="SELECT `a`.`idAssociat`,`a`.`nomAssociat`,`a`.`horari`,`a`.`facebook`,`a`.`actiu`,`a`.`adreca`,`a`.`telf1`,`a`.`telf2`,`a`.`whatsapp`,`a`.`email`,`a`.`URLWeb`, `c`.`nomCategoria`, `ca`.`principal`
+		$mySql="SELECT `a`.`idAssociat`,`a`.`nomAssociat`,`a`.`horari`,`a`.`facebook`,`a`.`activo`,`a`.`adreca`,`a`.`telf1`,`a`.`telf2`,`a`.`whatsapp`,`a`.`email`,`a`.`URLWeb`, `c`.`nomCategoria`, `ca`.`principal`
 				FROM `$tbl_categoriaassociat` AS ca
 				    LEFT JOIN `$tbl_directori` AS a ON `ca`.`idAssociat` = `a`.`idAssociat`
 				    LEFT JOIN `$tbl_categories` AS c ON `ca`.`idCategoria` = `c`.`idCategoria`
