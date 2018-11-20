@@ -12,6 +12,9 @@ Morado: #4f307e
 	background-color: #fffcf0!important;
 }*/
 
+.colorLEtraCarlos{
+	color: red!important;
+}
 @import url('https://fonts.googleapis.com/css?family=Bitter|Oswald:700|Roboto:300,400');
 
 
@@ -91,6 +94,17 @@ ul, li{
 .colorRosa{
 	color: #cb418e;
 }
+
+.caixaDecolorGris{
+	background-color: #f5f5f5;
+    border-color: #eeeeee;
+    border-style: solid;
+    border-width: 1px 0px 1px 0px;
+}
+.padding{
+	padding-top: 80px;
+    padding-bottom: 80px;
+}
 .btn-info
 {
 	background-color:#cb418e!important;
@@ -144,50 +158,6 @@ ul, li{
 	border-style: solid;
 	border-color: #e7ab3b;
 }
-/*.md #most-visited {
-    margin: 10px 0;
-    width: 100%;
-}
-#most-visited {
-    margin: 0;
-    text-align: -webkit-center;
-    user-select: none;
-}
-
-.md #mv-tiles {
-    display: flex;
-    flex-wrap: wrap;
-    height: auto;
-    justify-content: center;
-    line-height: normal;
-    margin: 0;
-    max-width: calc(var(--md-tile-width) * var(--md-max-tiles-row));
-    position: static;
-}
- .md-tile-container:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-}
-
-.md-tile-container {
-    border-radius: 4px;
-    box-sizing: border-box;
-    height: var(--md-tile-height);
-    margin-bottom: var(--md-tile-margin);
-    opacity: 1;
-    position: relative;
-    transition-property: background, background-color, border-color, box-shadow, opacity, text-shadow;
-    width: var(--md-tile-width);
-}
-.md-tile-inner {
-    align-items: center;
-    display: flex;
-    flex-flow: column nowrap;
-    height: 100%;
-    position: relative;
-    width: 100%;
-    z-index: -1;
-}
-*/
 .form-control {
   padding: 0.5rem;
   border: 1px solid;

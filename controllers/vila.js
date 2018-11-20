@@ -77,6 +77,10 @@ angular.module('vila')
 		deferred.resolve(res);
 		$scope.vila=res.data.dadesVila[0];
 		$scope.serveis=res.data.dadesServeis;
+<<<<<<< HEAD
+		
+=======
+>>>>>>> 9088efff91cc1c3316bec9d21850a0b45a119fdd
 		console.log($scope.serveis.length);
 		$scope.equip=res.data.dadesVila[0];
 		console.log(res.data);
