@@ -215,14 +215,27 @@ angular.module('vila')
 	.then(function(res){
 		deferred.resolve(res);
 		$rootScope.cargador=false;
-		console.log(res.data);
 		$scope.firamar=res.data.dadesFiramar[0];
 		$scope.galeriafiramar=res.data.dadesGaleriafiramar;
 		$scope.activitatsfiramar=res.data.dadesActivitatsfiramar;
 		$scope.sponsors=res.data.dadesSponsors;
 		$scope.participants=res.data.dadesParticipants;
 		$scope.dadesTotesEdicions=res.data.dadesTotesEdicions;
-			console.log(res.data.dadesParticipants);
+		
+		$scope.participantsDiv=[];
+		var cantParticipants=$scope.participants.length/4;
+		var supParticipant=0;
+		var j=0;
+		for(i=0;i<$scope.participants.length;i++){
+			j=0;
+			while(j<4){
+				if(j==0) {$scope.participantsDiv[supParticipant]=[];}
+				$scope.participantsDiv[supParticipant][j]=$scope.participants[i];
+				j++;
+				if(j<4)i++;
+			}
+			supParticipant++;
+		}
 	})
 	.catch(function(error) {
 		$rootScope.cargador=false;
