@@ -20,17 +20,17 @@ app.config(['$routeProvider',function($routeProvider){
   .when('/directori',{
     templateUrl:'views/directori.php',
     controller:'DirectCtrl',
-    title: "Llistat de comerços"
+    title: "Llistat d'associats"
   })
   .when('/directori/:idAssociat',{
     templateUrl:'views/directori.php',
     controller:'DirectComerCtrl',
-    title: "Manteniment del comerç"
+    title: "Manteniment de l'associat"
   })
   .when('/newComerc',{
     templateUrl:'views/directori.php',
     controller:'NewComercCtrl',
-    title: "Nou Comerç"
+    title: "Nou Associat"
   })
   .when('/contactans',{
     templateUrl:'views/contactans.php',

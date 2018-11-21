@@ -72,7 +72,7 @@
 
  <div ng-hide="dadesComerc">
  	<div id="upTop" class="row text-center mt-4 mb-3 titleSocis">
-		<h1 class="col">Dades del associat</h1>
+		<h1 class="col">Dades del associat {{com.nomAssociat}}</h1>
 	</div>
 	<div class="row">
 	 	<form id="formVila" name="formVila" class="col-12">

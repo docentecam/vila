@@ -48,8 +48,8 @@
 				WHERE `email`='".$_POST['mail']."'";
 				// echo $mySqlMail;
 		$connexio=connect();
-		$resultVila=mysqli_query($connexio,$mySqlMail); 
-		$numVila=mysqli_num_rows($resultVila);
+		$resultMail=mysqli_query($connexio,$mySqlMail); 
+		$numVila=mysqli_num_rows($resultMail);
 		disconnect($connexio);		
 		
 		if($numVila!=0){
@@ -57,7 +57,7 @@
 			$mySql="UPDATE $tbl_vila SET `recContra`='".sha1(md5($newPassword))."' WHERE `email`='".$_POST['mail']."'";
 			$mySqlVila="SELECT `URLWeb` FROM $tbl_vila";
 			$connexio=connect();
-			$resultUser=mysqli_query($connexio,$mySql);
+			$resultVila=mysqli_query($connexio,$mySql);
 			$resultVila=mysqli_query($connexio,$mySqlVila);
 			disconnect($connexio);
 			$dadesVila=mySqli_fetch_row($resultVila);

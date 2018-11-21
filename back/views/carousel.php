@@ -1,9 +1,9 @@
 
-<div class="row">
+<div class="row mt-5 mb-3">
 	<h1 class="col-lg-4 offset-lg-4 text-center">Imatges del Carousel</h1>
 </div>
-<div class="row">
-	<div>Recordeu quela millor opció es tenir entre 2 i 5 imatges</div>
+<div class="row mb-3">
+	<div class="col-lg-4 offset-lg-4 text-center">Recordeu que la millor opció es tenir entre 2 i 5 imatges</div>
 </div>
 <div class="row">
 	<label for="insertImg" class="cursor col-12 offset-md-2">
