@@ -59,43 +59,53 @@
 </div>
 
 <div class="row">
-	<div class="col-12 tipoTitulo text-center">
-		<span>{{firamar.titolFiramar}}</span> 
-		<span>{{firamar.dataFiramar|limitTo:4}}</span>
-	</div>
-	<div class="col-12 tipoTexto text-center caixaDecolorGris padding">
-		<p>
-		{{firamar.txtFiramar}}
+	
+	<div class="col-12 text-center caixaDecolorGris padding">
+		<div class="col-12 tipoTituloBlanco text-center">
+			<span>{{firamar.titolFiramar}}</span> 
+			<span>{{firamar.dataFiramar|limitTo:4}}</span>
+		</div>
+		<br>
+		<div class="h_divider_w mb-1 mt-1 hideMovil"></div>
+		<br>
+		<p class="tipoTextoBlanco">
+			
+			{{firamar.txtFiramar}}
 		</p>
+	</div>
+</div>
+<br>
+<div class="title-block wrapper">
+	<span class="title-block__title title-block__title--color-primary">
+		Programa d'activitats
+	</span>	
+</div>
+
+
+<div class="row">
+	<div ng-repeat="firamar in activitatsfiramar" class="col-12 mt-4 p-0">
+		<div class="row">
+			 	<div class="colorRosa col-4 p-0 middle">
+			 		<i class="far fa-clock colorRosa p-0"></i>
+			 		{{firamar.horaInici |limitTo:5}}h -
+			 		{{firamar.horaFi |limitTo:5}}h
+			 		<h6 class="col-12 col-10 mt-2 far fa-calendar colorRosa p-0">
+			 		&nbsp;&nbsp;{{firamar.titolActivitat | uppercase}}
+			 		</h6>
+			 	</div>
+			 	<div class="col-8"> 
+					<p class="col-12 col-10 tipoTexto p-0">{{firamar.txtActivitat}}</p><br>
+				</div>
+		</div>
 	</div>
 </div>
 
 <div class="row">
-	<div class="col-12 tipoSubTitulo mt-4">
-		Programa d'activitats
-	</div>
-<!-- 	<div class="container-fluid"> -->
-	<div class="row">
-		<div ng-repeat="firamar in activitatsfiramar" class="col-12 mt-2">
-			<div class="row">
-				
-			 	<div class="colorRosa"><i class="far fa-clock colorRosa no-padding pr-1"></i>{{firamar.horaInici |limitTo:5}}h -</div>
-			 	<div class="colorRosa no-padding">{{firamar.horaFi |limitTo:5}}h</div> 
-			 		
-				<div class="col-12">
-					<h6 class="col-12 col-10 offset-lg-2 text-center mt-2 far fa-calendar colorRosa">&nbsp;&nbsp;{{firamar.titolActivitat | uppercase}}</h6> 
-					<p class="col-12 col-10 offset-lg-2 tipoTexto ">{{firamar.txtActivitat}}</p><br>
-				</div>
-				<div class="h_divider_w col-8 offset-2"></div>
-			</div>
-		</div>
-	</div>
-<!-- </div> -->
-</div>
-<div class="row">
-	<div class="col-12 tipoSubTitulo mt-4">
+<div class="title-block wrapper py-4">
+	<span class="title-block__title title-block__title--color-primary">
 		Galeria
-	</div>
+	</span>	
+</div>
 	<div class="container col-12">
 		<div class="row">
 			<div class="card-columns">
@@ -122,8 +132,10 @@
 
 
 
-<div class="col-4 tipoSubTitulo mt-4">
-	Sponsors
+<div class="title-block wrapper py-4">
+	<span class="title-block__title title-block__title--color-primary">
+		Sponsors
+	</span>	
 </div>
 
 <div class="row">
@@ -153,10 +165,13 @@
 
 	-->
 
-<div class="row">
-	<div class="col-12 tipoSubTitulo mt-4">
+<div class="title-block wrapper py-4">
+	<span class="title-block__title title-block__title--color-primary">
 		Edicions anteriors
-	</div>
+	</span>	
+</div>
+
+<div class="row">
 	<div class="col-12">
 		<div ng-repeat="dadesTotesEdicion in dadesTotesEdicions" class="col-12 colorRosa">
 			<a class="cursor" ng-href="" ng-click="llistatEdicioFirmar(dadesTotesEdicion.dataFiramar)"><b>{{dadesTotesEdicion.dataFiramar |limitTo:4}}</b>-{{dadesTotesEdicion.titolFiramar }}</a>
