@@ -94,12 +94,19 @@ ul, li{
 .colorRosa{
 	color: #cb418e;
 }
-
-.caixaDecolorGris{
-	background-color: #f5f5f5;
+.cajaNidea2{
+	background-color:#e6e6e6;
+	border-radius: 6px;
+}
+.colorBlancoLetra{
+	color: white;
+}
+.cajaNidea{
+	background-color: #bfbfbf;
     border-color: #eeeeee;
     border-style: solid;
     border-width: 1px 0px 1px 0px;
+    border-radius: 18px;
 }
 .padding{
 	padding-top: 80px;
