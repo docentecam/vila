@@ -97,7 +97,7 @@
 			    </div>
 			    <div class="form-group col-md-6 col-lg-4">
 			    	<label for="inputAdre">Adreça</label>
-			    	<input type="text" class="form-control" id="inputAdre" ng-model="com.adreca" maxlength="9">
+			    	<input type="text" class="form-control" id="inputAdre" ng-model="com.adreca" maxlength="150">
 			    </div>
 			</div>
 			<div class="form-row">

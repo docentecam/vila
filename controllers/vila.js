@@ -119,6 +119,7 @@ angular.module('vila')
 		$scope.categoriaassociat=res.data.dadesCategoriaassociat;
 		$scope.galeriaassociats=res.data.dadesGaleriaassociats;
 		$scope.categories=res.data.dadesCategories;
+		console.log($scope.categoriaassociat);
 	})
 	.catch(function(error) {
 		$rootScope.cargador=false;
@@ -168,6 +169,7 @@ angular.module('vila')
 		deferred.resolve(res);
 		$rootScope.cargador=false;
 		$scope.noticies=res.data;
+		console.log(res.data);
 	})
 	.catch(function(error) {
 		$rootScope.cargador=false;
@@ -213,13 +215,27 @@ angular.module('vila')
 	.then(function(res){
 		deferred.resolve(res);
 		$rootScope.cargador=false;
-		console.log(res.data);
 		$scope.firamar=res.data.dadesFiramar[0];
 		$scope.galeriafiramar=res.data.dadesGaleriafiramar;
 		$scope.activitatsfiramar=res.data.dadesActivitatsfiramar;
 		$scope.sponsors=res.data.dadesSponsors;
 		$scope.participants=res.data.dadesParticipants;
 		$scope.dadesTotesEdicions=res.data.dadesTotesEdicions;
+		
+		$scope.participantsDiv=[];
+		var cantParticipants=$scope.participants.length/4;
+		var supParticipant=0;
+		var j=0;
+		for(i=0;i<$scope.participants.length;i++){
+			j=0;
+			while(j<4){
+				if(j==0) {$scope.participantsDiv[supParticipant]=[];}
+				$scope.participantsDiv[supParticipant][j]=$scope.participants[i];
+				j++;
+				if(j<4)i++;
+			}
+			supParticipant++;
+		}
 	})
 	.catch(function(error) {
 		$rootScope.cargador=false;

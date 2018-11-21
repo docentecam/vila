@@ -96,14 +96,12 @@ ul, li{
 }
 
 .caixaDecolorGris{
-	background-color: #f5f5f5;
-    border-color: #eeeeee;
-    border-style: solid;
-    border-width: 1px 0px 1px 0px;
+	max-width: 100%;
+	height: 100%;
+	background-image: url(https://upload.wikimedia.org/wikipedia/commons/2/29/Mercado_Central_Jerez_Fruta.JPG);
 }
 .padding{
-	padding-top: 80px;
-    padding-bottom: 80px;
+	padding: 80px;
 }
 .btn-info
 {
@@ -127,6 +125,68 @@ ul, li{
     z-index: 1;
     background-color: rgba(95, 95, 95, 0.7);
 }
+
+/*.carousel-control-next-icon {
+    background-image: url(data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' f…3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E);
+}*/
+/*.carousel-control-next-icon, .carousel-control-prev-icon {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background: #cb418e no-repeat center center;
+    background-size: 100% 100%;
+}
+.carousel-control-next-icon {
+    background-image: url(data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' f…3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E);
+}
+.carousel-control-next, .carousel-control-prev {
+    position: absolute;
+    top: auto;
+    bottom: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+     justify-content: center; 
+    width: 5%;
+    color: #fff;
+    text-align: center;
+    opacity: .5;
+}*/
+/*.carousel-control-prev{
+	border-left: 1px solid #343a40;
+    padding-left: 10px;
+}
+.carousel-control-next{
+	border-left: 1px solid #343a40;
+    padding-left: 10px;
+}*/
+.arrow-circle-rights{
+/*	padding-top: calc(167px / 2 - 15px);*/
+	/*margin-left:-15px;*/
+    font-size: 24px;
+    color: #999;
+    font-family: flexslider-icon;
+    font-size: 25px;
+    display: flex;
+   /* content: '\f001';*/
+}
+
+.arrow-circle-lefts{
+	/*padding-top: calc(167px / 2 - 15px);*/
+
+/*	margin-right:5px;*/
+    color: #999;
+    font-family: flexslider-icon;
+    font-size: 25px;
+    display: flex;
+ /*   content: '\f001';*/
+}
+
 .carouAsoc{
   display: inline-block;
   margin-left:-4px;
@@ -191,7 +251,7 @@ ul, li{
 }
 .h_divider_w{ 
 	height:2px; 
-	background: #4f307e;
+	background: #fffcf0;
 	margin-top: 25px;
 	margin-bottom: 20px;
 }
@@ -282,7 +342,7 @@ ul, li{
 .tipoSubTituloCenter{
 	text-align: center;
 }
-.tipoTexto,.tipoTextoCenter{
+.tipoTexto,.tipoTextoCenter,.tipoTextoBlanco{
 	font-family: 'Roboto', sans-serif;
 	font-weight: 300;
 	font-size: 1em;
@@ -290,7 +350,10 @@ ul, li{
 .tipoTextoCenter{
 	text-align: center;
 }
-.tipoTitulo,.tipoTituloCenter{
+.tipoTextoBlanco{
+	color: #fffcf0;
+}
+.tipoTitulo,.tipoTituloCenter,.tipoTituloBlanco{
 	font-family: 'Oswald', sans-serif;
 	font-weight: 700;
 	font-size: 2em;
@@ -299,8 +362,34 @@ ul, li{
 .tipoTituloCenter{
 	text-align: center;
 }
+.tipoTituloBlanco{
+	color: #fffcf0;
+}
+.title-block{
+	text-align: center;
+	position: relative;
+	margin-bottom: 30px;
+}
+.wrapper{
+	width: 100%;
+	margin: 0 auto;
+}
+.title-block__title--color-primary{
+	background:#4f307e;
+	color:#fffcf0;
+}
+.title-block__title{
+    display: inline-block;
+    text-align: center;
+    min-width: 333px;
+    text-transform: uppercase;
+    -webkit-border-radius: 25px;
+    line-height: 52px!important;
+}
 
-
+.middle{
+	border-right: 2px solid #cb418e;
+}
 @media (max-width: 575px){
 	.centrarFooterMovil{
 		text-align: center;

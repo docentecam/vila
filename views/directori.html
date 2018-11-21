@@ -43,9 +43,8 @@
 					</a>
 				</div>
 
-				<div class="tipoTexto mb-1">
-					categoria
-					{{categoriaassociat.principal}}
+				<div class="tipoTexto mb-1" ng-repeat="categoria in categoriaassociat | filter:{idAssociat:associat.idAssociat}:true">
+					{{categoria.nomCategoria}}
 				</div>
 
 				<div class="tipoTexto">
