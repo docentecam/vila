@@ -12,9 +12,6 @@ Morado: #4f307e
 	background-color: #fffcf0!important;
 }*/
 
-.colorLEtraCarlos{
-	color: red!important;
-}
 @import url('https://fonts.googleapis.com/css?family=Bitter|Oswald:700|Roboto:300,400');
 
 
@@ -61,16 +58,8 @@ footer{
 .navbar-toggler-icon {
     background-image: $navbar-light-toggler-icon-bg;
   }*/
-a:link{
-	color: #1d93d1;
-    text-decoration: none;
-}
-a:visited{
-	color: #1d93d1;
-    text-decoration: none;
-}
-a:hover{
-	color: #4f307e;
+a:link, a:visited, a:hover{
+	color: black;
     text-decoration: none;
 }
 a.PolitPriva:link, a.PolitPriva:visited, a.PolitPriva:hover{
@@ -367,15 +356,18 @@ ul, li{
 	height: 100%;
 }
 
-.tipoSubTitulo, .tipoSubTituloCenter{
-	font-family: 'Bitter', serif;
-	font-weight: 400;
+.tipoSubTitulo, .tipoSubTituloCenter, .tipoSubTituloAso {
+	font-family: 'Bitter', serif, bold;
+	font-weight: bold;
 	font-size: 1.3em;
 }
 .tipoSubTituloCenter{
 	text-align: center;
 }
-.tipoTexto,.tipoTextoCenter,.tipoTextoBlanco{
+.tipoSubTituloAso{
+	color: #cb418e!important;
+}
+.tipoTexto, .tipoTextoCenter, .tipoTextoBlanco, .tipoTextoAso, .txtCategoria{
 	font-family: 'Roboto', sans-serif;
 	font-weight: 300;
 	font-size: 1em;
@@ -386,11 +378,18 @@ ul, li{
 .tipoTextoBlanco{
 	color: #fffcf0;
 }
-.tipoTitulo,.tipoTituloCenter,.tipoTituloBlanco{
+.tipoTextoAso{
+	font-size: 0.9em;
+}
+.tipoTitulo, .tipoTituloCenter, .tipoTituloBlanco {
 	font-family: 'Oswald', sans-serif;
 	font-weight: 700;
 	font-size: 2em;
 	text-transform: uppercase;
+}
+.txtCategoria{
+	color: #cb418e;
+	font-style: bold;
 }
 .tipoTituloCenter{
 	text-align: center;
@@ -408,7 +407,7 @@ ul, li{
 	margin: 0 auto;
 }
 .title-block__title--color-primary{
-	background:#4f307e;
+	background:#cb418e;
 	color:#fffcf0;
 }
 .title-block__title{
@@ -423,6 +422,20 @@ ul, li{
 .middle{
 	border-right: 2px solid #cb418e;
 }
+
+.h_divider_p{
+	height:2px; 
+	background: #cb418e;
+	margin-top: 25px;
+	margin-bottom: 20px;
+	position: absolute;
+}
+.card{
+	background-color: #f0f0f0;
+	border: none;
+}
+
+
 @media (max-width: 575px){
 	.centrarFooterMovil{
 		text-align: center;
