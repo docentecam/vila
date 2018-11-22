@@ -280,6 +280,7 @@ a:hover {
 	.imgBtnTop{
 		height: 50px; 
 		width: 50px;
+		opacity: 0.5!important;
 	}
 
 }
