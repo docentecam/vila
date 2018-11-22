@@ -70,10 +70,14 @@
  	</div>
 </div>
 
-<div class="row">
-	<div class="col-12 tipoSubTitulo mt-4">
+<div class="title-block wrapper py-4">
+	<span class="title-block__title title-block__title--color-primary">
 		Participants
-	</div>
+	</span>	
+</div>
+
+<div class="row">
+	
 	<div class="d-none d-md-inline">
 		<div id="carouselNoMovil" class="carousel slide" data-ride="carousel">
 		<ol class="carousel-indicators">
@@ -83,7 +87,8 @@
 		</ol>
 		<div class="carousel-inner carousel text-center">
 			<div class="carousel-item" ng-repeat="participant in participantsDiv" ng-class="{'active': $index==0}">
-				<img class=" img-fluid col-3" ng-src="{{imatge.logoParticipant!=''?'img/participants/'+imatge.logoParticipant:'img/noimage.png'}}" alt="Participant {{$index}} Imatge{{imatge.logoParticipant}}"  ng-repeat="imatge in participantsDiv[$index]">
+				<img class=" img-fluid col-3" ng-src="{{imatge.logoParticipant!=''?'img/participants/'+imatge.logoParticipant:'img/noimage.png'}}" alt="Participant {{$index}}" ng-repeat="imatge in participantsDiv[$index]">
+
 				
 			</div>
 		</div>
@@ -138,7 +143,7 @@
 
 <div class="row">
 
-	<div ng-repeat="sponsor in sponsors" class="col-3">
+	<!-- <div ng-repeat="sponsor in sponsors" class="col-3">
 		<div class="row align-items-center">
 			<div class="col">
 				<div class="card">
@@ -151,6 +156,33 @@
 					</div>
 				</div>
 			</div>
+		</div>
+	</div> -->
+	<div class="d-none d-md-inline">
+		<div id="carouselNoMovilSponsors" class="carousel slide" data-ride="carousel">
+		<ol class="carousel-indicators">
+			<li data-target="#carouselNoMovilSponsors" data-slide-to="0" class="active"></li>
+			<li data-target="#carouselNoMovilSponsors" data-slide-to="1"></li>
+			<li data-target="#carouselNoMovilSponsors" data-slide-to="2"></li>
+		</ol>
+		<div class="carousel-inner carousel text-center">
+			<div class="carousel-item" ng-repeat="sponsor in sponsorsDiv" ng-class="{'active': $index==0}">
+				<img class=" img-fluid col-3" ng-src="{{imatge.logoSponsor!=''?'img/participants/'+imatge.logoSponsor:'img/noimage.png'}}" alt="Participant {{$index}}"  ng-repeat="imatge in sponsorsDiv[$index]">
+				
+			</div>
+		</div>
+		
+
+		<a class="carousel-control-prev" role="button" data-target="#carouselNoMovilSponsors" data-slide="prev">
+			<!-- <span class="carousel-control-prev-icon" aria-hidden="true" ></span> -->
+			<span class="arrow-circle-lefts"><i class="fas fa-arrow-circle-left"></i></span>
+			<span class="sr-only">Anterior</span>
+		</a>
+		<a class="carousel-control-next" role="button" data-target="#carouselNoMovilSponsors" data-slide="next">
+	    	<!-- <span class="carousel-control-next-icon" aria-hidden="true"></span> -->
+	    	<span class="arrow-circle-rights"><i class="fas fa-arrow-circle-right"></i></span>
+	 		<span class="sr-only">Següent</span>
+		</a>
 		</div>
 	</div>
 </div>

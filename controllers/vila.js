@@ -225,7 +225,6 @@ angular.module('vila')
 		$scope.participantsDiv=[];
 		var cantParticipants=$scope.participants.length/4;
 		var supParticipant=0;
-		var j=0;
 		for(i=0;i<$scope.participants.length;i++){
 			j=0;
 			while(j<4){
@@ -233,8 +232,23 @@ angular.module('vila')
 				$scope.participantsDiv[supParticipant][j]=$scope.participants[i];
 				j++;
 				if(j<4)i++;
+				if(i==$scope.participants.length) j=4;
 			}
 			supParticipant++;
+		}
+
+		$scope.sponsorsDiv=[];
+		var cantSponsors=$scope.sponsors.length/4;
+		var supSponsors=0;
+		for(i=0;i<$scope.sponsors.length;i++){
+			j=0;
+			while(j<4){
+				if(j==0) {$scope.sponsorsDiv[supSponsors]=[];}
+				$scope.sponsors[supSponsors][j]=$scope.sponsors[i];
+				j++;
+				if(j<4)i++;
+			}
+			supSponsors++;
 		}
 	})
 	.catch(function(error) {
