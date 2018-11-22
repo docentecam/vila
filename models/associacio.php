@@ -48,13 +48,30 @@ function mostrarServeis($tbl_serveis,$tbl_subserveis){
 					$resultSubServeis=mysqli_query($connexio,$mySql2); 
 					while($rSub = mysqli_fetch_array($resultSubServeis)) 
 					{
-						$rowsSub[] = $rSub; 
+						$mySql2="SELECT `idSubservei`, `nomSubservei`, `txtSubservei`, `idServei` FROM `$tbl_subserveis` WHERE idServei=".$r[0];
+						$rowsSub = array(); 
+						$resultSubServeis=mysqli_query($connexio,$mySql2); 
+						while($rSub = mysqli_fetch_array($resultSubServeis)) 
+							{
+								$rowsSub[] = $rSub; 
+							}
+								array_push($r, $rowsSub);
+								$rows[] = $r; 	
 					}
 					array_push($r, $rowsSub);
 			$rows[] = $r; 	
 		} 
-		disconnect($connexio);		
+		disconnect($connexio);
+		for ($i=0; $i < sizeof($rows); $i++) { 
+			$rows[$i][1]=replaceFromBBDD($rows[$i][1]);
+			$rows[$i][2]=replaceFromBBDD($rows[$i][2]);
+		}		
 		return json_encode($rows);
 	}
+
+
+
+
+	
 
 ?>
