@@ -38,13 +38,16 @@ nav a{
 	font-weight: bold;
 }
 footer{
-	color: #4f307e!important;
+/*	color: #4f307e!important;*/
 	font-size:17px;
+	background-color: #f7fafb;
+	/*border-bottom: 10px solid #4f307e;*/
+	color: #999999;
 	width:100%;
-	margin-top: 20px;
+	margin-top: 5rem;
 	bottom: 0;
+	
 }
-
 /*.navbar-toggler-icon {
     display: inline-block;
     width: 1.5em;
@@ -80,6 +83,9 @@ a.Whatsapp:link, a.Whatsapp:visited, a.Whatsapp:hover{
 }
 a.ColorNegre:link, a.ColorNegre:visited, a.ColorNegre:hover{
 	color: black!important;
+}
+a.ColorGris:link, a.ColorGris:visited, a.ColorGris:hover{
+	color:#999999;
 }
 
 i,.cursor{
@@ -264,6 +270,9 @@ ul, li{
 	height:2px; 
 	background: #4f307e;
 }
+.h_divider_footer{ 
+	border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
 .h_divider_w{ 
 	height:2px; 
 	background: #fffcf0;
@@ -443,9 +452,6 @@ ul, li{
 	}
 	.bannerAlto{
 		height: 100px;
-	}
-	.hideMovil{
-		display: none;
 	}
 	.tipoSubtitulo{
 		text-align: center;	}
