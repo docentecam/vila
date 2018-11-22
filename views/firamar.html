@@ -88,8 +88,6 @@
 		<div class="carousel-inner carousel text-center">
 			<div class="carousel-item" ng-repeat="participant in participantsDiv" ng-class="{'active': $index==0}">
 				<img class=" img-fluid col-3" ng-src="{{imatge.logoParticipant!=''?'img/participants/'+imatge.logoParticipant:'img/noimage.png'}}" alt="Participant {{$index}}" ng-repeat="imatge in participantsDiv[$index]">
-
-				
 			</div>
 		</div>
 		
@@ -117,6 +115,7 @@
 		<div class="carousel-inner carousel text-center">
 			<div class="carousel-item" ng-repeat="participant in participants" ng-class="{'active': $index==0}">
 				<img class=" img-fluid col-10" ng-src="{{participant.logoParticipant!=''?'img/participants/'+participant.logoParticipant:'img/noimage.png'}}" alt="Participant {{$index}}">
+
 		    </div>
 			</div>
 		</div>
@@ -142,8 +141,7 @@
 </div>
 
 <div class="row">
-
-	<!-- <div ng-repeat="sponsor in sponsors" class="col-3">
+<!-- 	<div ng-repeat="sponsor in sponsors" class="col-3">
 		<div class="row align-items-center">
 			<div class="col">
 				<div class="card">
@@ -167,7 +165,7 @@
 		</ol>
 		<div class="carousel-inner carousel text-center">
 			<div class="carousel-item" ng-repeat="sponsor in sponsorsDiv" ng-class="{'active': $index==0}">
-				<img class=" img-fluid col-3" ng-src="{{imatge.logoSponsor!=''?'img/participants/'+imatge.logoSponsor:'img/noimage.png'}}" alt="Participant {{$index}}"  ng-repeat="imatge in sponsorsDiv[$index]">
+				<img class=" img-fluid col-3" ng-src="{{imatge.logoSponsor!=''?'img/sponsors/'+imatge.logoSponsor:'img/noimage.png'}}" alt="Sponsor {{$index+imatge.logoSponsor}}"  ng-repeat="imatge in sponsorsDiv[$index]">
 				
 			</div>
 		</div>

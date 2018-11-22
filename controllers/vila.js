@@ -244,12 +244,19 @@ angular.module('vila')
 			j=0;
 			while(j<4){
 				if(j==0) {$scope.sponsorsDiv[supSponsors]=[];}
-				$scope.sponsors[supSponsors][j]=$scope.sponsors[i];
+				$scope.sponsorsDiv[supSponsors][j]=$scope.sponsors[i];
 				j++;
 				if(j<4)i++;
+				if(i==$scope.sponsors.length) j=4;
 			}
 			supSponsors++;
 		}
+		console.log($scope.sponsorsDiv[0][0][0]);
+		console.log($scope.sponsorsDiv[0][1][0]);
+		console.log($scope.sponsorsDiv[0][2][0]);
+		console.log($scope.sponsorsDiv[0][3][0]);
+		console.log($scope.sponsorsDiv[1][0][0]);
+
 	})
 	.catch(function(error) {
 		$rootScope.cargador=false;
