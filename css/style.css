@@ -94,6 +94,7 @@ ul, li{
 .colorRosa{
 	color: #cb418e;
 }
+
 .cajaNidea2{
 	background-color:#e6e6e6;
 	border-radius: 6px;
@@ -108,9 +109,14 @@ ul, li{
     border-width: 1px 0px 1px 0px;
     border-radius: 18px;
 }
+.caixaDecolorGris{
+	max-width: 100%;
+	height: 100%;
+	background-image: url(https://upload.wikimedia.org/wikipedia/commons/2/29/Mercado_Central_Jerez_Fruta.JPG);
+
+}
 .padding{
-	padding-top: 80px;
-    padding-bottom: 80px;
+	padding: 80px;
 }
 .btn-info
 {
@@ -260,7 +266,7 @@ ul, li{
 }
 .h_divider_w{ 
 	height:2px; 
-	background: #4f307e;
+	background: #fffcf0;
 	margin-top: 25px;
 	margin-bottom: 20px;
 }
@@ -351,7 +357,7 @@ ul, li{
 .tipoSubTituloCenter{
 	text-align: center;
 }
-.tipoTexto,.tipoTextoCenter{
+.tipoTexto,.tipoTextoCenter,.tipoTextoBlanco{
 	font-family: 'Roboto', sans-serif;
 	font-weight: 300;
 	font-size: 1em;
@@ -359,7 +365,10 @@ ul, li{
 .tipoTextoCenter{
 	text-align: center;
 }
-.tipoTitulo,.tipoTituloCenter{
+.tipoTextoBlanco{
+	color: #fffcf0;
+}
+.tipoTitulo,.tipoTituloCenter,.tipoTituloBlanco{
 	font-family: 'Oswald', sans-serif;
 	font-weight: 700;
 	font-size: 2em;
@@ -368,8 +377,34 @@ ul, li{
 .tipoTituloCenter{
 	text-align: center;
 }
+.tipoTituloBlanco{
+	color: #fffcf0;
+}
+.title-block{
+	text-align: center;
+	position: relative;
+	margin-bottom: 30px;
+}
+.wrapper{
+	width: 100%;
+	margin: 0 auto;
+}
+.title-block__title--color-primary{
+	background:#4f307e;
+	color:#fffcf0;
+}
+.title-block__title{
+    display: inline-block;
+    text-align: center;
+    min-width: 333px;
+    text-transform: uppercase;
+    -webkit-border-radius: 25px;
+    line-height: 52px!important;
+}
 
-
+.middle{
+	border-right: 2px solid #cb418e;
+}
 @media (max-width: 575px){
 	.centrarFooterMovil{
 		text-align: center;
