@@ -186,6 +186,9 @@ ul, li{
 	border-left: 1px solid #343a40;
     padding-left: 10px;
 }*/
+.centrar{
+	align-items: center;
+}
 .arrow-circle-rights{
 /*	padding-top: calc(167px / 2 - 15px);*/
 	/*margin-left:-15px;*/
