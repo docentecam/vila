@@ -89,7 +89,8 @@
 		</ol>
 		<div class="carousel-inner carousel text-center">
 			<div class="carousel-item" ng-repeat="participant in participantsDiv" ng-class="{'active': $index==0}">
-				<img class=" img-fluid col-3" ng-src="{{imatge.logoParticipant!=''?'img/participants/'+imatge.logoParticipant:'img/noimage.png'}}" alt="Participant {{$index}}"  ng-repeat="imatge in participantsDiv[$index]">
+				<img class=" img-fluid col-3" ng-src="{{imatge.logoParticipant!=''?'img/participants/'+imatge.logoParticipant:'img/noimage.png'}}" alt="Participant {{$index}}" ng-repeat="imatge in participantsDiv[$index]">
+
 				
 			</div>
 		</div>

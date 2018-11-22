@@ -232,6 +232,7 @@ angular.module('vila')
 				$scope.participantsDiv[supParticipant][j]=$scope.participants[i];
 				j++;
 				if(j<4)i++;
+				if(i==$scope.participants.length) j=4;
 			}
 			supParticipant++;
 		}
