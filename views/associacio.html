@@ -1,8 +1,9 @@
 <div class="row">
-	<div class=" tipoTitulo mt-5  text-center col-12  ">
-		Qui Som?
+	<div class="col-12 text-center tipoTitulo mt-2  title-block wrapper">
+		<span class="title-block__title title-block__title--color-primary">Qui Som?</span>
 	</div>
-	<div class="text-center col-12 tipoTexto caixaDecolorGris padding">
+	
+	<div class="text-center mt-4 col-12 tipoTexto   colorBlanco">
 		<p>
 		{{vila.quiSom}}
 		
@@ -10,22 +11,53 @@
 	</div>
 </div>
 
+<hr class="tamañaoDivider">
+
 <div class="row">
-	<div class="tipoTitulo mt-5 col-12 text-center tipoTitulo">
-		Serveis
+	<div class=" mt-2 col-12 text-center tipoTitulo title-block wrapper">
+		<span class="title-block__title title-block__title--color-primary">Serveis</span>
 	</div>
-	<div ng-repeat="servei in serveis" class="col-12 tipoTexto">
+	<div ng-repeat="servei in serveis" class="col-12 tipoTexto mt-4 colorBlanco">
 		<p class="tipoTextoNegrita">{{servei.nomServei}}:</p>
 		<p>{{servei.txtServei+' '+servei[3].nomSubservei}}</p>
 		<p ng-repeat="subservei in servei[3]">{{subservei.nomSubservei}}</p>
 	</div>
 </div>
 
+<hr class="tamañaoDivider">
+
 <div class="row">
-	<div class="tipoTitulo mt-5 col-12 text-center tipoTitulo">
-		Equip
+	<div class="mt-2 col-12 text-center tipoTitulo title-block wrapper">
+		<span class="title-block__title title-block__title--color-primary">Equip</span>
 	</div>
-	<div class="tipoTexto text-center col-12 caixaDecolorGris padding">
+	<div class="tipoTexto text-center col-12 mt-4 colorBlanco">
 		{{vila.equip}}
 	</div>
 </div>
+
+
+<!-- <div class="row">
+	<div class="col-sm-3 hidden-xs">
+		<img src="img/a_vilactiva_gran.png">
+	</div>
+	<div class="col-sm-9 ">
+		<h2 class="custom-bar _left text-color-dark mt-2 offset-1">Qui Som?</h2>
+		<p class="offset-1">{{vila.quiSom}}}</p>
+		<h2 class="custom-bar _left text-color-dark mt-2 offset-1">Serveis</h2>
+		<div ng-repeat="servei in serveis" class="col-12 tipoTexto mt-2 colorBlanco offset-1">
+			<p class="tipoTextoNegrita">{{servei.nomServei}}:</p>
+			<p>{{servei.txtServei+' '+servei[3].nomSubservei}}</p>
+			<p ng-repeat="subservei in servei[3]">{{subservei.nomSubservei}}</p>
+		</div>
+		<h2 class="mt-2 col-12   offset-1 bordesRedondos">
+		Equip
+		</h2>
+		<div class="tipoTexto  col-12 mt-4  colorBlanco">
+			<p class="offset-1">{{vila.equip}}</p>
+		</div>
+	</div>
+</div> -->
+
+
+
+

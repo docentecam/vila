@@ -103,17 +103,12 @@ a:hover {
 	color: #FFFFFF;
 	background-color: #4f307e;
 }
-.AssNotiAllCss{
-	margin-right: 15%;
-	margin-left: 15%;
-}
 .SerAllCss{
 	margin-right: 7%;
 	margin-left: 7%;
 }
 .AssTituCss{
 	font-weight: bold;
-	font-size: 1.5vw;
 	margin-bottom: 2%;
 }
 .textareaQuiSomAss, .textareaEquipAss, .textareaLGPDAss{
@@ -228,6 +223,17 @@ a:hover {
 .imgPictogramaCateg{
 	height: 150px;
 }
+.iniciAllCss{
+	margin-right: 15%;
+	margin-left: 15%;
+}
+.IniciImgCss{
+	height: 100px;
+	width: 100px;
+	object-fit: contain;
+	object-position: top 75%;
+	object-fit: contain;
+}
 @media (max-width: 575px){
 	.iconSize{
 		font-size: 1.75em;
@@ -256,6 +262,10 @@ a:hover {
 	.iconSize{
 		font-size: 1.75em;
 	}
+	.AssNotiAllCss{
+	margin-right: 15%;
+	margin-left: 15%;
+	}
 }
 @media (max-width: 991px){
 	.goToTop{
@@ -282,7 +292,6 @@ a:hover {
 		width: 50px;
 		opacity: 0.5!important;
 	}
-
 }
 @media (min-width: 992px){
 	.goToTop{
@@ -314,6 +323,10 @@ a:hover {
 	.iconSize{
 		font-size: 1.33em;
 	}
+	.AssNotiAllCss{
+	margin-right: 15%;
+	margin-left: 15%;
+	}
 }
 @media (min-width: 1200px){
 	.imglogonav{
@@ -326,5 +339,9 @@ a:hover {
 	.iconSize{
 		padding: 0px;
 		font-size: 1.5em;
+	}
+	.AssNotiAllCss{
+	margin-right: 15%;
+	margin-left: 15%;
 	}
 }	
