@@ -1,6 +1,6 @@
 <br>
 <h3 class="iniciCss offset-2 col-8">
-	Manteniment De l'Associacio de la Vila
+	Manteniment de l'Associacio de comerciants de la Vila Olimpica
 </h3>
 <div class="row">
 	<div class="col">
