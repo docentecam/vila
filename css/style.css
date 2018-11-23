@@ -413,7 +413,7 @@ ul, li{
 .title-block__title{
     display: inline-block;
     text-align: center;
-    min-width: 333px;
+    min-width: 300px;
     text-transform: uppercase;
     -webkit-border-radius: 25px;
     line-height: 52px!important;

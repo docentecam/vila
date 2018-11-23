@@ -67,6 +67,11 @@ app.config(['$routeProvider',function($routeProvider){
     controller:'CarCtrl',
     title: "Manteniment carousel"
   })
+  .when('/banner',{
+    templateUrl:'views/carousel.php',
+    controller:'BannerCtrl',
+    title: "Manteniment Banners"
+  })
   .when('/logout',{
     templateUrl:'index.php',
     controller:'LogoutCtrl',

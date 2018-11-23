@@ -35,8 +35,18 @@
   			</button>
   			<div class="collapse navbar-collapse navReduced" id="navbarNavDropdown">
    			 	<ul class="navbar-nav">
-     				<li class="nav-item active reduceNav">
-        				<a class="nav-link" href="#/associacio">Dades Associacio</a>
+            <li class="nav-item dropdown active reduceNav">
+              <a class="nav-link dropdown-toggle cursor" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Vila
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#/associacio">Dades Associacio</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#/carousel">Manteniment del carousel</a>
+                <a class="dropdown-item" href="#/banner">Manteniment dels baners</a>
+              </div>
+            </li>
+     				<li class="nav-item ">
      				</li>
       				<li class="nav-item reduceNav">
         				<a class="nav-link" href="#/directori">Manteniment Directori</a>
@@ -59,9 +69,6 @@
      				</li>
      				<li class="nav-item reduceNav">
        					<a class="nav-link" href="#/noticies">Noticies</a>
-     				</li>
-     				<li class="nav-item reduceNav">
-       					<a class="nav-link" href="#/carousel">Manteniment del carousel</a>
      				</li>
      				<li class="nav-item p d-block d-lg-none reduceNav">
 
