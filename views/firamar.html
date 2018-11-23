@@ -1,5 +1,4 @@
 <div class="row">
-	
 	<div class="col-12 text-center caixaDecolorGris padding">
 		<div class="col-12 tipoTituloBlanco text-center">
 			<span>{{firamar.titolFiramar}}</span> 
@@ -9,7 +8,6 @@
 		<div class="h_divider_w mb-1 mt-1 hideMovil"></div>
 		<br>
 		<p class="tipoTextoBlanco">
-			
 			{{firamar.txtFiramar}}
 		</p>
 	</div>
@@ -23,31 +21,33 @@
 		</span>	
 	</div>
 </div>
-
 <div class="row">
-	<div ng-repeat="firamar in activitatsfiramar" class="col-12 mt-4 p-0">
+	<div ng-repeat="firamar in activitatsfiramar" class="col-12 mt-4 p-1 p-md-0">
 		<div class="row">
-			 	<div class="colorRosa col-4 p-0 middle">
-			 		<i class="far fa-clock colorRosa p-0"></i>
-			 		{{firamar.horaInici |limitTo:5}}h -
-			 		{{firamar.horaFi |limitTo:5}}h
-			 		<h6 class="col-12 col-10 mt-2 far fa-calendar colorRosa p-0">
-			 		&nbsp;&nbsp;{{firamar.titolActivitat | uppercase}}
-			 		</h6>
-			 	</div>
-			 	<div class="col-8"> 
-					<p class="col-12 col-10 tipoTexto p-0">{{firamar.txtActivitat}}</p><br>
-				</div>
+		 	<div class="col-12 col-md-4 p-1 p-md-0  middle colorRosa ">
+		 		<i class="far fa-clock colorRosa p-1 p-md-0"></i>
+		 		{{firamar.horaInici |limitTo:5}}h -
+		 		{{firamar.horaFi |limitTo:5}}h
+		 		<h6 class="col-12 col-md-10 mt-2 far fa-calendar colorRosa p-1 p-md-0">
+		 		&nbsp;&nbsp;{{firamar.titolActivitat | uppercase}}
+		 		</h6>
+		 	</div>
+		 	<div class="col-12 col-md-8"> 
+				<p class="col-12 tipoTexto p-1 p-md-0">{{firamar.txtActivitat}}</p><br>
+			</div>
 		</div>
 	</div>
+	<div class="h_divider_MovilFiramar"></div>
 </div>
 
+	
+
 <div class="row">
-<div class="title-block wrapper py-4">
-	<span class="title-block__title title-block__title--color-primary">
-		Galeria
-	</span>	
-</div>
+	<div class="title-block wrapper py-4">
+		<span class="title-block__title title-block__title--color-primary">
+			Galeria
+		</span>	
+	</div>
 	<div class="container col-12">
 		<div class="row">
 			<div class="card-columns">
@@ -59,7 +59,6 @@
 		</div>
 	</div>
 </div>
-
 <div class="modal fade " id="modalFoto" tabindex="-1" role="dialog" aria-hidden="true">
   	<div class="modal-dialog modal-dialog-centered" role="document">
   		<div class="modal-content">
@@ -71,100 +70,73 @@
 	    </div>
  	</div>
 </div>
-
 <div class="title-block wrapper py-4">
 	<span class="title-block__title title-block__title--color-primary">
 		Participants
 	</span>	
 </div>
-
 <div class="row">
 	
-	<div class="d-none d-md-inline">
-		<div id="carouselNoMovil" class="carousel slide" data-ride="carousel">
-		<ol class="carousel-indicators">
-			<li data-target="#carouselNoMovil" data-slide-to="0" class="active"></li>
-			<li data-target="#carouselNoMovil" data-slide-to="1"></li>
-			<li data-target="#carouselNoMovil" data-slide-to="2"></li>
-		</ol>
-		<div class="carousel-inner carousel text-center">
-			<div class="carousel-item" ng-repeat="participant in participantsDiv" ng-class="{'active': $index==0}">
-				<img class=" img-fluid col-3" ng-src="{{imatge.logoParticipant!=''?'img/participants/'+imatge.logoParticipant:'img/noimage.png'}}" alt="Participant {{$index}}" ng-repeat="imatge in participantsDiv[$index]">
-			</div>
-		</div>
-		
-
-		<a class="carousel-control-prev" role="button" data-target="#carouselNoMovil" data-slide="prev">
-			<!-- <span class="carousel-control-prev-icon" aria-hidden="true" ></span> -->
-			<span class="arrow-circle-lefts"><i class="fas fa-arrow-circle-left"></i></span>
-			<span class="sr-only">Anterior</span>
-		</a>
-		<a class="carousel-control-next" role="button" data-target="#carouselNoMovil" data-slide="next">
-	    	<!-- <span class="carousel-control-next-icon" aria-hidden="true"></span> -->
-	    	<span class="arrow-circle-rights"><i class="fas fa-arrow-circle-right"></i></span>
-	 		<span class="sr-only">Següent</span>
-		</a>
+<div class="d-none d-md-inline">
+	<div id="carouselNoMovil" class="carousel slide" data-ride="carousel">
+<!-- 	<ol class="carousel-indicators">
+		<li data-target="#carouselNoMovil" data-slide-to="0" class="active"></li>
+		<li data-target="#carouselNoMovil" data-slide-to="1"></li>
+		<li data-target="#carouselNoMovil" data-slide-to="2"></li>
+	</ol> -->
+	<div class="carousel-inner carousel text-center">
+		<div class="carousel-item" ng-repeat="participant in participantsDiv" ng-class="{'active': $index==0}">
+			<img class=" img-fluid col-3" ng-src="{{imatge.logoParticipant!=''?'img/participants/'+imatge.logoParticipant:'img/noimage.png'}}" alt="Participant {{$index}}" ng-repeat="imatge in participantsDiv[$index]">
 		</div>
 	</div>
+	
 
-	<div class="d-md-none">
-		<div id="carouselMovil" class="carousel slide" data-ride="carousel">
-	<!-- 	<ol class="carousel-indicators">
+	<a class="carousel-control-prev" role="button" data-target="#carouselNoMovil" data-slide="prev">
+		<span class="arrow-circle-lefts"><i class="fas fa-arrow-circle-left"></i></span>
+		<span class="sr-only">Anterior</span>
+	</a>
+	<a class="carousel-control-next" role="button" data-target="#carouselNoMovil" data-slide="next">
+    	<span class="arrow-circle-rights"><i class="fas fa-arrow-circle-right"></i></span>
+ 		<span class="sr-only">Següent</span>
+	</a>
+	</div>
+</div>
+
+<div class="d-md-none">
+	<div id="carouselMovil" class="carousel slide" data-ride="carousel">
+		<!-- <ol class="carousel-indicators">
 			<li data-target="#carouselMovil" data-slide-to="0" class="active"></li>
 			<li data-target="#carouselMovil" data-slide-to="1"></li>
 			<li data-target="#carouselMovil" data-slide-to="2"></li>
 		</ol> -->
 		<div class="carousel-inner carousel text-center">
 			<div class="carousel-item" ng-repeat="participant in participants" ng-class="{'active': $index==0}">
-				<img class=" img-fluid col-10" ng-src="{{participant.logoParticipant!=''?'img/participants/'+participant.logoParticipant:'img/noimage.png'}}" alt="Participant {{$index}}">
+				<img class=" img-fluid col-12" ng-src="{{participant.logoParticipant!=''?'img/participants/'+participant.logoParticipant:'img/noimage.png'}}" alt="Participant {{$index}}">
 
 		    </div>
-			</div>
 		</div>
-
-		<a class="carousel-control-prev" role="button" data-target="#carouselMovil" data-slide="prev">
-			<!-- <span class="carousel-control-prev-icon" aria-hidden="true"></span> -->
-			<span class="arrow-circle-lefts"><i class="fas fa-arrow-circle-left"></i></span>
-			<span class="sr-only">Anterior</span>
-		</a>
-		<a class="carousel-control-next" role="button" data-target="#carouselMovil" data-slide="next">
-	    	<!-- <span class="carousel-control-next-icon" aria-hidden="true"></span> -->
-	    	<span class="arrow-circle-rights"><i class="fas fa-arrow-circle-right"></i></span>
-	 		<span class="sr-only">Següent</span>
-		</a>
 	</div>
-	
+	<a class="carousel-control-prev-movil" role="button" data-target="#carouselMovil" data-slide="prev">
+		<span class="arrow-circle-lefts"><i class="fas fa-arrow-circle-left"></i></span>
+		<span class="sr-only">Anterior</span>
+	</a>
+	<a class="carousel-control-next-movil" role="button" data-target="#carouselMovil" data-slide="next">
+    	<span class="arrow-circle-rights"><i class="fas fa-arrow-circle-right"></i></span>
+ 		<span class="sr-only">Següent</span>
+	</a>
 </div>
 
-<div class="title-block wrapper py-4">
-	<span class="title-block__title title-block__title--color-primary">
-		Sponsors
-	</span>	
+</div>
+<div class="title-block wrapper py-4 mt-4">
+<span class="title-block__title title-block__title--color-primary">
+	Sponsors
+</span>	
 </div>
 
 <div class="row">
-<!-- 	<div ng-repeat="sponsor in sponsors" class="col-3">
-		<div class="row align-items-center">
-			<div class="col">
-				<div class="card">
-					<div class="group">
-						<div class="group-item">
-							<div class="imagecontainer is-cover">
-								<img class=" img-fluid text-center" ng-src="{{sponsor.logoSponsor!=''?'img/sponsors/'+sponsor.logoSponsor:'img/noimage.png'}}" title="sponsors" alt="sponsors" class="imagecontainer-img lazyload">
-							</div> 
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div> -->
 	<div class="d-none d-md-inline">
 		<div id="carouselNoMovilSponsors" class="carousel slide" data-ride="carousel">
-		<ol class="carousel-indicators">
-			<li data-target="#carouselNoMovilSponsors" data-slide-to="0" class="active"></li>
-			<li data-target="#carouselNoMovilSponsors" data-slide-to="1"></li>
-			<li data-target="#carouselNoMovilSponsors" data-slide-to="2"></li>
-		</ol>
+
 		<div class="carousel-inner carousel text-center">
 			<div class="carousel-item" ng-repeat="sponsor in sponsorsDiv" ng-class="{'active': $index==0}">
 				<img class=" img-fluid col-3" ng-src="{{imatge.logoSponsor!=''?'img/sponsors/'+imatge.logoSponsor:'img/noimage.png'}}" alt="Sponsor {{$index+imatge.logoSponsor}}"  ng-repeat="imatge in sponsorsDiv[$index]">
@@ -173,12 +145,12 @@
 		</div>
 		
 
-		<a class="carousel-control-prev" role="button" data-target="#carouselNoMovilSponsors" data-slide="prev">
+		<a class="carousel-control-prev" role="button" data-target="#carouselNoMovilSponsors" data-slide="prev" ng-show="sponsorsDiv.length>1">
 			<!-- <span class="carousel-control-prev-icon" aria-hidden="true" ></span> -->
 			<span class="arrow-circle-lefts"><i class="fas fa-arrow-circle-left"></i></span>
 			<span class="sr-only">Anterior</span>
 		</a>
-		<a class="carousel-control-next" role="button" data-target="#carouselNoMovilSponsors" data-slide="next">
+		<a class="carousel-control-next" role="button" data-target="#carouselNoMovilSponsors" data-slide="next"  ng-show="sponsorsDiv.length>1">
 	    	<!-- <span class="carousel-control-next-icon" aria-hidden="true"></span> -->
 	    	<span class="arrow-circle-rights"><i class="fas fa-arrow-circle-right"></i></span>
 	 		<span class="sr-only">Següent</span>
@@ -186,15 +158,29 @@
 		</div>
 	</div>
 </div>
-	
-	<!-- 
 
-	¿fotos fijas de los sponsors? en plan, que haya un col y ahí dentro entren los q hayan? 
-
-	no sé cómo hacerlo bien para q si un año hay 5 y otro 3 se quede bien centrado siempre.
-
-	-->
-
+<div class="d-md-none">
+	<div id="carouselMovilSponsor" class="carousel slide" data-ride="carousel">
+		<!-- <ol class="carousel-indicators">
+			<li data-target="#carouselMovil" data-slide-to="0" class="active"></li>
+			<li data-target="#carouselMovil" data-slide-to="1"></li>
+			<li data-target="#carouselMovil" data-slide-to="2"></li>
+		</ol> -->
+		<div class="carousel-inner carousel text-center">
+			<div class="carousel-item" ng-repeat="sponsor in sponsors" ng-class="{'active': $index==0}">
+				<img class=" img-fluid col-12" ng-src="{{sponsor.logoSponsor!=''?'img/sponsors/'+sponsor.logoSponsor:'img/noimage.png'}}" alt="Sponsor {{$index}}">
+		    </div>
+		</div>
+	</div>
+	<a class="carousel-control-prev-movil" role="button" data-target="#carouselMovilSponsor" data-slide="prev" >
+		<span class="arrow-circle-lefts"><i class="fas fa-arrow-circle-left"></i></span>
+		<span class="sr-only">Anterior</span>
+	</a>
+	<a class="carousel-control-next-movil" role="button" data-target="#carouselMovilSponsor" data-slide="next">
+    	<span class="arrow-circle-rights"><i class="fas fa-arrow-circle-right"></i></span>
+ 		<span class="sr-only">Següent</span>
+	</a>
+</div>
 <div class="title-block wrapper py-4">
 	<span class="title-block__title title-block__title--color-primary">
 		Edicions anteriors
