@@ -1677,10 +1677,10 @@ angular.module('vila')
 	.then(function(res){
 		deferred.resolve(res);
 		$scope.imatgesBanner=res.data;
-		$scope.ban.fotoBanner=$scope.imatgeBan.fotoBanner;
-		$scope.ban.bannerOld=$scope.imatgeBan.fotoBanner;
+		// $scope.ban.fotoBanner=$scope.imatgesBanner.fotoBanner;
+		$scope.ban.bannerOld=$scope.imatgesBanner.fotoBanner;
 		$scope.ban.bannerUpdate="";
-		$scope.ban.idBanner=$scope.imatgeBan.idBanner;
+		$scope.ban.idBanner=$scope.imatgesBanner.idBanner;
 		$rootScope.cargador=false;
 		console.log(res.data);
 	})
@@ -1704,14 +1704,15 @@ angular.module('vila')
 	$scope.columnOrder=function(columna){
 		$scope.order=columna;
 	}
-	$scope.upBanners=function(e){
+	$scope.upBanners=function(e,nomCamp){
 			var data = new FormData();
             data.append("acc", "upImg");
+            data.append("nomCamp", nomCamp);
             data.append("idBanner",$scope.ban.idBanner);
 			data.append("bannerUpdate", e.files[0]);
-			data.append("bannerOld", $scope.com.logoAssociatOld);
-			console.log($scope.com.logoAssociatOld);
-				//data.append("logoDelete", $scope.com.logoAssociatOld);
+			data.append("bannerOld", $scope.ban.bannerOld);
+			console.log($scope.ban.bannerOld);
+				//data.append("logoDelete", $scope.com.bannerOld);
 			 var deferred=$q.defer();
 			 $http.post("models/carousel.php", data,{
 				headers:{
@@ -1722,8 +1723,8 @@ angular.module('vila')
 				.then(function(res)
 				{
 					deferred.resolve(res);
-					$scope.com.logoAssociat=res.data;
-					$scope.com.logoAssociatOld=res.data;					
+					$scope.ban.fotoBanner=res.data;
+					$scope.com.bannerOld=res.data;					
 				})
 				.catch(function(error) {
 					$rootScope.cargador=false;
