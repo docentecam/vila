@@ -233,8 +233,8 @@ a:hover {
 	transform: translate(-50%, -50%);
 }
 .iniciCss{
-	padding-top: 1%;
-	padding-bottom: 1%;
+	padding-top: 2%;
+	padding-bottom: 2%;
 	text-align: center;
 	border-radius: 5px;
 	background: #57a4ed;
