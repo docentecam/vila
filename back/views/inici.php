@@ -1,5 +1,5 @@
-<div class="row iniciAllCss">
-	<div class="IniciImgCss">
-		<img ng-src="../img/associat.jpg">
+<div class="row">
+	<div class="col">
+		<img class="iniciImgCss" ng-src="../img/{{logoVila}}">
 	</div>
 </div>
