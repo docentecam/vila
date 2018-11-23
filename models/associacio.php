@@ -41,25 +41,15 @@ function mostrarServeis($tbl_serveis,$tbl_subserveis){
 		
 		while($r = mysqli_fetch_array($resultServeis)) 
 		{
-			$mySql2="SELECT `idSubservei`, `nomSubservei`, `txtSubservei`, `idServei` 
-					FROM `$tbl_subserveis`
-					WHERE idServei=".$r[0];
-					$rowsSub = array(); 
-					$resultSubServeis=mysqli_query($connexio,$mySql2); 
-					while($rSub = mysqli_fetch_array($resultSubServeis)) 
-					{
-						$mySql2="SELECT `idSubservei`, `nomSubservei`, `txtSubservei`, `idServei` FROM `$tbl_subserveis` WHERE idServei=".$r[0];
-						$rowsSub = array(); 
-						$resultSubServeis=mysqli_query($connexio,$mySql2); 
-						while($rSub = mysqli_fetch_array($resultSubServeis)) 
-							{
-								$rowsSub[] = $rSub; 
-							}
-								array_push($r, $rowsSub);
-								$rows[] = $r; 	
-					}
+			$mySql2="SELECT `idSubservei`, `nomSubservei`, `txtSubservei`, `idServei` FROM `$tbl_subserveis` WHERE idServei=".$r[0];
+			$rowsSub = array(); 
+			$resultSubServeis=mysqli_query($connexio,$mySql2); 
+			while($rSub = mysqli_fetch_array($resultSubServeis)) 
+				{
+					$rowsSub[] = $rSub; 
+				}
 					array_push($r, $rowsSub);
-			$rows[] = $r; 	
+					$rows[] = $r; 	
 		} 
 		disconnect($connexio);
 		for ($i=0; $i < sizeof($rows); $i++) { 

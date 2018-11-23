@@ -18,9 +18,9 @@
 		<span class="title-block__title title-block__title--color-primary">Serveis</span>
 	</div>
 	<div ng-repeat="servei in serveis" class="col-12 tipoTexto mt-4 colorBlanco">
-		<p class="tipoTextoNegrita">{{servei.nomServei}}:</p>
+		<b class="tipoTextoNegrita">{{servei.nomServei}}:</b>
 		<p>{{servei.txtServei+' '+servei[3].nomSubservei}}</p>
-		<p ng-repeat="subservei in servei[3]">{{subservei.nomSubservei}}</p>
+		<span ng-repeat="subservei in servei[3]">{{subservei.nomSubservei}}<p>{{subservei.txtSubservei}}</p></span>
 	</div>
 </div>
 

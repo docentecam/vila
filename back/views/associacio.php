@@ -44,7 +44,7 @@
 				<div class="input-group">
 			      		<input type="password" class="form-control" id="txtPass" ng-model="ass.pasMail" placeholder="contrasenya" required>
 			    	<div class="input-group-append">
-			      		<span class="input-group-text" id="inputGroupPrepend" ng-click="showPassAss()"><i class="far fa-eye cursor"></i></span>
+			      		<span class="input-group-text" id="inputGroupPrepend" ng-click="showPassAss()"><i class="far fa-eye cursor" ng-hide="hidePass" title="Ocultar contrasenya"></i><i class="far fa-eye-slash cursor" ng-show="hidePass" title="Mostrar contrasenya"></i></span>
 			    	</div>
 				</div>
 			</div> 	

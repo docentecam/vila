@@ -35,7 +35,7 @@
 				<td>{{directori.adreca}}</td>
 				<td>{{directori.telf1}}<span ng-if="directori.telf1=='' || directori.telf1==null">---</span></td>
 				<td>{{directori.telf2}}<span ng-show="directori.telf2=='' || directori.telf2==null">---</span></td>
-				<td>{{directori.whatsapp}}<span ng-show="directori.whatsapp=='' || directori.whatsapp==null">---</span><a ng-href="https://api.whatsapp.com/send?phone=34{{directori.whatsapp}}" class="fab fa-whatsapp ml-2 iconSize whats rounded" target="_blank" title="Enviar whatsapp" ng-show="directori.whatsapp!=''"></a></td>
+				<td>{{directori.whatsapp}}<span ng-show="directori.whatsapp=='' || directori.whatsapp==null">---</span><a ng-href="https://api.whatsapp.com/send?phone=34{{directori.whatsapp}}" class="fab fa-whatsapp ml-2 iconSize whats rounded" target="_blank" title="Enviar whatsapp" ng-show="directori.whatsapp!='' && directori.whatsapp!=null"></a></td>
 				<td><span ng-show="directori.email=='' || directori.email==null">---</span><a class="emailTableCss" ng-href="mailto:{{soci.mail}}" target="_blank" title="Enviar correu">{{directori.email}}</a></td>
 				<td>{{directori.horari}}</td>
 				<td>{{directori.URLWeb}}</td>
