@@ -9,7 +9,7 @@ app.config(['$routeProvider',function($routeProvider){
 	$routeProvider
 	.when('/',{
 		templateUrl:'views/inici.php',
-		controller:'IniciCtrl',
+		controller:'AssociCtrl',
     title: "Vilactiva"
 	})
   .when('/associacio',{
