@@ -5,7 +5,7 @@
 	<div class="col-8 offset-2 text-center alert alert-warning" ng-show="cargaMsj">
 		{{msj}}
 	</div>
-  	<h3 id="divTop" class="AssTituCss">Dades Associació:</h3>
+  	<h4 id="divTop" class="AssTituCss">Dades Associació:</h4>
 	<form name="formAss" ng-submit="submitAss()" novalidate>
 	 	<div class="form-row">
 			<div class="form-group col-md-8" ng-class="{ 'has-error' : formAss.nomAss.$invalid && !formAss.nomAss.$pristine }">
