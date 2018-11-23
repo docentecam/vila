@@ -9,7 +9,7 @@ app.config(['$routeProvider',function($routeProvider){
 	$routeProvider
 	.when('/',{
 		templateUrl:'views/inici.php',
-		controller:'IniciCtrl',
+		controller:'AssociCtrl',
     title: "Vilactiva"
 	})
   .when('/associacio',{
@@ -66,6 +66,11 @@ app.config(['$routeProvider',function($routeProvider){
     templateUrl:'views/carousel.php',
     controller:'CarCtrl',
     title: "Manteniment carousel"
+  })
+  .when('/banner',{
+    templateUrl:'views/carousel.php',
+    controller:'BannerCtrl',
+    title: "Manteniment Banners"
   })
   .when('/logout',{
     templateUrl:'index.php',

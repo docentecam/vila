@@ -5,7 +5,7 @@
 	<div class="col-8 offset-2 text-center alert alert-warning" ng-show="cargaMsj">
 		{{msj}}
 	</div>
-  	<h3 id="divTop" class="AssTituCss">Dades Associació:</h3>
+  	<h4 id="divTop" class="AssTituCss">Dades Associació:</h4>
 	<form name="formAss" ng-submit="submitAss()" novalidate>
 	 	<div class="form-row">
 			<div class="form-group col-md-8" ng-class="{ 'has-error' : formAss.nomAss.$invalid && !formAss.nomAss.$pristine }">
@@ -44,7 +44,7 @@
 				<div class="input-group">
 			      		<input type="password" class="form-control" id="txtPass" ng-model="ass.pasMail" placeholder="contrasenya" required>
 			    	<div class="input-group-append">
-			      		<span class="input-group-text" id="inputGroupPrepend" ng-click="showPassAss()"><i class="far fa-eye cursor"></i></span>
+			      		<span class="input-group-text" id="inputGroupPrepend" ng-click="showPassAss()"><i class="far fa-eye cursor" ng-hide="hidePass" title="Ocultar contrasenya"></i><i class="far fa-eye-slash cursor" ng-show="hidePass" title="Mostrar contrasenya"></i></span>
 			    	</div>
 				</div>
 			</div> 	
