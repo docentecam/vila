@@ -9,7 +9,7 @@ app.config(['$routeProvider',function($routeProvider){
 	$routeProvider
 	.when('/',{
 		templateUrl:'views/inici.php',
-		controller:'IniciCtrl',
+		controller:'AssociCtrl',
     title: "Vilactiva"
 	})
   .when('/associacio',{
@@ -20,17 +20,17 @@ app.config(['$routeProvider',function($routeProvider){
   .when('/directori',{
     templateUrl:'views/directori.php',
     controller:'DirectCtrl',
-    title: "Llistat de comerços"
+    title: "Llistat d'associats"
   })
   .when('/directori/:idAssociat',{
     templateUrl:'views/directori.php',
     controller:'DirectComerCtrl',
-    title: "Manteniment del comerç"
+    title: "Manteniment de l'associat"
   })
   .when('/newComerc',{
     templateUrl:'views/directori.php',
     controller:'NewComercCtrl',
-    title: "Nou Comerç"
+    title: "Nou Associat"
   })
   .when('/contactans',{
     templateUrl:'views/contactans.php',
@@ -71,6 +71,11 @@ app.config(['$routeProvider',function($routeProvider){
     templateUrl:'views/carousel.php',
     controller:'CarCtrl',
     title: "Manteniment carousel"
+  })
+  .when('/banner',{
+    templateUrl:'views/carousel.php',
+    controller:'BannerCtrl',
+    title: "Manteniment Banners"
   })
   .when('/logout',{
     templateUrl:'index.php',

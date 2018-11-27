@@ -79,11 +79,10 @@ angular.module('vila')
 		$scope.serveis=res.data.dadesServeis;
 		console.log($scope.serveis.length);
 		$scope.equip=res.data.dadesVila[0];
-		console.log(res.data);
-		$scope.subserveis=res.data.dadesSubserveis;
+		console.log(res.data.dadesServeis);
 		$scope.equip=res.data.dadesEquip[0];
 		$rootScope.cargador=false;
-		console.log("hola");
+		
 	})
 	.catch(function(error) {
 		$rootScope.cargador=false;
@@ -169,6 +168,7 @@ angular.module('vila')
 		deferred.resolve(res);
 		$rootScope.cargador=false;
 		$scope.noticies=res.data;
+		console.log(res.data);
 	})
 	.catch(function(error) {
 		$rootScope.cargador=false;
@@ -214,14 +214,41 @@ angular.module('vila')
 	.then(function(res){
 		deferred.resolve(res);
 		$rootScope.cargador=false;
-		console.log(res.data);
 		$scope.firamar=res.data.dadesFiramar[0];
 		$scope.galeriafiramar=res.data.dadesGaleriafiramar;
 		$scope.activitatsfiramar=res.data.dadesActivitatsfiramar;
 		$scope.sponsors=res.data.dadesSponsors;
 		$scope.participants=res.data.dadesParticipants;
 		$scope.dadesTotesEdicions=res.data.dadesTotesEdicions;
-			console.log(res.data.dadesParticipants);
+		$scope.participantsDiv=[];
+		var cantParticipants=$scope.participants.length/4;
+		var supParticipant=0;
+		for(i=0;i<$scope.participants.length;i++){
+			j=0;
+			while(j<4){
+				if(j==0) {$scope.participantsDiv[supParticipant]=[];}
+				$scope.participantsDiv[supParticipant][j]=$scope.participants[i];
+				j++;
+				if(j<4)i++;
+				if(i==$scope.participants.length) j=4;
+			}
+			supParticipant++;
+		}
+
+		$scope.sponsorsDiv=[];
+		var cantSponsors=$scope.sponsors.length/4;
+		var supSponsors=0;
+		for(i=0;i<$scope.sponsors.length;i++){
+			j=0;
+			while(j<4){
+				if(j==0) {$scope.sponsorsDiv[supSponsors]=[];}
+				$scope.sponsorsDiv[supSponsors][j]=$scope.sponsors[i];
+				j++;
+				if(j<4)i++;
+				if(i==$scope.sponsors.length) j=4;
+			}
+			supSponsors++;
+		}
 	})
 	.catch(function(error) {
 		$rootScope.cargador=false;
@@ -251,6 +278,33 @@ angular.module('vila')
 					$scope.sponsors=res.data.dadesSponsors;
 					$scope.participants=res.data.dadesParticipants;
 					$scope.dadesTotesEdicions=res.data.dadesTotesEdicions;
+					var supParticipant=0;
+		for(i=0;i<$scope.participants.length;i++){
+			j=0;
+			while(j<4){
+				if(j==0) {$scope.participantsDiv[supParticipant]=[];}
+				$scope.participantsDiv[supParticipant][j]=$scope.participants[i];
+				j++;
+				if(j<4)i++;
+				if(i==$scope.participants.length) j=4;
+			}
+			supParticipant++;
+		}
+
+		$scope.sponsorsDiv=[];
+		var cantSponsors=$scope.sponsors.length/4;
+		var supSponsors=0;
+		for(i=0;i<$scope.sponsors.length;i++){
+			j=0;
+			while(j<4){
+				if(j==0) {$scope.sponsorsDiv[supSponsors]=[];}
+				$scope.sponsorsDiv[supSponsors][j]=$scope.sponsors[i];
+				j++;
+				if(j<4)i++;
+				if(i==$scope.sponsors.length) j=4;
+			}
+			supSponsors++;
+		}
 
 				})
 				.catch(function(error) {

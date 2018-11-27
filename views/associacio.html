@@ -1,31 +1,74 @@
 <div class="row">
-	<div class=" tipoTitulo mt-5  text-center col-12  ">
-		Qui Som?
-	</div>
-	<div class="text-center col-12 tipoTexto caixaDecolorGris padding">
-		<p>
-		{{vila.quiSom}}
-		
+	<div class="col-12 text-center caixaDecolorGris padding">
+		<div class="col-12 tipoTituloBlanco text-center">
+			<span>Qui som?</span> 
+		</div>
+		<br>
+		<div class="h_divider_w mb-1 mt-1 hideMovil"></div>
+		<br>
+		<p class="tipoTextoBlanco">
+			{{vila.quiSom}}
 		</p>
 	</div>
 </div>
 
-<div class="row">
-	<div class="tipoTitulo mt-5 col-12 text-center tipoTitulo">
-		Serveis
-	</div>
-	<div ng-repeat="servei in serveis" class="col-12 tipoTexto">
-		<p class="tipoTextoNegrita">{{servei.nomServei}}:</p>
-		<p>{{servei.txtServei+' '+servei[3].nomSubservei}}</p>
-		<p ng-repeat="subservei in servei[3]">{{subservei.nomSubservei}}</p>
+<br>
+<div class="container">
+	<div class="h_divider_p"></div>
+	<div class="title-block wrapper">
+		<span class="title-block__title title-block__title--color-primary">
+			Serveis
+		</span>	
 	</div>
 </div>
 
 <div class="row">
-	<div class="tipoTitulo mt-5 col-12 text-center tipoTitulo">
-		Equip
-	</div>
-	<div class="tipoTexto text-center col-12 caixaDecolorGris padding">
-		{{vila.equip}}
+	<div ng-repeat="servei in serveis" class="col-12 tipoTexto mt-4 colorBlanco">
+		<b class="tipoTextoNegrita">{{servei.nomServei}}:</b>
+		<p>{{servei.txtServei+' '+servei[3].nomSubservei}}</p>
+		<span ng-repeat="subservei in servei[3]">{{subservei.nomSubservei}}<p>{{subservei.txtSubservei}}</p></span>
 	</div>
 </div>
+
+<br>
+<div class="container">
+	<div class="h_divider_p"></div>
+	<div class="title-block wrapper">
+		<span class="title-block__title title-block__title--color-primary">
+			Equip
+		</span>	
+	</div>
+</div>
+
+<div class="row">
+	<div class="tipoTexto text-center col-12 mt-4 colorBlanco">
+		<pre class="tipoTexto">{{vila.equip}}</pre>
+	</div>
+</div>
+
+
+<!-- <div class="row">
+	<div class="col-sm-3 hidden-xs">
+		<img src="img/a_vilactiva_gran.png">
+	</div>
+	<div class="col-sm-9 ">
+		<h2 class="custom-bar _left text-color-dark mt-2 offset-1">Qui Som?</h2>
+		<p class="offset-1">{{vila.quiSom}}}</p>
+		<h2 class="custom-bar _left text-color-dark mt-2 offset-1">Serveis</h2>
+		<div ng-repeat="servei in serveis" class="col-12 tipoTexto mt-2 colorBlanco offset-1">
+			<p class="tipoTextoNegrita">{{servei.nomServei}}:</p>
+			<p>{{servei.txtServei+' '+servei[3].nomSubservei}}</p>
+			<p ng-repeat="subservei in servei[3]">{{subservei.nomSubservei}}</p>
+		</div>
+		<h2 class="mt-2 col-12   offset-1 bordesRedondos">
+		Equip
+		</h2>
+		<div class="tipoTexto  col-12 mt-4  colorBlanco">
+			<p class="offset-1">{{vila.equip}}</p>
+		</div>
+	</div>
+</div> -->
+
+
+
+

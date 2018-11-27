@@ -26,6 +26,7 @@ angular.module('vila')
 	$scope.accion="";
 	$scope.ass={};
 	$scope.msj="";
+	$scope.hidePass=true;
 	var data = new FormData();
 		data.append("acc","l");
 	var deferred=$q.defer();
@@ -112,9 +113,11 @@ angular.module('vila')
 	$scope.showPassAss=function(){
 		if ($scope.tipe) {
 			document.getElementById('txtPass').type = 'text';
+			$scope.hidePass=false;
 		}
 		else{
 			document.getElementById('txtPass').type = 'password';
+			$scope.hidePass=true;
 		}
 		$('#txtPass').focus();
 		$scope.tipe=!$scope.tipe;
@@ -176,7 +179,7 @@ angular.module('vila')
 	    element.scrollIntoView({block: "end", behavior: "smooth"});
  	}
 })	
-.controller('DirectCtrl',function($scope,$http,$q,$rootScope,$routeParams,$timeout,$window, $document){
+.controller('DirectCtrl',function($scope,$http,$q,$rootScope,$window){
 	var data = new FormData();
 		data.append("acc", "l");
 	var deferred=$q.defer();
@@ -550,7 +553,7 @@ angular.module('vila')
 		}
 	}
 })
-.controller('NewComercCtrl',function($scope,$http,$q,$rootScope,$routeParams,$timeout,$window, $document){
+.controller('NewComercCtrl',function($scope,$http,$q,$rootScope,$timeout,$window, $document){
 	var data = new FormData();
 		data.append("acc", "l");
 	var deferred=$q.defer();
@@ -1674,7 +1677,7 @@ angular.module('vila')
 	}
 })
 .controller('CarCtrl',function($scope,$http,$q,$rootScope,$timeout,$window){
-
+	$scope.imatgesCarBan=true;
 	var data = new FormData();
 		data.append("acc", "l");
 	var deferred=$q.defer();
@@ -1787,6 +1790,125 @@ angular.module('vila')
 				.then(function(res){
 					deferred.resolve(res);
 					$scope.imatgesCar=res.data;
+					$rootScope.cargador=false;
+					$timeout(function() {
+						$scope.divMsj=false;
+					}, 2000);
+				})
+				.catch(function(error) {
+					$rootScope.cargador=false;
+				});
+		}
+	}
+
+})
+.controller('BannerCtrl',function($scope,$http,$q,$rootScope,$timeout,$window){
+	$scope.imatgesCarBan=false;
+	var data = new FormData();
+		data.append("acc", "l");
+	var deferred=$q.defer();
+	$http.post("models/associacio.php", data,{
+	headers:{
+		"Content-type":undefined
+	},
+	transformRequest:angular.identity
+
+	})
+	.then(function(resIcon){
+		deferred.resolve(resIcon);
+		$rootScope.favIcon=resIcon.data[0].favIcon;
+		$rootScope.logo=resIcon.data[0].logoBolsa;
+		$rootScope.cargador=false;
+	})
+	.catch(function(error){
+		$rootScope.cargador=false;
+	});
+
+	$scope.ban={};
+	var data = new FormData();
+		data.append("acc","b");
+    var deferred=$q.defer();
+
+	$http.post("models/carousel.php", data,{
+
+		headers:{
+			"Content-type":undefined
+		},
+		transformRequest:angular.identity
+	})
+	.then(function(res){
+		deferred.resolve(res);
+		$scope.imatgesBanner=res.data;
+		// $scope.ban.fotoBanner=$scope.imatgesBanner.fotoBanner;
+		$scope.ban.bannerOld=$scope.imatgesBanner.fotoBanner;
+		$scope.ban.bannerUpdate="";
+		$scope.ban.idBanner=$scope.imatgesBanner.idBanner;
+		$rootScope.cargador=false;
+		console.log(res.data);
+	})
+	.catch(function(error) {
+		$rootScope.cargador=false;
+	});
+
+	window.onscroll = function() {scrollFunction()};
+
+	function scrollFunction() {
+	    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+	        document.getElementById("goTop").style.display = "block";
+	    } else {
+	        document.getElementById("goTop").style.display = "none";
+	    }
+	}
+ 	$scope.goTop=function(){
+ 		var element = document.getElementById("divTop");
+	    element.scrollIntoView({block: "end", behavior: "smooth"});
+ 	}
+	$scope.columnOrder=function(columna){
+		$scope.order=columna;
+	}
+	$scope.upBanners=function(e,nomCamp){
+			var data = new FormData();
+            data.append("acc", "upImg");
+            data.append("nomCamp", nomCamp);
+            data.append("idBanner",$scope.ban.idBanner);
+			data.append("bannerUpdate", e.files[0]);
+			data.append("bannerOld", $scope.ban.bannerOld);
+			console.log($scope.ban.bannerOld);
+				//data.append("logoDelete", $scope.com.bannerOld);
+			 var deferred=$q.defer();
+			 $http.post("models/carousel.php", data,{
+				headers:{
+					"Content-type":undefined
+				},
+					transformRequest:angular.identity
+				})
+				.then(function(res)
+				{
+					deferred.resolve(res);
+					$scope.ban.fotoBanner=res.data;
+					$scope.com.bannerOld=res.data;					
+				})
+				.catch(function(error) {
+					$rootScope.cargador=false;
+				});
+	}
+	$scope.deleteImg=function(idBanner){
+		var segur=confirm("Segur que vols eliminar aquest Banner?");
+		if (segur) {
+			var data = new FormData();
+			data.append("idBanner",idBanner);
+			data.append("acc","dImg");
+			var deferred=$q.defer();
+			$rootScope.cargador=true;
+				$http.post("models/carousel.php", data,{
+					headers:{
+						"Content-type":undefined
+					},
+						transformRequest:angular.identity
+				})
+				.then(function(res){
+					deferred.resolve(res);
+					$scope.imatgesBanner=res.data;
 					$rootScope.cargador=false;
 					$timeout(function() {
 						$scope.divMsj=false;

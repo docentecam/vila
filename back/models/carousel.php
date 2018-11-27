@@ -1,6 +1,6 @@
 <?php 
 	$tbl_carousel="carousel";
-	// $tbl_categoriaassociat="";
+	$tbl_banner="banners";
 
 	require("../../inc/functions.php");
 
@@ -9,6 +9,49 @@
 	if (!isset($_SESSION['vila']['email'])) 
 	{
 		header("location: ../");
+	}
+	if(isset($_POST['acc'])&&$_POST['acc']=='upImg'){
+		$fileEx =explode('.',$_FILES["bannerUpdate"]["name"]);
+		$file =  date("dmYhisv").'.'.$fileEx[count($fileEx)-1];
+		$mySql="UPDATE $tbl_banner 
+				SET `".$_POST['nomCamp']."`='".$file."'
+				WHERE idBanner='".$_POST['idBanner']."'";
+		$connexio=connect();
+		mysqli_query($connexio,$mySql);
+		disconnect($connexio);
+		move_uploaded_file($_FILES["bannerUpdate"]["tmp_name"], "../../img/banners/".$file);
+		unlink('../../img/banners/'.$_POST['bannerOld']);
+
+		echo $file;
+	}
+	if(isset($_POST['acc'])&&$_POST['acc']=='dImg'){
+		$mySql="DELETE FROM $tbl_banner WHERE `idBanner`='".$_POST['idBanner']."'";
+
+		$connexio=connect();
+		$resultBanner=mysqli_query($connexio,$mySql); 
+		disconnect($connexio);
+
+		echo fotosBanner($tbl_banner);
+		// echo $mySql;
+	}
+	if(isset($_POST['acc'])&&$_POST['acc']=='b'){
+		echo fotosBanner($tbl_banner);
+	}
+	function fotosBanner($tbl_banner){
+		$mySql="SELECT `idBanner`, `fotoBanner`, `URLWeb`
+				FROM $tbl_banner";
+
+				// echo $mySql;
+		$connexio=connect();
+		$resultBar=mysqli_query($connexio,$mySql); 
+		disconnect($connexio);
+		$rows = array(); 
+			while($row = mysqli_fetch_array($resultBar)) 
+			{
+				$rows[] = $row; 
+			}
+			
+			return json_encode($rows);
 	}
 	if(isset($_POST['acc'])&&$_POST['acc']=='uploadImg'){
 		//$_FILES[‘nombrePost’]. El nombre entre comillas, será el que nos envíen por post o get desde el formulario.

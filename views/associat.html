@@ -1,11 +1,11 @@
 <div class="row">
-	<div class="container my-3">
+	<div class="container mt-3">
 		<div class="tipoSubTituloCenter mb-3">
 		{{associat.nomAssociat}}
 		</div>
 	
 		<div class="row">
-			<div class="col-12 col-md-6 mb-4">
+			<div class="col-12 col-md-6">
 				<img ng-src="{{associat.logoAssociat!=''?'img/associats/'+associat.logoAssociat:'img/noimage.png'}}" class="img-fluid imageBordes" alt="associat">
 			</div>
 			<div class="col-12 col-md-6">
@@ -19,7 +19,7 @@
 				<br>
 				{{associat.adreca}}
 				<br>
-				{{associat.URLWeb}}
+				<a ng-href="{{associat.URLWeb}}" target="blank">{{associat.URLWeb}}</a>
 				<br>
 				{{associat.email}}
 			</div>
@@ -28,20 +28,31 @@
 	</div>
 </div>
 
-<div class="row">
-	<div class="col-12 tipoSubTitulo">
-		ON SOM:
+<div class="container p-4">
+	<div class="h_divider_p"></div>
+	<div class="title-block wrapper">
+		<span class="title-block__title title-block__title--color-primary">
+			On som
+		</span>	
 	</div>
+</div>
 
+<div class="row">
 	<div class="col">
 		<img src="img/mapiya.png" class="pruebaImg">
 	</div>
 </div>
 
-<div class="row">
-	<div class="col-12 tipoSubTitulo">
-		GALERIA:
+<div class="container p-4">
+	<div class="h_divider_p"></div>
+	<div class="title-block wrapper">
+		<span class="title-block__title title-block__title--color-primary">
+			Galeria
+		</span>	
 	</div>
+</div>
+
+<div class="row">
 	<div class="container col-12">
 		<div class="row">
 			<div class="card-columns">
