@@ -47,6 +47,27 @@ angular.module('vila')
 				$scope.carousels=res.data.dadesCarousel;
 				$scope.associats=res.data.dadesAssociats;
 
+
+				$scope.associatsDiv=[];
+		var supAssociats=0;
+		for(i=0;i<$scope.associats.length;i++){
+			j=0;
+			while(j<4){
+				if(j==0) {$scope.associatsDiv[supAssociats]=[];}
+				$scope.associatsDiv[supAssociats][j]=$scope.associats[i];
+				j++;
+				if(j<4)i++;
+				if(i==$scope.associats.length) j=4;
+			}
+			supAssociats++;
+		}
+
+
+
+
+
+
+
 			})
 			.catch(function(error) {
 				$rootScope.cargador=false;
@@ -69,7 +90,6 @@ angular.module('vila')
 		deferred.resolve(res);
 		$scope.vila=res.data.dadesVila[0];
 		$scope.serveis=res.data.dadesServeis;
-		console.log($scope.serveis.length);
 		$scope.equip=res.data.dadesVila[0];
 		console.log(res.data.dadesServeis);
 		$scope.equip=res.data.dadesEquip[0];
@@ -241,6 +261,9 @@ angular.module('vila')
 			}
 			supSponsors++;
 		}
+
+
+
 	})
 	.catch(function(error) {
 		$rootScope.cargador=false;
