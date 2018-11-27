@@ -1,5 +1,5 @@
 <div class="row">
-	<div class="col-12 text-center caixaDecolorGris padding">
+	<div class="col-12 text-center padding" style="max-width: 100%;height: 100%;background-image: url(img/{{vila.cabeceraFiramar}})">
 		<div class="col-12 tipoTituloBlanco text-center">
 			<span>{{firamar.titolFiramar}}</span> 
 			<span>{{firamar.dataFiramar|limitTo:4}}</span>
@@ -79,11 +79,7 @@
 	
 <div class="d-none d-md-inline">
 	<div id="carouselNoMovil" class="carousel slide" data-ride="carousel">
-<!-- 	<ol class="carousel-indicators">
-		<li data-target="#carouselNoMovil" data-slide-to="0" class="active"></li>
-		<li data-target="#carouselNoMovil" data-slide-to="1"></li>
-		<li data-target="#carouselNoMovil" data-slide-to="2"></li>
-	</ol> -->
+
 	<div class="carousel-inner carousel text-center">
 		<div class="carousel-item" ng-repeat="participant in participantsDiv" ng-class="{'active': $index==0}">
 			<img class=" img-fluid col-3" ng-src="{{imatge.logoParticipant!=''?'img/participants/'+imatge.logoParticipant:'img/noimage.png'}}" alt="Participant {{$index}}" ng-repeat="imatge in participantsDiv[$index]">
@@ -139,8 +135,9 @@
 
 		<div class="carousel-inner carousel text-center">
 			<div class="carousel-item" ng-repeat="sponsor in sponsorsDiv" ng-class="{'active': $index==0}">
-				<img class=" img-fluid col-3" ng-src="{{imatge.logoSponsor!=''?'img/sponsors/'+imatge.logoSponsor:'img/noimage.png'}}" alt="Sponsor {{$index+imatge.logoSponsor}}"  ng-repeat="imatge in sponsorsDiv[$index]">
-				
+				<div class="group-item">
+						<img class="imagecontainer-img2 lazyload col-3" ng-src="{{imatge.logoSponsor!=''?'img/sponsors/'+imatge.logoSponsor:'img/noimage.png'}}" alt="Sponsor {{$index+imatge.logoSponsor}}"  ng-repeat="imatge in sponsorsDiv[$index]">
+				</div>
 			</div>
 		</div>
 		
@@ -158,6 +155,32 @@
 		</div>
 	</div>
 </div>
+
+<!-- <div class="row">
+	<div class="d-none d-md-inline">
+		<div id="carouselNoMovilSponsors" class="carousel slide" data-ride="carousel">
+
+		<div class="carousel-inner carousel text-center">
+			<div class="carousel-item" ng-repeat="sponsor in sponsorsDiv" ng-class="{'active': $index==0}">
+				<img class=" img-fluid col-3" ng-src="{{imatge.logoSponsor!=''?'img/sponsors/'+imatge.logoSponsor:'img/noimage.png'}}" alt="Sponsor {{$index+imatge.logoSponsor}}"  ng-repeat="imatge in sponsorsDiv[$index]">
+				
+			</div>
+		</div>
+		
+
+		<a class="carousel-control-prev" role="button" data-target="#carouselNoMovilSponsors" data-slide="prev" ng-show="sponsorsDiv.length>1">
+
+			<span class="arrow-circle-lefts"><i class="fas fa-arrow-circle-left"></i></span>
+			<span class="sr-only">Anterior</span>
+		</a>
+		<a class="carousel-control-next" role="button" data-target="#carouselNoMovilSponsors" data-slide="next"  ng-show="sponsorsDiv.length>1">
+
+	    	<span class="arrow-circle-rights"><i class="fas fa-arrow-circle-right"></i></span>
+	 		<span class="sr-only">Següent</span>
+		</a>
+		</div>
+	</div>
+</div> -->
 
 <div class="d-md-none">
 	<div id="carouselMovilSponsor" class="carousel slide" data-ride="carousel">

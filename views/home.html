@@ -114,17 +114,12 @@
 
 
 
-<div class="row">
+<!-- <div class="row">
 	<div class="col px-0">
 		<div class="row">
 			<div id="carouselAssociats" class="carousel slide" data-ride="carousel">
 			  <div class="carousel-inner">
-			    <!-- <div class="carousel-item active" >
-			      <img class="d-block w-100" src="..." alt="First slide">
-			    </div> -->
-			    <!-- <div class="carousel-item">
-			      <img class="d-block w-100" src="..." alt="Third slide">
-			    </div> -->
+
 			    <div class="carousel-item" ng-repeat="noticia in noticies"  ng-class="{active: $index==0}">
 			      <img class="d-block w-100" ng-src="{{noticia.fotoNoticia!=''?'img/noticies/'+noticia.fotoNoticia:'img/noimage.png'}}" alt="Associat {{$index}}">
 			      <br>
@@ -144,13 +139,49 @@
 		</div>
 	</div>
 </div>
+ -->
 
-<!--
-	-mirar que las rayitas vayan a relacion con la cantidad de bloques
-	-hacer que cada 4 logoassociats, se cree un nuevo div (controller?)
-	-hacer que si quedan 2 sueltos, se centren? idk???
+<div class="row">
+	
+	<div class="d-none d-md-inline">
+		<div id="carouselNoMovil" class="carousel slide" data-ride="carousel">
 
-	-arreglar el navbar más separação
-	-Vilactiva en tablet+movil klk, hacer q todo quede en la misma linea
+		<div class="carousel-inner carousel text-center">
+			<div class="carousel-item" ng-repeat="associat in associatsDiv" ng-class="{'active': $index==0}">
+				<img class=" img-fluid col-3" ng-src="{{imatge.logoAssociat!=''?'img/associats/'+imatge.logoAssociat:'img/noimage.png'}}" alt="Associat {{$index}}" ng-repeat="imatge in associatsDiv[$index]">
+			</div>
+		</div>
+		
 
--->
+		<a class="carousel-control-prev" role="button" data-target="#carouselNoMovil" data-slide="prev">
+			<span class="arrow-circle-lefts"><i class="fas fa-arrow-circle-left"></i></span>
+			<span class="sr-only">Anterior</span>
+		</a>
+		<a class="carousel-control-next" role="button" data-target="#carouselNoMovil" data-slide="next">
+	    	<span class="arrow-circle-rights"><i class="fas fa-arrow-circle-right"></i></span>
+	 		<span class="sr-only">Següent</span>
+		</a>
+		</div>
+	</div>
+
+	<div class="d-md-none">
+		<div id="carouselMovil" class="carousel slide" data-ride="carousel">
+
+			<div class="carousel-inner carousel text-center">
+				<div class="carousel-item" ng-repeat="associat in associats" ng-class="{'active': $index==0}">
+					<img class=" img-fluid col-12" ng-src="{{associat.logoAssociat!=''?'img/associats/'+associat.logoAssociat:'img/noimage.png'}}" alt="Associat {{$index}}">
+
+			    </div>
+			</div>
+		</div>
+		<a class="carousel-control-prev-movil" role="button" data-target="#carouselMovil" data-slide="prev">
+			<span class="arrow-circle-lefts"><i class="fas fa-arrow-circle-left"></i></span>
+			<span class="sr-only">Anterior</span>
+		</a>
+		<a class="carousel-control-next-movil" role="button" data-target="#carouselMovil" data-slide="next">
+	    	<span class="arrow-circle-rights"><i class="fas fa-arrow-circle-right"></i></span>
+	 		<span class="sr-only">Següent</span>
+		</a>
+	</div>
+
+</div>
