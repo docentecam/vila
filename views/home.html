@@ -1,3 +1,4 @@
+
 <div class="row">
 
 	<div class="col-12 text-center my-4 hidemovil">
@@ -11,15 +12,10 @@
 		<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
 		<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
 	</ol>
-	<div class="carousel-inner carousel-innerPrincipal">
-		<div class="carousel-item active center-cropped provaCar">
-			<img class="d-block w-100" src="img/slider_1.jpg" alt="First slide"> 
-		</div>
-		<div class="carousel-item center-cropped provaCar">
-			<img class="d-block w-100" src="img/slider_2.jpg" alt="Second slide">
-		</div>
-		<div class="carousel-item center-cropped provaCar">
-			<img class="d-block w-100" src="img/slider_3.jpg" alt="Third slide">
+
+	<div class="carousel-inner carousel text-center col-12">
+		<div class="carousel-item" ng-repeat="carousel in carousels" ng-class="{'active': $index==0}">
+			<img class=" img-fluid " ng-src="{{carousel.fotoCarousel!=''?'img/carousel/'+carousel.fotoCarousel:'img/noimage.png'}}" alt="Carousel {{$index}}"> 
 		</div>
 	</div>
 
