@@ -1,17 +1,10 @@
 
-<!-- <br>
-PRUEBAS
-<br>
-
-
-=======
->>>>>>> 677556740f959d9d75c84d91302e4eb561f7316e
 <div class="row">
 
 	<div class="col-12 text-center my-4 hidemovil">
 		<img src="img/vilactiva.png">
 	</div>
-</div> -->
+</div>
 
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
 	<ol class="carousel-indicators hidemovil">
@@ -19,9 +12,9 @@ PRUEBAS
 		<!-- <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
 		<li data-target="#carouselExampleIndicators" data-slide-to="2"></li> -->
 	</ol>
-	<div class="carousel-inner carousel text-center">
+	<div class="carousel-inner carousel text-center col-12">
 		<div class="carousel-item" ng-repeat="carousel in carousels" ng-class="{'active': $index==0}">
-			<img class=" img-fluid col-12" ng-src="{{carousel.fotoCarousel!=''?'img/carousel/'+carousel.fotoCarousel:'img/noimage.png'}}" alt="Carousel {{$index}}"> 
+			<img class=" img-fluid " ng-src="{{carousel.fotoCarousel!=''?'img/carousel/'+carousel.fotoCarousel:'img/noimage.png'}}" alt="Carousel {{$index}}"> 
 		</div>
 	</div>
 
