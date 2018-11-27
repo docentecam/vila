@@ -1,22 +1,28 @@
 <div class="row">
-	<div class="col-12 text-center tipoTitulo mt-2  title-block wrapper">
-		<span class="title-block__title title-block__title--color-primary">Qui Som?</span>
-	</div>
-	
-	<div class="text-center mt-4 col-12 tipoTexto   colorBlanco">
-		<p class="tipoTexto">
-		{{vila.quiSom}}
-		
+	<div class="col-12 text-center caixaDecolorGris padding">
+		<div class="col-12 tipoTituloBlanco text-center">
+			<span>Qui som?</span> 
+		</div>
+		<br>
+		<div class="h_divider_w mb-1 mt-1 hideMovil"></div>
+		<br>
+		<p class="tipoTextoBlanco">
+			{{vila.quiSom}}
 		</p>
 	</div>
 </div>
 
-<hr class="tamañaoDivider">
+<br>
+<div class="container">
+	<div class="h_divider_p"></div>
+	<div class="title-block wrapper">
+		<span class="title-block__title title-block__title--color-primary">
+			Serveis
+		</span>	
+	</div>
+</div>
 
 <div class="row">
-	<div class=" mt-2 col-12 text-center tipoTitulo title-block wrapper">
-		<span class="title-block__title title-block__title--color-primary">Serveis</span>
-	</div>
 	<div ng-repeat="servei in serveis" class="col-12 tipoTexto mt-4 colorBlanco">
 		<b class="tipoTextoNegrita">{{servei.nomServei}}:</b>
 		<p>{{servei.txtServei+' '+servei[3].nomSubservei}}</p>
@@ -24,12 +30,17 @@
 	</div>
 </div>
 
-<hr class="tamañaoDivider">
+<br>
+<div class="container">
+	<div class="h_divider_p"></div>
+	<div class="title-block wrapper">
+		<span class="title-block__title title-block__title--color-primary">
+			Equip
+		</span>	
+	</div>
+</div>
 
 <div class="row">
-	<div class="mt-2 col-12 text-center tipoTitulo title-block wrapper">
-		<span class="title-block__title title-block__title--color-primary">Equip</span>
-	</div>
 	<div class="tipoTexto text-center col-12 mt-4 colorBlanco">
 		<pre class="tipoTexto">{{vila.equip}}</pre>
 	</div>

@@ -1,34 +1,14 @@
+
 <!-- <br>
 PRUEBAS
 <br>
 
 
+=======
+>>>>>>> 677556740f959d9d75c84d91302e4eb561f7316e
 <div class="row">
-	<div ng-repeat="noticia in noticies | orderBy:'-dataAng'" ng-href="#/noticies/{{noticia.idNoticia}}" class="col-lg-4 col-md-6 px-md-2 px-xl-4 pt-md-2 pt-xl-4 px-0">
-		<div class="card">
-			<div class="group-item">
-				<div class="imagecontainer is-cover">
-					<a ng-href="#/noticia/{{noticia.idNoticia}}">
-						<img ng-src="{{noticia.fotoNoticia!=''?'img/noticies/'+noticia.fotoNoticia:'img/noimage.png'}}" class="imagecontainer-img lazyload" alt="noticia">
-					</a>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
 
-
-
-
-<br>
-FIN PRUEBAS
-<br>
-
-<div class="row">
-	<div class="col-12 text-center mt-4 tipoSubTitulo hidemovil">
-		Benvinguts a
-	</div>
-	<div class="col-12 text-center mb-4 hidemovil">
+	<div class="col-12 text-center my-4 hidemovil">
 		<img src="img/vilactiva.png">
 	</div>
 </div> -->
@@ -115,27 +95,23 @@ FIN PRUEBAS
 				</div>
 			</div>
 		</div>
-		<!-- 
-			          banners 
-		-->
-		<div ng-repeat="banner in banners">
-			<a ng-href="{{banner.URLWeb}}" target="_blank">
-			aaaaaaaaaaaaaaaaaaa
-			<div class="col-md-7 px-0 col-sm-12 mt-2 mt-sm-0">
-				<div class="group">
-					<div class="group-item bannerAlto">
-						<div class="imagecontainer is-contain bannerAlto">
-							<img class="imagecontainer-img lazyload" ng-src="{{banner.fotoBanner!=''?'img/banners/'+banner.fotoBanner:'img/noimage.png'}}" alt="banner">
-						</div>
-					</div>					
-				</div>
+		<div class="col-md-7 px-0 col-sm-12 mt-2 mt-sm-0">
+			<div ng-repeat="banner in banners">
+				<a ng-href="{{banner.URLWeb}}" target="_blank">
+					<div class="group">
+						<div class="group-item bannerAlto">
+							<div class="imagecontainer is-contain bannerAlto">
+								<img class="imagecontainer-img lazyload" ng-src="{{banner.fotoBanner!=''?'img/banners/'+banner.fotoBanner:'img/noimage.png'}}" alt="banner">
+							</div>
+						</div>					
+					</div>
+				</a>
 			</div>
-			</a>
 		</div>
 	</div>
 </div>
 
-<div class="h_divider mb-1 mt-1"></div>
+<div class="h_divider mb-1 mt-3"></div>
 
 <div class="row">
 	<div class="tipoTitulo mt-4 mb-3 txtMovil">
