@@ -44,10 +44,8 @@ angular.module('vila')
 				$scope.vila=res.data.dadesVila[0];
 				$scope.noticies=res.data.dadesNoticies;
 				$scope.banners=res.data.dadesBanners;
-				$scope.carousel=res.data.dadesCarousel;
+				$scope.carousels=res.data.dadesCarousel;
 				$scope.associats=res.data.dadesAssociats;
-				console.log($scope.banners);
-				;
 
 			})
 			.catch(function(error) {
