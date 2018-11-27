@@ -42,7 +42,7 @@
         				<a class="nav-link" href="#/directori">Manteniment Directori</a>
       				</li>
       				<li class="nav-item reduceNav">
-        				<a class="nav-link" href="#/firamar">Firamar</a>
+        				<a class="nav-link" href="#/firamar/all">Firamar</a>
       				</li>
      				<li class="nav-item reduceNav">
        					<a class="nav-link" href="#/solicitutsoci">Llistat solicitud de socis</a>
