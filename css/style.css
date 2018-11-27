@@ -45,19 +45,6 @@ footer{
 	bottom: 0;
 	
 }
-/*.navbar-toggler-icon {
-    display: inline-block;
-    width: 1.5em;
-    height: 1.5em;
-    vertical-align: middle;
-    content: "";
-    background: no-repeat center center;
-    background-size: 100% 100%;
-}
-
-.navbar-toggler-icon {
-    background-image: $navbar-light-toggler-icon-bg;
-  }*/
 a:link, a:visited, a:hover{
 	color: black;
     text-decoration: none;
