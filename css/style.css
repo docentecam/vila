@@ -80,6 +80,34 @@ ul, li{
 	position: relative;
 }*/
 
+.dissenyarVores{
+	border-right-width: 10px !important;
+    border-bottom-width: 10px !important;
+    border-left-width: 10px !important;
+    padding-top: 4% !important;
+    padding-right: 4% !important;
+    padding-bottom: 4% !important;
+    padding-left: 4% !important;
+    background-color: #ffffff !important;
+}
+.moureContactaEsquerra{
+	width: 410px;
+    padding-right: 60px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    text-align: left;
+}
+
+.ombraContacta{
+	-webkit-box-shadow: 0 1px 30px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0 1px 30px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 1px 30px rgba(0, 0, 0, 0.2);
+    z-index: 30;
+}
+.left{
+	float: left;
+}
 .bordesRedondos{
 	border-radius: 20px;
 }
