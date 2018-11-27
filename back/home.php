@@ -57,7 +57,7 @@
                 </div>
       				</li>
       				<li class="nav-item reduceNav">
-        				<a class="nav-link" href="#/firamar">Firamar</a>
+        				<a class="nav-link" href="#/firamar/all">Firamar</a>
       				</li>
      				<li class="nav-item dropdown reduceNav">
               <a class="nav-link dropdown-toggle cursor" id="navDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dades dels formularis</a>

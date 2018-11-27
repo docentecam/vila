@@ -14,14 +14,8 @@ angular.module('vila')
 			})
 			.then(function(res){
 				deferred.resolve(res);
-				// $rootScope.cargador=false;
 				$scope.vila=res.data[0];
-				// $scope.noticies=res.data.dadesNoticies;
-				// $scope.banners=res.data.dadesBanners;
-				// $scope.carousel=res.data.dadesCarousel;
-				// $scope.associats=res.data.dadesAssociats;
 				 console.log(res.data);
-				// ;
 
 			})
 			.catch(function(error) {
@@ -50,10 +44,8 @@ angular.module('vila')
 				$scope.vila=res.data.dadesVila[0];
 				$scope.noticies=res.data.dadesNoticies;
 				$scope.banners=res.data.dadesBanners;
-				$scope.carousel=res.data.dadesCarousel;
+				$scope.carousels=res.data.dadesCarousel;
 				$scope.associats=res.data.dadesAssociats;
-				console.log($scope.vila);
-				;
 
 
 				$scope.associatsDiv=[];
