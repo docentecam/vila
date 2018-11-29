@@ -3,7 +3,7 @@
 		^^
 		^^ -->
 <!DOCTYPE html> 
-<html ng-app="collaLogin"> 
+<html ng-app="vilaLogin"> 
 	<head>	
 		<title>Recuperar contrasenya</title>
 		<meta charset="utf-8">

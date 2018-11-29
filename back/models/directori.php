@@ -45,7 +45,7 @@
 			//$datos.=$j."--".$_FILES[$numUp]["tmp_name"]."-"."../../img/galeriaassociats/".$file."<br>"; 
 
 			move_uploaded_file($_FILES[$numUp]["tmp_name"], "../../img/galeriaassociats/".$file);
-			$mySql="INSERT INTO `galeriaassociats`(`fotoGaleria`, `idAssociat`) 	VALUES ('".$file."','".$_POST['idAssociat']."')";
+			$mySql="INSERT INTO `$tbl_galeriaassociats`(`fotoGaleria`, `idAssociat`) 	VALUES ('".$file."','".$_POST['idAssociat']."')";
 			mysqli_query($connexio,$mySql);
 			$j++;
 	    }
