@@ -951,14 +951,18 @@ angular.module('vila')
 			
 		}
 		else{
+			$scope.firaFull=false;
+			$scope.firaSelect=true;
 			$scope.accio="Afegir";
 			$scope.firamar.titolFiramar="";
 			$scope.firamar.txtFiramar="";
-			$scope.firamar.fecha="";
 			$scope.firamar.titolActivitat="";
 			$scope.firamar.horaI="";
 			$scope.firamar.horaF="";
 			$scope.firamar.txtActivitat="";
+			$scope.firamar.fotoFiramar="";
+			$scope.firamar.logoParticipant="";
+			$scope.firamar.nomSponsor="";
 
 			var d=new Date();
 			var yyyy=d.getFullYear();
@@ -1057,37 +1061,37 @@ angular.module('vila')
 		$scope.firaFull=true;
 	}
 
-	$scope.EliminaImg=function(idGaleriaFiramar,idParticipant,nomSponsor){
+	$scope.EliminaImg=function(nomtaula,nomImatge,dataFiramar,logo,){
 		var segur=confirm("Segur que vols eliminar aquesta imatge?");
 		if (segur) {
 			var data = new FormData();
-			data.append("idGaleriaFiramar",idGaleriaFiramar);
-			data.append("idParticipant",idParticipant);
-			data.append("nomSponsor",nomSponsor);
+			data.append("nomtaula",nomtaula);
+			data.append("nomImatge",nomImatge);
+			data.append("dataFiramar",dataFiramar);
 			data.append("acc","Volatilizado");
+			data.append("logo",logo)
 			var deferred=$q.defer();
 			$rootScope.cargador=true;
-				$http.post("models/firamar.php", data,{
-					headers:{
-						"Content-type":undefined
-					},
-						transformRequest:angular.identity
-				})
-				.then(function(res){
-					deferred.resolve(res);
-					console.log("hola");
-					$scope.galeria=res.data.galeriaFiramar;
-					$scope.participant=res.data.participantsFiramar;
-					$scope.sponsor=res.data.sponsorsFiramar;
-					$rootScope.cargador=false;
-					$timeout(function() {
-						$scope.divMsj=false;
-					}, 2000);
-				})
-				.catch(function(error) {
-					$rootScope.cargador=false;
-				});
-		}
+			$http.post("models/firamar.php", data,{
+				headers:{
+		 			"Content-type":undefined
+				},
+				transformRequest:angular.identity
+			 })
+		 	.then(function(res){
+				deferred.resolve(res);
+				$scope.galeriaFiramar=res.data.galeriaFiramar;
+				$scope.sponsorsFiramar=res.data.sponsorsFiramar;
+				$scope.participantsFiramar=res.data.participantsFiramar;
+				$rootScope.cargador=false;
+			$timeout(function() {
+				$scope.divMsj=false;
+				}, 2000);
+ 			})
+			.catch(function(error) {
+				$rootScope.cargador=false;
+				 });
+			}
 	}
 })
 .controller('ServeisCtrl',function($scope, $http, $q, $timeout, $rootScope) {
@@ -1644,8 +1648,11 @@ angular.module('vila')
 			});
 		}
 	}
-	$scope.getFileDetails = function (e) {
-		$scope.cat.pictograma=e.files[0].name;
+	$scope.getFileDetailss = function (e) {
+
+		console.log(e.files[0].name);
+		var variable=e.files[0].name;
+		$scope.cat.pictograma=variable;
 		$scope.cat.logoUpdate=e.files[0];		
     } 
 	$scope.elimina=function(idCategoria){
@@ -1825,6 +1832,10 @@ angular.module('vila')
 	});
 
 	$scope.ban={};
+
+	$scope.dadesBanner=true;
+	$scope.muestraInput="directori";
+	$scope.associatSel="-1";
 	var data = new FormData();
 		data.append("acc","b");
     var deferred=$q.defer();
@@ -1838,11 +1849,12 @@ angular.module('vila')
 	})
 	.then(function(res){
 		deferred.resolve(res);
-		$scope.imatgesBanner=res.data;
+		$scope.imatgesBanner=res.data.banner;
+		$scope.associats=res.data.associats;
 		// $scope.ban.fotoBanner=$scope.imatgesBanner.fotoBanner;
-		$scope.ban.bannerOld=$scope.imatgesBanner.fotoBanner;
-		$scope.ban.bannerUpdate="";
-		$scope.ban.idBanner=$scope.imatgesBanner.idBanner;
+		// $scope.ban.bannerOld=$scope.imatgesBanner.fotoBanner;
+		// $scope.ban.bannerUpdate="";
+		// $scope.ban.idBanner=$scope.imatgesBanner.idBanner;
 		$rootScope.cargador=false;
 		console.log(res.data);
 	})
@@ -1866,14 +1878,59 @@ angular.module('vila')
 	$scope.columnOrder=function(columna){
 		$scope.order=columna;
 	}
-	$scope.upBanners=function(e,nomCamp){
+	$scope.insertBanner=function(){
+		$scope.dadesBanner=false;
+	}
+	$scope.muestraURL=function(tipo)
+	{
+		$scope.muestraInput=tipo;
+		if (tipo=="directori") {
+			$scope.associatSel="-1";
+		}
+		else{
+			$scope.associatSel="";
+		}
+		console.log(tipo);
+	}
+	$scope.upBanners=function(e){
+		$scope.divMsj=true;
+		if ($scope.associatSel=="" || $scope.associatSel=="-1") {
+			$timeout(function() {
+				$scope.divMsj=false;
+			}, 2000);
+		}
+		else{
+			if ($scope.muestraInput=="directori") {
+				$scope.associatSel="#/directori/"+$scope.associatSel;
+			}
 			var data = new FormData();
             data.append("acc", "upImg");
-            data.append("nomCamp", nomCamp);
+            data.append("fotoBanner", $scope.ban.fotoBanner);
             data.append("idBanner",$scope.ban.idBanner);
-			data.append("bannerUpdate", e.files[0]);
-			data.append("bannerOld", $scope.ban.bannerOld);
-			console.log($scope.ban.bannerOld);
+				//data.append("logoDelete", $scope.com.bannerOld);
+			var deferred=$q.defer();
+			$http.post("models/carousel.php", data,{
+				headers:{
+					"Content-type":undefined
+				},
+					transformRequest:angular.identity
+				})
+				.then(function(res)
+				{
+					deferred.resolve(res);
+					$rootScope.cargador=false;
+					$scope.imatgesBanner=res.data.banner;
+				})
+				.catch(function(error) {
+					$rootScope.cargador=false;
+				});
+		}
+	}
+	$scope.nowBanner=function(){
+		var data = new FormData();
+            data.append("acc", "new");
+            data.append("URLWeb", $scope.associatSel);
+			console.log($scope.associatSel);
 				//data.append("logoDelete", $scope.com.bannerOld);
 			 var deferred=$q.defer();
 			 $http.post("models/carousel.php", data,{
@@ -1885,14 +1942,15 @@ angular.module('vila')
 				.then(function(res)
 				{
 					deferred.resolve(res);
-					$scope.ban.fotoBanner=res.data;
-					$scope.com.bannerOld=res.data;					
+					$rootScope.cargador=false;
+					$scope.imatgesBanner=res.data.banner;					
 				})
 				.catch(function(error) {
 					$rootScope.cargador=false;
 				});
 	}
 	$scope.deleteImg=function(idBanner){
+		console.log("hola");
 		var segur=confirm("Segur que vols eliminar aquest Banner?");
 		if (segur) {
 			var data = new FormData();
@@ -1908,7 +1966,7 @@ angular.module('vila')
 				})
 				.then(function(res){
 					deferred.resolve(res);
-					$scope.imatgesBanner=res.data;
+					$scope.imatgesBanner=res.data.banner;
 					$rootScope.cargador=false;
 					$timeout(function() {
 						$scope.divMsj=false;

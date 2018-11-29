@@ -62,7 +62,8 @@
 			disconnect($connexio);
 			$dadesVila=mySqli_fetch_row($resultVila);
 			
-			$URLWeb=$dadesVila[0];
+			$URLWeb="http://127.0.0.1/web/practGit/vila";
+			//$dadesVila[0];
 			$body="
 					<table width='100%' style='text-align:center; color:black;'>
 

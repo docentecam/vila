@@ -9,6 +9,7 @@
 	require("../../inc/functions.php");
 
 	session_start();
+	
 	if(isset($_POST['acc'])&&$_POST['acc']=='l'){
 			echo firaFulls($tbl_firamar);
 	}
@@ -76,16 +77,33 @@
 }
 
 if(isset($_POST['acc'])&&$_POST['acc']=='Volatilizado'){
-		$mySqlGaleriaFiramar="DELETE FROM $tbl_galeriafiramar WHERE `idGaleriaFiramar` ='".$_POST['idGaleriaFiramar']."'";
-		$mySqlParticipants="DELETE FROM $tbl_participants WHERE `idParticipant` ='".$_POST['idParticipant']."'";
-		$mySqlSponsors="DELETE FROM $tbl_sponsors WHERE `nomSponsor` ='".$_POST['nomSponsor']."'";
+	if($_POST['nomtaula']=='galeriafiramar'){
+		$mySql="DELETE FROM $tbl_galeriafiramar WHERE `idGaleriaFiramar` ='".$_POST['dataFiramar']."'";
+		if(isset($_POST['logo'])&&$_POST['logo']!='')
+		{
+			unlink("../../img/galeriaFiramar/".$_POST['logo']);
+		}
+	}
+	else if($_POST['nomtaula']=='participants'){
+		$mySql="DELETE FROM $tbl_participants WHERE `dataFiramar` ='".$_POST['dataFiramar']."' AND `nomParticipant` ='".$_POST['nomImatge']."'";
+		if(isset($_POST['logo'])&&$_POST['logo']!='')
+		{
+			unlink("../../img/participants/".$_POST['logo']);
+		}
+	}
+	else if($_POST['nomtaula']=='sponsors'){
+		$mySql="DELETE FROM $tbl_sponsors WHERE `dataFiramar` ='".$_POST['dataFiramar']."' AND `nomSponsor` ='".$_POST['nomImatge']."'";
+		if(isset($_POST['logo'])&&$_POST['logo']!='')
+		{
+			unlink("../../img/sponsors/".$_POST['logo']);
+		}
+	}	
 		$connexio=connect();
-		$resulEliminaImg=mysqli_query($connexio,$mySqlGaleriaFiramar);
-		$resulEliminaImg=mysqli_query($connexio,$mySqlParticipants); 
-		$resulEliminaImg=mysqli_query($connexio,$mySqlSponsors);  
+		$resulEliminaImg=mysqli_query($connexio,$mySql);
 		disconnect($connexio);
 
-		echo firaEdicion($tbl_participants,$tbl_sponsors,$tbl_galeriafiramar);
+		echo firaEdicion($tbl_firamar,$tbl_participants,$tbl_sponsors,$tbl_galeriafiramar,$tbl_activitatsfiramar,$_POST['dataFiramar']);
+
 	}
 
 
