@@ -1,6 +1,7 @@
 <?php 
 	$tbl_carousel="carousel";
 	$tbl_banner="banners";
+	$tbl_directori="associats";
 
 	require("../../inc/functions.php");
 
@@ -10,19 +11,26 @@
 	{
 		header("location: ../");
 	}
+	if(isset($_POST['acc'])&&$_POST['acc']=='new'){
+		$mySql="INSERT INTO `$tbl_banner`(`URLWeb`)
+				VALUES ('".$_POST['URLWeb']."')";
+		$connexio=connect();
+		$resultBanner=mysqli_query($connexio,$mySql);
+		disconnect($connexio);
+		
+		echo fotosBanner($tbl_banner,$tbl_directori);
+	}
 	if(isset($_POST['acc'])&&$_POST['acc']=='upImg'){
 		$fileEx =explode('.',$_FILES["bannerUpdate"]["name"]);
 		$file =  date("dmYhisv").'.'.$fileEx[count($fileEx)-1];
-		$mySql="UPDATE $tbl_banner 
-				SET `".$_POST['nomCamp']."`='".$file."'
-				WHERE idBanner='".$_POST['idBanner']."'";
+		$mySql="INSERT INTO `$tbl_banner`(`fotoBanner`)
+				VALUES ('".$file."')";
 		$connexio=connect();
-		mysqli_query($connexio,$mySql);
+		$resultBanner=mysqli_query($connexio,$mySql);
 		disconnect($connexio);
-		move_uploaded_file($_FILES["bannerUpdate"]["tmp_name"], "../../img/banners/".$file);
-		unlink('../../img/banners/'.$_POST['bannerOld']);
+		// move_uploaded_file($_FILES["bannerUpdate"]["tmp_name"], "../../img/banners/".$file);
 
-		echo $file;
+		echo fotosBanner($tbl_banner,$tbl_directori);
 	}
 	if(isset($_POST['acc'])&&$_POST['acc']=='dImg'){
 		$mySql="DELETE FROM $tbl_banner WHERE `idBanner`='".$_POST['idBanner']."'";
@@ -35,23 +43,35 @@
 		// echo $mySql;
 	}
 	if(isset($_POST['acc'])&&$_POST['acc']=='b'){
-		echo fotosBanner($tbl_banner);
+		echo fotosBanner($tbl_banner,$tbl_directori);
 	}
-	function fotosBanner($tbl_banner){
+	function fotosBanner($tbl_banner,$tbl_directori){
 		$mySql="SELECT `idBanner`, `fotoBanner`, `URLWeb`
 				FROM $tbl_banner";
-
+		$mySql2="SELECT `nomAssociat`,`idAssociat`
+				FROM `$tbl_directori`";
 				// echo $mySql;
 		$connexio=connect();
-		$resultBar=mysqli_query($connexio,$mySql); 
+		$resultBar=mysqli_query($connexio,$mySql);
+		$resultAso=mysqli_query($connexio,$mySql2);  
 		disconnect($connexio);
-		$rows = array(); 
-			while($row = mysqli_fetch_array($resultBar)) 
-			{
-				$rows[] = $row; 
-			}
-			
-			return json_encode($rows);
+		$datos='{"banner":';
+				$rows = array(); 
+				while($r = mysqli_fetch_array($resultBar)) 
+				{
+					$rows[] = $r; 
+				} 
+				$datos.=json_encode($rows);
+				$datos.=',"associats":';
+				$rows = array(); 
+				while($r = mysqli_fetch_array($resultAso)) 
+				{
+					$rows[] = $r; 
+				}
+				$datos.=json_encode($rows);
+				$datos.='}';
+		
+		return $datos;
 	}
 	if(isset($_POST['acc'])&&$_POST['acc']=='uploadImg'){
 		//$_FILES[‘nombrePost’]. El nombre entre comillas, será el que nos envíen por post o get desde el formulario.

@@ -110,7 +110,7 @@
 			
 			<div class="text-center" ng-repeat="galeria in galeriaFiramar">
 				<img class="card-img-top img-fluid" ng-src="{{galeria.fotoFiramar!=''?'../img/galeriaFiramar/'+galeria.fotoFiramar:'../img/noimage.png'}}" id="fotoGFull">	
-				<input type="button" class="btn btn-danger mt-2" value="Eliminar" ng-click="EliminaImg(galeria.idGaleriaFiramar)">
+				<input type="button" class="btn btn-danger mt-2" value="Eliminar" ng-click="EliminaImg('galeriafiramar',galeria.fotoFiramar,galeria.idGaleriaFiramar,galeria.fotoFiramar)">
 			</div> 
 			
 		</div>
@@ -128,7 +128,7 @@
 			
 			<div class="text-center" ng-repeat="participant in participantsFiramar">
 				<img class="card-img-top img-fluid" ng-src="{{participant.logoParticipant!=''?'../img/participants/'+participant.logoParticipant:'img/noimage.png'}}">
-				<input type="button" class="btn btn-danger mt-2" value="Eliminar" ng-click="EliminaImg(participant.idParticipant)">
+				<input type="button" class="btn btn-danger mt-2" value="Eliminar" ng-click="EliminaImg('participants',participant.nomParticipant,participant.fecha,participant.logoParticipant)">
 			</div>
 		
 		</div>
@@ -149,7 +149,7 @@
 				<div class="row">
 					<div class="col-lg-3 text-center" ng-repeat="sponsor in sponsorsFiramar">
 						<img class="img-fluid rounded img-thumbnail mt-3" ng-src="{{sponsor.logoSponsor!=''?'../img/sponsors/'+sponsor.logoSponsor:'../img/noimage.png'}}">
-						<input type="button" class="btn btn-danger mt-2" value="Eliminar" ng-click="EliminaImg(sponsor.nomSponsor)">
+						<input type="button" class="btn btn-danger mt-2" value="Eliminar" ng-click="EliminaImg('sponsors',sponsor.nomSponsor,sponsor.fecha,sponsor.logoSponsor)">
 					</div>
 				</div>
 			</div>
