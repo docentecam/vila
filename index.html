@@ -6,8 +6,8 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
   		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  		<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script> -->
-  		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  		<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script> -->
 		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
@@ -22,46 +22,12 @@
 		<script>
 			$(document).ready(function () {
 					$(".reduceNav").click(function(event) {
-				$(".navReduced").collapse('hide');
+				$(".navReduce").collapse('hide');
 				});
 			});
 		</script>
 	</head>
 	<body>
-<!-- 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-		    <div class="container">
-		        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar10">
-		            <span class="navbar-toggler-icon icon-white"></span>
-		        </button>
-		        <div class="navbar-collapse collapse navReduced" id="navbar10">
-		            <ul class="navbar-nav nav-fill w-100">
-		                <li class="nav-item my-auto reduceNav">
-		                    <a class="nav-link" ng-href="#">INICI{{navIni}}</a>
-		                </li>
-		                <li class="nav-item my-auto reduceNav">
-		                    <a class="nav-link" ng-href="#gegants">ELS GEGANTS{{navGeg}}</a>
-		                </li>
-		                <li class="nav-item my-auto reduceNav">
-		                    <a class="nav-link" ng-href="#quisom">QUI SOM?{{navQui}}</a>
-		                </li>
-		                <li class="nav-item d-none d-lg-inline my-auto ">
-		                    <a class="nav-link" ng-href="#">
-		                    	<img class="img-fluid logoColla" ng-src="img/{{footerContent.logoNav}}"  alt="Logo colla">
-		                    </a>
-		                </li>
-		                <li class="nav-item my-auto reduceNav">
-		                    <a class="nav-link" ng-href="#esdeveniments">ESDEVENIMENTS{{navEsd}}</a>
-		                </li>
-		                <li class="nav-item my-auto reduceNav">
-		                    <a class="nav-link" ng-href="#galeria">GALERIA{{navGal}}</a>
-		                </li>
-		                <li class="nav-item my-auto reduceNav">
-		                    <a class="nav-link" ng-href="#contacta">CONTACTAN'S{{navCon}}</a>
-		                </li>
-		            </ul>
-		        </div>
-		    </div>
-		</nav> -->
 		<nav class="navbar navbar-expand-lg navbar-light bg-lg-light rounded">
 			<div class="container">
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarVila" aria-controls="navbarVila" aria-expanded="true" aria-label="Toggle navigation">
@@ -72,7 +38,7 @@
 					<img class="img-fluid logoVila" ng-src="img/{{vila.logoVila}}">
 				</div>
 
-				<div class="navbar-collapse justify-content-md-center collapse show navReduced" id="navbarVila">
+				<div class="navbar-collapse justify-content-md-center collapse show navReduce" id="navbarVila">
 					<ul class="navbar-nav">
 						<li class="nav-item d-inline my-auto nav-fill w-100">
 							<a class="nav-link" ng-href="#">
@@ -124,9 +90,6 @@
 				<div data-ng-view=""></div>
 			</div>
 		</div>
-
-		<!-- <div class="h_divider mt-4"></div> -->
-
 		<footer>
 			<div class="container col-sm-12 col-xl-8 tipoTexto">
 			<div class="row">
@@ -176,8 +139,6 @@
 			</div>	 -->	
 <!-- VERIFICAR LO BUENO -->
 		</footer>
-
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-		<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 	</body>
 </html>
