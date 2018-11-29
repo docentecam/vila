@@ -1,8 +1,8 @@
 <div class="row"> 
-	<div class="col-12 mt-3 mt-md-5 mb-md-4 mb-2 estiloContacta text-center"><h2 class="tipoTitulo">Contacta'ns{{formCont}}</h2></div>
+	<div class="col-12 mt-3 mt-md-5 mb-md-4 mb-2 estiloContacta text-center"><h2 class="tipoTitulo">Contacta'ns</h2></div>
 </div>
 <div class="row">
-	<div class="col-12 col-md-8 ">
+	<div class="col-12 col-md-8">
 		<div class="row">
 			<div class="col-lg-12 offset-0  alert alert-danger pt-4 text-dark" role="alert" ng-show="contactaMissatge">{{msg}}</div>
 			<form name="formContacta" ng-submit="enviaEmail()" novalidate ng-hide="contactaMissatge">
@@ -25,7 +25,7 @@
 					    <div class="form-check">
 					      <input class="form-check-input" type="radio" name="tipoUs" id="clickEmp" ng-click="muestraNom(true)">
 					      <label class="form-check-label tipoTexto" for="clickEmp">
-					       EMPRESA
+					       Empresa
 					      </label>
 					    </div>
 					</div>
@@ -41,7 +41,7 @@
 					    <div class="form-check">
 					      <input class="form-check-input" type="radio" name="tipoUs" id="clickPar" ng-checked="contactans.checkTipo=='Particular'" ng-click="muestraNom(false)">
 					      <label class="form-check-label tipoTexto" for="clickPar">
-					       PARTICULAR
+					       Particular
 					      </label>
 					    </div>
 					</div>
@@ -72,35 +72,33 @@
 					      </label>
 					    </div>
 					</div><br>
-		        	<div class="col-12">
-						<button class="col-4 col-md-2 offset-md-6 my-md-4 mb-4 mt-md-4 mr-md-3 btn btn-info btn-lg btnAfi tipoTexto" type="submit"  ng-disabled="formContacta.$invalid">Envia</button>
+					 <div class="col-10 offset-1 col-md-11 offset-lg-0">
+						<button class="col-md-2 my-md-4 my-2 mt-md-4 mr-md-3 btn btn-info btn-lg btnAfi tipoTexto" type="submit"  ng-disabled="formContacta.$invalid">Envia</button>
+						<input type="button" class="col-md-6 my-md-4 mt-md-4 mb-4 btn btn-dark btn-lg btnAfi tipoTexto" data-toggle="modal" data-target="#modalFitxa" id="fitxaFull" ng-click="modalFitxa" value="Vols fer-te soci?">
 					</div>
 				</div>
 			</form>
-
-			<input type="button" class="col-md-4 offset-1 my-md-4 mt-md-4 mb-4 btn btn-dark btnAfi tipoTexto" data-toggle="modal" data-target="#modalFitxa" id="fitxaFull" ng-click="modalFitxa" value="Vols fer-te soci">	
 		</div>
 	</div>
-
-	<div class="col-12 col-md-4">
+	<div class="col-12 col-md-4 margin-left dissenyarVores ombraContacta">
 		<div class="row">
-				<div class="col-12">
-					<img class="img-fluid" ng-src="img/{{contactaLlistat.logoVila}}"  title="Logo vila">
-					<h4 class="tipoSubTitulo mt-2">{{contactaLlistat.nom}}</h4>
-				</div>
-				<div class="col-12 mt-3">
-					<span><b>Telèfon:</b></span><br>
-						<a class="fab fa-whatsapp fa-2x ml-1 Whatsapp" ng-href="https://api.whatsapp.com/send?phone=34{{contactaLlistat.telf}}"  target="_blank" title="Enviar whatsapp"></a>
-						<a class="tipoTexto ColorNegre" ng-href="tel:{{contactaLlistat.telf}}" target="_blank" title="Trucar per telèfon">
-					<span>{{contactaLlistat.telf}}</span></a><br>
-					<span><b>Correu electrònic:</b></span><br>
-						<a class="tipoTexto ml-1 ColorNegre" ng-href="mailto:{{contactaLlistat.email}}" target="_blank" title="Enviar correu">{{contactaLlistat.email}}</a><br>
-					<span><b>Horaris per contactar:</b></span><br>
-					<span class="tipoTexto">
-						<div>{{contactaLlistat.horari}}</div>
-					</span><br>
-					<a ng-href="{{contactaLlistat.facebook}}" target="_blank"><i class="fab fa-facebook-square fa-2x fa-lg mt-3" ng-href="{{contactaLlistat.facebook}}" target="_blank" title="Facebook Vila"></i></a><br>
-				</div> 
+			<div class="col-12">
+				<img class="img-fluid" ng-src="img/{{contactaLlistat.logoVila}}"  title="Logo vila">
+				<h4 class="tipoSubTitulo mt-3">{{contactaLlistat.nom}}</h4>
+			</div>
+			<div class="col-12 mt-3">
+				<span><b>Telèfon:</b></span><br>
+				<a class="fab fa-whatsapp fa-1x ml-1 Whatsapp" ng-href="https://api.whatsapp.com/send?phone=34{{contactaLlistat.telf}}"  target="_blank" title="Enviar whatsapp"></a>
+				<a class="tipoTexto ColorNegre" ng-href="tel:{{contactaLlistat.telf}}" target="_blank" title="Trucar per telèfon">
+				{{contactaLlistat.telf}}</a><br>
+				<span><b>Correu electrònic:</b></span><br>
+				<a class="tipoTexto ml-1 ColorNegre" ng-href="mailto:{{contactaLlistat.email}}" target="_blank" title="Enviar correu">{{contactaLlistat.email}}</a><br>
+				<span><b>Horaris per contactar:</b></span><br>
+				<p class="tipoTexto">
+					{{contactaLlistat.horari}}
+				</p>
+				<a ng-href="{{contactaLlistat.facebook}}" target="_blank"><i class="fab fa-facebook-square fa-2x fa-lg mt-lg-3" ng-href="{{contactaLlistat.facebook}}" target="_blank" title="Facebook Vila"></i></a><br>
+			</div> 
 		</div>
 	</div>
 </div>

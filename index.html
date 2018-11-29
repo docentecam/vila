@@ -69,14 +69,14 @@
 				</button>
 				
 				<div class="d-inline d-lg-none col-12 text-center"> 
-					<img class="img-fluid logoVila" ng-src="img/vilactiva.png">
+					<img class="img-fluid logoVila" ng-src="img/{{vila.logoVila}}">
 				</div>
 
 				<div class="navbar-collapse justify-content-md-center collapse show navReduced" id="navbarVila">
 					<ul class="navbar-nav">
 						<li class="nav-item d-inline my-auto nav-fill w-100">
 							<a class="nav-link" ng-href="#">
-							<img class="img-fluid hidemovil" ng-src="img/a_vilactiva.png" alt="Vilactiva">
+							<img class="img-fluid hidemovil" ng-src="img/{{vila.logoBolsa}}" alt="Vila activa">
 							</a>
 						</li>
 						<li class="nav-item active my-auto reduceNav">
@@ -128,9 +128,9 @@
 		<!-- <div class="h_divider mt-4"></div> -->
 
 		<footer>
-			<div class="container tipoTexto">
+			<div class="container col-sm-12 col-xl-8 tipoTexto">
 			<div class="row">
-				<div class=" col-lg-3 offset-lg-1 mt-3">
+				<div class=" col-lg-4 mt-3 col-md-4">
 					<ul>
 						<li>Parle'm-ne!</li>
 						<li><i class="far fa-envelope"></i><a class="tipoTexto no-padding" ng-href="mailto:{{vila.email}}" target="_blank" title="Enviar correu">{{vila.email}}</a></li>
@@ -146,11 +146,11 @@
 						</li>
 					</ul>
 				</div>
-				<div class=" col-lg-3  offset-lg-1 mt-3"> 
+				<div class=" col-lg-3 col-md-4 offset-lg-1 mt-3"> 
 					<img class="img-fluid text-center" ng-src="img/{{vila.logoVila}}" title="Vila activa" alt="vila activa"><br>
 					<span class="text-center">{{vila.nom}}</span>
 				</div>
-				<div class=" col-lg-3 offset-lg-1 mt-4 pl-5">
+				<div class=" col-lg-3 col-md-4 offset-lg-1 mt-4 pl-5">
 					<div class="col-12" >
 						<a class="ColorGris" ng-href="#noticies">Noticies</a>
 					</div>

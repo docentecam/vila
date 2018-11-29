@@ -1,7 +1,7 @@
 <?php
 	function connect(){
 		
-		 $connexio=@mysqli_connect("localhost","root","","vila");
+		$connexio=@mysqli_connect("localhost","root","","vila");
 
 		// $connexio=@mysqli_connect("bbdd.codigitals.com.es","ddb118414","VilaProves@2018","ddb118414");
 		
@@ -111,7 +111,6 @@
 									background: #000 
 								}
 
-
 								.tamLogo{
 								width:80%;
 								}
@@ -152,10 +151,8 @@
 									<td width="60%">
 										<p class="rgpd">La teva privacitat és molt important. Per això, de part de la '.$nomVila.', creiem que és necessari llegir la nova normativa europea de protecció de dades:
 										<br>
-										
-										El 25 de maig de 2018 va entrar en vigor el nou <span class="spBold">Reglament general de protecció de dades (RGPD)</span>, una reforma sobre la protecció de dades a nivell europeu en la que van estar treballant el Parlament Europeu i el Consell durant 5 anys.
-										L&#39;objectiu del RGPD és regular la protecció de les persones físiques en el que es respecta el tractament de dades personals i a la lliure circulació dels mateixos, i també ofereix un nou conjunt de drets digitals pels ciutadans de la UE. <br>
-										Les vostres dades només s’utilitzen per notificar esdeveniments i novetats. Mai es fan servir per a altres finalitats ni se cedeixen a tercers sense el vostre consentiment, excepte que una norma legal ho autoritzi.</p><br>
+										'.$LGPD.'
+										</p><br>
 									</td><td width="20%"></td>
 								</tr>
 								<tr><td width="20%"> </td><td width="60%">

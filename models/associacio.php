@@ -18,7 +18,7 @@ if(isset($_POST['acc'])&&$_POST['acc']=='l'){
 	}
 
 function mostrarQuisom($tbl_vila){
-		$mySql="SELECT `quiSom`,`equip`	FROM $tbl_vila";
+		$mySql="SELECT `quiSom`,`equip`, `cabeceraFiramar`, `cabeceraAssociacio`	FROM $tbl_vila";
 		$connexio=connect();
 		$resultQuisom=mysqli_query($connexio,$mySql); 
 		disconnect($connexio);

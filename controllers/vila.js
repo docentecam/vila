@@ -14,14 +14,8 @@ angular.module('vila')
 			})
 			.then(function(res){
 				deferred.resolve(res);
-				// $rootScope.cargador=false;
 				$scope.vila=res.data[0];
-				// $scope.noticies=res.data.dadesNoticies;
-				// $scope.banners=res.data.dadesBanners;
-				// $scope.carousel=res.data.dadesCarousel;
-				// $scope.associats=res.data.dadesAssociats;
 				 console.log(res.data);
-				// ;
 
 			})
 			.catch(function(error) {
@@ -50,10 +44,29 @@ angular.module('vila')
 				$scope.vila=res.data.dadesVila[0];
 				$scope.noticies=res.data.dadesNoticies;
 				$scope.banners=res.data.dadesBanners;
-				$scope.carousel=res.data.dadesCarousel;
+				$scope.carousels=res.data.dadesCarousel;
 				$scope.associats=res.data.dadesAssociats;
-				console.log($scope.banners);
-				;
+
+
+				$scope.associatsDiv=[];
+		var supAssociats=0;
+		for(i=0;i<$scope.associats.length;i++){
+			j=0;
+			while(j<4){
+				if(j==0) {$scope.associatsDiv[supAssociats]=[];}
+				$scope.associatsDiv[supAssociats][j]=$scope.associats[i];
+				j++;
+				if(j<4)i++;
+				if(i==$scope.associats.length) j=4;
+			}
+			supAssociats++;
+		}
+
+
+
+
+
+
 
 			})
 			.catch(function(error) {
@@ -77,7 +90,6 @@ angular.module('vila')
 		deferred.resolve(res);
 		$scope.vila=res.data.dadesVila[0];
 		$scope.serveis=res.data.dadesServeis;
-		console.log($scope.serveis.length);
 		$scope.equip=res.data.dadesVila[0];
 		console.log(res.data.dadesServeis);
 		$scope.equip=res.data.dadesEquip[0];
@@ -249,6 +261,9 @@ angular.module('vila')
 			}
 			supSponsors++;
 		}
+
+
+
 	})
 	.catch(function(error) {
 		$rootScope.cargador=false;
