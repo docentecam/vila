@@ -12,9 +12,7 @@ Morado: #4f307e
 	background-color: #fffcf0!important;
 }*/
 
-@import url('https://fonts.googleapis.com/css?family=Bitter|Oswald:700|Roboto:300,400');
-
-
+@import url('https://fonts.googleapis.com/css?family=Bitter|Oswald:700|Roboto:300,400|Permanent+Marker');
 
 body .no-padding{
   padding-left: 0;
@@ -70,6 +68,11 @@ ul, li{
 	margin: 0;
     padding: 0;
 }
+
+.associat {
+	background-color: white; text-align: center;
+}
+
 .colorRosa{
 	color: #cb418e;
 }
@@ -291,7 +294,7 @@ ul, li{
 }
 
 .imagecontainer-img2{
-	top: 0;
+  top: 0;
   left: 0;
   width: 100%;
   height: 100%;
@@ -353,6 +356,12 @@ ul, li{
 .sizeModal {
 	width: 100%;
 	height: 100%;
+}
+
+.tipoXula {
+	font-family: 'Permanent Marker', cursive;
+	color: #cb418e;
+	font-size: 1.6em;
 }
 
 .tipoSubTitulo, .tipoSubTituloCenter, .tipoSubTituloAso {
