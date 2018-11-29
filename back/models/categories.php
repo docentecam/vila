@@ -25,7 +25,7 @@
 		//  	$connexio=connect();
 		//  	$resultCateg=mysqli_query($connexio,$mySql); 
 		// disconnect($connexio);
-		// if (isset($_FILES['fotoNew']) && $_FILES['fotoNew']!="") {
+		if (isset($_FILES['fotoNew']) && $_FILES['fotoNew']!="") {
 			$fileEx =explode('.',$_FILES["logoUpdate"]["name"]);
 			$file =  date("dmYhisv").'.'.$fileEx[count($fileEx)-1];
 			$mySql2="UPDATE $tbl_categories
@@ -37,7 +37,7 @@
 			move_uploaded_file($_FILES["logoUpdate"]["tmp_name"],"../../img/pictogramas/".$file);
 			//unlink('../../img/pictogramas/'.$_POST['pictogramaOld']);
 			
-		// }
+		}
 		// echo llistatCategoria($tbl_categories,$tbl_categoriaassociat);
 		echo $mySql;		
 	}

@@ -1780,12 +1780,13 @@ angular.module('vila')
 					$rootScope.cargador=false;
 				});
 	}
-	$scope.deleteImg=function(idCarousel){
+	$scope.deleteImg=function(idCarousel,logo){
 		var segur=confirm("Segur que vols eliminar aquesta imatge?");
 		if (segur) {
 			var data = new FormData();
-			data.append("idCarousel",idCarousel);
 			data.append("acc","delImg");
+			data.append("idCarousel",idCarousel);
+			data.append("logo",logo);
 			var deferred=$q.defer();
 			$rootScope.cargador=true;
 				$http.post("models/carousel.php", data,{
@@ -1832,7 +1833,6 @@ angular.module('vila')
 	});
 
 	$scope.ban={};
-
 	$scope.dadesBanner=true;
 	$scope.muestraInput="directori";
 	$scope.associatSel="-1";
@@ -1851,10 +1851,6 @@ angular.module('vila')
 		deferred.resolve(res);
 		$scope.imatgesBanner=res.data.banner;
 		$scope.associats=res.data.associats;
-		// $scope.ban.fotoBanner=$scope.imatgesBanner.fotoBanner;
-		// $scope.ban.bannerOld=$scope.imatgesBanner.fotoBanner;
-		// $scope.ban.bannerUpdate="";
-		// $scope.ban.idBanner=$scope.imatgesBanner.idBanner;
 		$rootScope.cargador=false;
 		console.log(res.data);
 	})
@@ -1892,7 +1888,8 @@ angular.module('vila')
 		}
 		console.log(tipo);
 	}
-	$scope.upBanners=function(e){
+	$scope.uploadGaleria=function(e){
+		console.log(e);
 		$scope.divMsj=true;
 		if ($scope.associatSel=="" || $scope.associatSel=="-1") {
 			$timeout(function() {
@@ -1930,8 +1927,6 @@ angular.module('vila')
 		var data = new FormData();
             data.append("acc", "new");
             data.append("URLWeb", $scope.associatSel);
-			console.log($scope.associatSel);
-				//data.append("logoDelete", $scope.com.bannerOld);
 			 var deferred=$q.defer();
 			 $http.post("models/carousel.php", data,{
 				headers:{
@@ -1949,13 +1944,14 @@ angular.module('vila')
 					$rootScope.cargador=false;
 				});
 	}
-	$scope.deleteImg=function(idBanner){
+	$scope.deleteImg=function(idBanner,logo){
 		console.log("hola");
 		var segur=confirm("Segur que vols eliminar aquest Banner?");
 		if (segur) {
 			var data = new FormData();
-			data.append("idBanner",idBanner);
 			data.append("acc","dImg");
+			data.append("idBanner",idBanner);
+			data.append("logo",logo);
 			var deferred=$q.defer();
 			$rootScope.cargador=true;
 				$http.post("models/carousel.php", data,{
