@@ -80,8 +80,8 @@
 	<div id="carouselNoMovil" class="carousel slide" data-ride="carousel">
 
 	<div class="carousel-inner carousel text-center">
-		<div class="carousel-item" ng-repeat="participant in participantsDiv" ng-class="{'active': $index==0}">
-			<img class=" img-fluid col-3" ng-src="{{imatge.logoParticipant!=''?'img/participants/'+imatge.logoParticipant:'img/noimage.png'}}" alt="Participant {{$index}}" ng-repeat="imatge in participantsDiv[$index]">
+		<div class="carousel-item" ng-repeat="participant in participantsDiv " ng-class="{'active': $index==0}">
+			<img class=" img-fluid col-3" ng-src="{{imatge.logoParticipant!=''?'img/participants/'+imatge.logoParticipant:'img/noimage.png'}}" alt="Participant {{$index}}" ng-repeat="imatge in participantsDiv[$index] ">
 		</div>
 	</div>
 	
@@ -203,7 +203,7 @@
  		<span class="sr-only">Següent</span>
 	</a>
 </div>
-<div class="title-block wrapper py-4">
+<div class="title-block wrapper py-4" ng-hide="dadesTotesEdicion.length==0">
 	<span class="title-block__title title-block__title--color-primary">
 		Edicions anteriors
 	</span>	
