@@ -19,6 +19,7 @@
 			</div>
 			<div class="form-row">
 				<div class="form-group col-12 col-lg-8 offset-lg-4">
+					{{cat.pictograma}}
 		        	<label for="inputFoto">Pictograma</label>
 		        	<div class="input-group">
 						<div class="input-group-prepend col-6 divColInput">
@@ -26,7 +27,7 @@
 							<label for="btnExVila" class="input-group-text examinarImg" id="inputGroupPrepend"><i class="fas fa-search cursor" aria-hidden="true" ></i></label>
 						</div>
 			    	</div>
-		            <input type="file" id="btnExVila" class="align-self-end" name="btnExVila"  onchange="angular.element(this).scope().getFileDetails(this)" ng-show="false"/>
+		            <input type="file" id="btnExVila" class="align-self-end" name="btnExVila"  onchange="angular.element(this).scope().getFileDetailss(this)" ng-show="false"/>
 				</div>
 			</div>
 			<div class="form-row">
