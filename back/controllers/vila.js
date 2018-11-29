@@ -951,14 +951,18 @@ angular.module('vila')
 			
 		}
 		else{
+			$scope.firaFull=false;
+			$scope.firaSelect=true;
 			$scope.accio="Afegir";
 			$scope.firamar.titolFiramar="";
 			$scope.firamar.txtFiramar="";
-			$scope.firamar.fecha="";
 			$scope.firamar.titolActivitat="";
 			$scope.firamar.horaI="";
 			$scope.firamar.horaF="";
 			$scope.firamar.txtActivitat="";
+			$scope.firamar.fotoFiramar="";
+			$scope.firamar.logoParticipant="";
+			$scope.firamar.nomSponsor="";
 
 			var d=new Date();
 			var yyyy=d.getFullYear();
@@ -1057,37 +1061,37 @@ angular.module('vila')
 		$scope.firaFull=true;
 	}
 
-	$scope.EliminaImg=function(idGaleriaFiramar,idParticipant,nomSponsor){
+	$scope.EliminaImg=function(nomtaula,nomImatge,dataFiramar,logo,){
 		var segur=confirm("Segur que vols eliminar aquesta imatge?");
 		if (segur) {
 			var data = new FormData();
-			data.append("idGaleriaFiramar",idGaleriaFiramar);
-			data.append("idParticipant",idParticipant);
-			data.append("nomSponsor",nomSponsor);
+			data.append("nomtaula",nomtaula);
+			data.append("nomImatge",nomImatge);
+			data.append("dataFiramar",dataFiramar);
 			data.append("acc","Volatilizado");
+			data.append("logo",logo)
 			var deferred=$q.defer();
 			$rootScope.cargador=true;
-				$http.post("models/firamar.php", data,{
-					headers:{
-						"Content-type":undefined
-					},
-						transformRequest:angular.identity
-				})
-				.then(function(res){
-					deferred.resolve(res);
-					console.log("hola");
-					$scope.galeria=res.data.galeriaFiramar;
-					$scope.participant=res.data.participantsFiramar;
-					$scope.sponsor=res.data.sponsorsFiramar;
-					$rootScope.cargador=false;
-					$timeout(function() {
-						$scope.divMsj=false;
-					}, 2000);
-				})
-				.catch(function(error) {
-					$rootScope.cargador=false;
-				});
-		}
+			$http.post("models/firamar.php", data,{
+				headers:{
+		 			"Content-type":undefined
+				},
+				transformRequest:angular.identity
+			 })
+		 	.then(function(res){
+				deferred.resolve(res);
+				$scope.galeriaFiramar=res.data.galeriaFiramar;
+				$scope.sponsorsFiramar=res.data.sponsorsFiramar;
+				$scope.participantsFiramar=res.data.participantsFiramar;
+				$rootScope.cargador=false;
+			$timeout(function() {
+				$scope.divMsj=false;
+				}, 2000);
+ 			})
+			.catch(function(error) {
+				$rootScope.cargador=false;
+				 });
+			}
 	}
 })
 .controller('ServeisCtrl',function($scope, $http, $q, $timeout, $rootScope) {
