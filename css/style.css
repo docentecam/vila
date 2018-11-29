@@ -12,9 +12,7 @@ Morado: #4f307e
 	background-color: #fffcf0!important;
 }*/
 
-@import url('https://fonts.googleapis.com/css?family=Bitter|Oswald:700|Roboto:300,400');
-
-
+@import url('https://fonts.googleapis.com/css?family=Bitter|Oswald:700|Roboto:300,400|Permanent+Marker');
 
 body .no-padding{
   padding-left: 0;
@@ -35,12 +33,15 @@ nav a{
 	font-weight: bold;
 }
 footer{
+/*	color: #4f307e!important;*/
 	font-size:17px;
 	background-color: #f7fafb;
+	/*border-bottom: 10px solid #4f307e;*/
 	color: #999999;
 	width:100%;
 	margin-top: 5rem;
 	bottom: 0;
+	
 }
 a:link, a:visited, a:hover{
 	color: black;
@@ -70,26 +71,44 @@ ul, li{
 	margin: 0;
     padding: 0;
 }
+
+.associat {
+	background-color: white; text-align: center;
+}
+
 .colorRosa{
 	color: #cb418e;
 }
 /*.h2.custom-bar{
 	position: relative;
 }*/
-.margin-left{
-	width: 790px;
-}
+
 .dissenyarVores{
+	border-right-width: 10px !important;
+    border-bottom-width: 10px !important;
+    border-left-width: 10px !important;
     padding-top: 4% !important;
     padding-right: 4% !important;
     padding-bottom: 4% !important;
     padding-left: 4% !important;
     background-color: #ffffff !important;
 }
+.moureContactaEsquerra{
+	width: 410px;
+    padding-right: 60px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    text-align: left;
+}
+
 .ombraContacta{
 	-webkit-box-shadow: 0 1px 30px rgba(0, 0, 0, 0.2);
     -moz-box-shadow: 0 1px 30px rgba(0, 0, 0, 0.2);
     box-shadow: 0 1px 30px rgba(0, 0, 0, 0.2);
+}
+.left{
+	float: left;
 }
 .bordesRedondos{
 	border-radius: 20px;
@@ -104,13 +123,17 @@ ul, li{
     border-width: 1px;
     background-color: black;
 }
+
+.carouselProva{
+	height: 250px;
+}
 .colorBlancoLetra{
 	color: white;
 }
+
 .caixaDecolorGris{
 	max-width: 100%;
 	height: 100%;
-	background-image: url(https://upload.wikimedia.org/wikipedia/commons/2/29/Mercado_Central_Jerez_Fruta.JPG);
 }
 .padding{
 	padding: 80px;
@@ -137,23 +160,6 @@ ul, li{
     z-index: 1;
     background-color: rgba(95, 95, 95, 0.7);
 }
-.carousel-control-next, .carousel-control-prev {
-    position: absolute;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-     justify-content: center; 
-    width: 5%;
-    font-size: 2rem;
-    color: #fff;
-    text-align: center;
-    opacity: .5;
-}
 
 .carousel-control-next-movil, .carousel-control-prev-movil {
     position: absolute;
@@ -167,7 +173,6 @@ ul, li{
     -ms-flex-pack: center;
      justify-content: center; 
     width: 5%;
-    font-size: 20px;
     color: #fff;
     text-align: center;
     opacity: .5;
@@ -180,9 +185,11 @@ ul, li{
 }
 .carousel-control-prev-movil{
     margin-left: 5rem;
+    /*margin: 0px;*/
 }
 .carousel-control-next-movil{
     margin-left: 15rem;
+   /*  margin: 0px;*/
 }
 .centrar{
 	align-items: center;
@@ -290,7 +297,7 @@ ul, li{
 }
 
 .imagecontainer-img2{
-	top: 0;
+  top: 0;
   left: 0;
   width: 100%;
   height: 100%;
@@ -352,6 +359,12 @@ ul, li{
 .sizeModal {
 	width: 100%;
 	height: 100%;
+}
+
+.tipoXula {
+	font-family: 'Permanent Marker', cursive;
+	color: #cb418e;
+	font-size: 1.6em;
 }
 
 .tipoSubTitulo, .tipoSubTituloCenter, .tipoSubTituloAso {
