@@ -19,9 +19,9 @@
 
 <div class="row">
 	<div ng-repeat="servei in serveis" class="col-12 tipoTexto mt-4 colorBlanco">
-		<b class="tipoTextoNegrita">{{servei.nomServei}}:</b>
-		<p>{{servei.txtServei+' '+servei[3].nomSubservei}}</p>
-		<span ng-repeat="subservei in servei[3]">{{subservei.nomSubservei}}<p>{{subservei.txtSubservei}}</p></span>
+		<b class="tipoTextoNegrita">{{$index+1}}-{{servei.nomServei}}:</b>{{servei.txtServei}}<br>
+		<!-- span>{{servei.txtServei+' '+servei[3].nomSubservei}}:</span>		 -->
+		<span ng-repeat="subservei in servei[3]"><p><li class="offset-1">{{subservei.nomSubservei}}:{{subservei.txtSubservei}}</p></span></li>
 	</div>
 </div>
 
