@@ -11,7 +11,7 @@
 		<div class="card-columns col-12 col-lg-8 offset-lg-2">
 			<div class="card text-center" ng-repeat="imatgeCar in imatgesCar">
 				<img class="card-img-top img-fluid" ng-src="{{imatgeCar.fotoCarousel!='' ? '../img/carousel/'+imatgeCar.fotoCarousel : '../img/noimage.png'}}" alt="imatge {{$index+1}}">
-				<input type="button" class="btn btn-danger" value="Eliminar" ng-click="deleteImg(imatgeCar.idCarousel)">
+				<input type="button" class="btn btn-danger" value="Eliminar" ng-click="deleteImg(imatgeCar.idCarousel,imatgeCar.fotoCarousel)">
 			</div>
 		</div>
 	</div>
@@ -61,7 +61,7 @@
 							<label for="insertImg" class="input-group-text examinarImg" id="inputGroupPrepend"><i class="fas fa-search cursor" aria-hidden="true" ></i></label>
 						</div>
 			    	</div>
-		            <input type="file" id="insertImg" class="align-self-end" name="insertImg"  onchange="angular.element(this).scope().upBanners(this)" ng-show="false"/>
+		            <input type="file" id="insertImg" class="align-self-end" name="insertImg"  onchange="angular.element(this).scope().uploadGaleria(this)" ng-show="false"/>
 				</div>
 			</div>
 			<div class="form-row">
@@ -77,7 +77,7 @@
 	</div>
 	<div class="col-12 col-lg-8 offset-lg-2 text-center my-3" ng-repeat="imatgeBan in imatgesBanner">
 		<img class="card-img-top img-fluid" ng-src="{{imatgeBan.fotoBanner!='' ? '../img/banners/'+imatgeBan.fotoBanner : '../img/noimage.png'}}" alt="imatge {{$index+1}}">
-		<input type="button" class="btn btn-danger" value="Eliminar" ng-click="deleteImg(imatgeBan.idBanner)">
+		<input type="button" class="btn btn-danger" value="Eliminar" ng-click="deleteImg(imatgeBan.idBanner,imatgeBan.fotoBanner)">
 	</div>
 </div>
 <button id="goTop" class="goToTop btn btn-primary " value="Pujar" ng-click="goTop()">
