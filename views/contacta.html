@@ -1,25 +1,21 @@
 <div class="row"> 
-	<div class="col-12 mt-3 mt-md-5 mb-md-4 mb-2 estiloContacta text-center"><h2 class="tipoTitulo">Contacta'ns</h2></div>
+	<div class="col-12 mt-3 mt-md-5 mb-2 mb-md-5  estiloContacta text-center"><h2 class="tipoTitulo">Contacta'ns</h2></div>
 </div>
 <div class="row">
-	<div class="col-12 col-md-8">
+	<div class="col-12 col-lg-8">
 		<div class="row">
 			<div class="col-lg-12 offset-0  alert alert-danger pt-4 text-dark" role="alert" ng-show="contactaMissatge">{{msg}}</div>
 			<form name="formContacta" ng-submit="enviaEmail()" novalidate ng-hide="contactaMissatge">
 				<div class="form-row">
-					
-					<!-- nommmmmmmmm -->
 					<div class="form-group col-md-4 mb-3" ng-class="{ 'has-error' : formContacta.nomContacte.$invalid && !formContacta.nomContacte.$pristine }">
 			            <input type="text" name="nomContacte" class="form-control" ng-model="contactans.nomContacte"  placeholder="Nom"  ng-maxlength="30" required>
-						<p ng-show="formContacta.nomContacte.$error.maxlength" class="help-block text-danger">El nom és massa llarg{{forNomLlarg}}</p>
-			            <p ng-show="formContacta.nomContacte.$invalid && !formContacta.nomContacte.$pristine" class="help-block text-danger">El camp nom és obligatori{{formNom}}</p>
+						<p ng-show="formContacta.nomContacte.$error.maxlength" class="help-block text-danger">El nom és massa llarg</p>
+			            <p ng-show="formContacta.nomContacte.$invalid && !formContacta.nomContacte.$pristine" class="help-block text-danger">El camp nom és obligatori</p>
 			        </div>
-			      
-			        <!-- COGNOMMMMMMMMMMM -->
 			        <div class="form-group col-md-4  offfset-4  mb-3" ng-class="{ 'has-error' : formContacta.cognomContacte.$invalid && !formContacta.cognomContacte.$pristine }">
 			            <input type="text" name="cognomContacte" class="form-control" ng-model="contactans.cognomContacte"  placeholder="Cognom"  ng-maxlength="30" required>
-						<p ng-show="formContacta.cognomContacte.$error.maxlength" class="help-block text-danger">El nom és massa llarg{{forNomLlarg}}</p>
-			            <p ng-show="formContacta.cognomContacte.$invalid && !formContacta.cognomContacte.$pristine" class="help-block text-danger">El camp nom és obligatori{{formNom}}</p>
+						<p ng-show="formContacta.cognomContacte.$error.maxlength" class="help-block text-danger">El nom és massa llarg</p>
+			            <p ng-show="formContacta.cognomContacte.$invalid && !formContacta.cognomContacte.$pristine" class="help-block text-danger">El camp nom és obligatori</p>
 			        </div>
 			        <div class="form-group  col-md-12   mb-3 ">
 					    <div class="form-check">
@@ -29,12 +25,11 @@
 					      </label>
 					    </div>
 					</div>
-					<!-- muestraaaaaa nom comercial 1er formulario********* -->
 					<div ng-show="muestraInput">
 						<div class="form-group col-md-12 mb-3" ng-class="{ 'has-error' : formContacta.nomEmpresa.$invalid && !formContacta.nomEmpresa.$pristine }">
 			            <input type="text" name="nomEmpresa" class="form-control" ng-model="contactans.nomEmpresa"  placeholder="Nom Comercial"  ng-maxlength="30">
-						<p ng-show="formContacta.nomEmpresa.$error.maxlength" class="help-block text-danger">El nom és massa llarg{{forNomLlarg}}</p>
-			            <p ng-show="formContacta.nomEmpresa.$invalid && !formContacta.nomEmpresa.$pristine" class="help-block text-danger">El camp nom és obligatori{{formNom}}</p>
+						<p ng-show="formContacta.nomEmpresa.$error.maxlength" class="help-block text-danger">El nom és massa llarg</p>
+			            <p ng-show="formContacta.nomEmpresa.$invalid && !formContacta.nomEmpresa.$pristine" class="help-block text-danger">El camp nom és obligatori</p>
 			        	</div>
 					</div>
 					 <div class="form-group  col-md-12 mb-3 ">
@@ -45,20 +40,15 @@
 					      </label>
 					    </div>
 					</div>
-
-					<!-- emailllllllllllll -->
 			        <div class="form-group col-md-4 mb-3 " ng-class="{ 'has-error' : formContacta.email.$invalid && !formContacta.email.$pristine }">
 			            <input type="email" name="email" class="form-control" ng-model="contactans.email" placeholder="Email">
-			            <p ng-show="formContacta.email.$invalid && !formContacta.email.$pristine" class="help-block text-danger">L'adreça de correu electrònic introduïda no és vàlida. {{formEmailInco}}</p>
-
+			            <p ng-show="formContacta.email.$invalid && !formContacta.email.$pristine" class="help-block text-danger">L'adreça de correu electrònic introduïda no és vàlida.</p>
 			        </div>
-						<!-- telefonnnnnnnnnnnn -->
 			        <div class="form-group col-md-4 mb-3" ng-class="{ 'has-error' : formContacta.telefon.$invalid && !formContacta.telefon.$pristine }">
 			            <input type="number" name="telefon" class="form-control" ng-model="contactans.telefon" placeholder="Telèfon " ng-minlength="8" ng-maxlength="9">
 			            <p ng-show="formContacta.telefon.$error.minlength" class="help-block text-danger">El numero és incorrecte</p>
 						<p ng-show="formContacta.telefon.$error.maxlength" class="help-block text-danger">El numero és massa llarg</p>
 					</div>
-					<!-- dubtessss -->
 					<div class="form-group col-12 col-md-8 mt-md-2" ng-class="{ 'has-error' : formContacta.txtContacte.$invalid && !formContacta.txtContacte.$pristine }">
 				         <textarea name="txtContacte" class=" form-control" type="text" ng-model="contactans.txtContacte" required></textarea>
 				         <p ng-show="formContacta.txtContacte.$invalid && !formContacta.txtContacte.$pristine" class="help-block text-danger">El camp és requerit.</p>
@@ -80,7 +70,7 @@
 			</form>
 		</div>
 	</div>
-	<div class="col-12 col-md-4 margin-left dissenyarVores ombraContacta">
+	<div class="col-12 col-lg-4 posicioContacta dissenyarVores ombraContacta">
 		<div class="row">
 			<div class="col-12">
 				<img class="img-fluid" ng-src="img/{{contactaLlistat.logoVila}}"  title="Logo vila">
@@ -102,7 +92,6 @@
 		</div>
 	</div>
 </div>
-
 <div class="modal fade" id="modalFitxa" tabindex="-1" role="dialog" aria-labelledby="modalFitxaCentered" aria-hidden="true">
 	<div class="modal-dialog modal-dialog2 modal-dialog-centered col-12" role="document">
 		    <div class="modal-content">
@@ -110,7 +99,7 @@
 		      		<div class="container-fluid">
 							<div class="row">
 							 	<div ng-show="fitxaSuccess">
-								 	<div class="my-2 mb-md-4 mb-2 tipoTitulo"> FER-TE SOCI {{fitxaAfi}}
+								 	<div class="my-2 mb-md-4 mb-2 tipoTitulo"> FER-TE SOCI
 								 		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 								          <span aria-hidden="true">&times;</span>
 								        </button>
@@ -120,29 +109,29 @@
 										<div class="form-row">
 										  <div class="form-group col-12 mb-3" ng-class="{ 'has-error' : sociVila.inputnomComercial.$invalid && !sociVila.inputnomComercial.$pristine }">
 											<input type="text" class="form-control" id="inputnomComercial" placeholder="Nom Comercial" name="inputnomComercial" ng-model="contactaSoci.nomComercial" ng-maxlength="25" required="">
-											<p ng-show="sociVila.inputnomComercial.$error.maxlength" class="help-block text-danger">El nom és massa llarg{{forNomLlarg}}</p>
-											<p ng-show="sociVila.inputnomComercial.$invalid && !sociVila.inputnomComercial.$pristine" class="help-block text-danger">El camp nom és obligatori{{formNom}}</p>
+											<p ng-show="sociVila.inputnomComercial.$error.maxlength" class="help-block text-danger">El nom és massa llarg</p>
+											<p ng-show="sociVila.inputnomComercial.$invalid && !sociVila.inputnomComercial.$pristine" class="help-block text-danger">El camp nom és obligatori</p>
 										  </div>
 										  <div class="form-group col-12" ng-class="{ 'has-error' : sociVila.inputSectorComercial.$invalid && !sociVila.inputSectorComercial.$pristine }">
 										    <input type="text" class="form-control" id="inputSectorComercial" placeholder="Sector" name="inputSectorComercial" ng-model="contactaSoci.sectorComercial" ng-maxlength="250" required="">
-										    <p ng-show="sociVila.inputSectorComercial.$error.maxlength" class="help-block text-danger">L'adreça és massa llarga{{forAdrecaLlarg}}</p>
-											<p ng-show="sociVila.inputSectorComercial.$invalid && !sociVila.inputSectorComercial.$pristine" class="help-block text-danger">El camp és obligatori{{formObli}}</p>
+										    <p ng-show="sociVila.inputSectorComercial.$error.maxlength" class="help-block text-danger">L'adreça és massa llarga</p>
+											<p ng-show="sociVila.inputSectorComercial.$invalid && !sociVila.inputSectorComercial.$pristine" class="help-block text-danger">El camp és obligatori</p>
 										  </div>
 										  <div class="form-group col-12" ng-class="{ 'has-error' : sociVila.inputAdr.$invalid && !sociVila.inputAdr.$pristine }">
 										    <input type="text" class="form-control" id="inputAdr" placeholder="Adreça" name="inputAdr" ng-model="contactaSoci.adreca" ng-maxlength="250" required="">
-										    <p ng-show="sociVila.inputAdr.$error.maxlength" class="help-block text-danger">L'adreça és massa llarga{{forAdrecaLlarg}}</p>
-											<p ng-show="sociVila.inputAdr.$invalid && !sociVila.inputAdr.$pristine" class="help-block text-danger">El camp és obligatori{{formObli}}</p>
+										    <p ng-show="sociVila.inputAdr.$error.maxlength" class="help-block text-danger">L'adreça és massa llarga</p>
+											<p ng-show="sociVila.inputAdr.$invalid && !sociVila.inputAdr.$pristine" class="help-block text-danger">El camp és obligatori</p>
 										  </div>
 										</div>
 										<div class="form-row">
 										    <div class="form-group col-md-6" ng-class="{ 'has-error' : sociVila.inputTelefon.$invalid && !sociVila.inputTelefon.$pristine }">
 										      <input type="number" class="form-control" id="inputTelefon" name="inputTelefon" ng-model="contactaSoci.telf" ng-maxlength="9" ng-minlength="9" placeholder="Telèfon">
-										      <p ng-show="sociVila.inputTelefon.$error.minlength" class="help-block text-danger">El número és incorrecte{{forNumIncor}}</p>
-				            				  <p ng-show="sociVila.inputTelefon.$error.maxlength" class="help-block text-danger">El número és massa llarg{{forNumLlarg}}</p>
+										      <p ng-show="sociVila.inputTelefon.$error.minlength" class="help-block text-danger">El número és incorrecte</p>
+				            				  <p ng-show="sociVila.inputTelefon.$error.maxlength" class="help-block text-danger">El número és massa llarg</p>
 										    </div>
 										   <div class="form-group col-md-6" ng-class="{ 'has-error' : sociVila.inputEmail.$invalid && !sociVila.inputEmail.$pristine }">
 										    <input type="text" class="form-control" id="inputEmail" placeholder="Email" name="inputEmail" ng-model="contactaSoci.email" ng-maxlength="100">
-										    <p ng-show="sociVila.inputEmail.$invalid && !sociVila.inputEmail.$pristine" class="help-block text-danger">L'adreça de correu electrònic introduïda no és vàlida{{formEmailInco}}</p>  
+										    <p ng-show="sociVila.inputEmail.$invalid && !sociVila.inputEmail.$pristine" class="help-block text-danger">L'adreça de correu electrònic introduïda no és vàlida</p>  
 										  	</div>
 									    </div>
 									    <div class="form-row">
@@ -157,8 +146,7 @@
 									    	<span class="tipoTexto ml-2"><b>Horari preferit per contactar-te</b></span><br>
 									    	<div class="form-group col-12" ng-class="{ 'has-error' : sociVila.horari.$invalid && !sociVila.horari.$pristine }">
 									    	<textarea name="horari" class=" form-control" type="text" ng-model="contactaSoci.horari" required></textarea>
-											<!-- <p ng-show="sociVila.horari.$error.maxlength" class="help-block text-danger">El nom és massa llarg{{forNomLlarg}}</p> -->
-								            <p ng-show="sociVila.horari.$invalid && !sociVila.horari.$pristine" class="help-block text-danger">El camp nom és obligatori{{formNom}}</p>
+								            <p ng-show="sociVila.horari.$invalid && !sociVila.horari.$pristine" class="help-block text-danger">El camp nom és obligatori</p>
 								        	</div>
 										</div>
 								
@@ -175,7 +163,7 @@
 								</form><br>
 							</div>
 						</div><br>
-						<div ng-hide="fitxaSuccess">
+						<div ng-show="fitxaSuccess">
 							<span class="my-2 mb-4">Benvingut/a</span><br>
 							<span class="colorRosa">Ara ets un més de la {{contactaLlistat.nom}}!</span><br>
 							<span>Les teves dades s'han registrat correctament i en breus rebràs un correu electrònic de benvinguda. </span><br>
