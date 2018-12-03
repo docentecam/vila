@@ -54,27 +54,50 @@
 
 	}
 
-	if(isset($_POST['acc'])&&$_POST['acc']=='getFileDetails'){
-		//$_FILES[‘nombrePost’]. El nombre entre comillas, será el que nos envíen por post o get desde el formulario.
-		// $datos="entra en model<br>"; 
+	if(isset($_POST['acc'])&&$_POST['acc']=='uploadImg'){
+	 
 	    $cantImatge=$_POST['cantImatge']+1;
 	    $connexio=connect();
-		
 	    $j=0;
-	    while($j<$cantImatge) {
-		    $numUp='getFileDetails'.$j;
-		    $fileEx =explode('.',$_FILES[$numUp]["name"]);
-			$file =  date("dmYhisv").substr($fileEx[0],-3,3).'.'.$fileEx[count($fileEx)-1];
-			//$datos.=$j."--".$_FILES[$numUp]["tmp_name"]."-"."../../img/galeriaassociats/".$file."<br>"; 
 
-			move_uploaded_file($_FILES[$numUp]["tmp_name"], "../../img/galeriaFiramar/".$file);
-			$mySql="INSERT INTO `galeriafiramar`(`fotoFiramar`, `idGaleriaFiramar`) VALUES ('".$file."','".$_POST['dataFiramar']."')";
-			mysqli_query($connexio,$mySql);
-			$j++;
+	    if($_POST['tabla']=='galeriafiramar'){
+		    while($j<$cantImatge) {
+			    $numUp='uploadedFile'.$j;
+			    $fileEx =explode('.',$_FILES[$numUp]["name"]);
+				$file =  date("dmYhisv").substr($fileEx[0],-3,3).'.'.$fileEx[count($fileEx)-1];
+				move_uploaded_file($_FILES[$numUp]["tmp_name"], "../../img/galeriaFiramar/".$file);
+				$mySql="INSERT INTO `tbl_galeriafiramar`(`fotoFiramar`, `idGaleriaFiramar`) VALUES ('".$file."','".$_POST['idGaleriaFiramar']."')";
+				mysqli_query($connexio,$mySql);
+				$j++;
 	    }
+	}
+		else if($_POST['tabla']=='participants'){
+			while($j<$cantImatge) {
+			    $numUp='uploadedFile'.$j;
+			    $fileEx =explode('.',$_FILES[$numUp]["name"]);
+				$file =  date("dmYhisv").substr($fileEx[0],-3,3).'.'.$fileEx[count($fileEx)-1];
+				move_uploaded_file($_FILES[$numUp]["tmp_name"], "../../img/participants/".$file);
+				$mySql="INSERT INTO `$tbl_participants`(`logoParticipant`, `idParticipant`) VALUES ('".$file."','".$_POST['idParticipant']."')";
+				mysqli_query($connexio,$mySql);
+				$j++;
+	    }
+	}
+		else if($_POST['tabla']=='sponsors'){
+			while($j<$cantImatge) {
+			    $numUp='uploadedFile'.$j;
+			    $fileEx =explode('.',$_FILES[$numUp]["name"]);
+				$file =  date("dmYhisv").substr($fileEx[0],-3,3).'.'.$fileEx[count($fileEx)-1];
+				move_uploaded_file($_FILES[$numUp]["tmp_name"], "../../img/sponsors/".$file);
+				$mySql="INSERT INTO `tbl_sponsors`(`fotoFiramar`, `nomSponsor`) VALUES ('".$file."','".$_POST['nomSponsor']."')";
+				mysqli_query($connexio,$mySql);
+				$j++;
+	    }
+	}
 	    disconnect($connexio);
-		echo  galeriaFiramar($tbl_galeriafiramar,$_POST['dataFiramar']);
-}
+	    
+		echo firaEdicion($tbl_firamar,$tbl_participants,$tbl_sponsors,$tbl_galeriafiramar,$tbl_activitatsfiramar,$_POST['dataFiramar']);
+	}
+
 
 if(isset($_POST['acc'])&&$_POST['acc']=='Volatilizado'){
 	if($_POST['nomtaula']=='galeriafiramar'){
@@ -103,9 +126,7 @@ if(isset($_POST['acc'])&&$_POST['acc']=='Volatilizado'){
 		disconnect($connexio);
 
 		echo firaEdicion($tbl_firamar,$tbl_participants,$tbl_sponsors,$tbl_galeriafiramar,$tbl_activitatsfiramar,$_POST['dataFiramar']);
-
 	}
-
 
 function firaFulls($tbl_firamar){
 		$mySql="SELECT `txtFiramar`, `titolFiramar`, `dataFiramar` AS 'fecha' ,DATE_FORMAT(`dataFiramar`,'%d-%m-%Y' ) AS 'fechaEsp' 
@@ -119,7 +140,7 @@ function firaFulls($tbl_firamar){
 					$rows[] = $r; 
 				} 
 		return json_encode($rows);
-}
+	}
 
 function firaEdicion($tbl_firamar,$tbl_participants,$tbl_sponsors,$tbl_galeriafiramar,$tbl_activitatsfiramar,$dataFiramar){
 		

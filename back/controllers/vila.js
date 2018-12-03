@@ -992,9 +992,13 @@ angular.module('vila')
             var data = new FormData();
 
             data.append("acc", "uploadImg");
-            data.append("dataFiramar",$scope.firamar.dataFiramar);
+            data.append("tabla",tabla);
+            data.append("idGaleriaFiramar",$scope.firamar.idGaleriaFiramar);
+            data.append("idParticipant",$scope.firamar.idParticipant);
+            data.append("nomSponsor",$scope.firamar.nomSponsor);
 			for (var i in $scope.filesImages) {
 			        data.append("getFileDetails"+i, $scope.filesImages[i]);
+			        console.log("uploadedFile"+i, $scope.filesImages[i]);
 			}
 
 			data.append("cantImatge", i);
@@ -1008,8 +1012,9 @@ angular.module('vila')
 				.then(function(res)
 				{
 					deferred.resolve(res);
-					$scope.galeriaFiramar=res.data;
-					console.log(res.data);
+					$scope.galeriaFiramar=res.data.galeriaFiramar;
+					$scope.sponsorsFiramar=res.data.sponsorsFiramar;
+					$scope.participantsFiramar=res.data.participantsFiramar;
 				})
 				.catch(function(error) {
 					$rootScope.cargador=false;
@@ -1061,7 +1066,7 @@ angular.module('vila')
 		$scope.firaFull=true;
 	}
 
-	$scope.EliminaImg=function(nomtaula,nomImatge,dataFiramar,logo,){
+	$scope.EliminaImg=function(nomtaula,nomImatge,dataFiramar,logo){
 		var segur=confirm("Segur que vols eliminar aquesta imatge?");
 		if (segur) {
 			var data = new FormData();
