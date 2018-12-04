@@ -42,14 +42,26 @@
 		      <input type="text" class="form-control" id="txtNom" name="txtNom" ng-model="edicioFiramar.titolFiramar" maxlength="50">
 		    </div>
 		    <div class="form-group col-md-2 col-lg-2">
-		      <label for="txtData">Fecha</label>
-		      <input type="date" class="form-control" id="txtData" name="txtData" ng-model="edicioFiramar.fecha">
+		      <label for="txtData">Fecha</label>{{firamar.dataFiramar}}
+		      <input type="date" class="form-control" id="txtData" name="txtData" ng-model="edicioFiramar.fecha" ng-disabled="firamar.dataFiramar=='new'">
 		    </div>
 		    <div class="form-group col-lg-7 offset-lg-2">
 		      	<label for="txtParrafada">Text</label>
 		       	<textarea class="form-control textarea" id="txtParrafada" name="txtParrafada" ng-model="edicioFiramar.txtFiramar"></textarea>
 		   	</div>
 		</div>
+		<div class="form-row">
+			<div class="form-group col-12 col-lg-3 col-md-1 offset-lg-2 mt-3">
+				<div class="text-centerr">
+	  			<a>	  		
+	  				<input type="button" class="btn btn-primary" ng-click="guardaEdicio(accio)" value="Guardar canvis">
+	  			</a>
+	  			<a anchor-smooth-scroll="divTop">
+	  				<input type="button" class="btn btn-danger" ng-click="cancelaEdicio()" value="Cancelar">
+		  		</a>
+		  		</div>
+			</div>
+	</div>
 
 
 
@@ -83,7 +95,7 @@
 			<div class="form-group col-12 col-lg-3 col-md-1 offset-lg-2 mt-3">
 				<div class="text-centerr">
 	  			<a>	  		
-	  				<input type="button" class="btn btn-primary" ng-click="guardaEdicio(accio)" value="Guardar canvis">
+	  				<input type="button" class="btn btn-primary" ng-click="guardaActivitat(accio)" value="Guardar canvis">
 	  			</a>
 	  			<a anchor-smooth-scroll="divTop">
 	  				<input type="button" class="btn btn-danger" ng-click="cancelaEdicio()" value="Cancelar">
