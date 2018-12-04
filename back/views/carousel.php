@@ -57,7 +57,7 @@
 		        	<label for="inputFoto">Banner</label>
 		        	<div class="input-group">
 						<div class="input-group-prepend col-6 divColInput">
-							<input type="text" class="form-control inputColorBG" id="inputPictograma" ng-model="ban.fotoBanner" maxlength="150" disabled>
+							<input type="text" class="form-control inputColorBG" id="inputBanner" ng-model="ban.fotoBanner" name="inputBanner" disabled>
 							<label for="insertImg" class="input-group-text examinarImg" id="inputGroupPrepend"><i class="fas fa-search cursor" aria-hidden="true" ></i></label>
 						</div>
 			    	</div>
@@ -76,7 +76,9 @@
 		<i class=" fas fa-plus-square iconSize mb-3" title="Afegeix imatges" ng-click="insertBanner()"></i>
 	</div>
 	<div class="col-12 col-lg-8 offset-lg-2 text-center my-3" ng-repeat="imatgeBan in imatgesBanner">
-		<img class="card-img-top img-fluid" ng-src="{{imatgeBan.fotoBanner!='' ? '../img/banners/'+imatgeBan.fotoBanner : '../img/noimage.png'}}" alt="imatge {{$index+1}}">
+		<a ng-href="{{imatgeBan.URLWeb}}" target="_blank">
+			<img class="card-img-top img-fluid" ng-src="{{imatgeBan.fotoBanner!='' ? '../img/banners/'+imatgeBan.fotoBanner : '../img/noimage.png'}}" alt="imatge {{$index+1}}">
+		</a>
 		<input type="button" class="btn btn-danger" value="Eliminar" ng-click="deleteImg(imatgeBan.idBanner,imatgeBan.fotoBanner)">
 	</div>
 </div>

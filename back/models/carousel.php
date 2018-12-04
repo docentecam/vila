@@ -11,15 +11,24 @@
 	{
 		header("location: ../");
 	}
-	if(isset($_POST['acc'])&&$_POST['acc']=='new'){
-		$fileEx =explode('.',$_FILES["fotoBanner"]["name"]);
-		$file =  date("dmyhisv").'.'.$fileEx[count($fileEx)-1];
-		move_uploaded_file($_FILES[$numUp]["tmp_name"], "../../img/banners/".$file);
-		$mySql="INSERT INTO `$tbl_banner`(`URLWeb`,`fotoBanner`)
-				VALUES ('".$_POST['URLWeb']."','".$file."')";
+	if(isset($_POST['acc'])&&$_POST['acc']=='newBanner'){
+		$mySql="INSERT INTO `$tbl_banner`(`URLWeb`)
+				VALUES ('".$_POST['URLWeb']."')";
 		$connexio=connect();
 		$resultBanner=mysqli_query($connexio,$mySql);
+		$idBanner=mysqli_insert_id($connexio);
 		disconnect($connexio);
+		if (isset($_FILES['fotoBanner']) && $_FILES['fotoBanner']!=""){
+			$fileEx =explode('.',$_FILES["fotoBanner"]["name"]);
+			$file =  date("dmyhisv").'.'.$fileEx[count($fileEx)-1];
+			$mySql2="UPDATE $tbl_banner
+					SET `fotoBanner`='".$file."'
+					WHERE idBanner='".$idBanner."'";
+			$connexio=connect();
+			$resultBanner=mysqli_query($connexio,$mySql2);
+			disconnect($connexio);
+			move_uploaded_file($_FILES["fotoBanner"]["tmp_name"], "../../img/banners/".$file);
+		}
 		
 		echo fotosBanner($tbl_banner,$tbl_directori);
 	}
@@ -31,7 +40,7 @@
 		$connexio=connect();
 		$resultBanner=mysqli_query($connexio,$mySql);
 		disconnect($connexio);
-		// move_uploaded_file($_FILES["bannerUpdate"]["tmp_name"], "../../img/banners/".$file);
+		move_uploaded_file($_FILES["bannerUpdate"]["tmp_name"], "../../img/banners/".$file);
 
 		echo fotosBanner($tbl_banner,$tbl_directori);
 	}
@@ -104,6 +113,7 @@
 	}
 	if(isset($_POST['acc'])&&$_POST['acc']=='delImg'){
 		$mySql="DELETE FROM $tbl_carousel WHERE `idCarousel`='".$_POST['idCarousel']."'";
+		if(isset($_POST['logo'])&&$_POST['logo']!='')
 		{
 			unlink("../../img/carousel/".$_POST['logo']);
 		}
