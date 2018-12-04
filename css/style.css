@@ -17,11 +17,11 @@ Morado: #4f307e
 
 
 /*https://stackoverflow.com/questions/36263806/bootstrap-carousel-with-fixed-height-center-image-horizontally-or-vertically-ba */
-@import url('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css');
+/*@import url('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css');
 
 .carousel-inner > .item {
   height: 300px;
-  /*BUSCAR UN HEIGHT CONCRETO*/
+
 }
 
 .carousel-inner > .item > img {
@@ -39,12 +39,12 @@ Morado: #4f307e
 .carousel-control.right {
   background-image: none;
 }
-
+*/
 
 
 /*OTRA MOVIDA https://codepen.io/mephysto/pen/ZYVKRY*/
 
-.multi-item-carousel{
+/*.multi-item-carousel{
   .carousel-inner{
     > .item{
       transition: 500ms ease-in-out left;
@@ -78,7 +78,7 @@ Morado: #4f307e
       background-image: none;
     }
   }
-}
+}*/
 
 
 
