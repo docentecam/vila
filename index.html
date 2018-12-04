@@ -138,8 +138,9 @@
 					<ul>
 						<li>Parle'm-ne!</li>
 						<li><i class="far fa-envelope"></i><a class="tipoTexto no-padding" ng-href="mailto:{{vila.email}}" target="_blank" title="Enviar correu">{{vila.email}}</a></li>
-						
-						<li><i class="fas fa-mobile-alt"></i><a ng-href="tel:{{vila.telf}}" target="_blank" title="Trucar per telèfon">{{vila.telf}}</a></li>
+						<a class="fab fa-whatsapp fa-1x ml-1 Whatsapp" ng-href="https://api.whatsapp.com/send?phone=34{{vila.telf}}"  target="_blank" title="Enviar whatsapp"></a>
+						<a class="tipoTexto ColorNegre ml-2" ng-href="tel:{{vila.telf}}" target="_blank" title="Trucar per telèfon">
+						{{vila.telf}}</a>
 						<li>Troban's aquí:</li>
 						<li>
 							<div>

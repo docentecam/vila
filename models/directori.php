@@ -33,7 +33,7 @@
 		}
 
 	function mostrarAssociats($tbl_associats){
-			$mySql="SELECT `idAssociat`, `logoAssociat`, `nomAssociat`, `horari`, `txtAssociat`, `facebook`, `adreca`, `telf1`, `telf2`, `whatsapp`, `email`, `latitud`, `longitud`, `URLWeb`	FROM $tbl_associats WHERE `activo`='S'";
+			$mySql="SELECT `idAssociat`, `logoAssociat`, `nomAssociat`, `horari`, `txtAssociat`, `facebook`, `adreca`, `telf1`, `telf2`, `whatsapp`, `email`, `latitud`, `longitud`, `URLWeb`	FROM $tbl_associats WHERE `activo`='S' ORDER BY RAND()";
 			$connexio=connect();
 			$resultAssociats=mysqli_query($connexio,$mySql); 
 			disconnect($connexio);

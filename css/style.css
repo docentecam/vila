@@ -409,12 +409,6 @@ ul, li{
 	font-size: 0.9em;
 }
 
-.btn-outline-primary{
-	color: #cb418e!important;
-	border-color: #cb418e!important;
-	background-color: #fff!important; 
-}
-
 .tipoTituloHome{
 	font-family: 'Quicksand', sans-serif;
 	font-weight: 500;
