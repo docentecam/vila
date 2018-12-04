@@ -34,15 +34,12 @@ nav a{
 	font-weight: bold;
 }
 footer{
-/*	color: #4f307e!important;*/
 	font-size:17px;
 	background-color: #f7fafb;
-	/*border-bottom: 10px solid #4f307e;*/
 	color: #999999;
 	width:100%;
 	margin-top: 5rem;
 	bottom: 0;
-	
 }
 a:link, a:visited, a:hover{
 	color: black;
