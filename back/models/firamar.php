@@ -66,7 +66,7 @@
 			    $fileEx =explode('.',$_FILES[$numUp]["name"]);
 				$file =  date("dmYhisv").substr($fileEx[0],-3,3).'.'.$fileEx[count($fileEx)-1];
 				move_uploaded_file($_FILES[$numUp]["tmp_name"], "../../img/galeriaFiramar/".$file);
-				$mySql="INSERT INTO `tbl_galeriafiramar`(`fotoFiramar`, `idGaleriaFiramar`) VALUES ('".$file."','".$_POST['idGaleriaFiramar']."')";
+				$mySql="INSERT INTO `$tbl_galeriafiramar`(`fotoFiramar`, `dataFiramar`) VALUES ('".$file."','".$_POST['dataFiramar']."')";
 				mysqli_query($connexio,$mySql);
 				$j++;
 	    }
@@ -77,7 +77,7 @@
 			    $fileEx =explode('.',$_FILES[$numUp]["name"]);
 				$file =  date("dmYhisv").substr($fileEx[0],-3,3).'.'.$fileEx[count($fileEx)-1];
 				move_uploaded_file($_FILES[$numUp]["tmp_name"], "../../img/participants/".$file);
-				$mySql="INSERT INTO `$tbl_participants`(`logoParticipant`, `idParticipant`) VALUES ('".$file."','".$_POST['idParticipant']."')";
+				$mySql="INSERT INTO `$tbl_participants`(`nomParticipant`,`logoParticipant`,  `dataFiramar`) VALUES ('".$file."','".$file."','".$_POST['dataFiramar']."')";
 				mysqli_query($connexio,$mySql);
 				$j++;
 	    }
@@ -88,7 +88,7 @@
 			    $fileEx =explode('.',$_FILES[$numUp]["name"]);
 				$file =  date("dmYhisv").substr($fileEx[0],-3,3).'.'.$fileEx[count($fileEx)-1];
 				move_uploaded_file($_FILES[$numUp]["tmp_name"], "../../img/sponsors/".$file);
-				$mySql="INSERT INTO `tbl_sponsors`(`fotoFiramar`, `nomSponsor`) VALUES ('".$file."','".$_POST['nomSponsor']."')";
+				$mySql="INSERT INTO `$tbl_sponsors`( `nomSponsor`, `logoSponsor`,`dataFiramar`) VALUES ('".$file."','".$file."','".$_POST['dataFiramar']."')";
 				mysqli_query($connexio,$mySql);
 				$j++;
 	    }
@@ -96,29 +96,30 @@
 	    disconnect($connexio);
 	    
 		echo firaEdicion($tbl_firamar,$tbl_participants,$tbl_sponsors,$tbl_galeriafiramar,$tbl_activitatsfiramar,$_POST['dataFiramar']);
+		
 	}
 
 
 if(isset($_POST['acc'])&&$_POST['acc']=='Volatilizado'){
 	if($_POST['nomtaula']=='galeriafiramar'){
-		$mySql="DELETE FROM $tbl_galeriafiramar WHERE `idGaleriaFiramar` ='".$_POST['dataFiramar']."'";
-		if(isset($_POST['logo'])&&$_POST['logo']!='')
+		$mySql="DELETE FROM $tbl_galeriafiramar WHERE `idGaleriaFiramar` ='".$_POST['nom']."'";
+		if(isset($_POST['imatge'])&&$_POST['imatge']!='')
 		{
-			unlink("../../img/galeriaFiramar/".$_POST['logo']);
+			unlink("../../img/galeriaFiramar/".$_POST['imatge']);
 		}
 	}
 	else if($_POST['nomtaula']=='participants'){
-		$mySql="DELETE FROM $tbl_participants WHERE `dataFiramar` ='".$_POST['dataFiramar']."' AND `nomParticipant` ='".$_POST['nomImatge']."'";
-		if(isset($_POST['logo'])&&$_POST['logo']!='')
+		$mySql="DELETE FROM $tbl_participants WHERE `dataFiramar` ='".$_POST['dataFiramar']."' AND `nomParticipant` ='".$_POST['nom']."'";
+		if(isset($_POST['imatge'])&&$_POST['imatge']!='')
 		{
-			unlink("../../img/participants/".$_POST['logo']);
+			unlink("../../img/participants/".$_POST['imatge']);
 		}
 	}
 	else if($_POST['nomtaula']=='sponsors'){
-		$mySql="DELETE FROM $tbl_sponsors WHERE `dataFiramar` ='".$_POST['dataFiramar']."' AND `nomSponsor` ='".$_POST['nomImatge']."'";
-		if(isset($_POST['logo'])&&$_POST['logo']!='')
+		$mySql="DELETE FROM $tbl_sponsors WHERE `dataFiramar` ='".$_POST['dataFiramar']."' AND `nomSponsor` ='".$_POST['nom']."'";
+		if(isset($_POST['imatge'])&&$_POST['imatge']!='')
 		{
-			unlink("../../img/sponsors/".$_POST['logo']);
+			unlink("../../img/sponsors/".$_POST['imatge']);
 		}
 	}	
 		$connexio=connect();
