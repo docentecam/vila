@@ -12,6 +12,79 @@ Morado: #4f307e
 /*@import url('https://fonts.googleapis.com/css?family=Bitter|Oswald:700|Roboto:300,400');
 
 */
+
+
+
+
+/*https://stackoverflow.com/questions/36263806/bootstrap-carousel-with-fixed-height-center-image-horizontally-or-vertically-ba */
+@import url('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css');
+
+.carousel-inner > .item {
+  height: 300px;
+  /*BUSCAR UN HEIGHT CONCRETO*/
+}
+
+.carousel-inner > .item > img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  max-height: 800px;
+  width: auto;
+}
+
+.carousel-control.left,
+.carousel-control.right {
+  background-image: none;
+}
+
+
+
+/*OTRA MOVIDA https://codepen.io/mephysto/pen/ZYVKRY*/
+
+.multi-item-carousel{
+  .carousel-inner{
+    > .item{
+      transition: 500ms ease-in-out left;
+    }
+    .active{
+      &.left{
+        left:-33%;
+      }
+      &.right{
+        left:33%;
+      }
+    }
+    .next{
+      left: 33%;
+    }
+    .prev{
+      left: -33%;
+    }
+    @media all and (transform-3d), (-webkit-transform-3d) {
+      > .item{
+        // use your favourite prefixer here
+        transition: 500ms ease-in-out left;
+        transition: 500ms ease-in-out all;
+        backface-visibility: visible;
+        transform: none!important;
+      }
+    }
+  }
+  .carouse-control{
+    &.left, &.right{
+      background-image: none;
+    }
+  }
+}
+
+
+
+
+/*PRUEBAS DEL CAROUSEL ARRIBA*/
+
 @import url('https://fonts.googleapis.com/css?family=Bitter|Oswald:700|Roboto:300,400|Permanent+Marker');
 @import url('https://fonts.googleapis.com/css?family=Quicksand');
 
