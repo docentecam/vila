@@ -100,7 +100,7 @@
 			
 			<i class=" fas fa-plus-square iconSize mb-3 cursor" title="Afegeix imatges">
 
-			<input type="file" id="insertImgG" class="align-self-end" name="insertImgG" multiple accept="image/jpg, image/png" onchange="angular.element(this).scope().getFileDetails(this,'galeria')" ng-show="false">
+			<input type="file" id="insertImgG" class="align-self-end" name="insertImgG" multiple accept="image/jpg, image/png" onchange="angular.element(this).scope().getFileDetails(this,'galeriafiramar')" ng-show="false">
 
 			</i>
 
@@ -110,7 +110,7 @@
 			
 			<div class="text-center" ng-repeat="galeria in galeriaFiramar">
 				<img class="card-img-top img-fluid" ng-src="{{galeria.fotoFiramar!=''?'../img/galeriaFiramar/'+galeria.fotoFiramar:'../img/noimage.png'}}" id="fotoGFull">	
-				<input type="button" class="btn btn-danger mt-2" value="Eliminar" ng-click="EliminaImg('galeriafiramar',galeria.fotoFiramar,galeria.idGaleriaFiramar,galeria.fotoFiramar)">
+				<input type="button" class="btn btn-danger mt-2" value="Eliminar" ng-click="EliminaImg('galeriafiramar',galeria.idGaleriaFiramar,galeria.fotoFiramar)">
 			</div> 
 			
 		</div>
@@ -122,13 +122,13 @@
 		<label for="insertImgP" class="offset-md-2">
 			<i class=" fas fa-plus-square iconSize mb-3 cursor" title="Afegeix imatges"></i>
 		</label>
-		<input type="file" id="insertImgP" class="align-self-end" name="insertImgP" multiple accept="image/jpg, image/png" onchange="angular.element(this).scope().getFileDetails(this,'participant')" ng-show="false">
+		<input type="file" id="insertImgP" class="align-self-end" name="insertImgP" multiple accept="image/jpg, image/png" onchange="angular.element(this).scope().getFileDetails(this,'participants')" ng-show="false">
 
 		<div class="card-columns col-12 col-lg-8 offset-lg-2">
 			
 			<div class="text-center" ng-repeat="participant in participantsFiramar">
 				<img class="card-img-top img-fluid" ng-src="{{participant.logoParticipant!=''?'../img/participants/'+participant.logoParticipant:'img/noimage.png'}}">
-				<input type="button" class="btn btn-danger mt-2" value="Eliminar" ng-click="EliminaImg('participants',participant.nomParticipant,participant.fecha,participant.logoParticipant)">
+				<input type="button" class="btn btn-danger mt-2" value="Eliminar" ng-click="EliminaImg('participants',participant.nomParticipant,participant.logoParticipant)">
 			</div>
 		
 		</div>
@@ -141,7 +141,7 @@
 		<label for="insertImgS" class="offset-md-2">
 			<i class=" fas fa-plus-square iconSize mb-3 cursor" title="Afegeix imatges"></i>
 		</label>
-		<input type="file" id="insertImgS" class="align-self-end" name="insertImgS" multiple accept="image/jpg, image/png" onchange="angular.element(this).scope().getFileDetails(this,'sponsor')" ng-show="false">
+		<input type="file" id="insertImgS" class="align-self-end" name="insertImgS" multiple accept="image/jpg, image/png" onchange="angular.element(this).scope().getFileDetails(this,'sponsors')" ng-show="false">
 
 		<div class="row mb-3">
 			<div class="col-2"></div>
@@ -149,7 +149,7 @@
 				<div class="row">
 					<div class="col-lg-3 text-center" ng-repeat="sponsor in sponsorsFiramar">
 						<img class="img-fluid rounded img-thumbnail mt-3" ng-src="{{sponsor.logoSponsor!=''?'../img/sponsors/'+sponsor.logoSponsor:'../img/noimage.png'}}">
-						<input type="button" class="btn btn-danger mt-2" value="Eliminar" ng-click="EliminaImg('sponsors',sponsor.nomSponsor,sponsor.fecha,sponsor.logoSponsor)">
+						<input type="button" class="btn btn-danger mt-2" value="Eliminar" ng-click="EliminaImg('sponsors',sponsor.nomSponsor,sponsor.logoSponsor)">
 					</div>
 				</div>
 			</div>
