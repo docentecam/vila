@@ -13,7 +13,7 @@ Morado: #4f307e
 
 */
 @import url('https://fonts.googleapis.com/css?family=Bitter|Oswald:700|Roboto:300,400|Permanent+Marker');
-
+@import url('https://fonts.googleapis.com/css?family=Quicksand');
 
 body .no-padding{
   padding-left: 0;
@@ -268,6 +268,12 @@ ul, li{
 	height:2px; 
 	background: #4f307e;
 }
+
+.h_dividerg{
+	height: 2px!important;
+	background: #C0C0C0;
+}
+
 .h_divider_footer{ 
 	border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
@@ -402,6 +408,19 @@ ul, li{
 .tipoTextoAso{
 	font-size: 0.9em;
 }
+
+.btn-outline-primary{
+	color: #cb418e!important;
+	border-color: #cb418e!important;
+	background-color: #fff!important; 
+}
+
+.tipoTituloHome{
+	font-family: 'Quicksand', sans-serif;
+	font-weight: 500;
+	font-size: 1.5em;
+	color: #C0C0C0;
+}
 .tipoTitulo, .tipoTituloCenter, .tipoTituloBlanco{
 	font-family: 'Oswald', sans-serif;
 	font-weight: 700;
@@ -469,6 +488,10 @@ ul, li{
 	}
 	.h_divider{
 		height: 1px!important;
+	}
+	.h_dividerg{
+		height: 1px!important;
+		color: #CCCCCC;
 	}
 	.carousel-innerPrincipal{
 		height: 300px;

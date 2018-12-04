@@ -1,12 +1,9 @@
-<div class="row" ng-show="llistat">
-	<div class="mt-4 col-10 offset-1 px-0">
-		<div class="tipoTitulo mt-md-5 txtMovil">
-			Notícies
-		</div>
-		
-		<div class="h_divider mb-5 hideMovil"></div>
+<div class="mb-1 mt-md-4 mb-md-4 txtMovil tipoTituloHome text-center">
+	Notícies
+</div>
 
-		<div class="row">
+
+<div class="row" ng-show="llistat">
 			<div class="col px-0">
 				<div class="row">
 					<div ng-repeat="noticia in noticies | orderBy:'-dataAng'" ng-href="#/noticies/{{noticia.idNoticia}}" class="col-lg-4 col-md-6 px-md-2 px-xl-4 pt-md-2 pt-xl-4 px-0">
