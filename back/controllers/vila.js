@@ -892,6 +892,7 @@ angular.module('vila')
 
 	$scope.msj="";
 	$scope.firamar={};
+	$scope.firamar.dataFiramar=$routeParams.dataFiramar;
 	$scope.divMsj=false;
 	$scope.accio="";
 	$scope.firaSelect=true;
@@ -917,7 +918,7 @@ angular.module('vila')
 
 });
 
-		if ($routeParams.dataFiramar!="new") {
+		if ($scope.firamar.dataFiramar!="new") {
 
 			$scope.accio="Editar";
 
@@ -925,7 +926,7 @@ angular.module('vila')
 			$scope.firaSelect=true;
 			var data = new FormData();
 			data.append("acc","listEdicion");
-			data.append("dataFiramar",$routeParams.dataFiramar);
+			data.append("dataFiramar",$scope.firamar.dataFiramar);
 		    var deferred=$q.defer();
 		    $rootScope.cargador=true;
 			
@@ -988,13 +989,16 @@ angular.module('vila')
 					console.log($scope.filesImages.length+$scope.message);
 				}
             });
-              
+              console.log("cantidad ficheros: "+$scope.filesImages.length+" tabla modificar "+tabla+
+              	" edicio "+$scope.firamar.dataFiramar) ;
             var data = new FormData();
 
             data.append("acc", "uploadImg");
+            data.append("tabla",tabla);
             data.append("dataFiramar",$scope.firamar.dataFiramar);
 			for (var i in $scope.filesImages) {
-			        data.append("getFileDetails"+i, $scope.filesImages[i]);
+			        data.append("uploadedFile"+i, $scope.filesImages[i]);
+			        //console.log("uploadedFile"+i, $scope.filesImages[i]);
 			}
 
 			data.append("cantImatge", i);
@@ -1008,8 +1012,9 @@ angular.module('vila')
 				.then(function(res)
 				{
 					deferred.resolve(res);
-					$scope.galeriaFiramar=res.data;
-					console.log(res.data);
+					$scope.galeriaFiramar=res.data.galeriaFiramar;
+					$scope.sponsorsFiramar=res.data.sponsorsFiramar;
+					$scope.participantsFiramar=res.data.participantsFiramar;
 				})
 				.catch(function(error) {
 					$rootScope.cargador=false;
@@ -1061,15 +1066,15 @@ angular.module('vila')
 		$scope.firaFull=true;
 	}
 
-	$scope.EliminaImg=function(nomtaula,nomImatge,dataFiramar,logo,){
+	$scope.EliminaImg=function(nomtaula,nom,imatge){
 		var segur=confirm("Segur que vols eliminar aquesta imatge?");
 		if (segur) {
 			var data = new FormData();
-			data.append("nomtaula",nomtaula);
-			data.append("nomImatge",nomImatge);
-			data.append("dataFiramar",dataFiramar);
 			data.append("acc","Volatilizado");
-			data.append("logo",logo)
+			data.append("dataFiramar",$scope.firamar.dataFiramar);
+			data.append("nomtaula",nomtaula);
+			data.append("nom",nom);
+			data.append("imatge",imatge)
 			var deferred=$q.defer();
 			$rootScope.cargador=true;
 			$http.post("models/firamar.php", data,{
