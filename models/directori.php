@@ -62,6 +62,7 @@
 			} 
 					
 			return json_encode($rows);
+
 		}
 		
 	function mostrarCategoriaassociat($tbl_categoriaassociat,$tbl_categories,$tbl_associats){
