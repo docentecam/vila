@@ -13,14 +13,8 @@
 	</div>
 </div>
 <br>
-<div class="container">
-	<div class="h_divider_p"></div>
-	<div class="title-block wrapper">
-		<!-- title-block__title title-block__title--color-primary -->
-		<span class="tipoXula">
-			Programa d'activitats
-		</span>	
-	</div>
+<div class="mb-1 mt-md-3 mb-md-3 txtMovil tipoTituloHome text-center">
+	Programa d'activitats
 </div>
 <div class="row">
 	<div ng-repeat="firamar in activitatsfiramar" class="col-12 p-2 mt-lg-3">
@@ -41,13 +35,11 @@
 	<div class="h_divider_MovilFiramar"></div>
 </div>
 	
-
+<div class="mb-1 mt-md-4 mb-md-5 txtMovil tipoTituloHome text-center">
+	Galeria
+</div>
 <div class="row">
-	<div class="title-block wrapper py-4">
-		<span class="tipoXula">
-			Galeria
-		</span>	
-	</div>
+
 	<div class="container col-12">
 		<div class="row">
 			<div class="card-columns">
@@ -70,10 +62,8 @@
 	    </div>
  	</div>
 </div>
-<div class="title-block wrapper py-4">
-	<span class="tipoXula">
-		Participants
-	</span>	
+<div class="mb-1 my-md-5 txtMovil tipoTituloHome text-center">
+	Notícies destacades
 </div>
 <div class="row">
 	
@@ -123,10 +113,8 @@
 </div>
 
 </div>
-<div class="title-block wrapper py-4 mt-4">
-<span class="tipoXula">
+<div class="mb-1 my-md-5 txtMovil tipoTituloHome text-center">
 	Sponsors
-</span>	
 </div>
 
 <div class="row">
@@ -204,18 +192,14 @@
  		<span class="sr-only">Següent</span>
 	</a>
 </div>
-<div class="title-block wrapper py-4" ng-hide="dadesTotesEdicion.length==0">
-	<span class="tipoXula">
-		Edicions anteriors
-	</span>	
+<div class="mb-1 my-md-5 txtMovil tipoTituloHome text-center">
+	Edicions anteriors
 </div>
 
 <div class="row">
-	<div class="col-12">
-		<div ng-repeat="dadesTotesEdicion in dadesTotesEdicions" class="col-12 colorRosa">
-			<a class="cursor" ng-href="" ng-click="llistatEdicioFirmar(dadesTotesEdicion.dataFiramar)"><b>{{dadesTotesEdicion.dataFiramar |limitTo:4}}</b>-{{dadesTotesEdicion.titolFiramar }}</a>
+		<div ng-repeat="dadesTotesEdicion in dadesTotesEdicions" class="col-4 colorRosa text-center">
+			<button type="button" class="btn btn-outline-dark px-5 py-3"><a class="cursor" ng-href="" ng-click="llistatEdicioFirmar(dadesTotesEdicion.dataFiramar)"><b>{{dadesTotesEdicion.titolFiramar }}</b> - {{dadesTotesEdicion.dataFiramar |limitTo:4}}</a></button>
 		</div>
-	</div>
 </div>
 
 <!-- ALTER TABLE `activitatsfiramar` ADD `idActivitat` INT NOT NULL AUTO_INCREMENT FIRST, ADD PRIMARY KEY (`idActivitat`); -->

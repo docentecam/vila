@@ -13,31 +13,21 @@
 </div>
 
 <br>
-<div class="container">
-	<div class="h_divider_p"></div>
-	<div class="title-block wrapper">
-		<span class="title-block__title title-block__title--color-primary">
-			Serveis
-		</span>	
-	</div>
+<div class="mb-1 mt-md-4 mb-md-4 txtMovil tipoTituloHome text-center">
+	Serveis
 </div>
 
 <div class="row">
 	<div ng-repeat="servei in serveis" class="col-12 tipoTexto mt-4 colorBlanco">
-		<b class="tipoTextoNegrita">{{servei.nomServei}}:</b>
-		<p>{{servei.txtServei+' '+servei[3].nomSubservei}}</p>
-		<span ng-repeat="subservei in servei[3]">{{subservei.nomSubservei}}<p>{{subservei.txtSubservei}}</p></span>
+		<b class="tipoTextoNegrita">{{$index+1}}-{{servei.nomServei}}:</b>{{servei.txtServei}}<br>
+		<!-- span>{{servei.txtServei+' '+servei[3].nomSubservei}}:</span>		 -->
+		<span ng-repeat="subservei in servei[3]"><p><li class="offset-1">{{subservei.nomSubservei}}:{{subservei.txtSubservei}}</p></span></li>
 	</div>
 </div>
 
 <br>
-<div class="container">
-	<div class="h_divider_p"></div>
-	<div class="title-block wrapper">
-		<span class="title-block__title title-block__title--color-primary">
-			Equip
-		</span>	
-	</div>
+<div class="mb-1 mt-md-4 mb-md-4 txtMovil tipoTituloHome text-center">
+	Equip
 </div>
 
 <div class="row">

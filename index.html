@@ -16,6 +16,10 @@
 		<script src="js/angular-route.js"></script>
 		<script src="js/app.js"></script>
 		<script src="controllers/vila.js"></script>
+
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 		<!-- <script>
 			var CMSSpace = CMSSpace || {};
 		</script> -->
@@ -134,8 +138,9 @@
 					<ul>
 						<li>Parle'm-ne!</li>
 						<li><i class="far fa-envelope"></i><a class="tipoTexto no-padding" ng-href="mailto:{{vila.email}}" target="_blank" title="Enviar correu">{{vila.email}}</a></li>
-						
-						<li><i class="fas fa-mobile-alt"></i><a ng-href="tel:{{vila.telf}}" target="_blank" title="Trucar per telèfon">{{vila.telf}}</a></li>
+						<a class="fab fa-whatsapp fa-1x ml-1 Whatsapp" ng-href="https://api.whatsapp.com/send?phone=34{{vila.telf}}"  target="_blank" title="Enviar whatsapp"></a>
+						<a class="tipoTexto ColorNegre ml-2" ng-href="tel:{{vila.telf}}" target="_blank" title="Trucar per telèfon">
+						{{vila.telf}}</a>
 						<li>Troban's aquí:</li>
 						<li>
 							<div>
@@ -150,7 +155,7 @@
 					<img class="img-fluid " ng-src="img/{{vila.logoVila}}" title="Vila activa" alt="vila activa"><br>
 					<span class="text-center">{{vila.nom}}</span>
 				</div>
-				<div class=" col-lg-3 col-md-4 offset-lg-1 mt-4 pl-5 order-2 order-sm-3 order-md-3">
+				<div class=" col-lg-3 col-md-4 offset-lg-1 mt-4 order-2 order-sm-3 order-md-3">
 					<div class="col-12" >
 						<a class="ColorGris" ng-href="#noticies">Notícies</a>
 					</div>
