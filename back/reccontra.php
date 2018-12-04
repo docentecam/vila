@@ -12,7 +12,7 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
 		<link rel="stylesheet" type="text/css" href="css/style.css">
-		<script src="js/angular.js"></script>
+		<script src="../js/angular.js"></script>
 		<script src="controllers/login.js"></script>
 		<style type="text/css">
 					.activCent{
@@ -21,15 +21,16 @@
 				.activContainer{
 					text-align: center;
 				}
-		</style>
+		</style> 
 	</head>
 	<body ng-controller="RecContraCtrl"> 
 		<?php
-			if(isset($_POST['recupera'])){
+			if(isset($_GET['recupera'])){
 		?>
 		<div class="row text-center mt-5">
 			<form class="col">
 				<div class="row">
+					Llega: <?php echo $_GET['recupera']?>
 					<div class="form-group col-12 col-md-4 offset-md-4">
 						<label for="txtNovContra">Nova Contrasenya</label>
 						<div class="input-group">
@@ -44,7 +45,7 @@
 						<input type="password" class="form-control" id="inputRepitContra" ng-model="repetirNovaContra">	
 					</div>
 					<div class="form-group col-12 col-md-4 offset-md-4 ">
-						<button type="button" value="guardar" ng-click="save('<?php if(isset($_POST['recupera'])) echo $_POST['recupera'];?>')" class=" btn btnColorCss">Guardar</button>
+						<button type="button" value="guardar" ng-click="save('<?php if(isset($_GET['recupera'])) echo $_GET['recupera'];?>')" class=" btn btnColorCss">Guardar</button>
 						<input  type="button" id="btnLogin" value="Anar al login" class=" btn btn-primary" ng-disabled="actBtnIrLogin" ng-click="redirectLogin()"></input>
 					</div>
 				</div>
