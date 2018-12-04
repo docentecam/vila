@@ -1,4 +1,4 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>  
 <html ng-app="vilaLogin"> 
 	<head>
 		<title>Iniciar Sessió</title>

@@ -76,7 +76,7 @@
 							</td>
 						</tr>
 						<tr>
-							<td width='20%'><td width='60%'>
+							<td width='20%'><td width='60%'><a href='".$URLWeb."/back/reccontra.php?recupera=".$newPassword."' target='_blank'>mandar</a>"."
 							<form action='".$URLWeb."/back/reccontra.php' method='post'>
 							<input name='recupera' type='hidden' value='".$newPassword."'>
 							<button class='estilButton'>Canviar contrasenya</button>
