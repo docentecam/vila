@@ -247,9 +247,9 @@ ul, li{
 .form-control:focus{
     color: black;
  	background-color:#fff; 
-    border-color:#5a0ece; 
+    border-color:#cb418e6b; 
     outline: 0;
-    box-shadow: 0 0 0 0.2rem #4f307e9e;
+    box-shadow: 0 0 0 0.2rem #cb418e8f;
 }
 .group{
   display: -webkit-box;
