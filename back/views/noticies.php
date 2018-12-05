@@ -24,10 +24,12 @@
 					<input type="date" class="form-control" name="dataNot" ng-model="not.dataNoticia">
 				</div>
 			</div>
+			<br>
 			<div class="row">
 				<label class="cursor text-primary col mt-1" for="btnExaminar">{{accionNot}} imatge <i class="fas fa-camera add-examinar text-primary cursor" aria-hidden="true"></i></label>
 				<input type="file" id="btnExaminar" name="btnExaminar" accept="image/jpg, image/jpeg, image/png"  multiple onchange="angular.element(this).scope().getFileDetails(this)" ng-show="false"/>
 			</div>
+			<br>
 			<div>
 			<input class="btn btn-danger" type="button" value="Cancelar" ng-click="cancelNot()">
 			<button type="submit"  ng-disabled="formNot.$invalid" class="btn btn-info"  >{{accionNot}}</button>

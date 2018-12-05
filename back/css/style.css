@@ -265,9 +265,17 @@ a:hover {
   	border: 0;
   	margin-top: 3%;
 }
+.HeadServCss{
+	background-color:#4f307e;
+	color: white;
+}
+
 @media (max-width: 575px){
 	.iconSize{
 		font-size: 1.75em;
+	}
+	.botonesSerCss{
+	margin-left: 5%;
 	}
 }
 @media (min-width: 576px) and (max-width: 767px){
@@ -296,6 +304,9 @@ a:hover {
 	.AssNotiAllCss{
 	margin-right: 15%;
 	margin-left: 15%;
+	}
+	.botonesSerCss{
+	margin-left: 2%;
 	}
 }
 @media (max-width: 991px){

@@ -7,18 +7,20 @@
 	</div>
 	<form id="SerEditTop" name="formServei" ng-submit="submitServei()" novalidate ng-hide="reveal">
 		<div class="row">
-			<div class="col" ng-class="{ 'has-error' : formServei.nomSer.$invalid && !formServei.nomSer.$pristine }">
+			<div class="col-md-6 col-sm-12" ng-class="{ 'has-error' : formServei.nomSer.$invalid && !formServei.nomSer.$pristine }">
 				<label for="nomSer">Servei:</label>
 				<input type="text" class="form-control" ng-model="ser.nomServei" id="nomSer" placeholder="Nom del servei" name="nomSer" required>
 			</div>
-			<div class="col" ng-class="{ 'has-error' : formServei.descSer.$invalid && !formServei.descSer.$pristine }">
+			<div class="col-md-6 col-sm-12" ng-class="{ 'has-error' : formServei.descSer.$invalid && !formServei.descSer.$pristine }">
 				<label for="descSer">Descripció servei:</label>
 				<input type="text" class="form-control" ng-model="ser.txtServei" id="descSer" placeholder="Descripció" name="descSer" required>
 			</div>
 		</div>
 		<br>
-		<input class="btn btn-danger" type="button" value="Cancelar" ng-click="cancelSer()">
-		<button type="submit" class="btn btn-info" ng-disabled="formServei.$invalid" value="submit-true" formmethod="post">{{accionSer}}</button>
+		<div class="botonesSerCss">
+			<input class="btn btn-danger" type="button" value="Cancelar" ng-click="cancelSer()">
+			<button type="submit" class="btn btn-info" ng-disabled="formServei.$invalid" value="submit-true" formmethod="post">{{accionSer}}</button>
+		</div>
 	</form>
 	<form id="SubserEditTop" name="formSubservei" ng-submit="submitSubservei()" novalidate novalidate ng-hide="revealSub">
 		<div class="row">
@@ -38,7 +40,7 @@
 	<br id="divTop">
 	<div class="row" >
 		<table class="table table-bordered">
-			<thead class="thead-light">
+			<thead class="thead HeadServCss">
 				<tr>
 			      <th scope="col">#</th>
 			      <th scope="col">Serveis<i class="fas fa-plus serveiTituCss" ng-click="EditServei('-1')"></th>
