@@ -890,12 +890,18 @@ angular.module('vila')
 
 	$scope.msj="";
 	$scope.firamar={};
+	$scope.edicioFiramar={};
+	$scope.novaActivitat={};
 	$scope.firamar.dataFiramar=$routeParams.dataFiramar;
 	console.log($scope.firamar.dataFiramar);
 	$scope.divMsj=false;
 	$scope.accio="";
 	$scope.firaSelect=true;
 	$scope.firaFull=true;
+	$scope.forAct=true;
+
+
+	if($scope.firamar.dataFiramar=='new') $scope.isNew=true;
 
 	var data = new FormData();
 		data.append("acc","l");
@@ -969,9 +975,106 @@ angular.module('vila')
 	    element.scrollIntoView({block: "end", behavior: "smooth"});
 
 
-	$scope.editActivitat=function(idActivitat,tipo){
+	$scope.eliminarActivitat=function(idActivitat){
 		
+
+		console.log(idActivitat);
+		var data = new FormData();
+		data.append("acc","deleteActivitat");
+		data.append("idActivitat",idActivitat);
+		data.append("dataFiramar",$scope.firamar.dataFiramar);
+		
+	 var deferred=$q.defer();
+		    $rootScope.cargador=true;
+			$http.post("models/firamar.php", data,{
+				headers:{
+					"Content-type":undefined
+				},
+				transformRequest:angular.identity
+			})
+			.then(function(res){
+
+				$scope.edicioFiramar=res.data.edicioFiramar[0];
+				$scope.galeriaFiramar=res.data.galeriaFiramar;
+				$scope.sponsorsFiramar=res.data.sponsorsFiramar;
+				$scope.participantsFiramar=res.data.participantsFiramar;
+				$scope.activitatsFiramar=res.data.activitatsFiramar;
+				 $rootScope.cargador=false;
+
+			})
+			.catch(function(error) {
+				$rootScope.cargador=false;
+			});
+
+
 	}
+	$scope.afegixActivitat=function(){
+			$scope.forAct=false;
+		
+			console.log("entra");
+			$scope.novaActivitat.titolActivitat="";
+			$scope.novaActivitat.txtActivitat="";
+			$scope.novaActivitat.horaI="10:00";
+			$scope.novaActivitat.horaF="10:00";
+			// $scope.activitatsFiramar.horaInici="";
+			// $scope.activitatsFiramar.horaFi="";
+			// $scope.activitatsFiramar.titolActivitat="";
+			// $scope.activitatsFiramar.txtActivitat="";
+	}
+
+	$scope.guardaNovaActivitat=function(){
+		if($scope.novaActivitat.titolActivitat=="" || $scope.novaActivitat.txtActivitat=="" || $scope.novaActivitat.horaI=="" || $scope.novaActivitat.horaF==""){	
+			$scope.msjNovaACt="Omplir camps obligatoris";
+			$scope.divMsjAct=true;
+			$timeout(function() {
+				$scope.divMsjAct=false;
+			}, 3000);		
+		}
+		else{
+
+			console.log("fecha :"+$scope.firamar.dataFiramar);
+
+			var data = new FormData();
+				data.append("acc","newACtivitat");
+				data.append("dataFiramar",$scope.firamar.dataFiramar);
+				data.append("horaInici",$scope.novaActivitat.horaI);
+				data.append("horaFi",$scope.novaActivitat.horaF);
+				data.append("titolActivitat", $scope.novaActivitat.titolActivitat);
+				data.append("txtActivitat",  $scope.novaActivitat.txtActivitat);
+		    var deferred=$q.defer();
+		    $rootScope.cargador=true;
+			$http.post("models/firamar.php", data,{
+				headers:{
+					"Content-type":undefined
+				},
+				transformRequest:angular.identity
+			})
+			.then(function(res){
+				//window.location="#/firamarEdit/"+$scope.edicioFiramar.fecha;
+				window.location.reload();
+				// if(res.data!="0"){
+				// 	$scope.activitatsFiramar=res.data.activitatsFiramar;
+				// 	$scope.msj="Les dades s'han actualitzat correctament.";
+				// 	$scope.firaFull=true;
+				// 	$scope.divMsjAct=true;
+				// 	$scope.ForActHide=true;
+				// }
+				// else{
+				// 	$scope.msjNovaACt="Fallada desconegut.";
+				// 	$scope.divMsjAct=true;
+				// }
+				// $timeout(function() {
+				// 	$scope.divMsjAct=false;
+				// }, 2000);
+
+				 $rootScope.cargador=false;
+
+			})
+			.catch(function(error) {
+				$rootScope.cargador=false;
+			});
+		}
+	}		
 
 	$scope.getFileDetails=function(e,tabla){
 			$scope.filesImages = [];
@@ -1010,6 +1113,10 @@ angular.module('vila')
 					$rootScope.cargador=false;
 				});
 	}
+	$scope.guardaNovaEdicio=function(){
+		console.log("Guarda nueva");
+	}
+
 	$scope.guardaEdicio=function(){
 		if($scope.edicioFiramar.titolFiramar=="" || $scope.edicioFiramar.txtFiramar=="" || $scope.edicioFiramar.fecha==""){	
 			$scope.msj="Les dades no s'han actualitzat correctament. Sisplau ompli els camps buits";
@@ -1021,7 +1128,8 @@ angular.module('vila')
 		else{
 			console.log("fecha :"+$scope.firamar.dataFiramar);
 			var data = new FormData();
-				data.append("acc","GSave");
+				if($scope.isNew==true) data.append("acc","newEdicio");
+				else data.append("acc","GSave");
 				data.append("titolFiramar",$scope.edicioFiramar.titolFiramar);
 				data.append("txtFiramar",$scope.edicioFiramar.txtFiramar);
 				data.append("fecha",$scope.edicioFiramar.fecha);
@@ -1034,16 +1142,9 @@ angular.module('vila')
 				transformRequest:angular.identity
 			})
 			.then(function(res){
+				console.log("Fecha: "+res.data);
 				if(res.data!="0"){
-					console.log(res.data);
-					// $scope.edicioFiramar=res.data.edicioFiramar[0];
-					// $scope.galeriaFiramar=res.data.galeriaFiramar;
-					// $scope.sponsorsFiramar=res.data.sponsorsFiramar;
-					// $scope.participantsFiramar=res.data.participantsFiramar;
-					// $scope.activitatsFiramar=res.data.activitatsFiramar;
-
 					$scope.msj="Les dades s'han actualitzat correctament.";
-					//$scope.firaFull=true;
 					$scope.divMsj=true;
 				}
 				else{
@@ -1052,6 +1153,8 @@ angular.module('vila')
 				}
 				$timeout(function() {
 					$scope.divMsj=false;
+
+					window.location="#/firamarEdit/"+$scope.edicioFiramar.fecha;
 				}, 2000);
 				$rootScope.cargador=false;
 			})
@@ -1060,8 +1163,9 @@ angular.module('vila')
 			});
 		}
 	}
-	$scope.guardaActivitat=function(){
-		if($scope.activitatsFiramar.horaInici=="" || $scope.activitatsFiramar.horaFi=="" || $scope.activitatsFiramar.titolActivitat=="" || $scope.activitatsFiramar.txtActivitat==""){	
+	$scope.guardaActivitat=function(index){
+		console.log($scope.activitatsFiramar[index].titolActivitat);
+		if($scope.activitatsFiramar[index].horaInici=="" || $scope.activitatsFiramar[index].horaFi=="" || $scope.activitatsFiramar[index].titolActivitat=="" || $scope.activitatsFiramar[index].txtActivitat==""){	
 			$scope.msj="Les dades no s'han actualitzat correctament. Sisplau ompli els camps buits";
 			$scope.divMsj=true;
 			$timeout(function() {
@@ -1072,11 +1176,11 @@ angular.module('vila')
 			console.log("fecha :"+$scope.firamar.dataFiramar);
 			var data = new FormData();
 				data.append("acc","GSaveAct");
-				data.append("idActivitat",$scope.activitatsFiramar.idActivitat);
-				data.append("horaInici",$scope.activitatsFiramar.horaInici);
-				data.append("horaFi",$scope.activitatsFiramar.horaFi);
-				data.append("titolActivitat",$scope.activitatsFiramar.titolActivitat);
-				data.append("txtActivitat",$scope.activitatsFiramar.txtActivitat);
+				data.append("idActivitat",$scope.activitatsFiramar[index].idActivitat);
+				data.append("horaInici",$scope.activitatsFiramar[index].horaI);
+				data.append("horaFi",$scope.activitatsFiramar[index].horaF);
+				data.append("titolActivitat", $scope.activitatsFiramar[index].titolActivitat);
+				data.append("txtActivitat", $scope.activitatsFiramar[index].txtActivitat);
 		    var deferred=$q.defer();
 		    $rootScope.cargador=true;
 			$http.post("models/firamar.php", data,{
@@ -1087,11 +1191,6 @@ angular.module('vila')
 			})
 			.then(function(res){
 				if(res.data!="0"){
-					
-					// $scope.edicioFiramar=res.data.edicioFiramar[0];
-					// $scope.galeriaFiramar=res.data.galeriaFiramar;
-					// $scope.sponsorsFiramar=res.data.sponsorsFiramar;
-					// $scope.participantsFiramar=res.data.participantsFiramar;
 					$scope.activitatsFiramar=res.data.activitatsFiramar;
 					$scope.msj="Les dades s'han actualitzat correctament.";
 					$scope.firaFull=true;
@@ -1103,7 +1202,9 @@ angular.module('vila')
 				}
 				$timeout(function() {
 					$scope.divMsj=false;
+					window.location="#/firamar/all";
 				}, 2000);
+
 				$rootScope.cargador=false;
 			})
 			.catch(function(error) {
@@ -1113,7 +1214,7 @@ angular.module('vila')
 	}
 
 	$scope.cancelaEdicio=function(cancel){
-		$scope.firaFull=true;
+		window.location="#/firamar/all";
 	}
 
 	$scope.EliminaImg=function(nomtaula,nom,imatge){
