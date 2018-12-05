@@ -262,10 +262,12 @@ a:hover {
 	background-color:#4f307e;
 	color: white;
 }
-
+.ResponsiveSerCss{
+	overflow-x:auto;
+}
 @media (max-width: 575px){
 	.iconSize{
-		font-size: 1.75em;
+		font-size: 1.5em;
 	}
 	.botonesSerCss{
 	margin-left: 5%;
@@ -291,7 +293,7 @@ a:hover {
 		font-size: 1.5rem!important;
 	}
 	.iconSize{
-		font-size: 1.75em;
+		font-size: 1.5em;
 	}
 	.iniciImgCss{
 	object-fit: scale-down;
@@ -308,7 +310,7 @@ a:hover {
 		width: 40px;
 	}
 	.iconSize{
-		font-size: 1.75em;
+		font-size: 1.5em;
 	}
 	.AssNotiAllCss{
 	margin-right: 15%;
@@ -325,6 +327,9 @@ a:hover {
     top: 50%;
     left: 50%;
 	transform: translate(-50%, -50%);
+	}
+	.spacingIconsSerCss{
+		margin-left: 2%!important;
 	}
 }
 @media (max-width: 991px){
@@ -381,32 +386,6 @@ a:hover {
 		width: 40px;
 	}
 	.iconSize{
-		font-size: 1.33em;
-	}
-	.AssNotiAllCss{
-	margin-right: 15%;
-	margin-left: 15%;
-	}
-	.iniciImgCss{
-	object-fit: scale-down;
-	width: 100%;
-	height: 500px;
-	position: relative;
-    top: 50%;
-    left: 50%;
-	transform: translate(-50%, -50%);
-	}
-}
-@media (min-width: 1200px){
-	.imglogonav{
-		height: 50px;
-		width: 50px;
-	}
-	.AgregCss {
-	padding-left: 30px;
-	}
-	.iconSize{
-		padding: 0px;
 		font-size: 1.5em;
 	}
 	.AssNotiAllCss{
@@ -422,4 +401,37 @@ a:hover {
     left: 50%;
 	transform: translate(-50%, -50%);
 	}
+	.spacingIconsSerCss{
+		margin-left: 1%!important;
+	}
+}
+@media (min-width: 1200px){
+	.imglogonav{
+		height: 50px;
+		width: 50px;
+	}
+	.AgregCss {
+	padding-left: 30px;
+	}
+	.iconSize{
+		padding: 0px;
+		font-size: 1.5em!important;
+	}
+	.AssNotiAllCss{
+	margin-right: 15%;
+	margin-left: 15%;
+	}
+	.iniciImgCss{
+	object-fit: scale-down;
+	width: 100%;
+	height: 500px;
+	position: relative;
+    top: 50%;
+    left: 50%;
+	transform: translate(-50%, -50%);
+	}
+	.spacingIconsSerCss{
+		margin-left: 1%!important;
+	}
+
 }	

@@ -2,9 +2,7 @@
 	session_start();
 	?>
 <div class="AssNotiAllCss" >
-	<div class="col-8 offset-2 text-center alert alert-warning" ng-show="cargaMsj">
-		{{msj}}
-	</div>
+	
   	<h4 id="divTop" class="AssTituCss">Dades Associació:</h4>
 	<form name="formAss" ng-submit="submitAss()" novalidate>
 	 	<div class="form-row">
@@ -76,7 +74,11 @@
 	    		<label for="LGPDAss">LGPD</label>
 	    		<textarea class="form-control textarea" ng-model="ass.LGPD" id="LGPDAss" placeholder="LGPD" required></textarea>
 	  		</div>
+	  		
 	  	<button type="submit" class="btn btn-info" ng-disabled="formAss.$invalid" value="submit-true" formmethod="post">Guardar Canvis</button>
+	</div>
+	<div class="col-8 offset-2 text-center alert alert-warning" ng-show="cargaMsj">
+		{{msj}}
 	</div>	
 	</form>
 	<div class="form-row">
