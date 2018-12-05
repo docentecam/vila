@@ -114,6 +114,8 @@ footer{
 	margin-top: 5rem;
 	bottom: 0;
 }
+
+
 a:link, a:visited, a:hover{
 	color: black;
     text-decoration: none;
@@ -190,8 +192,8 @@ ul, li{
     border-width: 1px;
     background-color: black;
 }
-.carouselProva{
-	height: 250px;
+.carouselHeight{
+	height: 300px;
 }
 .colorBlancoLetra{
 	color: white;
@@ -362,7 +364,6 @@ ul, li{
 .imagecontainer {
   position: relative;
   overflow: hidden;
-  transform: translateZ(0);
 }
 
 .imagecontainer:before {

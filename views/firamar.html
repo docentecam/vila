@@ -70,9 +70,11 @@
 	<div class="d-none d-md-inline">
 		<div id="carouselNoMovil" class="carousel slide" data-ride="carousel">
 
-		<div class="carousel-inner carousel text-center">
-			<div class="carousel-item" ng-repeat="participant in participantsDiv " ng-class="{'active': $index==0}">
-				<img class=" img-fluid col-3" ng-src="{{imatge.logoParticipant!=''?'img/participants/'+imatge.logoParticipant:'img/noimage.png'}}" alt="Participant {{$index}}" ng-repeat="imatge in participantsDiv[$index] ">
+		<div class="carousel-inner carousel text-center carouselHeight">
+			<div class="carousel-item carouselHeight" ng-repeat="participant in participantsDiv " ng-class="{'active': $index==0}">
+				<div class="d-flex h-100 align-items-center justify-content-center">
+					<img class=" img-fluid col-3" ng-src="{{imatge.logoParticipant!=''?'img/participants/'+imatge.logoParticipant:'img/noimage.png'}}" alt="Participant {{$index}}" ng-repeat="imatge in participantsDiv[$index] ">
+				</div>
 			</div>
 		</div>
 		
@@ -95,10 +97,11 @@
 				<li data-target="#carouselMovil" data-slide-to="1"></li>
 				<li data-target="#carouselMovil" data-slide-to="2"></li>
 				</ol>
-		<div class="carousel-inner carousel text-center">
-			<div class="carousel-item" ng-repeat="participant in participants" ng-class="{'active': $index==0}">
-				<img class=" img-fluid col-12" ng-src="{{participant.logoParticipant!=''?'img/participants/'+participant.logoParticipant:'img/noimage.png'}}" alt="Participant {{$index}}">
-
+		<div class="carousel-inner carousel text-center carouselHeight">
+			<div class="carousel-item carouselHeight" ng-repeat="participant in participants" ng-class="{'active': $index==0}">
+				<div class="d-flex h-100 align-items-center justify-content-center">
+					<img class=" img-fluid col-12" ng-src="{{participant.logoParticipant!=''?'img/participants/'+participant.logoParticipant:'img/noimage.png'}}" alt="Participant {{$index}}">
+				</div>
 			</div>
 		</div>
 		</div>
@@ -121,9 +124,9 @@
 	<div class="d-none d-md-inline">
 		<div id="carouselNoMovilSponsors" class="carousel slide" data-ride="carousel">
 
-		<div class="carousel-inner carousel text-center">
-			<div class="carousel-item" ng-repeat="sponsor in sponsorsDiv" ng-class="{'active': $index==0}">
-				<div class="group-item">
+		<div class="carousel-inner carousel text-center carouselHeight">
+			<div class="carousel-item carouselHeight" ng-repeat="sponsor in sponsorsDiv" ng-class="{'active': $index==0}">
+				<div class="d-flex h-100 align-items-center justify-content-center">
 						<img class="imagecontainer-img2 lazyload col-3" ng-src="{{imatge.logoSponsor!=''?'img/sponsors/'+imatge.logoSponsor:'img/noimage.png'}}" alt="Sponsor {{$index+imatge.logoSponsor}}"  ng-repeat="imatge in sponsorsDiv[$index]">
 				</div>
 			</div>

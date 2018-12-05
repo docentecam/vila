@@ -100,7 +100,7 @@
 </div>
 
 <div class="h_dividerg mb-3 mt-3"></div>
-<div class="mb-1 my-md-5 txtMovil tipoTituloHome text-center">
+<div class="mb-1 mt-md-5 mb-md-2 txtMovil tipoTituloHome text-center">
 	Associats
 </div>
 
@@ -207,11 +207,13 @@
 <div class="row">
 	
 	<div class="d-none d-md-inline">
-		<div id="carouselNoMovil" class="carousel slide carouselProva" data-ride="carousel">
+		<div id="carouselNoMovil" class="carousel slide" data-ride="carousel">
 
-		<div class="carousel-inner carousel text-center carouselProva">
-			<div class="carousel-item carouselProva" ng-repeat="associat in associatsDiv" ng-class="{'active': $index==0}">
-				<img class=" img-fluid col-3 is-contain" ng-src="{{imatge.logoAssociat!=''?'img/associats/'+imatge.logoAssociat:'img/noimage.png'}}" alt="Associat {{$index}}" ng-repeat="imatge in associatsDiv[$index]">
+		<div class="carousel-inner carousel text-center carouselHeight">
+			<div class="carousel-item carouselHeight" ng-repeat="associat in associatsDiv" ng-class="{'active': $index==0}">
+				<div class="d-flex h-100 align-items-center justify-content-center">
+				<img class=" img-fluid col-3" ng-src="{{imatge.logoAssociat!=''?'img/associats/'+imatge.logoAssociat:'img/noimage.png'}}" alt="Associat {{$index}}" ng-repeat="imatge in associatsDiv[$index]">
+				</div>
 			</div>
 		</div>
 		
@@ -228,12 +230,13 @@
 	</div>
 
 	<div class="d-md-none">
-		<div id="carouselMovil" class="carousel slide carouselProva" data-ride="carousel">
+		<div id="carouselMovil" class="carousel slide" data-ride="carousel">
 
-			<div class="carousel-inner carousel text-center carouselProva">
-				<div class="carousel-item carouselProva" ng-repeat="associat in associats" ng-class="{'active': $index==0}">
-					<img class=" img-fluid col-12" ng-src="{{associat.logoAssociat!=''?'img/associats/'+associat.logoAssociat:'img/noimage.png'}}" alt="Associat {{$index}}">
-
+			<div class="carousel-inner carousel text-center carouselHeight">
+				<div class="carousel-item carouselHeight" ng-repeat="associat in associats" ng-class="{'active': $index==0}">
+					<div class="d-flex h-100 align-items-center justify-content-center">
+						<img class=" img-fluid col-12" ng-src="{{associat.logoAssociat!=''?'img/associats/'+associat.logoAssociat:'img/noimage.png'}}" alt="Associat {{$index}}">
+					</div>
 			    </div>
 			</div>
 		</div>
