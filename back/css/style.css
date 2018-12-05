@@ -226,15 +226,7 @@ a:hover {
 .imgPictogramaCateg{
 	height: 150px;
 }
-.iniciImgCss{
-	object-fit: scale-down;
-	width: 100%;
-	height: 500px;
-	position: relative;
-    top: 50%;
-    left: 50%;
-	transform: translate(-50%, -50%);
-}
+
 .iniciCss{
 	padding-top: 2%;
 	padding-bottom: 2%;
@@ -264,10 +256,27 @@ a:hover {
   	height: 100%;
   	border: 0;
   	margin-top: 3%;
+  	margin-right: 3%;
 }
+.HeadServCss{
+	background-color:#4f307e;
+	color: white;
+}
+
 @media (max-width: 575px){
 	.iconSize{
 		font-size: 1.75em;
+	}
+	.botonesSerCss{
+	margin-left: 5%;
+	}
+	.iniciImgCss{
+	object-fit: scale-down;
+	width: 100%;
+	position: relative;
+    top: 50%;
+    left: 50%;
+	transform: translate(-50%, -50%);
 	}
 }
 @media (min-width: 576px) and (max-width: 767px){
@@ -284,6 +293,14 @@ a:hover {
 	.iconSize{
 		font-size: 1.75em;
 	}
+	.iniciImgCss{
+	object-fit: scale-down;
+	width: 100%;
+	position: relative;
+    top: 50%;
+    left: 50%;
+	transform: translate(-50%, -50%);
+	}
 }
 @media (min-width: 768px) and (max-width: 991px){
 	.imglogonav{
@@ -296,6 +313,18 @@ a:hover {
 	.AssNotiAllCss{
 	margin-right: 15%;
 	margin-left: 15%;
+	}
+	.botonesSerCss{
+	margin-left: 2%;
+	}
+	.iniciImgCss{
+	object-fit: scale-down;
+	width: 100%;
+	height: 500px;
+	position: relative;
+    top: 50%;
+    left: 50%;
+	transform: translate(-50%, -50%);
 	}
 }
 @media (max-width: 991px){
@@ -358,6 +387,15 @@ a:hover {
 	margin-right: 15%;
 	margin-left: 15%;
 	}
+	.iniciImgCss{
+	object-fit: scale-down;
+	width: 100%;
+	height: 500px;
+	position: relative;
+    top: 50%;
+    left: 50%;
+	transform: translate(-50%, -50%);
+	}
 }
 @media (min-width: 1200px){
 	.imglogonav{
@@ -374,5 +412,14 @@ a:hover {
 	.AssNotiAllCss{
 	margin-right: 15%;
 	margin-left: 15%;
+	}
+	.iniciImgCss{
+	object-fit: scale-down;
+	width: 100%;
+	height: 500px;
+	position: relative;
+    top: 50%;
+    left: 50%;
+	transform: translate(-50%, -50%);
 	}
 }	
