@@ -35,6 +35,7 @@
 				disconnect($connexio);
 				$dadesFiramar=mysqli_fetch_row($resultFiramar);
 				return $dadesFiramar[0];
+				// echo $mySql;
 	}
 	function mostrarFiramar($tbl_firamar,$dataFiramar=""){
 				$mySql="SELECT `dataFiramar`, `txtFiramar`, `titolFiramar`,`edicioGaleria` FROM $tbl_firamar WHERE `dataFiramar`='".$dataFiramar."' ORDER BY `dataFiramar` DESC LIMIT 1";
@@ -101,11 +102,11 @@
 				return json_encode($rows);
 			}
 	function mostrarParticipants($tbl_participants,$dataFiramar=""){
-				$mySql="SELECT `idParticipant`, `nomParticipant`, `logoParticipant`, `dataFiramar`	FROM $tbl_participants WHERE `dataFiramar`='".$dataFiramar."'";
+				$mySql="SELECT `nomParticipant`, `logoParticipant`, `dataFiramar`	FROM $tbl_participants WHERE `dataFiramar`='".$dataFiramar."'";
 				$connexio=connect();
 				$resultParticipants=mysqli_query($connexio,$mySql); 
 				disconnect($connexio);
-
+				// return $mySql;
 				$rows = array(); 
 
 				while($r = mysqli_fetch_array($resultParticipants)) 
@@ -115,7 +116,7 @@
 						
 				return json_encode($rows);
 			}
-			function mostrarEdicions($tbl_firamar,$dataFiramar){
+	function mostrarEdicions($tbl_firamar,$dataFiramar){
 				$mySql="SELECT `dataFiramar`,`titolFiramar` FROM `$tbl_firamar` WHERE `dataFiramar` NOT LIKE('".$dataFiramar."') ORDER BY `dataFiramar` DESC";
 				$connexio=connect();
 				$resultEdicions=mysqli_query($connexio,$mySql); 

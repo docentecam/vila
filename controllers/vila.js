@@ -15,8 +15,6 @@ angular.module('vila')
 			.then(function(res){
 				deferred.resolve(res);
 				$scope.vila=res.data[0];
-				 console.log(res.data);
-
 			})
 			.catch(function(error) {
 				$rootScope.cargador=false;
@@ -61,12 +59,6 @@ angular.module('vila')
 			}
 			supAssociats++;
 		}
-
-
-
-
-
-
 
 			})
 			.catch(function(error) {
@@ -203,7 +195,6 @@ angular.module('vila')
 		deferred.resolve(res);
 		$rootScope.cargador=false;
 		$scope.noticies=res.data;
-		console.log(res.data);
 	})
 	.catch(function(error) {
 		$rootScope.cargador=false;
@@ -367,13 +358,13 @@ angular.module('vila')
 	$scope.contactans.txtContacte="";
 	$scope.contactans.termes=true;
 	$scope.contactaSoci={};
-	$scope.contactaSoci.nomComercial="";
-	$scope.contactaSoci.sectorComercial="";
-	$scope.contactaSoci.adreca="";
+	$scope.contactaSoci.nomComercial="aa";
+	$scope.contactaSoci.sectorComercial="aa";
+	$scope.contactaSoci.adreca="aa";
 	$scope.contactaSoci.telf="";
 	$scope.contactaSoci.email="";
-	$scope.contactaSoci.personaContacte="";
-	$scope.contactaSoci.horari="";
+	$scope.contactaSoci.personaContacte="aa";
+	$scope.contactaSoci.horari="aa";
 	$scope.contactaSoci.termes=true;
 	var data = new FormData();
 				data.append("acc","l");
@@ -477,10 +468,11 @@ angular.module('vila')
 		}
 }
 $scope.enviaSoci=function(){
-	if($scope.contactaSoci.termes != true){
+	
+	if($scope.contactaSoci.termes != true){ 
 				alert("ACCEPTA LES CONDICIONS");
 	}
-	else if($scope.contactaSoci.email=="" && $scope.contactaSoci.telf==""){
+	else if($scope.contactaSoci.email=="" && ($scope.contactaSoci.telf=="" || $scope.contactaSoci.telf==null)) {
 			$scope.muestraError=true;
 			$scope.msg="Ha d'introduir email o telèfon.";
 			$timeout(function(){
@@ -489,7 +481,7 @@ $scope.enviaSoci=function(){
 	}
 
 	else{
-	// formulario sociiiii***********************************
+
 	var data = new FormData();
 		data.append("acc","insertSolicitutssocis");
 		data.append("nomComercial",$scope.contactaSoci.nomComercial);
@@ -551,8 +543,6 @@ var data = new FormData();
 			})
 			.then(function(res){
 				deferred.resolve(res);$scope.contactaLlistat = res.data[0];
-				
-				console.log(res.data);
 				$rootScope.cargador=false;
 			})
 			.catch(function(error) {
