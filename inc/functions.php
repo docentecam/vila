@@ -215,7 +215,7 @@
 
 		
 		$mail->AddReplyTo($emailVila);//Dirección de respuesta
-		$mail->AddAddress($mailTo);//Dirección de envío.
+		if ($mailTo!="") $mail->AddAddress($mailTo);//Dirección de envío.
 		$mail->Timeout=5;
 		$mail->IsHTML(true); 
 		$mail->CharSet = 'UTF-8';
@@ -238,10 +238,10 @@
 		$mail->AltBody = $body;
 		//$mail->AddAttachment("ruta/".$nombre_archivo);
 
-		$exito = $mail->Send();
+		if ($mailTo!="")$exito = $mail->Send();
 		$mail->ClearAddresses(); //Eliminamos direcciones destino(por si reutilizamos)
 
-		if ($copia=="si") {
+		if ($copia=="si" || $copia=="soci") {
 			$mail->Subject = "Copia de contacte per formulari ";
 			$mail->AddAddress($emailVila);//Dirección de envío.
 			$exito = $mail->Send();
