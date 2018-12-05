@@ -17,7 +17,7 @@
 		echo json_encode($rows);	
 	}
 	if(isset($_POST['acc'])&&$_POST['acc']=='i'){
-		$mySql="INSERT INTO $tbl_contactans (`nomContacte`,`cognomContacte`,`tipus`,`email`, `telf`, `nomEmpresa`,`txtContacte`, `data`) 
+		$mySql="INSERT INTO $tbl_contactans (`nomContacte`,`cognomContacte`,`tipus`,`email`, `telf`, `nomEmpresa`,`txtContacte`, `dataContacte`) 
 				VALUES  ('".$_POST['nomContacte']."','".$_POST['cognomContacte']."','".$_POST['tipus']."','".$_POST['email']."','".$_POST['telf']."','".$_POST['nomEmpresa']."','".replaceFromHtml($_POST['txtContacte'])."','".date("Y-m-d H:i:s")."')";
 
 				// echo $mySql;
@@ -47,7 +47,7 @@
 		$dataActual=date("Y-m-d H:i:s");
 
 		$mySql="SELECT `email`,`nom`,`URLWeb` FROM $tbl_vila ";
-		$mySqlInsertSoci="INSERT INTO $tbl_solicitutssocis (`nomComercial`,`sectorComercial`,`adreca`,`telf`,`email`,`data`,`personaContacte`,`horari`)
+		$mySqlInsertSoci="INSERT INTO $tbl_solicitutssocis (`nomComercial`,`sectorComercial`,`adreca`,`telf`,`email`,`dataSolicitut`,`personaContacte`,`horari`)
 				VALUES ('".$_POST['nomComercial']."','".$_POST['sectorComercial']."','".$_POST['adreca']."','".$_POST['telf']."','".$_POST['email']."','".$dataActual."','".$_POST['personaContacte']."','".$_POST['horari']."')";
 
  		 $connexio=connect();

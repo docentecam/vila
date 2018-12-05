@@ -219,7 +219,6 @@ angular.module('vila')
 		deferred.resolve(res);
 		$scope.directoris=res.data;
 		$rootScope.cargador=false;
-		console.log(res.data);
 	})
 	.catch(function(error) {
 		$rootScope.cargador=false;
@@ -852,7 +851,6 @@ angular.module('vila')
 		})
 		.then(function(res){
 			deferred.resolve(res);
-			console.log(res.data.activitatsFiramar);
 			$scope.edicioFiramar=res.data.edicioFiramar[0];
 			$scope.galeriaFiramar=res.data.galeriaFiramar;
 			$scope.sponsorsFiramar=res.data.sponsorsFiramar;
@@ -893,6 +891,7 @@ angular.module('vila')
 	$scope.msj="";
 	$scope.firamar={};
 	$scope.firamar.dataFiramar=$routeParams.dataFiramar;
+	console.log($scope.firamar.dataFiramar);
 	$scope.divMsj=false;
 	$scope.accio="";
 	$scope.firaSelect=true;
@@ -944,6 +943,8 @@ angular.module('vila')
 				$scope.sponsorsFiramar=res.data.sponsorsFiramar;
 				$scope.participantsFiramar=res.data.participantsFiramar;
 				$scope.activitatsFiramar=res.data.activitatsFiramar;
+
+
 				$rootScope.cargador=false;
 			})
 			.catch(function(error) {
@@ -955,21 +956,14 @@ angular.module('vila')
 			$scope.firaFull=false;
 			$scope.firaSelect=true;
 			$scope.accio="Afegir";
-			$scope.firamar.titolFiramar="";
-			$scope.firamar.txtFiramar="";
-			$scope.firamar.titolActivitat="";
-			$scope.firamar.horaI="";
-			$scope.firamar.horaF="";
-			$scope.firamar.txtActivitat="";
-			$scope.firamar.fotoFiramar="";
-			$scope.firamar.logoParticipant="";
-			$scope.firamar.nomSponsor="";
-
+			$scope.edicioFiramar.titolFiramar="";
+			$scope.edicioFiramar.txtFiramar="";
+			$scope.edicioFiramar.fotoFiramar="";
 			var d=new Date();
 			var yyyy=d.getFullYear();
 			var mm=d.getMonth()<9?"0"+(d.getMonth()+1):(d.getMonth()+1);
 			var dd=d.getDate()<10?"0"+(d.getDate()):(d.getDate());
-			$scope.firamar.fecha=yyyy+"-"+mm+"-"+dd;			
+			$scope.edicioFiramar.fecha=yyyy+"-"+mm+"-"+dd;			
 		}
 		var element = document.getElementById("divTop");
 	    element.scrollIntoView({block: "end", behavior: "smooth"});
@@ -986,11 +980,8 @@ angular.module('vila')
 				for (var i = 0; i < e.files.length; i++) {
 				    $scope.filesImages.push(e.files[i]);
 					$scope.message=e.files[i]['name'];
-					console.log($scope.filesImages.length+$scope.message);
 				}
             });
-              console.log("cantidad ficheros: "+$scope.filesImages.length+" tabla modificar "+tabla+
-              	" edicio "+$scope.firamar.dataFiramar) ;
             var data = new FormData();
 
             data.append("acc", "uploadImg");
@@ -998,7 +989,6 @@ angular.module('vila')
             data.append("dataFiramar",$scope.firamar.dataFiramar);
 			for (var i in $scope.filesImages) {
 			        data.append("uploadedFile"+i, $scope.filesImages[i]);
-			        //console.log("uploadedFile"+i, $scope.filesImages[i]);
 			}
 
 			data.append("cantImatge", i);
@@ -1020,8 +1010,8 @@ angular.module('vila')
 					$rootScope.cargador=false;
 				});
 	}
-	$scope.guardaEdicio=function(accio){
-		if($scope.firamar.titolFiramar=="" || $scope.firamar.txtFiramar=="" || $scope.firamar.fecha==""){	
+	$scope.guardaEdicio=function(){
+		if($scope.edicioFiramar.titolFiramar=="" || $scope.edicioFiramar.txtFiramar=="" || $scope.edicioFiramar.fecha==""){	
 			$scope.msj="Les dades no s'han actualitzat correctament. Sisplau ompli els camps buits";
 			$scope.divMsj=true;
 			$timeout(function() {
@@ -1029,11 +1019,12 @@ angular.module('vila')
 			}, 3000);		
 		}
 		else{
+			console.log("fecha :"+$scope.firamar.dataFiramar);
 			var data = new FormData();
-				data.append("acc",$scope.accio);
-				data.append("titolFiramar",$scope.firamar.titolFiramar);
-				data.append("txtFiramar",$scope.firamar.txtFiramar);
-				data.append("fecha",$scope.firamar.fecha);
+				data.append("acc","GSave");
+				data.append("titolFiramar",$scope.edicioFiramar.titolFiramar);
+				data.append("txtFiramar",$scope.edicioFiramar.txtFiramar);
+				data.append("fecha",$scope.edicioFiramar.fecha);
 		    var deferred=$q.defer();
 		    $rootScope.cargador=true;
 			$http.post("models/firamar.php", data,{
@@ -1043,9 +1034,65 @@ angular.module('vila')
 				transformRequest:angular.identity
 			})
 			.then(function(res){
-				console.log(res.data);
 				if(res.data!="0"){
-					$scope.edicions=res.data;
+					console.log(res.data);
+					// $scope.edicioFiramar=res.data.edicioFiramar[0];
+					// $scope.galeriaFiramar=res.data.galeriaFiramar;
+					// $scope.sponsorsFiramar=res.data.sponsorsFiramar;
+					// $scope.participantsFiramar=res.data.participantsFiramar;
+					// $scope.activitatsFiramar=res.data.activitatsFiramar;
+
+					$scope.msj="Les dades s'han actualitzat correctament.";
+					//$scope.firaFull=true;
+					$scope.divMsj=true;
+				}
+				else{
+					$scope.msj="Fallada desconegut.";
+					$scope.divMsj=true;
+				}
+				$timeout(function() {
+					$scope.divMsj=false;
+				}, 2000);
+				$rootScope.cargador=false;
+			})
+			.catch(function(error) {
+				$rootScope.cargador=false;
+			});
+		}
+	}
+	$scope.guardaActivitat=function(){
+		if($scope.activitatsFiramar.horaInici=="" || $scope.activitatsFiramar.horaFi=="" || $scope.activitatsFiramar.titolActivitat=="" || $scope.activitatsFiramar.txtActivitat==""){	
+			$scope.msj="Les dades no s'han actualitzat correctament. Sisplau ompli els camps buits";
+			$scope.divMsj=true;
+			$timeout(function() {
+				$scope.divMsj=false;
+			}, 3000);		
+		}
+		else{
+			console.log("fecha :"+$scope.firamar.dataFiramar);
+			var data = new FormData();
+				data.append("acc","GSaveAct");
+				data.append("idActivitat",$scope.activitatsFiramar.idActivitat);
+				data.append("horaInici",$scope.activitatsFiramar.horaInici);
+				data.append("horaFi",$scope.activitatsFiramar.horaFi);
+				data.append("titolActivitat",$scope.activitatsFiramar.titolActivitat);
+				data.append("txtActivitat",$scope.activitatsFiramar.txtActivitat);
+		    var deferred=$q.defer();
+		    $rootScope.cargador=true;
+			$http.post("models/firamar.php", data,{
+				headers:{
+					"Content-type":undefined
+				},
+				transformRequest:angular.identity
+			})
+			.then(function(res){
+				if(res.data!="0"){
+					
+					// $scope.edicioFiramar=res.data.edicioFiramar[0];
+					// $scope.galeriaFiramar=res.data.galeriaFiramar;
+					// $scope.sponsorsFiramar=res.data.sponsorsFiramar;
+					// $scope.participantsFiramar=res.data.participantsFiramar;
+					$scope.activitatsFiramar=res.data.activitatsFiramar;
 					$scope.msj="Les dades s'han actualitzat correctament.";
 					$scope.firaFull=true;
 					$scope.divMsj=true;
@@ -1059,6 +1106,9 @@ angular.module('vila')
 				}, 2000);
 				$rootScope.cargador=false;
 			})
+			.catch(function(error) {
+				$rootScope.cargador=false;
+			});
 		}
 	}
 
@@ -1449,7 +1499,6 @@ angular.module('vila')
 		.then(function(res){
 			deferred.resolve(res);
 			$scope.noticies=res.data;			 	
-			console.log(res.data);
 			$scope.reveal=true;
 			$scope.msj="Les dades han estat actualitzades correctament";
 			$scope.cargaMsj=true;
@@ -1501,7 +1550,6 @@ angular.module('vila')
 		$scope.reveal=true;
 	}
 	$scope.cambiaPrinc=function(principal,idNoticia){
-		console.log(principal+" "+$scope.totalPrincipal+" "+idNoticia);
 		if(principal=='S' && $scope.totalPrincipal==2)
 		{
 			alert("Només pot triar 2 notícies favorites");
@@ -1575,7 +1623,6 @@ angular.module('vila')
 		deferred.resolve(res);
 		$scope.categories=res.data;
 		$rootScope.cargador=false;
-		console.log(res.data);
 	})
 	.catch(function(error) {
 		$rootScope.cargador=false;
