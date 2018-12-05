@@ -45,7 +45,7 @@
 		<div class="card mx-xl-3 my-2 mr-md-3 col-md-5 col-xl-3 media"  ng-repeat="noticia in noticies">
 			<div class="row text-center">
 				<div class="col-12 imgNotCss d-flex justify-content-center">				
-						<img class="card-img-top" ng-src="{{noticia.fotoNoticia!='' ? '../img/noticies/'+noticia.fotoNoticia : '../img/noimage.png'}}" alt="">
+						<img class="card-img-top imgNotCss-img" ng-src="{{noticia.fotoNoticia!='' ? '../img/noticies/'+noticia.fotoNoticia : '../img/noimage.png'}}" alt="">
 				</div>
 				<div class="col-12 card-body d-flex flex-column align-self-end">
 					<div class="row">
