@@ -56,14 +56,17 @@
 	}
 
 if(isset($_POST['acc'])&&$_POST['acc']=='newACtivitat'){
-$mySqlActivitatsFiramar="INSERT INTO $tbl_activitatsfiramar 
+	$mySqlActivitatsFiramar="INSERT INTO $tbl_activitatsfiramar 
 							(`idActivitat`,`horaInici`, `horaFi`, `titolActivitat`, `txtActivitat`, `dataFiramar`) 
-				VALUES (NULL,'".replaceFromHtml($_POST['horaInici'])."',
-							'".replaceFromHtml($_POST['horaFi'])."',
+				VALUES (NULL,'".$_POST['horaInici']."',
+							'".$_POST['horaFi']."',
 							'".replaceFromHtml($_POST['titolActivitat'])."',
 							'".replaceFromHtml($_POST['txtActivitat'])."',
-							'".$fecha."')";
-	$resultActivitatsFiramar=mysqli_query($connexio,$mySqlActivitatsFiramar); 
+							'".$_POST['dataFiramar']."')";
+		$connexio=connect();
+		$resultActivitatsFiramar=mysqli_query($connexio,$mySqlActivitatsFiramar);
+		disconnect($connexio);
+
 
 }
 	if(isset($_POST['acc'])&&$_POST['acc']=='uploadImg'){
@@ -111,6 +114,14 @@ $mySqlActivitatsFiramar="INSERT INTO $tbl_activitatsfiramar
 		
 	}
 
+if(isset($_POST['acc'])&&$_POST['acc']=='deleteActivitat'){
+	$mySql="DELETE FROM $tbl_activitatsfiramar WHERE `idActivitat` ='".$_POST['idActivitat']."'";
+	$connexio=connect();
+	$resulEliminaImg=mysqli_query($connexio,$mySql);
+	disconnect($connexio);
+	echo firaEdicion($tbl_firamar,$tbl_participants,$tbl_sponsors,$tbl_galeriafiramar,$tbl_activitatsfiramar,$_POST['dataFiramar']);
+
+}
 
 if(isset($_POST['acc'])&&$_POST['acc']=='Volatilizado'){
 	if($_POST['nomtaula']=='galeriafiramar'){
@@ -170,7 +181,7 @@ function firaEdicion($tbl_firamar,$tbl_participants,$tbl_sponsors,$tbl_galeriafi
 							FROM $tbl_galeriafiramar WHERE `dataFiramar`='".$dataFiramar."'";
 
 		$mySqlActivitatsFiramar="SELECT `idActivitat`,`horaInici` AS 'horaI' ,DATE_FORMAT(`horaInici`,'%H:%i' ) AS 'horaIni',`horaFi` AS 'horaF',DATE_FORMAT(`horaFi`,'%H:%i' ) AS 'horaFF',`titolActivitat`,`txtActivitat`,`dataFiramar` AS 'fecha' ,DATE_FORMAT(`dataFiramar`,'%d-%m-%Y' )AS 'fechaEsp' 
-							FROM $tbl_activitatsfiramar WHERE `dataFiramar`='".$dataFiramar."'";				
+							FROM $tbl_activitatsfiramar WHERE `dataFiramar`='".$dataFiramar."' ORDER BY `horaInici`";				
 
 		$connexio=connect();
 		$resultFiramar=mysqli_query($connexio,$mySql); 

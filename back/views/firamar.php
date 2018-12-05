@@ -72,6 +72,44 @@
 		<i class="fas fa-plus-square iconSize mb-3 cursor" ng-hide="isNew" title="Afegeix Activitat" ng-click="afegixActivitat()"></i>
 	</div>
 
+	<!-- <<<< 	OCULTO >>>>>>>> -->
+	<div  ng-show="divMsjAct" class="col-6 offset-3 text-center alert alert-warning">{{msjNovaACt}}</div>
+	<div ng-hide="forAct">
+		NOVA ACTIVITAT
+			<div class="form-row">  
+				<div class="form-group col-12 col-lg-3 col-md-5 offset-lg-2 mt-3">
+				      <label for="titolAct">Titol Activitat</label>
+				      <input type="text" class="form-control" id="titolAct" name="titolAct" ng-model="novaActivitat.titolActivitat" maxlength="100">
+				</div>
+				<div class="form-group col-md-2 col-lg-1 mt-3">
+			      	<label for="horaIn">Hora Inici</label>
+			      	<input type="time" class="form-control" id="horaIn" name="horaIn" ng-model="novaActivitat.horaI">
+				</div>
+				<div class="form-group col-md-2 col-lg-1 mt-3">
+					<label for="horaF">Hora Fi</label>
+			      	<input type="time" class="form-control" id="horaF" name="horaF" ng-model="novaActivitat.horaF">
+			    </div>
+				 <div class="form-group col-lg-7 offset-lg-2 mb-4">
+			      	<label for="txtAct">Text</label>
+			       	<textarea class="form-control textarea" id="txtAct" name="txtAct" ng-model="novaActivitat.txtActivitat"></textarea>
+			   	</div>
+			</div>
+			<div class="border-bottom border border-danger offset-lg-2 col-7 "></div>
+		<div class="form-row">
+				<div class="form-group col-12 col-lg-3 col-md-1 offset-lg-2 mt-3">
+					<div class="text-centerr">
+		  			<a>	  		
+		  				<input type="button" class="btn btn-primary" ng-click="guardaNovaActivitat($index)" value="Insereix Activitat">
+		  			</a>
+		  			<a anchor-smooth-scroll="divTop">
+		  				<input type="button" class="btn btn-danger" ng-click="cancelaEdicio()" value="Cancelar">
+			  		</a>
+			  		
+			  		</div>
+				</div>
+		</div>
+	</div>
+
 	<div ng-repeat="activitat in activitatsFiramar"  ng-hide="isNew">
 		<div class="form-row">  
 			<div class="form-group col-12 col-lg-3 col-md-5 offset-lg-2 mt-3">
@@ -99,48 +137,14 @@
 	  				<input type="button" class="btn btn-primary" ng-click="guardaActivitat($index)" value="Guardar canvis">
 	  			</a>
 	  			<a anchor-smooth-scroll="divTop">
-	  				<input type="button" class="btn btn-danger" ng-click="cancelaEdicio()" value="Cancelar">
+	  				<input type="button" class="btn btn-danger" ng-click="eliminarActivitat(activitat.idActivitat)" value="Eliminar">
 		  		</a>
 		  		</div>
 			</div>
 	</div>
 </div>
 
-<!-- <<<< 	OCULTO >>>>>>>> -->
 
-	<div ng-repeat="activitat in activitatsFiramar" ng-hide="ForAct">
-			<div class="form-row">  
-				<div class="form-group col-12 col-lg-3 col-md-5 offset-lg-2 mt-3">
-				      <label for="titolAct">Titol Activitat</label>
-				      <input type="text" class="form-control" id="titolAct" name="titolAct" ng-model="activitat.titolActivitat" maxlength="100">
-				</div>
-				<div class="form-group col-md-2 col-lg-1 mt-3">
-			      	<label for="horaIn">Hora Inici</label>
-			      	<input type="time" class="form-control" id="horaIn" name="horaIn" ng-model="activitat.horaI">
-				</div>
-				<div class="form-group col-md-2 col-lg-1 mt-3">
-					<label for="horaF">Hora Fi</label>
-			      	<input type="time" class="form-control" id="horaF" name="horaF" ng-model="activitat.horaF">
-			    </div>
-				 <div class="form-group col-lg-7 offset-lg-2 mb-4">
-			      	<label for="txtAct">Text</label>
-			       	<textarea class="form-control textarea" id="txtAct" name="txtAct" ng-model="activitat.txtActivitat"></textarea>
-			   	</div>
-			</div>
-			<div class="border-bottom border border-danger offset-lg-2 col-7 "></div>
-		<div class="form-row">
-				<div class="form-group col-12 col-lg-3 col-md-1 offset-lg-2 mt-3">
-					<div class="text-centerr">
-		  			<a>	  		
-		  				<input type="button" class="btn btn-primary" ng-click="guardaNovaActivitat($index)" value="Guardar canvis">
-		  			</a>
-		  			<a anchor-smooth-scroll="divTop">
-		  				<input type="button" class="btn btn-danger" ng-click="cancelaEdicio()" value="Cancelar">
-			  		</a>
-			  		</div>
-				</div>
-		</div>
-	</div>
 
 		<div class="row text-center mt-4 mb-3"  ng-hide="isNew">
 	  		<div class="col-12 " ><h1 class="titleSocis">Galeria</h1></div>
