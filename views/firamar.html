@@ -1,5 +1,5 @@
 <div class="row">
-	<div class="col-12 text-center padding" style="max-width: 100%;height: 100%;background-image: url(img/{{vila.cabeceraFiramar}})">
+	<div class="col-12 text-center p-md-5 p-4" style="max-width: 100%;height: 100%;background-image: url(img/{{vila.cabeceraFiramar}})">
 		<div class="col-12 tipoTituloBlanco text-center">
 			<span>{{firamar.titolFiramar}}</span> 
 			<span>{{firamar.dataFiramar|limitTo:4}}</span>
@@ -13,13 +13,13 @@
 	</div>
 </div>
 <br>
-<div class="mb-1 mt-md-3 mb-md-3 txtMovil tipoTituloHome text-center">
+<div class="mb-3 mt-md-3 mb-md-3 txtMovil tipoTituloHome text-center">
 	Programa d'activitats
 </div>
 <div class="row">
-	<div ng-repeat="firamar in activitatsfiramar" class="col-12 p-2 mt-lg-3">
+	<div ng-repeat="firamar in activitatsfiramar" class="col-12 p-md-2 mt-lg-3">
 		<div class="row">
-		 	<div class="col-12 col-lg-4 p-2 p-lg-0  middle colorRosa ">
+		 	<div class="col-12 col-lg-4 p-md-2 p-lg-0  middle colorRosa ">
 		 		<i class="far fa-clock colorRosa p-2 p-lg-0"></i>
 		 		{{firamar.horaInici |limitTo:5}}h -
 		 		{{firamar.horaFi |limitTo:5}}h
@@ -28,7 +28,7 @@
 		 		</h6>
 		 	</div>
 		 	<div class="col-12 col-lg-8"> 
-				<p class="col-12 tipoTexto p-2 p-md-0">{{firamar.txtActivitat}}</p><br>
+				<p class="col-12 tipoTexto p-md-2 p-md-0">{{firamar.txtActivitat}}</p>
 			</div>
 		</div>
 	</div>
@@ -62,7 +62,7 @@
 	    </div>
  	</div>
 </div>
-<div class="mb-1 my-md-5 txtMovil tipoTituloHome text-center">
+<div class="my-3 my-md-5 txtMovil tipoTituloHome text-center">
 	Participants
 </div>
 <div class="row">
@@ -116,7 +116,7 @@
 	</div>
 
 </div>
-<div class="mb-1 my-md-5 txtMovil tipoTituloHome text-center">
+<div class="my-3 my-md-5 txtMovil tipoTituloHome text-center">
 	Sponsors
 </div>
 
@@ -195,12 +195,12 @@
  		<span class="sr-only">Següent</span>
 	</a>
 </div>
-<div class="mb-1 my-md-5 txtMovil tipoTituloHome text-center">
+<div class="my-3 my-md-5 txtMovil tipoTituloHome text-center">
 	Edicions anteriors
 </div>
 
 <div class="row">
-		<div ng-repeat="dadesTotesEdicion in dadesTotesEdicions" class="col-4 colorRosa text-center">
+		<div ng-repeat="dadesTotesEdicion in dadesTotesEdicions" class="col-md-4 col-12 mb-md-0 mb-3 colorRosa text-center">
 			<button type="button" class="btn btn-outline-dark px-5 py-3"><a class="cursor" ng-href="" ng-click="llistatEdicioFirmar(dadesTotesEdicion.dataFiramar)"><b>{{dadesTotesEdicion.titolFiramar }}</b> - {{dadesTotesEdicion.dataFiramar |limitTo:4}}</a></button>
 		</div>
 </div>
