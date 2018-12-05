@@ -142,13 +142,18 @@ ul, li{
 	margin: 0;
     padding: 0;
 }
-
 .associat {
 	background-color: white; text-align: center;
 }
 
 .colorRosa{
 	color: #cb418e;
+}
+.colorLink{
+	color:#1d93d1!important;
+}
+.imageBordes {
+    border-radius: 2%;
 }
 .dissenyarVores{
 	border-right-width: 10px !important;
