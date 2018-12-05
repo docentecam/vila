@@ -3,7 +3,7 @@
 	Manteniment de l'Associacio de comerciants de la Vila Olimpica de Barcelona
 </h3>
 <div class="row">
-	<div class="col">
-		<img class="iniciImgCss" ng-src="../img/{{vila.logoVila}}">
+	<div class="col-12">
+		<img class="img-fluid iniciImgCss" ng-src="{{vila.logoVila!='' ? '../img/'+vila.logoVila : '../img/noimage.png'}}" alt="">
 	</div>
 </div>

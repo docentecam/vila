@@ -20,26 +20,26 @@
 		$mySql="INSERT INTO $tbl_contactans (`nomContacte`,`cognomContacte`,`tipus`,`email`, `telf`, `nomEmpresa`,`txtContacte`, `dataContacte`) 
 				VALUES  ('".$_POST['nomContacte']."','".$_POST['cognomContacte']."','".$_POST['tipus']."','".$_POST['email']."','".$_POST['telf']."','".$_POST['nomEmpresa']."','".replaceFromHtml($_POST['txtContacte'])."','".date("Y-m-d H:i:s")."')";
 
-				echo $mySql;
-// 		$connexio=connect();
-// 		$resultContactans=mysqli_query($connexio,$mySql);
+				// echo $mySql;
+		$connexio=connect();
+		$resultContactans=mysqli_query($connexio,$mySql);
 
-// 		disconnect($connexio);
-// //TODO VERIFICAR QUE LO INSERTA. $idContactans=mysqli_insert_id
+		disconnect($connexio);
+//TODO VERIFICAR QUE LO INSERTA. $idContactans=mysqli_insert_id
 		
 
-// 		$numContac=1;
-// 		if($numContac!=0){
+		$numContac=1;
+		if($numContac!=0){
 
-// 			$envio=sendMail($_POST['email'],"Missatge rebut per la Vila.",donarFormat("Hola,<b>".$_POST['nomContacte']."</b>! acabem de rebre el teu missatge on deia el següent:<br><br>".$_POST['txtContacte']."<br><br>Aviat contestarem al seu missatge.<br><br>Salutacions!"),"si");
-// 			$estat="ok";
-// 		}
-// 		else{
-// 			$estat="ko";
-// 		}
+			$envio=sendMail($_POST['email'],"Missatge rebut per la Vila.",donarFormat("Hola,<b>".$_POST['nomContacte']."</b>! acabem de rebre el teu missatge on deia el següent:<br><br>".$_POST['txtContacte']."<br><br>Aviat contestarem al seu missatge.<br><br>Salutacions!"),"si");
+			$estat="ok";
+		}
+		else{
+			$estat="ko";
+		}
 		
 
-// 		 echo $estat;
+		 echo $estat;
 
 }
 
@@ -47,7 +47,7 @@
 		$dataActual=date("Y-m-d H:i:s");
 
 		$mySql="SELECT `email`,`nom`,`URLWeb` FROM $tbl_vila ";
-		$mySqlInsertSoci="INSERT INTO $tbl_solicitutssocis (`nomComercial`,`sectorComercial`,`adreca`,`telf`,`email`,`data`,`personaContacte`,`horari`)
+		$mySqlInsertSoci="INSERT INTO $tbl_solicitutssocis (`nomComercial`,`sectorComercial`,`adreca`,`telf`,`email`,`dataSolicitut`,`personaContacte`,`horari`)
 				VALUES ('".$_POST['nomComercial']."','".$_POST['sectorComercial']."','".$_POST['adreca']."','".$_POST['telf']."','".$_POST['email']."','".$dataActual."','".$_POST['personaContacte']."','".$_POST['horari']."')";
 
  		 $connexio=connect();
