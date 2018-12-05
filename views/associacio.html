@@ -1,37 +1,38 @@
 <div class="row">
-	<div class="col-12 text-center tipoTitulo mt-2  title-block wrapper">
-		<span class="title-block__title title-block__title--color-primary">Qui Som?</span>
-	</div>
-	
-	<div class="text-center mt-4 col-12 tipoTexto   colorBlanco">
-		<p>
-		{{vila.quiSom}}
-		
+	<div class="col-12 text-center padding" style="max-width: 100%;height: 100%;background-image: url(img/{{vila.cabeceraAssociacio}})">
+		<div class="col-12 tipoTituloBlanco text-center">
+			<span>Qui som?</span> 
+		</div>
+		<br>
+		<div class="h_divider_w mb-1 mt-1 hideMovil"></div>
+		<br>
+		<p class="tipoTextoBlanco">
+			{{vila.quiSom}}
 		</p>
 	</div>
 </div>
 
-<hr class="tamañaoDivider">
+<br>
+<div class="mb-1 mt-md-4 mb-md-4 txtMovil tipoTituloHome text-center">
+	Serveis
+</div>
 
 <div class="row">
-	<div class=" mt-2 col-12 text-center tipoTitulo title-block wrapper">
-		<span class="title-block__title title-block__title--color-primary">Serveis</span>
-	</div>
 	<div ng-repeat="servei in serveis" class="col-12 tipoTexto mt-4 colorBlanco">
-		<b class="tipoTextoNegrita">{{servei.nomServei}}:</b>
-		<p>{{servei.txtServei+' '+servei[3].nomSubservei}}</p>
-		<span ng-repeat="subservei in servei[3]">{{subservei.nomSubservei}}<p>{{subservei.txtSubservei}}</p></span>
+		<b class="tipoTextoNegrita">{{$index+1}}-{{servei.nomServei}}:</b>{{servei.txtServei}}<br>
+		<!-- span>{{servei.txtServei+' '+servei[3].nomSubservei}}:</span>		 -->
+		<span ng-repeat="subservei in servei[3]"><p><li class="offset-1">{{subservei.nomSubservei}}:{{subservei.txtSubservei}}</p></span></li>
 	</div>
 </div>
 
-<hr class="tamañaoDivider">
+<br>
+<div class="mb-1 mt-md-4 mb-md-4 txtMovil tipoTituloHome text-center">
+	Equip
+</div>
 
 <div class="row">
-	<div class="mt-2 col-12 text-center tipoTitulo title-block wrapper">
-		<span class="title-block__title title-block__title--color-primary">Equip</span>
-	</div>
 	<div class="tipoTexto text-center col-12 mt-4 colorBlanco">
-		{{vila.equip}}
+		<pre class="tipoTexto">{{vila.equip}}</pre>
 	</div>
 </div>
 
@@ -57,6 +58,12 @@
 		</div>
 	</div>
 </div> -->
+
+
+
+
+
+
 
 
 

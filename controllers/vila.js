@@ -14,14 +14,8 @@ angular.module('vila')
 			})
 			.then(function(res){
 				deferred.resolve(res);
-				// $rootScope.cargador=false;
 				$scope.vila=res.data[0];
-				// $scope.noticies=res.data.dadesNoticies;
-				// $scope.banners=res.data.dadesBanners;
-				// $scope.carousel=res.data.dadesCarousel;
-				// $scope.associats=res.data.dadesAssociats;
 				 console.log(res.data);
-				// ;
 
 			})
 			.catch(function(error) {
@@ -50,10 +44,29 @@ angular.module('vila')
 				$scope.vila=res.data.dadesVila[0];
 				$scope.noticies=res.data.dadesNoticies;
 				$scope.banners=res.data.dadesBanners;
-				$scope.carousel=res.data.dadesCarousel;
+				$scope.carousels=res.data.dadesCarousel;
 				$scope.associats=res.data.dadesAssociats;
-				console.log($scope.banners);
-				;
+
+
+				$scope.associatsDiv=[];
+		var supAssociats=0;
+		for(i=0;i<$scope.associats.length;i++){
+			j=0;
+			while(j<4){
+				if(j==0) {$scope.associatsDiv[supAssociats]=[];}
+				$scope.associatsDiv[supAssociats][j]=$scope.associats[i];
+				j++;
+				if(j<4)i++;
+				if(i==$scope.associats.length) j=4;
+			}
+			supAssociats++;
+		}
+
+
+
+
+
+
 
 			})
 			.catch(function(error) {
@@ -77,7 +90,6 @@ angular.module('vila')
 		deferred.resolve(res);
 		$scope.vila=res.data.dadesVila[0];
 		$scope.serveis=res.data.dadesServeis;
-		console.log($scope.serveis.length);
 		$scope.equip=res.data.dadesVila[0];
 		console.log(res.data.dadesServeis);
 		$scope.equip=res.data.dadesEquip[0];
@@ -123,6 +135,29 @@ angular.module('vila')
 	.catch(function(error) {
 		$rootScope.cargador=false;
 		});
+
+
+		// Instantiate the Bootstrap carousel
+	$('.multi-item-carousel').carousel({
+	  interval: false
+	});
+
+	// for every slide in carousel, copy the next slide's item in the slide.
+	// Do the same for the next, next item.
+	$('.multi-item-carousel .item').each(function(){
+	  var next = $(this).next();
+	  if (!next.length) {
+	    next = $(this).siblings(':first');
+	  }
+	  next.children(':first-child').clone().appendTo($(this));
+	  
+	  if (next.next().length>0) {
+	    next.next().children(':first-child').clone().appendTo($(this));
+	  } else {
+	  	$(this).siblings(':first').children(':first-child').clone().appendTo($(this));
+	  }
+	});
+	
 })
 
 .controller('AssociatCtrl',function($scope,$http,$q,$routeParams,$rootScope){
@@ -220,7 +255,6 @@ angular.module('vila')
 		$scope.sponsors=res.data.dadesSponsors;
 		$scope.participants=res.data.dadesParticipants;
 		$scope.dadesTotesEdicions=res.data.dadesTotesEdicions;
-		
 		$scope.participantsDiv=[];
 		var cantParticipants=$scope.participants.length/4;
 		var supParticipant=0;
@@ -250,11 +284,8 @@ angular.module('vila')
 			}
 			supSponsors++;
 		}
-		console.log($scope.sponsorsDiv[0][0][0]);
-		console.log($scope.sponsorsDiv[0][1][0]);
-		console.log($scope.sponsorsDiv[0][2][0]);
-		console.log($scope.sponsorsDiv[0][3][0]);
-		console.log($scope.sponsorsDiv[1][0][0]);
+
+
 
 	})
 	.catch(function(error) {
@@ -285,6 +316,33 @@ angular.module('vila')
 					$scope.sponsors=res.data.dadesSponsors;
 					$scope.participants=res.data.dadesParticipants;
 					$scope.dadesTotesEdicions=res.data.dadesTotesEdicions;
+					var supParticipant=0;
+		for(i=0;i<$scope.participants.length;i++){
+			j=0;
+			while(j<4){
+				if(j==0) {$scope.participantsDiv[supParticipant]=[];}
+				$scope.participantsDiv[supParticipant][j]=$scope.participants[i];
+				j++;
+				if(j<4)i++;
+				if(i==$scope.participants.length) j=4;
+			}
+			supParticipant++;
+		}
+
+		$scope.sponsorsDiv=[];
+		var cantSponsors=$scope.sponsors.length/4;
+		var supSponsors=0;
+		for(i=0;i<$scope.sponsors.length;i++){
+			j=0;
+			while(j<4){
+				if(j==0) {$scope.sponsorsDiv[supSponsors]=[];}
+				$scope.sponsorsDiv[supSponsors][j]=$scope.sponsors[i];
+				j++;
+				if(j<4)i++;
+				if(i==$scope.sponsors.length) j=4;
+			}
+			supSponsors++;
+		}
 
 				})
 				.catch(function(error) {

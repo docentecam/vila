@@ -783,7 +783,91 @@ angular.module('vila')
 		$scope.order=columna;
 	}
 })
-.controller('FiramarCtrl',function($scope, $http, $q, $timeout, $rootScope) {
+.controller('FiramarCtrl',function($scope, $http, $q, $timeout, $rootScope, $routeParams) {
+	
+	var data = new FormData();
+		data.append("acc", "l");
+	var deferred=$q.defer();
+	
+	$http.post("models/associacio.php", data,{
+	headers:{
+		"Content-type":undefined
+	},
+	transformRequest:angular.identity
+
+	})
+	.then(function(resIcon){
+		deferred.resolve(resIcon);
+		$rootScope.favIcon=resIcon.data[0].favIcon;
+		$rootScope.logo=resIcon.data[0].logoBolsa;
+		$rootScope.cargador=false;
+	})
+	.catch(function(error){
+		$rootScope.cargador=false;
+	});
+
+	$scope.msj="";
+	$scope.divMsj=false;
+	$scope.firaSelect=true;
+	$scope.firaFull=true;
+
+	var data = new FormData();
+		data.append("acc","l");
+    var deferred=$q.defer();
+
+	$http.post("models/firamar.php", data,{
+		headers:{
+			"Content-type":undefined
+		},
+		transformRequest:angular.identity
+	})
+	.then(function(res){
+		deferred.resolve(res);
+		$scope.edicions=res.data;
+	})
+	.catch(function(error) {
+		$rootScope.cargador=false;
+	});
+
+
+
+	if($routeParams.dataFiramar!='all')
+{
+
+
+		$scope.firaFull=true;
+		
+		var data = new FormData();
+		data.append("acc","listEdicion");
+		data.append("dataFiramar",$routeParams.dataFiramar);
+	    var deferred=$q.defer();
+	    $rootScope.cargador=true;
+		
+		$http.post("models/firamar.php", data,{
+			headers:{
+				"Content-type":undefined
+			},
+			transformRequest:angular.identity
+		
+		})
+		.then(function(res){
+			deferred.resolve(res);
+			$scope.edicioFiramar=res.data.edicioFiramar[0];
+			$scope.galeriaFiramar=res.data.galeriaFiramar;
+			$scope.sponsorsFiramar=res.data.sponsorsFiramar;
+			$scope.participantsFiramar=res.data.participantsFiramar;
+			$scope.activitatsFiramar=res.data.activitatsFiramar;
+			$rootScope.cargador=false;
+			$scope.firaSelect=false;
+		})
+		.catch(function(error) {
+			$rootScope.cargador=false;
+		});
+		}
+})	
+
+	
+.controller('FiramarEditCtrl',function($scope, $http, $q, $timeout, $rootScope,$routeParams){
 	var data = new FormData();
 		data.append("acc", "l");
 	var deferred=$q.defer();
@@ -807,10 +891,12 @@ angular.module('vila')
 
 	$scope.msj="";
 	$scope.firamar={};
+	$scope.firamar.dataFiramar=$routeParams.dataFiramar;
+	console.log($scope.firamar.dataFiramar);
 	$scope.divMsj=false;
-	$scope.firaFull=true;
 	$scope.accio="";
 	$scope.firaSelect=true;
+	$scope.firaFull=true;
 
 	var data = new FormData();
 		data.append("acc","l");
@@ -825,65 +911,108 @@ angular.module('vila')
 	.then(function(res){
 		deferred.resolve(res);
 		$scope.edicions=res.data;
+		$scope.firaFull=false;
 	})
 	.catch(function(error) {
 		$rootScope.cargador=false;
-	});
 
-	$scope.mostraEdicio=function(fecha){
-		$scope.firaFull=true;
-		
-		var data = new FormData();
-		data.append("acc","listEdicion");
-		data.append("dataFiramar",fecha);
-	    var deferred=$q.defer();
-	    $rootScope.cargador=true;
-		
-		$http.post("models/firamar.php", data,{
-			headers:{
-				"Content-type":undefined
-			},
-			transformRequest:angular.identity
-		
-		})
-		.then(function(res){
-			deferred.resolve(res);
-			$scope.edicioFiramar=res.data.firamar[0];
-			$scope.galeriaFiramar=res.data.galeriaFiramar;
-			$scope.sponsorsFiramar=res.data.sponsorsFiramar;
-			$scope.participantsFiramar=res.data.participantsFiramar;
-			$rootScope.cargador=false;
-			$scope.firaSelect=false;
-		})
-		.catch(function(error) {
-			$rootScope.cargador=false;
-		});
-	}
-	$scope.afegeixE=function(edita=""){
-		$scope.firaSelect=true;
-		$scope.firaFull=false;
-		if (edita!="-1") {
+});
+
+		if ($scope.firamar.dataFiramar!="new") {
+
 			$scope.accio="Editar";
-			$scope.firamar.titolFiramar=$scope.edicions[edita].titolFiramar;
-			$scope.firamar.fecha=$scope.edicions[edita].fecha;
-			$scope.firamar.txtFiramar=$scope.edicions[edita].txtFiramar;
+
+			$scope.firaFull=false;
+			$scope.firaSelect=true;
+			var data = new FormData();
+			data.append("acc","listEdicion");
+			data.append("dataFiramar",$scope.firamar.dataFiramar);
+		    var deferred=$q.defer();
+		    $rootScope.cargador=true;
+			
+			$http.post("models/firamar.php", data,{
+				headers:{
+					"Content-type":undefined
+				},
+				transformRequest:angular.identity
+			
+			})
+			.then(function(res){
+				deferred.resolve(res);
+				$scope.edicioFiramar=res.data.edicioFiramar[0];
+				$scope.galeriaFiramar=res.data.galeriaFiramar;
+				$scope.sponsorsFiramar=res.data.sponsorsFiramar;
+				$scope.participantsFiramar=res.data.participantsFiramar;
+				$scope.activitatsFiramar=res.data.activitatsFiramar;
+
+
+				$rootScope.cargador=false;
+			})
+			.catch(function(error) {
+				$rootScope.cargador=false;
+			});
+			
 		}
 		else{
+			$scope.firaFull=false;
+			$scope.firaSelect=true;
 			$scope.accio="Afegir";
-			$scope.firamar.titolFiramar="";
-			$scope.firamar.txtFiramar="";
+			$scope.edicioFiramar.titolFiramar="";
+			$scope.edicioFiramar.txtFiramar="";
+			$scope.edicioFiramar.fotoFiramar="";
 			var d=new Date();
 			var yyyy=d.getFullYear();
 			var mm=d.getMonth()<9?"0"+(d.getMonth()+1):(d.getMonth()+1);
 			var dd=d.getDate()<10?"0"+(d.getDate()):(d.getDate());
-			$scope.firamar.fecha=yyyy+"-"+mm+"-"+dd;			
+			$scope.edicioFiramar.fecha=yyyy+"-"+mm+"-"+dd;			
 		}
 		var element = document.getElementById("divTop");
 	    element.scrollIntoView({block: "end", behavior: "smooth"});
+
+
+	$scope.editActivitat=function(idActivitat,tipo){
+		
 	}
 
-	$scope.guardaEdicio=function(accio){
-		if($scope.firamar.titolFiramar=="" || $scope.firamar.txtFiramar=="" || $scope.firamar.fecha==""){	
+	$scope.getFileDetails=function(e,tabla){
+			$scope.filesImages = [];
+			$scope.$apply(function () {
+			// Guardamos los ficheros en un array.
+				for (var i = 0; i < e.files.length; i++) {
+				    $scope.filesImages.push(e.files[i]);
+					$scope.message=e.files[i]['name'];
+				}
+            });
+            var data = new FormData();
+
+            data.append("acc", "uploadImg");
+            data.append("tabla",tabla);
+            data.append("dataFiramar",$scope.firamar.dataFiramar);
+			for (var i in $scope.filesImages) {
+			        data.append("uploadedFile"+i, $scope.filesImages[i]);
+			}
+
+			data.append("cantImatge", i);
+			 var deferred=$q.defer();
+			 $http.post("models/firamar.php", data,{
+				headers:{
+					"Content-type":undefined
+				},
+					transformRequest:angular.identity
+				})
+				.then(function(res)
+				{
+					deferred.resolve(res);
+					$scope.galeriaFiramar=res.data.galeriaFiramar;
+					$scope.sponsorsFiramar=res.data.sponsorsFiramar;
+					$scope.participantsFiramar=res.data.participantsFiramar;
+				})
+				.catch(function(error) {
+					$rootScope.cargador=false;
+				});
+	}
+	$scope.guardaEdicio=function(){
+		if($scope.edicioFiramar.titolFiramar=="" || $scope.edicioFiramar.txtFiramar=="" || $scope.edicioFiramar.fecha==""){	
 			$scope.msj="Les dades no s'han actualitzat correctament. Sisplau ompli els camps buits";
 			$scope.divMsj=true;
 			$timeout(function() {
@@ -891,11 +1020,12 @@ angular.module('vila')
 			}, 3000);		
 		}
 		else{
+			console.log("fecha :"+$scope.firamar.dataFiramar);
 			var data = new FormData();
-				data.append("acc",$scope.accio);
-				data.append("titolFiramar",$scope.firamar.titolFiramar);
-				data.append("txtFiramar",$scope.firamar.txtFiramar);
-				data.append("fecha",$scope.firamar.fecha);
+				data.append("acc","GSave");
+				data.append("titolFiramar",$scope.edicioFiramar.titolFiramar);
+				data.append("txtFiramar",$scope.edicioFiramar.txtFiramar);
+				data.append("fecha",$scope.edicioFiramar.fecha);
 		    var deferred=$q.defer();
 		    $rootScope.cargador=true;
 			$http.post("models/firamar.php", data,{
@@ -905,9 +1035,65 @@ angular.module('vila')
 				transformRequest:angular.identity
 			})
 			.then(function(res){
-				console.log(res.data);
 				if(res.data!="0"){
-					$scope.edicions=res.data;
+					console.log(res.data);
+					// $scope.edicioFiramar=res.data.edicioFiramar[0];
+					// $scope.galeriaFiramar=res.data.galeriaFiramar;
+					// $scope.sponsorsFiramar=res.data.sponsorsFiramar;
+					// $scope.participantsFiramar=res.data.participantsFiramar;
+					// $scope.activitatsFiramar=res.data.activitatsFiramar;
+
+					$scope.msj="Les dades s'han actualitzat correctament.";
+					//$scope.firaFull=true;
+					$scope.divMsj=true;
+				}
+				else{
+					$scope.msj="Fallada desconegut.";
+					$scope.divMsj=true;
+				}
+				$timeout(function() {
+					$scope.divMsj=false;
+				}, 2000);
+				$rootScope.cargador=false;
+			})
+			.catch(function(error) {
+				$rootScope.cargador=false;
+			});
+		}
+	}
+	$scope.guardaActivitat=function(){
+		if($scope.activitatsFiramar.horaInici=="" || $scope.activitatsFiramar.horaFi=="" || $scope.activitatsFiramar.titolActivitat=="" || $scope.activitatsFiramar.txtActivitat==""){	
+			$scope.msj="Les dades no s'han actualitzat correctament. Sisplau ompli els camps buits";
+			$scope.divMsj=true;
+			$timeout(function() {
+				$scope.divMsj=false;
+			}, 3000);		
+		}
+		else{
+			console.log("fecha :"+$scope.firamar.dataFiramar);
+			var data = new FormData();
+				data.append("acc","GSaveAct");
+				data.append("idActivitat",$scope.activitatsFiramar.idActivitat);
+				data.append("horaInici",$scope.activitatsFiramar.horaInici);
+				data.append("horaFi",$scope.activitatsFiramar.horaFi);
+				data.append("titolActivitat",$scope.activitatsFiramar.titolActivitat);
+				data.append("txtActivitat",$scope.activitatsFiramar.txtActivitat);
+		    var deferred=$q.defer();
+		    $rootScope.cargador=true;
+			$http.post("models/firamar.php", data,{
+				headers:{
+					"Content-type":undefined
+				},
+				transformRequest:angular.identity
+			})
+			.then(function(res){
+				if(res.data!="0"){
+					
+					// $scope.edicioFiramar=res.data.edicioFiramar[0];
+					// $scope.galeriaFiramar=res.data.galeriaFiramar;
+					// $scope.sponsorsFiramar=res.data.sponsorsFiramar;
+					// $scope.participantsFiramar=res.data.participantsFiramar;
+					$scope.activitatsFiramar=res.data.activitatsFiramar;
 					$scope.msj="Les dades s'han actualitzat correctament.";
 					$scope.firaFull=true;
 					$scope.divMsj=true;
@@ -921,12 +1107,48 @@ angular.module('vila')
 				}, 2000);
 				$rootScope.cargador=false;
 			})
+			.catch(function(error) {
+				$rootScope.cargador=false;
+			});
 		}
 	}
+
 	$scope.cancelaEdicio=function(cancel){
 		$scope.firaFull=true;
 	}
 
+	$scope.EliminaImg=function(nomtaula,nom,imatge){
+		var segur=confirm("Segur que vols eliminar aquesta imatge?");
+		if (segur) {
+			var data = new FormData();
+			data.append("acc","Volatilizado");
+			data.append("dataFiramar",$scope.firamar.dataFiramar);
+			data.append("nomtaula",nomtaula);
+			data.append("nom",nom);
+			data.append("imatge",imatge)
+			var deferred=$q.defer();
+			$rootScope.cargador=true;
+			$http.post("models/firamar.php", data,{
+				headers:{
+		 			"Content-type":undefined
+				},
+				transformRequest:angular.identity
+			 })
+		 	.then(function(res){
+				deferred.resolve(res);
+				$scope.galeriaFiramar=res.data.galeriaFiramar;
+				$scope.sponsorsFiramar=res.data.sponsorsFiramar;
+				$scope.participantsFiramar=res.data.participantsFiramar;
+				$rootScope.cargador=false;
+			$timeout(function() {
+				$scope.divMsj=false;
+				}, 2000);
+ 			})
+			.catch(function(error) {
+				$rootScope.cargador=false;
+				 });
+			}
+	}
 })
 .controller('ServeisCtrl',function($scope, $http, $q, $timeout, $rootScope) {
 	var data = new FormData();
@@ -1278,7 +1500,6 @@ angular.module('vila')
 		.then(function(res){
 			deferred.resolve(res);
 			$scope.noticies=res.data;			 	
-			console.log(res.data);
 			$scope.reveal=true;
 			$scope.msj="Les dades han estat actualitzades correctament";
 			$scope.cargaMsj=true;
@@ -1330,7 +1551,6 @@ angular.module('vila')
 		$scope.reveal=true;
 	}
 	$scope.cambiaPrinc=function(principal,idNoticia){
-		console.log(principal+" "+$scope.totalPrincipal+" "+idNoticia);
 		if(principal=='S' && $scope.totalPrincipal==2)
 		{
 			alert("Només pot triar 2 notícies favorites");
@@ -1391,7 +1611,6 @@ angular.module('vila')
 	$scope.dadesCateg=true;
 	$scope.cat={};
 	$scope.accion="";
-
 	var data = new FormData();
 		data.append("acc","list");
     var deferred=$q.defer();
@@ -1405,7 +1624,6 @@ angular.module('vila')
 		deferred.resolve(res);
 		$scope.categories=res.data;
 		$rootScope.cargador=false;
-		console.log(res.data);
 	})
 	.catch(function(error) {
 		$rootScope.cargador=false;
@@ -1436,6 +1654,7 @@ angular.module('vila')
 			$scope.accion="Afegir";
 			$scope.cat.nomCategoria="";
 			$scope.cat.pictograma="";
+
 		}
 	}
 	$scope.cancel=function(listSocis){
@@ -1455,7 +1674,7 @@ angular.module('vila')
 				data.append("acc",$scope.accion);
 				data.append("idCategoria",$scope.cat.idCategoria);
 				data.append("nomCategoria",$scope.cat.nomCategoria);
-				data.append("logoUpdate", $scope.cat.pictograma);
+				data.append("logoUpdate", $scope.cat.logoUpdate);
 				data.append("pictogramaOld", $scope.cat.pictograma);
 				var deferred=$q.defer();
 			$rootScope.cargador=true;
@@ -1469,8 +1688,8 @@ angular.module('vila')
 			.then(function(res){
 				deferred.resolve(res);
 				$scope.categories=res.data;
-				//$scope.msj="Les dades s'han actualitzat correctament.";
-				// $scope.dadesCateg=true;
+				$scope.msj="Les dades s'han actualitzat correctament.";
+				$scope.dadesCateg=true;
 				$timeout(function() {
 					$scope.divMsj=false;
 				}, 2000);
@@ -1482,8 +1701,9 @@ angular.module('vila')
 			});
 		}
 	}
-	$scope.getFileDetails = function (e) {
-		$scope.cat.pictograma=e.files[0].name;
+	$scope.getFileDetailss = function (e) {
+		console.log(e.files[0].name);
+		$("#inputPictograma").val(e.files[0].name);
 		$scope.cat.logoUpdate=e.files[0];		
     } 
 	$scope.elimina=function(idCategoria){
@@ -1611,12 +1831,13 @@ angular.module('vila')
 					$rootScope.cargador=false;
 				});
 	}
-	$scope.deleteImg=function(idCarousel){
+	$scope.deleteImg=function(idCarousel,logo){
 		var segur=confirm("Segur que vols eliminar aquesta imatge?");
 		if (segur) {
 			var data = new FormData();
-			data.append("idCarousel",idCarousel);
 			data.append("acc","delImg");
+			data.append("idCarousel",idCarousel);
+			data.append("logo",logo);
 			var deferred=$q.defer();
 			$rootScope.cargador=true;
 				$http.post("models/carousel.php", data,{
@@ -1663,6 +1884,10 @@ angular.module('vila')
 	});
 
 	$scope.ban={};
+	$scope.dadesBanner=true;
+	$scope.muestraInput="directori";
+	$scope.associatSel="-1";
+	$scope.ban.fotoBanner="";
 	var data = new FormData();
 		data.append("acc","b");
     var deferred=$q.defer();
@@ -1676,11 +1901,8 @@ angular.module('vila')
 	})
 	.then(function(res){
 		deferred.resolve(res);
-		$scope.imatgesBanner=res.data;
-		$scope.ban.fotoBanner=$scope.imatgeBan.fotoBanner;
-		$scope.ban.bannerOld=$scope.imatgeBan.fotoBanner;
-		$scope.ban.bannerUpdate="";
-		$scope.ban.idBanner=$scope.imatgeBan.idBanner;
+		$scope.imatgesBanner=res.data.banner;
+		$scope.associats=res.data.associats;
 		$rootScope.cargador=false;
 		console.log(res.data);
 	})
@@ -1704,14 +1926,73 @@ angular.module('vila')
 	$scope.columnOrder=function(columna){
 		$scope.order=columna;
 	}
-	$scope.upBanners=function(e){
+	$scope.insertBanner=function(){
+		$scope.dadesBanner=false;
+		$scope.associatSel="-1";
+		$scope.ban.fotoBanner="";	
+	}
+	$scope.muestraURL=function(tipo)
+	{
+		$scope.muestraInput=tipo;
+		if (tipo=="directori") {
+			$scope.associatSel="-1";
+		}
+		else{
+			$scope.associatSel="";
+		}
+		console.log(tipo);
+	}
+	// $scope.uploadGaleria=function(e){
+	// 	console.log(e);
+	// 	$scope.divMsj=true;
+	// 	if ($scope.associatSel=="" || $scope.associatSel=="-1") {
+	// 		$timeout(function() {
+	// 			$scope.divMsj=false;
+	// 		}, 2000);
+	// 	}
+	// 	else{
+	// 		if ($scope.muestraInput=="directori") {
+	// 			$scope.associatSel="#/directori/"+$scope.associatSel;
+	// 		}
+	// 		var data = new FormData();
+ //            data.append("acc", "upImg");
+ //            data.append("fotoBanner", $scope.ban.fotoBanner);
+ //            data.append("idBanner",$scope.ban.idBanner);
+	// 			//data.append("logoDelete", $scope.com.bannerOld);
+	// 		var deferred=$q.defer();
+	// 		$http.post("models/carousel.php", data,{
+	// 			headers:{
+	// 				"Content-type":undefined
+	// 			},
+	// 				transformRequest:angular.identity
+	// 			})
+	// 			.then(function(res)
+	// 			{
+	// 				deferred.resolve(res);
+	// 				$rootScope.cargador=false;
+	// 				$scope.imatgesBanner=res.data.banner;
+
+	// 			})
+	// 			.catch(function(error) {
+	// 				$rootScope.cargador=false;
+	// 			});
+	// 	}
+	// }
+	$scope.nowBanner=function(){
+		$scope.divMsj=true;
+		if ($scope.associatSel=="" || $scope.associatSel=="-1") {
+			$timeout(function() {
+				$scope.divMsj=false;
+			}, 2000);
+		}
+		else{
+			if ($scope.muestraInput=="directori") {
+				$scope.associatSel="#/directori/"+$scope.associatSel;
+			}
 			var data = new FormData();
-            data.append("acc", "upImg");
-            data.append("idBanner",$scope.ban.idBanner);
-			data.append("bannerUpdate", e.files[0]);
-			data.append("bannerOld", $scope.com.logoAssociatOld);
-			console.log($scope.com.logoAssociatOld);
-				//data.append("logoDelete", $scope.com.logoAssociatOld);
+            data.append("acc", "newBanner");
+            data.append("URLWeb", $scope.associatSel);
+            data.append("fotoBanner", $scope.ban.logoUpdate);
 			 var deferred=$q.defer();
 			 $http.post("models/carousel.php", data,{
 				headers:{
@@ -1722,19 +2003,31 @@ angular.module('vila')
 				.then(function(res)
 				{
 					deferred.resolve(res);
-					$scope.com.logoAssociat=res.data;
-					$scope.com.logoAssociatOld=res.data;					
+					$rootScope.cargador=false;
+					$scope.imatgesBanner=res.data.banner;
+					$scope.dadesBanner=true;
+					$scope.muestraInput="directori";
+					$scope.associatSel="-1";
+					$("#inputBanner").val("");				
 				})
 				.catch(function(error) {
 					$rootScope.cargador=false;
 				});
+		}
 	}
-	$scope.deleteImg=function(idBanner){
+	$scope.uploadGaleria = function (e) {
+		console.log(e.files[0].name);
+		$("#inputBanner").val(e.files[0].name);
+		$scope.ban.logoUpdate=e.files[0];		
+    } 
+	$scope.deleteImg=function(idBanner,logo){
+		console.log("hola");
 		var segur=confirm("Segur que vols eliminar aquest Banner?");
 		if (segur) {
 			var data = new FormData();
-			data.append("idBanner",idBanner);
 			data.append("acc","dImg");
+			data.append("idBanner",idBanner);
+			data.append("logo",logo);
 			var deferred=$q.defer();
 			$rootScope.cargador=true;
 				$http.post("models/carousel.php", data,{
@@ -1745,7 +2038,7 @@ angular.module('vila')
 				})
 				.then(function(res){
 					deferred.resolve(res);
-					$scope.imatgesBanner=res.data;
+					$scope.imatgesBanner=res.data.banner;
 					$rootScope.cargador=false;
 					$timeout(function() {
 						$scope.divMsj=false;
@@ -1755,6 +2048,11 @@ angular.module('vila')
 					$rootScope.cargador=false;
 				});
 		}
+	}
+	$scope.cancel=function(banners){
+		$scope.dadesBanner=true;
+		$scope.associatSel="-1";
+		$("#inputBanner").val("");	
 	}
 
 })

@@ -22,47 +22,59 @@
 	}
 	if(isset($_POST['acc'])&&$_POST['acc']=='Afegir'){
 		$mySql="INSERT INTO $tbl_categories (`nomCategoria`) VALUES ('".replaceFromHtml($_POST['nomCategoria'])."')";
-		//  	$connexio=connect();
-		//  	$resultCateg=mysqli_query($connexio,$mySql); 
-		// disconnect($connexio);
-		// if (isset($_FILES['fotoNew']) && $_FILES['fotoNew']!="") {
+		 	$connexio=connect();
+		 	$resultCateg=mysqli_query($connexio,$mySql); 
+		 	$idCategoria=mysqli_insert_id($connexio);
+		disconnect($connexio);
+		if (isset($_FILES['logoUpdate']) && $_FILES['logoUpdate']!="") {
 			$fileEx =explode('.',$_FILES["logoUpdate"]["name"]);
 			$file =  date("dmYhisv").'.'.$fileEx[count($fileEx)-1];
 			$mySql2="UPDATE $tbl_categories
 					SET `pictograma`='".$file."'
-					WHERE idCategoria='".$_POST['idCategoria']."'";
-				//$connexio=connect();
-			// $resultCateg=mysqli_query($connexio,$mySql2);
-			// disconnect($connexio);
+					WHERE idCategoria='".$idCategoria."'";
+				$connexio=connect();
+			$resultCateg=mysqli_query($connexio,$mySql2);
+			disconnect($connexio);
 			move_uploaded_file($_FILES["logoUpdate"]["tmp_name"],"../../img/pictogramas/".$file);
 			//unlink('../../img/pictogramas/'.$_POST['pictogramaOld']);
 			
-		// }
-		// echo llistatCategoria($tbl_categories,$tbl_categoriaassociat);
-		echo $mySql;		
+		}
+		echo llistatCategoria($tbl_categories,$tbl_categoriaassociat);
+		// echo $mySql;		
 	}
-	if(isset($_POST['acc'])&&$_POST['acc']=='updateMedia'){
-		$fileEx =explode('.',$_FILES["logoUpdate"]["name"]);
-		$file =  date("dmyhisv").'.'.$fileEx[count($fileEx)-1];
-		$mySql="UPDATE $tbl_categories 
-				SET `".$_POST['nomCamp']."`='".$file."'
-				WHERE idCategoria='".$_POST['idCategoria']."'";
-		$connexio=connect();
-		mysqli_query($connexio,$mySql);
-		disconnect($connexio);
-		move_uploaded_file($_FILES["logoUpdate"]["tmp_name"], "../../img/pictogramas/".$file);
-		unlink('../../img/pictogramas/'.$_POST['pictogramaOld']);
-		echo $file;
-	}
+	// if(isset($_POST['acc'])&&$_POST['acc']=='updateMedia'){
+	// 	$fileEx =explode('.',$_FILES["logoUpdate"]["name"]);
+	// 	$file =  date("dmyhisv").'.'.$fileEx[count($fileEx)-1];
+	// 	$mySql="UPDATE $tbl_categories 
+	// 			SET `".$_POST['nomCamp']."`='".$file."'
+	// 			WHERE idCategoria='".$_POST['idCategoria']."'";
+	// 			echo $mySql;
+	// 	$connexio=connect();
+	// 	mysqli_query($connexio,$mySql);
+	// 	disconnect($connexio);
+	// 	move_uploaded_file($_FILES["logoUpdate"]["tmp_name"], "../../img/pictogramas/".$file);
+	// 	unlink('../../img/pictogramas/'.$_POST['pictogramaOld']);
+	// 	echo $file;
+	// }
 	if(isset($_POST['acc'])&&$_POST['acc']=='Edita'){
 		$mySql="UPDATE `$tbl_categories` 
-				SET `nomCategoria`='".replaceFromHtml($_POST['nomCategoria'])."' 
+				SET `nomCategoria`='".replaceFromHtml($_POST['nomCategoria'])."'
 				WHERE idCategoria='".$_POST['idCategoria']."'";
 		$connexio=connect();
 		$resultCateg=mysqli_query($connexio,$mySql);
 		disconnect($connexio);
-		
-		
+		if (isset($_FILES['logoUpdate']) && $_FILES['logoUpdate']!="") {
+			$fileEx =explode('.',$_FILES["logoUpdate"]["name"]);
+			$file =  date("dmyhisv").'.'.$fileEx[count($fileEx)-1];
+			$mySql="UPDATE `$tbl_categories` 
+				SET `pictograma`='".$file."' 
+				WHERE idCategoria='".$_POST['idCategoria']."'";
+			$connexio=connect();
+			$resultCateg=mysqli_query($connexio,$mySql);
+			disconnect($connexio);
+			move_uploaded_file($_FILES["logoUpdate"]["tmp_name"], "../../img/pictogramas/".$file);
+			unlink('../../img/pictogramas/'.$_POST['pictogramaOld']);
+		}
 		echo llistatCategoria($tbl_categories,$tbl_categoriaassociat);
 		// echo $mySql;
 	}

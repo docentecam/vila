@@ -37,7 +37,7 @@
 				return $dadesFiramar[0];
 	}
 	function mostrarFiramar($tbl_firamar,$dataFiramar=""){
-				$mySql="SELECT `dataFiramar`, `txtFiramar`, `titolFiramar`,`edicioGaleria` FROM $tbl_firamar WHERE `dataFiramar`='".$dataFiramar."' ORDER BY `dataFiramar` DESC LIMIT 1";
+				$mySql="SELECT `dataFiramar`, `txtFiramar`, `titolFiramar`,`edicioGaleria`  FROM $tbl_firamar WHERE `dataFiramar`='".$dataFiramar."' ORDER BY `dataFiramar` DESC LIMIT 1";
 				$connexio=connect();
 				$resultFiramar=mysqli_query($connexio,$mySql); 
 				disconnect($connexio);

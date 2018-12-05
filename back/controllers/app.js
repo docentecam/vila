@@ -37,9 +37,14 @@ app.config(['$routeProvider',function($routeProvider){
     controller:'ContactCtrl',
     title: "Contacta'ns"
   })
-  .when('/firamar',{
+  .when('/firamar/:dataFiramar',{
     templateUrl:'views/firamar.php',
     controller:'FiramarCtrl',
+    title: "Firamar"
+  })
+   .when('/firamarEdit/:dataFiramar',{
+    templateUrl:'views/firamar.php',
+    controller:'FiramarEditCtrl',
     title: "Firamar"
   })
   .when('/solicitutsoci',{
