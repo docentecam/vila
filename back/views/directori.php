@@ -1,4 +1,3 @@
-
 <?php
 	session_start();
 
@@ -71,9 +70,15 @@
 
 
  <div ng-hide="dadesComerc">
- 	<div id="upTop" class="row text-center mt-4 mb-3 titleSocis">
+ 	<div class="row">
+		<a ng-href="#/directori" class="col-2 offset-lg-2" >
+			<h5 class="fas fa-angle-double-left text-info">Tornar al direcotri</h5>
+		</a>
+	</div>
+	<div id="upTop" class="row text-center mt-4 mb-3 titleSocis">
 		<h1 class="col">Dades del associat {{com.nomAssociat}}</h1>
 	</div>
+	
 	<div class="row">
 	 	<form id="formVila" name="formVila" class="col-12">
 	 		<div class="form-row">
@@ -162,9 +167,9 @@
 					<option ng-repeat="categ in categories" ng-selected="com.categoriaPrinc==categ.idCategoria" ng-value="categ.idCategoria">{{categ.nomCategoria}}</option>
 				</select>
 			</div>
-			<a anchor-smooth-scroll="divTop"><input type="button" class="btn btn-info offset-lg-2" ng-click="guardar()" value="Guardar canvis"></a>
+			<input type="button" id="buttonSave" class="btn btn-info offset-lg-2" ng-click="guardar()" value="Guardar canvis">
 		</form>
-		<div  ng-show="divMsj" class="col-6 offset-3 text-center alert alert-warning">{{msj}}</div>
+		<div id="divMissatge" ng-show="divMsj" class="col-6 offset-3 text-center alert alert-success">{{msj}}</div>
 	</div>
 	<div class="row mt-3">
 		<div class="col-12 col-lg-2 offset-lg-2">
@@ -211,7 +216,8 @@
 
 <div ng-hide="afegirComerc">
  	<div id="divUpTop" class="row text-center mt-4 mb-3 titleSocis">
-		<h1 class="col">Nou associat</h1>
+ 		<a ng-href="#/directori"><input type="button" class="col" ng-value="Direcotri">
+		<h1 class="col-1">Nou associat</h1>
 	</div>
 	<div class="row">
 	 	<form id="formVila" name="formVila" class="col-12">

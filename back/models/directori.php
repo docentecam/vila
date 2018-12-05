@@ -21,7 +21,6 @@
 		$connexio=connect();
 		$resultComerc=mysqli_query($connexio,$mySql);
 		$idAssociat=mysqli_insert_id($connexio);
-				// $idAssociat="3";
 		$mySql2="INSERT INTO $tbl_categoriaassociat (`idCategoria`, `idAssociat`, `principal`) 
 				VALUES ('".$_POST['idCategoria']."','".$idAssociat."','S')";
 			$resultCateg=mysqli_query($connexio,$mySql2);
