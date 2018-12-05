@@ -19,6 +19,7 @@
 		echo firaEdicion($tbl_firamar,$tbl_participants,$tbl_sponsors,$tbl_galeriafiramar,$tbl_activitatsfiramar,$_POST['dataFiramar']);
 	}
 
+
 	if(isset($_POST['acc'])&&$_POST['acc']=='GSave'){
 		$mySqlFiramar="UPDATE $tbl_firamar 
 				SET `titolFiramar`='".replaceFromHtml($_POST['titolFiramar'])."',  
@@ -32,41 +33,39 @@
 	}
 	if(isset($_POST['acc'])&&$_POST['acc']=='GSaveAct'){
 		$mySqlActivitatsFiramar="UPDATE $tbl_activitatsfiramar 
-				SET `idActivitat`='".($_POST['idActivitat'])."',
-					`horaInici`='".($_POST['horaInici'])."',  
+				SET `horaInici`='".($_POST['horaInici'])."',  
 					`horaFi`='".($_POST['horaFi'])."',
 					`titolActivitat`='".replaceFromHtml($_POST['titolActivitat'])."',
 					`txtActivitat`='".replaceFromHtml($_POST['txtActivitat'])."' 
-				WHERE dataFiramar ='".$_POST['dataFiramar']."'";
+				WHERE `idActivitat`='".($_POST['idActivitat'])."'";
 		$connexio=connect();
 		$resultActivitatsFiramar=mysqli_query($connexio,$mySqlActivitatsFiramar);
 		disconnect($connexio);
 	
 		echo firaEdicion($tbl_firamar,$tbl_participants,$tbl_sponsors,$tbl_galeriafiramar,$tbl_activitatsfiramar,$_POST['dataFiramar']);
 }
-	if(isset($_POST['acc'])&&$_POST['acc']=='Afegir'){
-		$fecha=date("Y-m-d H:i:s");	
+	if(isset($_POST['acc'])&&$_POST['acc']=='newEdicio'){
 		$mySqlFiramar="INSERT INTO $tbl_firamar 
 							(`dataFiramar`,`titolFiramar`, `txtFiramar`) 
-				VALUES (NULL,'".$fecha."',
+				VALUES('".$_POST['fecha']."',
 							'".replaceFromHtml($_POST['titolFiramar'])."',
 							'".replaceFromHtml($_POST['txtFiramar'])."')";
-		$mySqlActivitatsFiramar="INSERT INTO $tbl_activitatsfiramar 
+		$connexio=connect();
+		$resultFiramar=mysqli_query($connexio,$mySqlFiramar);
+		disconnect($connexio);
+	}
+
+if(isset($_POST['acc'])&&$_POST['acc']=='newACtivitat'){
+$mySqlActivitatsFiramar="INSERT INTO $tbl_activitatsfiramar 
 							(`idActivitat`,`horaInici`, `horaFi`, `titolActivitat`, `txtActivitat`, `dataFiramar`) 
 				VALUES (NULL,'".replaceFromHtml($_POST['horaInici'])."',
 							'".replaceFromHtml($_POST['horaFi'])."',
 							'".replaceFromHtml($_POST['titolActivitat'])."',
 							'".replaceFromHtml($_POST['txtActivitat'])."',
 							'".$fecha."')";
-		$connexio=connect();
-		$resultFiramar=mysqli_query($connexio,$mySqlFiramar);
-		$resultActivitatsFiramar=mysqli_query($connexio,$mySqlActivitatsFiramar); 
-		disconnect($connexio);
-		
-		echo firaEdicion($tbl_firamar,$tbl_activitatsfiramar);
+	$resultActivitatsFiramar=mysqli_query($connexio,$mySqlActivitatsFiramar); 
 
-	}
-
+}
 	if(isset($_POST['acc'])&&$_POST['acc']=='uploadImg'){
 	 
 	    $cantImatge=$_POST['cantImatge']+1;
