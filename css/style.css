@@ -114,6 +114,8 @@ footer{
 	margin-top: 5rem;
 	bottom: 0;
 }
+
+
 a:link, a:visited, a:hover{
 	color: black;
     text-decoration: none;
@@ -142,13 +144,18 @@ ul, li{
 	margin: 0;
     padding: 0;
 }
-
 .associat {
 	background-color: white; text-align: center;
 }
 
 .colorRosa{
 	color: #cb418e;
+}
+.colorLink{
+	color:#1d93d1!important;
+}
+.imageBordes {
+    border-radius: 2%;
 }
 .dissenyarVores{
 	border-right-width: 10px !important;
@@ -190,8 +197,8 @@ ul, li{
     border-width: 1px;
     background-color: black;
 }
-.carouselProva{
-	height: 250px;
+.carouselHeight{
+	height: 300px;
 }
 .colorBlancoLetra{
 	color: white;
@@ -201,9 +208,7 @@ ul, li{
 	max-width: 100%;
 	height: 100%;
 }
-.padding{
-	padding: 80px;
-}
+
 .btn-info{
 	background-color:#cb418e!important;
 	border: none;
@@ -362,7 +367,6 @@ ul, li{
 .imagecontainer {
   position: relative;
   overflow: hidden;
-  transform: translateZ(0);
 }
 
 .imagecontainer:before {
@@ -525,6 +529,11 @@ ul, li{
 	background-color: #f0f0f0;
 	border: none;
 }
+
+.tituloBack{
+	font-size: 1em;
+
+}
 @media (max-width: 575px){
 
 	.arrow-circle-rights ,.arrow-circle-lefts{
@@ -547,7 +556,6 @@ ul, li{
 	}
 	.txtMovil{
 		font-size: 1.1em;
-		text-align: center;
 	}
 	.h_divider{
 		height: 1px!important;

@@ -43,21 +43,74 @@
 		    </div>
 		    <div class="form-group col-md-2 col-lg-2">
 		      <label for="txtData">Fecha</label>
-		      <input type="date" class="form-control" id="txtData" name="txtData" ng-model="edicioFiramar.fecha">
+		      <input type="date" class="form-control" id="txtData" name="txtData" ng-model="edicioFiramar.fecha"  ng-disabled="!isNew">
 		    </div>
 		    <div class="form-group col-lg-7 offset-lg-2">
 		      	<label for="txtParrafada">Text</label>
 		       	<textarea class="form-control textarea" id="txtParrafada" name="txtParrafada" ng-model="edicioFiramar.txtFiramar"></textarea>
 		   	</div>
 		</div>
+		<div class="form-row">
+			<div class="form-group col-12 col-lg-3 col-md-1 offset-lg-2 mt-3">
+				<div class="text-centerr">
+	  			<a>	  		
+	  				<input type="button" class="btn btn-info" ng-click="guardaEdicio()" value="Guardar canvis" >
+	  			</a>
+	  			<a anchor-smooth-scroll="divTop">
+	  				<input type="button" class="btn btn-danger" ng-click="cancelaEdicio()" value="Cancelar">
+		  		</a>
+		  		</div>
+			</div>
+	</div>
 
 
-
-		<div class="row text-center mt-4 mb-3">
-	  		<div class="col-12 " ><h1 class="titleSocis">Program d'Activitats</h1></div>
+		<div class="row text-center mt-4 mb-3"  ng-hide="isNew">
+	  		<div class="col-12 " ><h1 class="titleSocis" >Programa d'Activitats</h1></div>
 		</div>
 
-	<div ng-repeat="activitat in activitatsFiramar">
+	<div class="offset-md-2">
+		<i class="fas fa-plus-square iconSize mb-3 cursor" ng-hide="isNew" title="Afegeix Activitat" ng-click="afegixActivitat()"></i>
+	</div>
+
+	<!-- <<<< 	OCULTO >>>>>>>> -->
+	<div  ng-show="divMsjAct" class="col-6 offset-3 text-center alert alert-warning">{{msjNovaACt}}</div>
+	<div ng-hide="forAct">
+		NOVA ACTIVITAT
+			<div class="form-row">  
+				<div class="form-group col-12 col-lg-3 col-md-5 offset-lg-2 mt-3">
+				      <label for="titolAct">Titol Activitat</label>
+				      <input type="text" class="form-control" id="titolAct" name="titolAct" ng-model="novaActivitat.titolActivitat" maxlength="100">
+				</div>
+				<div class="form-group col-md-2 col-lg-1 mt-3">
+			      	<label for="horaIn">Hora Inici</label>
+			      	<input type="time" class="form-control" id="horaIn" name="horaIn" ng-model="novaActivitat.horaI">
+				</div>
+				<div class="form-group col-md-2 col-lg-1 mt-3">
+					<label for="horaF">Hora Fi</label>
+			      	<input type="time" class="form-control" id="horaF" name="horaF" ng-model="novaActivitat.horaF">
+			    </div>
+				 <div class="form-group col-lg-7 offset-lg-2 mb-4">
+			      	<label for="txtAct">Text</label>
+			       	<textarea class="form-control textarea" id="txtAct" name="txtAct" ng-model="novaActivitat.txtActivitat"></textarea>
+			   	</div>
+			</div>
+			<div class="border-bottom border border-danger offset-lg-2 col-7 "></div>
+		<div class="form-row">
+				<div class="form-group col-12 col-lg-3 col-md-1 offset-lg-2 mt-3">
+					<div class="text-centerr">
+		  			<a>	  		
+		  				<input type="button" class="btn btn-primary" ng-click="guardaNovaActivitat($index)" value="Insereix Activitat">
+		  			</a>
+		  			<a anchor-smooth-scroll="divTop">
+		  				<input type="button" class="btn btn-danger" ng-click="cancelaEdicio()" value="Cancelar">
+			  		</a>
+			  		
+			  		</div>
+				</div>
+		</div>
+	</div>
+
+	<div ng-repeat="activitat in activitatsFiramar"  ng-hide="isNew">
 		<div class="form-row">  
 			<div class="form-group col-12 col-lg-3 col-md-5 offset-lg-2 mt-3">
 			      <label for="titolAct">Titol Activitat</label>
@@ -77,36 +130,36 @@
 		   	</div>
 		</div>
 		<div class="border-bottom border border-danger offset-lg-2 col-7 "></div>
-	</div>
-
 	<div class="form-row">
 			<div class="form-group col-12 col-lg-3 col-md-1 offset-lg-2 mt-3">
 				<div class="text-centerr">
 	  			<a>	  		
-	  				<input type="button" class="btn btn-primary" ng-click="guardaEdicio(accio)" value="Guardar canvis">
+	  				<input type="button" class="btn btn-primary" ng-click="guardaActivitat($index)" value="Guardar canvis">
 	  			</a>
 	  			<a anchor-smooth-scroll="divTop">
-	  				<input type="button" class="btn btn-danger" ng-click="cancelaEdicio()" value="Cancelar">
+	  				<input type="button" class="btn btn-danger" ng-click="eliminarActivitat(activitat.idActivitat)" value="Eliminar">
 		  		</a>
 		  		</div>
 			</div>
 	</div>
+</div>
 
-		<div class="row text-center mt-4 mb-3">
+
+
+		<div class="row text-center mt-4 mb-3"  ng-hide="isNew">
 	  		<div class="col-12 " ><h1 class="titleSocis">Galeria</h1></div>
 		</div>
 		
-		<label for="insertImgG" class="offset-md-2">
+		<label for="insertImgG" class="offset-md-2"  ng-hide="isNew">
 			
 			<i class=" fas fa-plus-square iconSize mb-3 cursor" title="Afegeix imatges">
 
 			<input type="file" id="insertImgG" class="align-self-end" name="insertImgG" multiple accept="image/jpg, image/png" onchange="angular.element(this).scope().getFileDetails(this,'galeriafiramar')" ng-show="false">
-
 			</i>
 
 		</label>
 
-		<div class="card-columns col-12 col-lg-8 offset-lg-2">
+		<div class="card-columns col-12 col-lg-8 offset-lg-2"  ng-hide="isNew">
 			
 			<div class="text-center" ng-repeat="galeria in galeriaFiramar">
 				<img class="card-img-top img-fluid" ng-src="{{galeria.fotoFiramar!=''?'../img/galeriaFiramar/'+galeria.fotoFiramar:'../img/noimage.png'}}" id="fotoGFull">	
@@ -115,16 +168,16 @@
 			
 		</div>
 
-		<div class="row text-center mt-5 mb-3">
+		<div class="row text-center mt-5 mb-3"  ng-hide="isNew">
 	  		<div class="col-12 " ><h1 class="titleSocis">Participants</h1></div>
 		</div>
 		
-		<label for="insertImgP" class="offset-md-2">
+		<label for="insertImgP" class="offset-md-2"  ng-hide="isNew">
 			<i class=" fas fa-plus-square iconSize mb-3 cursor" title="Afegeix imatges"></i>
 		</label>
 		<input type="file" id="insertImgP" class="align-self-end" name="insertImgP" multiple accept="image/jpg, image/png" onchange="angular.element(this).scope().getFileDetails(this,'participants')" ng-show="false">
 
-		<div class="card-columns col-12 col-lg-8 offset-lg-2">
+		<div class="card-columns col-12 col-lg-8 offset-lg-2"  ng-hide="isNew">
 			
 			<div class="text-center" ng-repeat="participant in participantsFiramar">
 				<img class="card-img-top img-fluid" ng-src="{{participant.logoParticipant!=''?'../img/participants/'+participant.logoParticipant:'img/noimage.png'}}">
@@ -134,16 +187,16 @@
 		</div>
 		
 
-		<div class="row text-center mt-5 mb-3">
+		<div class="row text-center mt-5 mb-3"  ng-hide="isNew">
 	  		<div class="col-12 " ><h1 class="titleSocis">Sponsors</h1></div>
 		</div>
 		
-		<label for="insertImgS" class="offset-md-2">
+		<label for="insertImgS" class="offset-md-2"  ng-hide="isNew">
 			<i class=" fas fa-plus-square iconSize mb-3 cursor" title="Afegeix imatges"></i>
 		</label>
 		<input type="file" id="insertImgS" class="align-self-end" name="insertImgS" multiple accept="image/jpg, image/png" onchange="angular.element(this).scope().getFileDetails(this,'sponsors')" ng-show="false">
 
-		<div class="row mb-3">
+		<div class="row mb-3"  ng-hide="isNew">
 			<div class="col-2"></div>
 			<div class="col">
 				<div class="row">
