@@ -14,7 +14,7 @@
 		echo llistatSocis($tbl_solicitutsoc);
 	}
 	function llistatSocis($tbl_solicitutsoc){
-		$mySql="SELECT `email`,`idSolicitut`,`nomComercial`, `sectorComercial`, `adreca`, `telf`, `personaContacte`, `horari`, DATE_FORMAT(`dataSolicitut`,'%d/%m/%Y' ) AS 'dataSolicitut' FROM $tbl_solicitutsoc";
+		$mySql="SELECT `email`,`idSolicitut`,`nomComercial`, `sectorComercial`, `adreca`, `telf`, `personaContacte`, `horari`, DATE_FORMAT(`dataSolicitut`,'%d/%m/%Y %H:%i' ) AS 'dataSolicitut' FROM $tbl_solicitutsoc";
 		// echo $mySql;
 		$connexio=connect();
 		$resultSolicit=mySqli_query($connexio,$mySql);

@@ -25,7 +25,7 @@
 				<td>{{solicitut.nomComercial}}</td>
 				<td>{{solicitut.sectorComercial}}</td>
 				<td>{{solicitut.adreca}}</td>
-				<td>{{solicitut.telf}}<span ng-if="solicitut.telf==null">---</span></td>
+				<td>{{solicitut.telf}}<span ng-if="solicitut.telf=='' || solicitut.telf==null">---</span></td>
 				<td>{{solicitut.email}}<span ng-show="solicitut.email==null">---</span></td>
 				<td>{{solicitut.dataSolicitut}}</td>
 				<td>{{solicitut.horari}}</td>
