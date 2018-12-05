@@ -18,8 +18,9 @@
 		</div>
 		<br>
 		<div class="botonesSerCss">
-			<input class="btn btn-danger" type="button" value="Cancelar" ng-click="cancelSer()">
 			<button type="submit" class="btn btn-info" ng-disabled="formServei.$invalid" value="submit-true" formmethod="post">{{accionSer}}</button>
+			<input class="btn btn-danger" type="button" value="Cancelar" ng-click="cancelSer()">
+			
 		</div>
 	</form>
 	<form id="SubserEditTop" name="formSubservei" ng-submit="submitSubservei()" novalidate novalidate ng-hide="revealSub">
@@ -34,8 +35,9 @@
 			</div>
 		</div>
 		<br>
-		<input class="btn btn-danger" type="button" value="Cancelar" ng-click="cancelSer()">
 		<button type="submit" class="btn btn-info" ng-disabled="formSubservei.$invalid" value="submit-true" formmethod="post">{{accionSubser}}</button>
+		<input class="btn btn-danger" type="button" value="Cancelar" ng-click="cancelSer()">
+		
 	</form>
 	<br id="divTop">
 	<div class="row" >

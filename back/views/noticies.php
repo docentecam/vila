@@ -31,8 +31,8 @@
 			</div>
 			<br>
 			<div>
-			<input class="btn btn-danger" type="button" value="Cancelar" ng-click="cancelNot()">
-			<button type="submit"  ng-disabled="formNot.$invalid" class="btn btn-info"  >{{accionNot}}</button>
+				<button type="submit"  ng-disabled="formNot.$invalid" class="btn btn-info"  >{{accionNot}}</button>
+				<input class="btn btn-danger" type="button" value="Cancelar" ng-click="cancelNot()">
 			</div>
 		</form>
 	</div>

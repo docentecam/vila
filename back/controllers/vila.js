@@ -219,7 +219,6 @@ angular.module('vila')
 		deferred.resolve(res);
 		$scope.directoris=res.data;
 		$rootScope.cargador=false;
-		console.log(res.data);
 	})
 	.catch(function(error) {
 		$rootScope.cargador=false;
