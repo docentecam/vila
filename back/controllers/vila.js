@@ -430,6 +430,8 @@ angular.module('vila')
 	    element.scrollIntoView({block: "end", behavior: "smooth"});
 	}
 	$scope.afegirCateg=function(){
+		$scope.msj="Categoria afegida correctament";
+
 		var data = new FormData();
 		data.append("idAssociat",$scope.com.idAssociat);
 		data.append("idCategoria",$scope.com.categoriaNotPrinc);
@@ -1745,12 +1747,14 @@ angular.module('vila')
 	$scope.edit=function(accion){
 		console.log(accion);
 		if($scope.cat.nomCategoria==""){
+			$( "#divMissatge" ).removeClass( "alert-success" ).addClass( "alert-danger" );
 			$scope.msj="Les dades no s'han actualitzat correctament. Sisplau ompli els camps buits";
 			$scope.divMsj=true;
 			$timeout(function() {
 				$scope.divMsj=false;
 			}, 3000);}
 		else{
+		    $( "#divMissatge" ).removeClass( "alert-danger" ).addClass( "alert-success" );
 			$scope.msj="Les dades s'han actualitzat correctament.";
 			var data = new FormData();
 				data.append("acc",$scope.accion);
@@ -1772,6 +1776,7 @@ angular.module('vila')
 				$scope.categories=res.data;
 				$scope.msj="Les dades s'han actualitzat correctament.";
 				$scope.dadesCateg=true;
+				$scope.divMsj=true;
 				$timeout(function() {
 					$scope.divMsj=false;
 				}, 2000);
@@ -2024,45 +2029,11 @@ angular.module('vila')
 		}
 		console.log(tipo);
 	}
-	// $scope.uploadGaleria=function(e){
-	// 	console.log(e);
-	// 	$scope.divMsj=true;
-	// 	if ($scope.associatSel=="" || $scope.associatSel=="-1") {
-	// 		$timeout(function() {
-	// 			$scope.divMsj=false;
-	// 		}, 2000);
-	// 	}
-	// 	else{
-	// 		if ($scope.muestraInput=="directori") {
-	// 			$scope.associatSel="#/directori/"+$scope.associatSel;
-	// 		}
-	// 		var data = new FormData();
- //            data.append("acc", "upImg");
- //            data.append("fotoBanner", $scope.ban.fotoBanner);
- //            data.append("idBanner",$scope.ban.idBanner);
-	// 			//data.append("logoDelete", $scope.com.bannerOld);
-	// 		var deferred=$q.defer();
-	// 		$http.post("models/carousel.php", data,{
-	// 			headers:{
-	// 				"Content-type":undefined
-	// 			},
-	// 				transformRequest:angular.identity
-	// 			})
-	// 			.then(function(res)
-	// 			{
-	// 				deferred.resolve(res);
-	// 				$rootScope.cargador=false;
-	// 				$scope.imatgesBanner=res.data.banner;
-
-	// 			})
-	// 			.catch(function(error) {
-	// 				$rootScope.cargador=false;
-	// 			});
-	// 	}
-	// }
 	$scope.nowBanner=function(){
-		$scope.divMsj=true;
 		if ($scope.associatSel=="" || $scope.associatSel=="-1") {
+			$scope.msj="Les dades no s'han actualitzat correctament. Sisplau ompli els camps buits";
+		    $( "#divMissatge" ).removeClass( "alert-success" ).addClass( "alert-danger" );
+			$scope.divMsj=true;
 			$timeout(function() {
 				$scope.divMsj=false;
 			}, 2000);
@@ -2071,6 +2042,8 @@ angular.module('vila')
 			if ($scope.muestraInput=="directori") {
 				$scope.associatSel="#/directori/"+$scope.associatSel;
 			}
+			$( "#divMissatge" ).removeClass( "alert-danger" ).addClass( "alert-success" );
+			$scope.msj="Les dades s'han actualitzat correctament.";
 			var data = new FormData();
             data.append("acc", "newBanner");
             data.append("URLWeb", $scope.associatSel);
@@ -2090,7 +2063,11 @@ angular.module('vila')
 					$scope.dadesBanner=true;
 					$scope.muestraInput="directori";
 					$scope.associatSel="-1";
-					$("#inputBanner").val("");				
+					$("#inputBanner").val("");
+					$scope.divMsj=true;
+					$timeout(function() {
+						$scope.divMsj=false;
+					}, 2000);				
 				})
 				.catch(function(error) {
 					$rootScope.cargador=false;
