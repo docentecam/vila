@@ -1,5 +1,10 @@
 <?php
 	session_start();
+
+	if (!isset($_SESSION['vila']['email'])) 
+	{
+		header("location: ../");
+	}
 	?>
 <div class="AssNotiAllCss" >
 	
@@ -77,7 +82,7 @@
 	  		
 	  	<button type="submit" class="btn btn-info" ng-disabled="formAss.$invalid" value="submit-true" formmethod="post">Guardar Canvis</button>
 	</div>
-	<div class="col-8 offset-2 text-center alert alert-warning" ng-show="cargaMsj">
+	<div id="divMissatge" class="col-6 offset-3 text-center alert alert-success" ng-show="cargaMsj">
 		{{msj}}
 	</div>	
 	</form>

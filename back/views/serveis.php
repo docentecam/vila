@@ -1,6 +1,11 @@
 <?php
 	session_start();
-	?>
+
+	if (!isset($_SESSION['vila']['email'])) 
+	{
+		header("location: ../");
+	}
+ ?> 
 <div class="SerAllCss" >
 	<div class="col-8 offset-2 text-center alert alert-warning" ng-show="cargaMsj">
 		{{msj}}

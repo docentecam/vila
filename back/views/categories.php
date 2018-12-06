@@ -9,7 +9,7 @@
 	<div class="row text-center mt-4 mb-3 titleSocis" id="divTop">
 		<h1 class="col">Llistat de les categories</h1>
 	</div>
-	<div class="row" ng-hide="dadesCateg">
+	<div class="row" ng-hide="dadesCateg" id="divTop">
 	 	<form id="formVila" name="formVila" class="col-12">
 			<div class="form-row">
 			    <div class="form-group col-12 col-lg-4 offset-lg-4">

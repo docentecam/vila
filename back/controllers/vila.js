@@ -1585,7 +1585,7 @@ angular.module('vila')
 			deferred.resolve(res);
 			$scope.noticies=res.data;			 	
 			$scope.reveal=true;
-			$scope.msj="Les dades han estat actualitzades correctament";
+			$scope.msj="Les dades s'han actualitzat correctament";
 			$scope.cargaMsj=true;
 			$timeout(function(){
 				$scope.cargaMsj=false;
@@ -1618,7 +1618,8 @@ angular.module('vila')
 					deferred.resolve(res);
 					$scope.noticies=res.data;
 					$scope.reveal=true;
-					$scope.msj="Les dades han estat eliminades correctament";
+					$( "#divMissatge" ).removeClass( "alert-success" ).addClass( "alert-warning" );
+					$scope.msj="La noticia ha estat eliminades correctament";
 					$scope.cargaMsj=true;
 					$timeout(function(){
 						$scope.cargaMsj=false;
@@ -1740,6 +1741,8 @@ angular.module('vila')
 			$scope.cat.pictograma="";
 
 		}
+		var element = document.getElementById("divTop");
+	    element.scrollIntoView({block: "end", behavior: "smooth"});
 	}
 	$scope.cancel=function(listSocis){
 		$scope.dadesCateg=true;		
@@ -1814,6 +1817,12 @@ angular.module('vila')
 				$scope.categories=res.data;
 				$scope.cargador=false;
 				console.log(res.data);
+				$( "#divMissatge" ).removeClass( "alert-success" ).addClass( "alert-warning" );
+				$scope.msj="La categoria ha estat eliminada correctament";
+				$scope.divMsj=true;
+				$timeout(function() {
+					$scope.divMsj=false;
+				}, 3000);
 			})
 			.catch(function(error) {
 				$rootScope.cargador=false;
