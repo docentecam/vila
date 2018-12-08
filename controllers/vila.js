@@ -240,6 +240,7 @@ angular.module('vila')
 	.then(function(res){
 		deferred.resolve(res);
 		$rootScope.cargador=false;
+		console.log(res.data.dadesFiramar[0]);
 		$scope.firamar=res.data.dadesFiramar[0];
 		$scope.galeriafiramar=res.data.dadesGaleriafiramar;
 		$scope.activitatsfiramar=res.data.dadesActivitatsfiramar;
