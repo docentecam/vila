@@ -416,7 +416,6 @@ angular.module('vila')
 			})
 			.then(function(res){
 				deferred.resolve(res);
-				console.log(res.data);
 				$rootScope.cargador=false;
 				$timeout(function() {
 					$scope.divMsj=false;
@@ -492,7 +491,7 @@ angular.module('vila')
 				for (var i = 0; i < e.files.length; i++) {
 				    $scope.filesImages.push(e.files[i]);
 					$scope.message=e.files[i]['name'];
-					console.log($scope.filesImages.length+$scope.message);
+					
 				}
             });  
             var data = new FormData();
@@ -743,7 +742,7 @@ angular.module('vila')
 		deferred.resolve(res);
 		$scope.solicituts=res.data;
 		$rootScope.cargador=false;
-		console.log(res.data);
+		
 	})
 	.catch(function(error) {
 		$rootScope.cargador=false;
@@ -847,6 +846,22 @@ angular.module('vila')
 			$rootScope.cargador=false;
 		});
 		}
+		window.onscroll = function() {scrollFunction()};
+
+	function scrollFunction() {
+	    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+	        document.getElementById("goTop").style.display = "block";
+	    } else {
+	        document.getElementById("goTop").style.display = "none";
+	    }
+	}
+ 	$scope.goTop=function(){
+ 		var element = document.getElementById("divTop");
+	    element.scrollIntoView({block: "end", behavior: "smooth"});
+ 	}
+	$scope.columnOrder=function(columna){
+		$scope.order=columna;
+	}
 })	
 
 	
@@ -877,7 +892,7 @@ angular.module('vila')
 	$scope.edicioFiramar={};
 	$scope.novaActivitat={};
 	$scope.firamar.dataFiramar=$routeParams.dataFiramar;
-	console.log($scope.firamar.dataFiramar);
+	
 	$scope.divMsj=false;
 	$scope.accio="";
 	$scope.firaSelect=true;
@@ -962,7 +977,7 @@ angular.module('vila')
 	$scope.eliminarActivitat=function(idActivitat){
 		
 
-		console.log(idActivitat);
+		
 		var data = new FormData();
 		data.append("acc","deleteActivitat");
 		data.append("idActivitat",idActivitat);
@@ -995,7 +1010,7 @@ angular.module('vila')
 	$scope.afegixActivitat=function(){
 			$scope.forAct=false;
 		
-			console.log("entra");
+			
 			$scope.novaActivitat.titolActivitat="";
 			$scope.novaActivitat.txtActivitat="";
 			$scope.novaActivitat.horaI="10:00";
@@ -1015,8 +1030,6 @@ angular.module('vila')
 			}, 3000);		
 		}
 		else{
-
-			console.log("fecha :"+$scope.firamar.dataFiramar);
 
 			var data = new FormData();
 				data.append("acc","newACtivitat");
@@ -1110,7 +1123,7 @@ angular.module('vila')
 			}, 3000);		
 		}
 		else{
-			console.log("fecha :"+$scope.firamar.dataFiramar);
+			
 			var data = new FormData();
 				if($scope.isNew==true) data.append("acc","newEdicio");
 				else data.append("acc","GSave");
@@ -1126,7 +1139,7 @@ angular.module('vila')
 				transformRequest:angular.identity
 			})
 			.then(function(res){
-				console.log("Fecha: "+res.data);
+				
 				if(res.data!="0"){
 					$scope.msj="Les dades s'han actualitzat correctament.";
 					$scope.divMsj=true;
@@ -1148,7 +1161,7 @@ angular.module('vila')
 		}
 	}
 	$scope.guardaActivitat=function(index){
-		console.log($scope.activitatsFiramar[index].titolActivitat);
+		
 		if($scope.activitatsFiramar[index].horaInici=="" || $scope.activitatsFiramar[index].horaFi=="" || $scope.activitatsFiramar[index].titolActivitat=="" || $scope.activitatsFiramar[index].txtActivitat==""){	
 			$scope.msj="Les dades no s'han actualitzat correctament. Sisplau ompli els camps buits";
 			$scope.divMsj=true;
@@ -1157,7 +1170,7 @@ angular.module('vila')
 			}, 3000);		
 		}
 		else{
-			console.log("fecha :"+$scope.firamar.dataFiramar);
+			
 			var data = new FormData();
 				data.append("acc","GSaveAct");
 				data.append("idActivitat",$scope.activitatsFiramar[index].idActivitat);
@@ -1232,6 +1245,22 @@ angular.module('vila')
 				$rootScope.cargador=false;
 				 });
 			}
+	}
+	window.onscroll = function() {scrollFunction()};
+
+	function scrollFunction() {
+	    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+	        document.getElementById("goTop").style.display = "block";
+	    } else {
+	        document.getElementById("goTop").style.display = "none";
+	    }
+	}
+ 	$scope.goTop=function(){
+ 		var element = document.getElementById("divTop");
+	    element.scrollIntoView({block: "end", behavior: "smooth"});
+ 	}
+	$scope.columnOrder=function(columna){
+		$scope.order=columna;
 	}
 })
 .controller('ServeisCtrl',function($scope, $http, $q, $timeout, $rootScope) {
@@ -1748,7 +1777,7 @@ angular.module('vila')
 		$scope.dadesCateg=true;		
 	}
 	$scope.edit=function(accion){
-		console.log(accion);
+		
 		if($scope.cat.nomCategoria==""){
 			$( "#divMissatge" ).removeClass( "alert-success" ).addClass( "alert-danger" );
 			$scope.msj="Les dades no s'han actualitzat correctament. Sisplau ompli els camps buits";
@@ -1784,7 +1813,7 @@ angular.module('vila')
 					$scope.divMsj=false;
 				}, 2000);
 				$rootScope.cargador=false;
-				console.log(res.data);				
+							
 			})
 			.catch(function(error) {
 				$rootScope.cargador=false;
@@ -1792,12 +1821,12 @@ angular.module('vila')
 		}
 	}
 	$scope.getFileDetailss = function (e) {
-		console.log(e.files[0].name);
+		
 		$("#inputPictograma").val(e.files[0].name);
 		$scope.cat.logoUpdate=e.files[0];		
     } 
 	$scope.elimina=function(idCategoria){
-		console.log(idCategoria);
+		
 		var confirmar=confirm("Segur que vol eliminar aquesta categoria?")
 		if(confirmar){
 	    	var data = new FormData();
@@ -1816,7 +1845,6 @@ angular.module('vila')
 				deferred.resolve(res);
 				$scope.categories=res.data;
 				$scope.cargador=false;
-				console.log(res.data);
 				$( "#divMissatge" ).removeClass( "alert-success" ).addClass( "alert-warning" );
 				$scope.msj="La categoria ha estat eliminada correctament";
 				$scope.divMsj=true;
@@ -1868,7 +1896,7 @@ angular.module('vila')
 		deferred.resolve(res);
 		$scope.imatgesCar=res.data;
 		$rootScope.cargador=false;
-		console.log(res.data);
+		
 	})
 	.catch(function(error) {
 		$rootScope.cargador=false;
@@ -1897,7 +1925,7 @@ angular.module('vila')
 				for (var i = 0; i < e.files.length; i++) {
 				    $scope.filesImages.push(e.files[i]);
 					$scope.message=e.files[i]['name'];
-					console.log($scope.filesImages.length+$scope.message);
+					
 				}
             });  
             var data = new FormData();
@@ -1906,7 +1934,7 @@ angular.module('vila')
             data.append("idCarousel",$scope.car.idCarousel);
 			for (var i in $scope.filesImages) {
 			        data.append("uploadedFile"+i, $scope.filesImages[i]);
-			        console.log("uploadedFile"+i, $scope.filesImages[i]);
+			        
 			}
 
 			data.append("cantImatge", i);
@@ -1921,7 +1949,7 @@ angular.module('vila')
 				{
 					deferred.resolve(res);
 					$scope.imatgesCar=res.data;
-					console.log(res.data);
+					
 				})
 				.catch(function(error) {
 					$rootScope.cargador=false;
@@ -2000,7 +2028,7 @@ angular.module('vila')
 		$scope.imatgesBanner=res.data.banner;
 		$scope.associats=res.data.associats;
 		$rootScope.cargador=false;
-		console.log(res.data);
+		
 	})
 	.catch(function(error) {
 		$rootScope.cargador=false;
@@ -2036,7 +2064,7 @@ angular.module('vila')
 		else{
 			$scope.associatSel="";
 		}
-		console.log(tipo);
+		
 	}
 	$scope.nowBanner=function(){
 		if ($scope.associatSel=="" || $scope.associatSel=="-1") {
@@ -2084,12 +2112,12 @@ angular.module('vila')
 		}
 	}
 	$scope.uploadGaleria = function (e) {
-		console.log(e.files[0].name);
+		
 		$("#inputBanner").val(e.files[0].name);
 		$scope.ban.logoUpdate=e.files[0];		
     } 
 	$scope.deleteImg=function(idBanner,logo){
-		console.log("hola");
+		
 		var segur=confirm("Segur que vols eliminar aquest Banner?");
 		if (segur) {
 			var data = new FormData();

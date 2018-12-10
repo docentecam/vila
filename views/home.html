@@ -13,7 +13,7 @@
 		<li data-target="#carouselExampleIndicators" data-slide-to="2"></li> -->
 	</ol>
 
-	<div class="carousel-inner carousel text-center col-12">
+	<div class="carousel-inner carousel text-center">
 		<div class="carousel-item" ng-repeat="carousel in carousels" ng-class="{'active': $index==0}">
 			<img class=" img-fluid " ng-src="{{carousel.fotoCarousel!=''?'img/carousel/'+carousel.fotoCarousel:'img/noimage.png'}}" alt="Carousel {{$index}}"> 
 		</div>
@@ -29,7 +29,7 @@
 	</a>
 </div>
 
-<div class="mb-1 my-md-5 txtMovil tipoTituloHome text-center">
+<div class="mb-1 my-md-5 my-3 txtMovil tipoTituloHome text-center">
 	Notícies destacades
 </div>
 
