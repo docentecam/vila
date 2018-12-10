@@ -20,7 +20,7 @@
 			</tr>
 			<tr ng-repeat="edicion in edicions | orderBy:'-fecha'">
 				<td>
-					<a class="cursor" ng-href="#/firamar/{{edicion.fecha}}">{{edicion.titolFiramar}}</a>
+					<a class="cursor" ng-href="#/firamar/{{edicion.fecha}}">{{edicion.titolFiramar}}&nbsp;{{edicion.fecha |limitTo:4}}</a>
 				</td>
 		   		<td>
 		   				<h5><span class="badge badge-secondary"><a ng-href="#/firamarEdit/{{edicion.fecha}}" title="Edita aquesta edicio">Edita</a></span></h5>
@@ -127,8 +127,7 @@
 		       	<textarea class="form-control textarea" id="txtAct" name="txtAct" ng-model="activitat.txtActivitat"></textarea>
 		   	</div>
 		</div>
-		<div class="border-bottom border border-danger offset-lg-2 col-7 "></div>
-	<div class="form-row">
+		<div class="form-row">
 			<div class="form-group col-12 col-lg-3 col-md-1 offset-lg-2 mt-3">
 				<div class="text-centerr">
 	  			<a>	  		
