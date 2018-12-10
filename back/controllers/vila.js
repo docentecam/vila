@@ -380,7 +380,7 @@ angular.module('vila')
 			|| $scope.com.facebook=="" || $scope.com.URLWeb=="" 
 			|| $scope.com.latitud==""|| $scope.com.longitud=="" 
 			|| $scope.com.horari=="" || $scope.com.txtAssociat==""
-			|| $scope.com.telf1==""){console.log("entra");
+			|| $scope.com.telf1==""){
 			$scope.msj="Les dades no s'han actualitzat correctament. Sisplau ompli els camps buits";
 		    $( "#divMissatge" ).removeClass( "alert-success" ).addClass( "alert-danger" );
 			$timeout(function() {
@@ -1110,10 +1110,6 @@ angular.module('vila')
 					$rootScope.cargador=false;
 				});
 	}
-	$scope.guardaNovaEdicio=function(){
-		console.log("Guarda nueva");
-	}
-
 	$scope.guardaEdicio=function(){
 		if($scope.edicioFiramar.titolFiramar=="" || $scope.edicioFiramar.txtFiramar=="" || $scope.edicioFiramar.fecha==""){	
 			$scope.msj="Les dades no s'han actualitzat correctament. Sisplau ompli els camps buits";
