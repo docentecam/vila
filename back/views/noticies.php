@@ -1,7 +1,12 @@
 <?php
 	session_start();
+
+	if (!isset($_SESSION['vila']['email'])) 
+	{
+		header("location: ../");
+	}
 	?>
-	<div class="col-8 offset-2 text-center alert alert-warning" ng-show="cargaMsj">
+	<div id="divMissatge" class="mt-3 col-6 offset-3 text-center alert alert-success" ng-show="cargaMsj">
 		{{msj}}
 	</div>
 	<br>	
@@ -15,7 +20,7 @@
 				</div>
 				<div class="col" ng-class="{ 'has-error' : formNot.descNot.$invalid && !formNot.descNot.$pristine }">
 					<label for="descNot">Descripció:</label>
-					<textarea type="text" class="form-control" ng-model="not.txtNoticia" id="descNot" placeholder="Descripció" name="descNot" required>{{not.txtNoticia}}</textarea>
+					<textarea type="text" class="form-control textarea" ng-model="not.txtNoticia" id="descNot" placeholder="Descripció" name="descNot" required>{{not.txtNoticia}}</textarea>
 				</div>
 			</div>
 			<div class="row">

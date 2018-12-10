@@ -467,7 +467,7 @@ ul, li{
 .tipoSubTituloAso{
 	color: #cb418e!important;
 }
-.tipoTexto, .tipoTextoCenter, .tipoTextoBlanco, .tipoTextoAso, .txtCategoria{
+.tipoTexto, .tipoTextoCenter, .tipoTextoBlanco,.tipoTextoFirmar .tipoTextoAso, .txtCategoria{
 	font-family: 'Roboto', sans-serif;
 	font-weight: 300;
 	font-size: 1em;

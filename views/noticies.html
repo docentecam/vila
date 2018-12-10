@@ -1,30 +1,34 @@
+<div class="mb-1 mt-md-4 mb-md-4 txtMovil tipoTituloHome text-center">
+	Notícies
+</div>
+
+
 <div class="row" ng-show="llistat">
-	<div class="col-12 mb-1 my-xl-5 mb-md-4 txtMovil tipoTituloHome text-center">Notícies</div>
-	<div class="row">
-		<div class="col px-0">
-			<div class="row">
-				<div ng-repeat="noticia in noticies | orderBy:'-dataAng'" ng-href="#/noticies/{{noticia.idNoticia}}" class="col-lg-4 col-md-6 px-md-2 px-xl-4 px-0">
-					<div class="card">
-						<div class="group-item">
-							<div class="imagecontainer is-cover">
-								<a ng-href="#/noticia/{{noticia.idNoticia}}">
-									<img ng-src="{{noticia.fotoNoticia!=''?'img/noticies/'+noticia.fotoNoticia:'img/noimage.png'}}" class="imagecontainer-img lazyload" alt="noticia">
-								</a>
+			<div class="col px-0">
+				<div class="row">
+					<div ng-repeat="noticia in noticies | orderBy:'-dataAng'" class="col-lg-4 col-md-6 mb-3 px-2 px-xl-4 pt-md-2 pt-xl-4 px-0">
+						<div class="card">
+							<div class="group-item">
+								<div class="imagecontainer is-cover">
+									<a ng-href="#/noticia/{{noticia.idNoticia}}">
+										<img ng-src="{{noticia.fotoNoticia!=''?'img/noticies/'+noticia.fotoNoticia:'img/noimage.png'}}" class="imagecontainer-img lazyload" alt="noticia">
+									</a>
+								</div>
 							</div>
 						</div>
-					</div>
-					<div class="tipoTextoCenter mt-3">
-						{{noticia.dataNoticia}}
-					</div>
-					<div class="tipoSubTitulo">
-						<a ng-href="#/noticia/{{noticia.idNoticia}}">
-						{{noticia.titolNoticia}}
-						</a>
-					</div>
-					<div class="tipoTexto">{{noticia.txtNoticia | limitTo:100}}...
-						<a class="colorLink cursor" ng-href="#/noticia/{{noticia.idNoticia}}">
-						Llegir més
-						</a>
+						<div class="tipoTextoCenter mt-3 col-12">
+							{{noticia.dataNoticia}}
+						</div>
+						<div class="tipoSubTitulo col-12">
+							<a ng-href="#/noticia/{{noticia.idNoticia}}">
+							{{noticia.titolNoticia}}
+							</a>
+						</div>
+						<div class="tipoTexto col-12">{{noticia.txtNoticia | limitTo:100}}...
+							<a class="colorLink cursor" ng-href="#/noticia/{{noticia.idNoticia}}">
+							Llegir més
+							</a>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -33,9 +37,9 @@
 </div>
 
 <div class="row" ng-hide="llistat">
-	<div class="col-12>
-		<div class="mb-1 my-xl-2 txtMovil tipoTituloHome tituloBack">
-			<a href="#/noticies"><i class="fas fa-arrow-left p-4"></i>Tornar a notícies</a>
+	<div class="mt-4 col-10 offset-1">
+		<div class="mb-1 mt-md-4 mb-md-4 txtMovil tipoTituloHome">
+			<a href="#/noticies">Tornar a notícies</a>
 		</div>
 
 		<div class="row mb-4">
@@ -44,10 +48,10 @@
 			</div>
 
 			<div class="col-12 col-lg-6">
-				<div class="tipoSubTitulo mb-4">
+				<div class="tipoSubTitulo mb-4 col-12">
 				{{noticia.titolNoticia}}
 				</div>
-				<div class="tipoTexto">
+				<div class="tipoTexto col-12">
 				{{noticia.dataNoticia}}
 				<br><br>
 				{{noticia.txtNoticia}}

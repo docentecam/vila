@@ -55,12 +55,10 @@
 		 $resultSolicitutSoci=mysqli_query($connexio,$mySqlInsertSoci); 
 		 disconnect($connexio);		
 		 $dadesVila=mysqli_fetch_row($resultVila);
-		
-		$envio=sendMail($_POST['email'],"Benvinguts!",donarFormat("Hola <b>".$_POST['nomComercial']."</b>!<br>Gràcies pel vostre missatge, aviat passarem a visitar-vos.
+		if($_POST['nomComercial']=='')
+		$envio=sendMail($_POST['email'],"Sol·licitud d'associat rebuda!",donarFormat("Hola <b>".$_POST['nomComercial']."</b>!<br>Gràcies pel vostre missatge, aviat passarem a visitar-vos.
 			"),"soci");
-		echo $envio;
-		
-
+	echo "ok";
 }
 
 ?>

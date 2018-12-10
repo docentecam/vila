@@ -1,3 +1,11 @@
+<?php
+	session_start();
+
+	if (!isset($_SESSION['vila']['email'])) 
+	{
+		header("location: ../");
+	}
+ ?> 
 <div class="row" ng-show="imatgesCarBan">
 	<h1 class="col-lg-4 offset-lg-4 text-center mt-5 mb-3">Imatges del Carousel</h1>
 	<div class="col-lg-4 offset-lg-4 text-center mb-3">Recordeu que la millor opció es tenir entre 2 i 5 imatges</div>
@@ -71,6 +79,7 @@
 				</div>
 			</div>
 		</form>
+		<div id="divMissatge" ng-show="divMsj" class="col-6 offset-3 text-center alert alert-success">{{msj}}</div>
 	<h1 class="col-lg-4 offset-lg-4 text-center mt-5 mb-3">Banners</h1>
 	<div class="cursor col-12 col-lg-8 offset-md-2" ng-show="imatgesBanner.length<=2">
 		<i class=" fas fa-plus-square iconSize mb-3" title="Afegeix imatges" ng-click="insertBanner()"></i>

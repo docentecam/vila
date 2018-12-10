@@ -101,7 +101,7 @@
 				return json_encode($rows);
 			}
 	function mostrarParticipants($tbl_participants,$dataFiramar=""){
-				$mySql="SELECT `idParticipant`, `nomParticipant`, `logoParticipant`, `dataFiramar`	FROM $tbl_participants WHERE `dataFiramar`='".$dataFiramar."'";
+				$mySql="SELECT `nomParticipant`, `logoParticipant`, `dataFiramar`	FROM $tbl_participants WHERE `dataFiramar`='".$dataFiramar."'";
 				$connexio=connect();
 				$resultParticipants=mysqli_query($connexio,$mySql); 
 				disconnect($connexio);
