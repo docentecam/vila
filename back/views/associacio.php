@@ -102,7 +102,7 @@
 	    <div class="form-group col-md-6 col-lg-3 text-center">
 	      <div class="form-row">
 	        <div class="form-group col-12">
-	          <label for="inputLogoBolsaAss" class="col-12 mt-2">Logo de la Bolsa</label>
+	          <label for="inputLogoBolsaAss" class="col-12 mt-2">Logo de la bossa</label>
 	          <img class="img-fluid imgCssAss col-10" ng-src="{{ass.logoBolsa!='' ? '../img/'+ass.logoBolsa : '../img/noimage.png'}}" alt="">
 	        </div>
 	        <div class="form-group col-12">
