@@ -20,7 +20,7 @@
 				</div>
 				<div class="col" ng-class="{ 'has-error' : formNot.descNot.$invalid && !formNot.descNot.$pristine }">
 					<label for="descNot">Descripció:</label>
-					<textarea type="text" class="form-control" ng-model="not.txtNoticia" id="descNot" placeholder="Descripció" name="descNot" required>{{not.txtNoticia}}</textarea>
+					<textarea type="text" class="form-control textarea" ng-model="not.txtNoticia" id="descNot" placeholder="Descripció" name="descNot" required>{{not.txtNoticia}}</textarea>
 				</div>
 			</div>
 			<div class="row">
