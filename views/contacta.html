@@ -152,8 +152,8 @@
 										</div>
 								
 									      <div class="form-check tipoTexto">
-									      <input class="form-check-input" type="checkbox" name="tipoUs" id="gridCheck" ng-checked="true" ng-model="contactaSoci.termes">
-									      <label class="form-check-label" for="gridCheck">
+									      <input class="form-check-input" type="checkbox" name="tipoUs" id="gridCheckFor" ng-checked="true" ng-model="contactaSoci.termes">
+									      <label class="form-check-label" for="gridCheckFor">
 
 									      He llegit i accepto la <a class="PolitPriva" ng-href="#politica" target="_blank">Política de Privadesa.</a>
 
@@ -165,9 +165,7 @@
 							</div>
 						</div><br>
 						<div ng-hide="fitxaSuccess">
-							<span class="my-2 mb-4">Benvingut/a</span><br>
-							<span class="colorRosa">Ara ets un més de la {{contactaLlistat.nom}}!</span><br>
-							<span>Les teves dades s'han registrat correctament i en breus rebràs un correu electrònic de benvinguda. </span><br>
+							<span>Les teves dades s'han registrat correctament, gràcies pel vostre missatge, aviat passarem a visitar-vos.</span><br>
 							<button ng-click="recarga()" class="btn btn-info mt-3">D'acord</button>
 						</div>
 				</div>

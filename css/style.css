@@ -467,7 +467,7 @@ ul, li{
 .tipoSubTituloAso{
 	color: #cb418e!important;
 }
-.tipoTexto, .tipoTextoCenter, .tipoTextoBlanco, .tipoTextoAso, .txtCategoria{
+.tipoTexto, .tipoTextoCenter, .tipoTextoBlanco,.tipoTextoFirmar .tipoTextoAso, .txtCategoria{
 	font-family: 'Roboto', sans-serif;
 	font-weight: 300;
 	font-size: 1em;
@@ -529,6 +529,11 @@ ul, li{
 	background-color: #f0f0f0;
 	border: none;
 }
+
+.tituloBack{
+	font-size: 1em;
+
+}
 @media (max-width: 575px){
 
 	.arrow-circle-rights ,.arrow-circle-lefts{
@@ -551,7 +556,6 @@ ul, li{
 	}
 	.txtMovil{
 		font-size: 1.1em;
-		text-align: center;
 	}
 	.h_divider{
 		height: 1px!important;
