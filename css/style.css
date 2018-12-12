@@ -134,6 +134,13 @@ a.ColorNegre:link, a.ColorNegre:visited, a.ColorNegre:hover{
 a.ColorGris:link, a.ColorGris:visited, a.ColorGris:hover{
 	color:#999999;
 }
+a.ColorBlancoFiramar:hover{
+	color: white!important;
+}
+a.ColorBlancoFiramar:active{
+	color: white!important;
+	box-shadow: 0 0 0 0.2rem rgba(52,58,64,.5);
+}
 
 i,.cursor{
 	cursor:pointer;

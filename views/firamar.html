@@ -1,13 +1,13 @@
 <div class="row">
 	<div class="col-12 text-center p-md-5 p-4" style="max-width: 100%;height: 100%;background-image: url(img/{{vila.cabeceraFiramar}})">
-		<div class="col-12 tipoTextoFirmar text-center">
+		<div class="col-12 tipoTituloBlanco text-center">
 			<span>{{firamar.titolFiramar}}</span> 
 			<span>{{firamar.dataFiramar|limitTo:4}}</span>
 		</div>
 		<br>
 		<div class="h_divider_w mb-1 mt-1 hideMovil"></div>
 		<br>
-		<p class="tipoTextoFirmar">
+		<p class="tipoTextoBlanco">
 			{{firamar.txtFiramar}}
 		</p>
 	</div>
@@ -51,7 +51,7 @@
 		</div>
 	</div>
 </div>
-<div class="modal fade " id="modalFoto" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal fade " id="modalFoto" tabindex="-1" role="dialog" aria-hidden="true" ng-if="fotoModal!=''">
   	<div class="modal-dialog modal-dialog-centered" role="document">
   		<div class="modal-content">
 			<div class="modal-body">
@@ -199,10 +199,7 @@
 	Edicions anteriors
 </div>
 <div class="row">
-		<div ng-repeat="dadesTotesEdicion in dadesTotesEdicions" class="col-md-4 col-12 mb-md-0 mb-3 colorRosa text-center">
-			<button type="button" class="btn btn-outline-dark px-5 py-3"><a class="cursor" ng-href="" ng-click="llistatEdicioFirmar(dadesTotesEdicion.dataFiramar)"><b>{{dadesTotesEdicion.titolFiramar }}</b> - {{dadesTotesEdicion.dataFiramar |limitTo:4}}</a></button>
+		<div ng-repeat="dadesTotesEdicion in dadesTotesEdicions" class="col-md-4 col-12 mb-md-0 mb-3 text-center">
+			<a class=" btn btn-outline-dark px-5 py-3 cursor ColorBlancoFiramar" ng-href="" ng-click="llistatEdicioFirmar(dadesTotesEdicion.dataFiramar)"><b>{{dadesTotesEdicion.titolFiramar }}</b> - {{dadesTotesEdicion.dataFiramar |limitTo:4}}</a>
 		</div>
 </div>
-
-<!-- ALTER TABLE `activitatsfiramar` ADD `idActivitat` INT NOT NULL AUTO_INCREMENT FIRST, ADD PRIMARY KEY (`idActivitat`); -->
-<!-- position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light -->

@@ -83,7 +83,6 @@ angular.module('vila')
 		$scope.vila=res.data.dadesVila[0];
 		$scope.serveis=res.data.dadesServeis;
 		$scope.equip=res.data.dadesVila[0];
-		console.log(res.data.dadesServeis);
 		$scope.equip=res.data.dadesEquip[0];
 		$rootScope.cargador=false;
 		
@@ -99,8 +98,6 @@ angular.module('vila')
 
 .controller('DirectoriCtrl',function($scope,$http,$q,$rootScope,$timeout,$window,$document){
 	$(".dirButton").height(($("#mapId").height())/4);
-	console.log(($("#mapId").height())/4);
-	console.log($("#mapId").height());
 
 
 	$scope.llistat=true;
@@ -274,9 +271,6 @@ angular.module('vila')
 			}
 			supSponsors++;
 		}
-
-
-
 	})
 	.catch(function(error) {
 		$rootScope.cargador=false;
@@ -379,7 +373,6 @@ angular.module('vila')
 			.then(function(res){
 				deferred.resolve(res);
 				$scope.contactaLlistat = res.data[0];
-				// console.log(res.data);
 				$rootScope.cargador=false;
 			})
 
@@ -415,7 +408,6 @@ angular.module('vila')
 			},3000);
 	}
 	else{
-	 console.log("llega");
 		var data = new FormData();
 			data.append("acc","i");
 			data.append("nomContacte",$scope.contactans.nomContacte);
