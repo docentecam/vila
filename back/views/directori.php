@@ -11,7 +11,7 @@
 		<h1 class="col">Llistat d'Associats actius</h1>
 	</div>
 	<div class="row">
-		<a class=" fas fa-plus-square iconSize mb-3 col-12 col-lg-9 offset-lg-1" title="Afegir nou comerç" ng-href="#/newComerc"></a>
+		<a class=" fas fa-plus-square iconSize mb-3 col-1 offset-lg-1" title="Afegir nou comerç" ng-href="#/newComerc"></a>
 	</div>
 	<div class="row table-responsive divTable">
 		<table border="1" class="divTable col-12 col-lg-10 offset-lg-1 text-center tablaSocis" ng-if="(directoris | filter:{'activo':'S'}).length!=0">
@@ -71,8 +71,8 @@
 
  <div ng-hide="dadesComerc">
  	<div class="row">
-		<a ng-href="#/directori" class="col-2 offset-lg-2" >
-			<h5 class="fas fa-angle-double-left text-info">Tornar al direcotri</h5>
+		<a ng-href="#/directori" class="mt-2 col-4 offset-lg-2" >
+			<h5 class="fas fa-angle-double-left text-info">Tornar al directori</h5>
 		</a>
 	</div>
 	<div id="upTop" class="row text-center mt-4 mb-3 titleSocis">
@@ -85,7 +85,7 @@
 				<div class="form-group col-md-6 col-lg-2 offset-lg-5">
 				    <div class="form-row">
 				        <div class="form-group col-12">
-				        	<label for="inputFoto" class="col-12">Logo del comerç</label>
+				        	<label for="inputFoto" class="col-12">Logo del comerç (mida de 155x155px)</label>
 				        	<img class="img-fluid imgCssLogoDir col-10" ng-src="{{com.logoAssociat!='' ? '../img/associats/'+com.logoAssociat : '../img/noimage.png'}}" alt="">
 				        </div>
 				        <div class="form-group col-12">

@@ -1,7 +1,7 @@
 <?php
 	function connect(){
 		
-		//$connexio=@mysqli_connect("localhost","root","","vila");
+		// $connexio=@mysqli_connect("localhost","root","","vila");
 
 		$connexio=@mysqli_connect("bbdd.codigitals.com.es","ddb118414","VilaProves@2018","ddb118414");
 		
@@ -215,7 +215,7 @@
 
 		
 		$mail->AddReplyTo($emailVila);//Dirección de respuesta
-		if ($mailTo!="") $mail->AddAddress($mailTo);//Dirección de envío.
+		$mail->AddAddress($mailTo);//Dirección de envío.
 		$mail->Timeout=5;
 		$mail->IsHTML(true); 
 		$mail->CharSet = 'UTF-8';
@@ -238,10 +238,10 @@
 		$mail->AltBody = $body;
 		//$mail->AddAttachment("ruta/".$nombre_archivo);
 
-		if ($mailTo!="")$exito = $mail->Send();
+		$exito = $mail->Send();
 		$mail->ClearAddresses(); //Eliminamos direcciones destino(por si reutilizamos)
 
-		if ($copia=="si" || $copia=="soci") {
+		if ($copia=="si") {
 			$mail->Subject = "Copia de contacte per formulari ";
 			$mail->AddAddress($emailVila);//Dirección de envío.
 			$exito = $mail->Send();
