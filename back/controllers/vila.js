@@ -834,11 +834,13 @@ angular.module('vila')
 		})
 		.then(function(res){
 			deferred.resolve(res);
+			console.log(res.data);
 			$scope.edicioFiramar=res.data.edicioFiramar[0];
 			$scope.galeriaFiramar=res.data.galeriaFiramar;
 			$scope.sponsorsFiramar=res.data.sponsorsFiramar;
 			$scope.participantsFiramar=res.data.participantsFiramar;
 			$scope.activitatsFiramar=res.data.activitatsFiramar;
+			$scope.capsaleraFiramar=res.data.capsaleraFiramar;
 			$rootScope.cargador=false;
 			$scope.firaSelect=false;
 		})
