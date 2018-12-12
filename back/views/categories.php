@@ -9,7 +9,7 @@
 	<div class="row text-center mt-4 mb-3 titleSocis" id="divTop">
 		<h1 class="col">Llistat de les categories</h1>
 	</div>
-	<div class="row" ng-hide="dadesCateg">
+	<div class="row" ng-hide="dadesCateg" id="divTop">
 	 	<form id="formVila" name="formVila" class="col-12">
 			<div class="form-row">
 			    <div class="form-group col-12 col-lg-4 offset-lg-4">
@@ -37,7 +37,7 @@
 			</div>
 		</form>
 	</div>
-	<div  ng-show="divMsj" class="col-6 offset-3 text-center alert alert-warning">{{msj}}</div>
+	<div id="divMissatge" ng-show="divMsj" class="col-6 offset-3 text-center alert alert-success">{{msj}}</div>
 	<div class="row">
 		<a class=" fas fa-plus-square iconSize mb-3 col-12 col-lg-9 offset-lg-1" title="Afegir nou comerç" ng-click="muestraFormCat(-1)"></a>
 	</div>

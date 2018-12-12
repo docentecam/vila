@@ -1,7 +1,3 @@
-<!-- Raul recuerda vigilar todo, vista controller y model!! es Vila, no Colla!!-->
-	<!-- ^^
-		^^
-		^^ -->
 <!DOCTYPE html> 
 <html ng-app="vilaLogin"> 
 	<head>	
@@ -30,13 +26,12 @@
 		<div class="row text-center mt-5">
 			<form class="col">
 				<div class="row">
-					Llega: <?php echo $_GET['recupera']?>
 					<div class="form-group col-12 col-md-4 offset-md-4">
 						<label for="txtNovContra">Nova Contrasenya</label>
 						<div class="input-group">
 							<input type="password" class="form-control" id="txtNovContra" ng-model="novaContra">
 							<div class="input-group-append">
-					           <span class="input-group-text far fa-eye cursor" id="inputGroupPrepend" ng-click="changePass()"></span>
+					           <span class="input-group-text mr-4" id="inputGroupPrepend" ng-click="changePass()"><i class="far fa-eye cursor" ng-hide="hidePass" title="Ocultar contrasenya"></i><i class="far fa-eye-slash cursor" ng-show="hidePass" title="Mostrar contrasenya"></i></span>
 					        </div>
 					    </div>
 					</div>

@@ -16,8 +16,6 @@
 		<script src="js/angular-route.js"></script>
 		<script src="js/app.js"></script>
 		<script src="controllers/vila.js"></script>
-
-
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 		<!-- <script>
@@ -31,6 +29,7 @@
 			});
 		</script>
 	</head>
+
 	<body>
 		<nav class="navbar navbar-expand-lg navbar-light bg-lg-light rounded">
 			<div class="container py-3 py-xl-0">
@@ -39,7 +38,9 @@
 				</button>
 				
 				<div class="d-lg-none col-m-12 "> 
-					<img class="img-fluid logoVila" ng-src="img/{{vila.logoVila}}" alt="Associació de comerciants Vila Olímpica">
+					<a class="nav-link" ng-href="#">
+					<img class="img-fluid logoVila" ng-src="img/{{vila.logoVila}}" alt="Associació de comerciants Vila Olímpica de Barcelona">
+					</a>
 				</div>
 
 				<div class="collapse navbar-collapse justify-content-md-center navReduced" id="navbarVila">
@@ -83,6 +84,7 @@
 				</div>
 			</div>
 		</nav>
+
 		<div class="h_divider hidemovil"></div>
 
 		<div class="row">
@@ -90,62 +92,64 @@
 				<div id="cargador" class="cargador" ng-show="cargador">
 					<img ng-src="img/loading.svg" class="preloader">
 				</div>
-
 				<div data-ng-view=""></div>
 			</div>
 		</div>
 
-		<!-- <div class="h_divider mt-4"></div> -->
-
 		<footer class="mt-md-5 mt-2">
 			<div class="container col-sm-12 col-xl-8 tipoTexto centrarFooterMovil">
-			<div class="row">
-				<div class=" col-lg-4 mt-3 col-md-4 order-3 order-sm-1 order-md-1">
-					<ul>
-						<li>Parle'm-ne!</li>
-						<li><i class="far fa-envelope"></i><a class="tipoTexto no-padding" ng-href="mailto:{{vila.email}}" target="_blank" title="Enviar correu">{{vila.email}}</a></li>
-						<a class="fab fa-whatsapp fa-1x ml-1 ColorGris" ng-href="https://api.whatsapp.com/send?phone=34{{vila.telf}}"  target="_blank" title="Enviar whatsapp"></a>
-						<a class="tipoTexto ColorNegre ml-2" ng-href="tel:{{vila.telf}}" target="_blank" title="Trucar per telèfon">
-						{{vila.telf}}</a>
-						<li>Troban's aquí:</li>
-						<li>
-							<div>
-								<a ng-href="{{vila.facebook}}" target="_blank">
-									<i class="fab fa-facebook-square fa-2x "></i>
-								</a>
-							</div>
-						</li>
-					</ul>
-				</div>
-				<div class=" col-lg-3 col-md-4 offset-xs-none mt-3 order-1 order-sm-2 order-md-2 text-center"> 
-					<img class="img-fluid mb-3" ng-src="img/{{vila.logoVila}}" title="Vila activa" alt="vila activa"><br>
-					<span class="text-center">{{vila.nom}}</span>
-				</div>
-				<div class=" col-lg-3 col-md-4 offset-lg-1 mt-4 order-2 order-sm-3 order-md-3">
-					<div class="col-12" >
-						<a class="ColorGris" ng-href="#noticies">Notícies</a>
+				<div class="row">
+					<div class=" col-lg-4 mt-3 col-md-4 order-3 order-sm-1 order-md-1">
+						<ul>
+							<li>Troba'ns aquí:</li>
+							<li>
+								<i class="far fa-envelope fa-1x"></i>
+
+								<a class="tipoTexto no-padding" ng-href="mailto:{{vila.email}}" target="_blank" title="Enviar correu">{{vila.email}}</a>
+							</li>
+
+
+							<li>
+								<i class="fab fa-whatsapp fa-1x ColorGris" ng-href="https://api.whatsapp.com/send?phone=34{{vila.telf}}"  target="_blank" title="Enviar whatsapp"></i>
+								
+								<a class="tipoTexto ColorNegre" ng-href="tel:{{vila.telf}}" target="_blank" title="Trucar per telèfon">
+								{{vila.telf}}</a>
+							</li>
+
+
+							<li>
+								<i class="fab fa-facebook-square fa-1x"></i>
+
+								<a class="tipoTexto ColorNegre" ng-href="{{vila.facebook}}" target="_blank" title="Pàgina de facebook">
+								{{vila.nom}}</a>
+							</li>
+						</ul>
 					</div>
-					<div class="h_divider_footer col-12">
-						<a class="ColorGris" ng-href="#contacta">Contactan's</a>
+					<div class=" col-lg-3 col-md-4 offset-xs-none mt-3 order-1 order-sm-2 order-md-2 text-center"> 
+						<img class="img-fluid mb-3" ng-src="img/{{vila.logoVila}}" title="Vila activa" alt="vila activa"><br>
+						<span class="text-center">{{vila.nom}}</span>
 					</div>
 					<div class="h_divider_footer col-12" >
 						<a class="ColorGris" ng-href="#politica">Política de Privacitat</a>
+
+					<div class=" col-lg-3 col-md-4 offset-lg-1 mt-4 order-2 order-sm-3 order-md-3">
+						<div class="col-12" >
+							<a class="ColorGris" ng-href="#noticies">Notícies</a>
+						</div>
+						<div class="h_divider_footer col-12">
+							<a class="ColorGris" ng-href="#contacta">Contactan's</a>
+						</div>
 					</div>
 				</div>
-			</div>
-			<div class="row">
-				<div class="h_divider_footer col-12"></div>
-			</div>
-<!-- VERIFICAR LO BUENO -->
-			<div class="row justify-content-center">
-				<div class="col-12 col-md-10 offset-md-1 tipoTexto text-center my-4">Web dissenyat i elaborat pels/les alumnes de la Casa d’Oficis Barris Digitals de Barcelona Activa<img class="col-9 col-md-5 col-lg-3 img-fluid" ng-src="img/logosProjecte/logoBassa_1.png">
-				</div>	
-			</div>
-		</div>
+				<div class="row">
+					<div class="h_divider_footer col-12"></div>
+				</div>
 
-			<!-- <div class="col-12 col-md-10 offset-md-1 tipoTexto my-4 text-center">Web dissenyat i elaborat pels/les alumnes de la Casa d’Oficis Barris Digitals de Barcelona Activa<img class="col-9 col-md-5 col-lg-2 img-fluid mt-3 mt-md-0" ng-src="img/logosProjecte/logoBassa.PNG">
-			</div>	 -->	
-<!-- VERIFICAR LO BUENO -->
+				<div class="row justify-content-center">
+					<div class="col-12 col-md-10 offset-md-1 tipoTexto text-center my-4">Web dissenyat i elaborat pels/les alumnes de la Casa d’Oficis Barris Digitals de Barcelona Activa<img class="col-9 col-md-5 col-lg-3 img-fluid" ng-src="img/logosProjecte/logoBassa_1.png">
+					</div>	
+				</div>
+			</div>
 		</footer>
 
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
