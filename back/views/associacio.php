@@ -87,11 +87,12 @@
 	</div>	
 	</form>
 	<div class="form-row">
-		<div class="form-group col-md-6 col-lg-3 offset-lg-1 text-center">
+		<div class="col-lg-1"></div>
+		<div class="form-group col-md-4 col-lg text-center">
 	      <div class="form-row">
 	        <div class="form-group col-12">
 	          <label for="inputLogoVilaAss" class="col-12 mt-2">Logo de la Vila</label>
-	          <img class="img-fluid imgCssAss col-10" ng-src="{{ass.logoVila!='' ? '../img/'+ass.logoVila : '../img/noimage.png'}}" alt="">
+	          <img class="col-10 img-fluid imgCssAss" ng-src="{{ass.logoVila!='' ? '../img/'+ass.logoVila : '../img/noimage.png'}}" alt="">
 	        </div>
 	        <div class="form-group col-12" >
 	          <label for="btnVilaLogoAss" class="col-12 text-primary cursor align-self-end"><u>Cambiar Imatge</u>&nbsp;<i class="fas fa-search add-examinar cursor" aria-hidden="true"></i></label>
@@ -99,7 +100,19 @@
 	        </div>
 	      </div>  
 	    </div>
-	    <div class="form-group col-md-6 col-lg-3 text-center">
+	    <div class="form-group col-md-4 col-lg-2 text-center">
+	      <div class="form-row">
+	        <div class="form-group col-12">
+	          <label for="inputCabeceraAss" class="col-12 mt-2">Capçalera Associacio.</label>
+	          <img class="img-fluid imgCssAss col-10" ng-src="{{ass.cabeceraAssociacio!='' ? '../img/'+ass.cabeceraAssociacio : '../img/noimage.png'}}" alt="">
+	        </div>
+	        <div class="form-group col-12">
+	          <label for="btnCabeceraAss" class="col-12 text-primary cursor align-self-end"><u>Cambiar Imatge</u>&nbsp;<i class="fas fa-search add-examinar cursor" aria-hidden="true"></i></label>
+	          <input type="file" id="btnCabeceraAss" name="btnCabeceraAss" onchange="angular.element(this).scope().getFileDetails(this,'cabeceraAssociacio')" ng-show="false"/>
+	        </div>
+	      </div>  
+	    </div>
+	    <div class="form-group col-md-4 col-lg-2 text-center">
 	      <div class="form-row">
 	        <div class="form-group col-12">
 	          <label for="inputLogoBolsaAss" class="col-12 mt-2">Logo de la bossa</label>
@@ -111,7 +124,7 @@
 	        </div>
 	      </div>  
 	    </div>
-    	<div class="form-group col-md-6 col-lg-3 text-center">
+    	<div class="form-group col-md-4 col-lg-2 text-center">
 	      <div class="form-row">
 	        <div class="form-group col-12">
 	          <label for="inputFavIconAss" class="col-12 mt-2">Imatge pestanya</label>
@@ -123,6 +136,8 @@
 	        </div>
 	      </div>  
 	    </div>
+	    <div class="col-lg-1"></div>
+
 	</div>
 	<button id="goTop" class="goToTop btn btn-primary " value="Pujar" ng-click="goTop()">
 		<span class="d-none d-lg-inline">Pujar</span>
