@@ -8,7 +8,7 @@
  ?> 
 <div class="row" ng-show="imatgesCarBan">
 	<h1 class="col-lg-4 offset-lg-4 text-center mt-5 mb-3">Imatges del Carousel</h1>
-	<div class="col-lg-4 offset-lg-4 text-center mb-3">Recordeu que la millor opció es tenir entre 2 i 5 imatges</div>
+	<div class="col-lg-4 offset-lg-4 text-center mb-3">Recordeu que la millor opció es tenir entre 2 i 5 imatges (la mida de les imatges ha de ser de 1024x500px)</div>
 	<div class="row">
 		<label for="insertImg" class="cursor col-12 offset-md-2">
 			<i class=" fas fa-plus-square iconSize mb-3" title="Afegeix imatges"></i>
@@ -36,7 +36,6 @@
 				    </div>
 				</div>
 			</div>
-					<!-- muestraaaaaa nom comercial 1er formulario********* -->
 			<div class="form-row">
 				<div class="form-group col-12 col-lg-4 offset-lg-4 mb-3" ng-show="muestraInput=='directori'">
 					<select name="nomAssociat" id="nomAssociat" ng-model="associatSel">
@@ -81,6 +80,7 @@
 		</form>
 		<div id="divMissatge" ng-show="divMsj" class="col-6 offset-3 text-center alert alert-success">{{msj}}</div>
 	<h1 class="col-lg-4 offset-lg-4 text-center mt-5 mb-3">Banners</h1>
+	<div class="col-lg-4 offset-lg-4 text-center mb-3">(la mida de les imatges ha de ser de 680x66px)</div>
 	<div class="cursor col-12 col-lg-8 offset-md-2" ng-show="imatgesBanner.length<=2">
 		<i class=" fas fa-plus-square iconSize mb-3" title="Afegeix imatges" ng-click="insertBanner()"></i>
 	</div>

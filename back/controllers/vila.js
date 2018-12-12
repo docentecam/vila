@@ -1,6 +1,4 @@
 angular.module('vila')
-.controller('IniciCtrl',function($scope,$http,$q,$rootScope,$timeout){
-})
 .controller('AssociCtrl',function($scope,$http,$q,$rootScope,$timeout){
 	var data = new FormData();
 		data.append("acc", "l");
@@ -63,6 +61,7 @@ angular.module('vila')
 		$scope.ass.longitud=$scope.vila.longitud;
 		$scope.ass.LGPD=$scope.vila.LGPD;
 		$scope.ass.URLWeb=$scope.vila.URLWeb;
+		$scope.ass.cabeceraAssociacio=$scope.vila.cabeceraAssociacio;
 	})
 	.catch(function(error) {
 		$rootScope.cargador=false;
@@ -89,6 +88,7 @@ angular.module('vila')
 				data.append("longitud",$scope.ass.longitud);
 				data.append("LGPD",$scope.ass.LGPD);
 				data.append("URLWeb",$scope.ass.URLWeb);
+				data.append("cabeceraAssociacio",$scope.ass.cabeceraAssociacio);
 				var deferred=$q.defer();
 			$rootScope.cargador=true;
 			$http.post("models/associacio.php", data,{
@@ -138,6 +138,10 @@ angular.module('vila')
 				data.append("logoOld", $scope.ass.favIcon);
 
 			}
+			else if(nomCamp=="cabeceraAssociacio"){
+				data.append("logoOld", $scope.ass.cabeceraAssociacio);
+			}
+			// console.log("Actualizamos campo "+nomCamp+" Borramos fichero"+$scope.ass.cabeceraAssociacio+" Subimos fichero"+e.files[0]);
 			 var deferred=$q.defer();
 			 $http.post("models/associacio.php", data,{
 				headers:{
@@ -157,6 +161,10 @@ angular.module('vila')
 					}
 					else if(nomCamp=="favIcon"){
 						$scope.ass.favIcon=res.data;
+
+					}
+					else if(nomCamp=="cabeceraAssociacio"){
+						$scope.ass.cabeceraAssociacio=res.data;
 
 					}				
 				})
@@ -380,7 +388,7 @@ angular.module('vila')
 			|| $scope.com.facebook=="" || $scope.com.URLWeb=="" 
 			|| $scope.com.latitud==""|| $scope.com.longitud=="" 
 			|| $scope.com.horari=="" || $scope.com.txtAssociat==""
-			|| $scope.com.telf1==""){console.log("entra");
+			|| $scope.com.telf1==""){
 			$scope.msj="Les dades no s'han actualitzat correctament. Sisplau ompli els camps buits";
 		    $( "#divMissatge" ).removeClass( "alert-success" ).addClass( "alert-danger" );
 			$timeout(function() {
@@ -1112,10 +1120,6 @@ angular.module('vila')
 					$rootScope.cargador=false;
 				});
 	}
-	$scope.guardaNovaEdicio=function(){
-		console.log("Guarda nueva");
-	}
-
 	$scope.guardaEdicio=function(){
 		if($scope.edicioFiramar.titolFiramar=="" || $scope.edicioFiramar.txtFiramar=="" || $scope.edicioFiramar.fecha==""){	
 			$scope.msj="Les dades no s'han actualitzat correctament. Sisplau ompli els camps buits";

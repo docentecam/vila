@@ -79,7 +79,6 @@ appLogin.controller ('LoginCtrl', function($scope, $http, $q, $timeout, $rootSco
 		});
 	}
 	$scope.recontra=function(){
-		console.log($scope.usuari.vila);
 		$scope.divError=false;
 		var data = new FormData();
 			data.append("acc","Envia");
@@ -96,7 +95,6 @@ appLogin.controller ('LoginCtrl', function($scope, $http, $q, $timeout, $rootSco
 		})
 		.then(function (res) {
 			deferred.resolve(res);
-			console.log(res.data);
 			$scope.usuari.vila="";
 			$scope.usuari.contra="";
 			if(res.data==0){

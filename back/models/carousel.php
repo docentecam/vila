@@ -28,6 +28,7 @@
 			$resultBanner=mysqli_query($connexio,$mySql2);
 			disconnect($connexio);
 			move_uploaded_file($_FILES["fotoBanner"]["tmp_name"], "../../img/banners/".$file);
+			unlink("../../img/banners/".$_POST['fotoBanner']);
 		}
 		
 		echo fotosBanner($tbl_banner,$tbl_directori);

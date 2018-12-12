@@ -270,15 +270,13 @@ a:hover {
 		font-size: 1.5em;
 	}
 	.botonesSerCss{
-	margin-left: 5%;
+		margin-left: 5%;
 	}
 	.iniciImgCss{
-	object-fit: scale-down;
-	width: 100%;
-	position: relative;
-    top: 50%;
-    left: 50%;
-	transform: translate(-50%, -50%);
+		object-fit: scale-down;
+		width: 100%;
+		position: relative;
+	    top: 50%;
 	}
 }
 @media (min-width: 576px) and (max-width: 767px){
@@ -296,12 +294,10 @@ a:hover {
 		font-size: 1.5em;
 	}
 	.iniciImgCss{
-	object-fit: scale-down;
-	width: 100%;
-	position: relative;
-    top: 50%;
-    left: 50%;
-	transform: translate(-50%, -50%);
+		object-fit: scale-down;
+		width: 100%;
+		position: relative;
+	    top: 50%;
 	}
 }
 @media (min-width: 768px) and (max-width: 991px){
@@ -313,20 +309,16 @@ a:hover {
 		font-size: 1.5em;
 	}
 	.AssNotiAllCss{
-	margin-right: 15%;
-	margin-left: 15%;
-	}
+		margin-right: 15%;
+		margin-left: 15%;
+		}
 	.botonesSerCss{
-	margin-left: 2%;
+		margin-left: 2%;
 	}
 	.iniciImgCss{
-	object-fit: scale-down;
-	width: 100%;
-	height: 500px;
-	position: relative;
-    top: 50%;
-    left: 50%;
-	transform: translate(-50%, -50%);
+		object-fit: scale-down;
+		width: 100%;
+		position: relative;
 	}
 	.spacingIconsSerCss{
 		margin-left: 2%!important;
@@ -389,17 +381,13 @@ a:hover {
 		font-size: 1.5em;
 	}
 	.AssNotiAllCss{
-	margin-right: 15%;
-	margin-left: 15%;
+		margin-right: 15%;
+		margin-left: 15%;
 	}
 	.iniciImgCss{
-	object-fit: scale-down;
-	width: 100%;
-	height: 500px;
-	position: relative;
-    top: 50%;
-    left: 50%;
-	transform: translate(-50%, -50%);
+		object-fit: scale-down;
+		width: 100%;
+		position: relative;
 	}
 	.spacingIconsSerCss{
 		margin-left: 1%!important;
@@ -411,24 +399,20 @@ a:hover {
 		width: 50px;
 	}
 	.AgregCss {
-	padding-left: 30px;
+		padding-left: 30px;
 	}
 	.iconSize{
 		padding: 0px;
 		font-size: 1.5em!important;
 	}
 	.AssNotiAllCss{
-	margin-right: 15%;
-	margin-left: 15%;
+		margin-right: 15%;
+		margin-left: 15%;
 	}
 	.iniciImgCss{
-	object-fit: scale-down;
-	width: 100%;
-	height: 500px;
-	position: relative;
-    top: 50%;
-    left: 50%;
-	transform: translate(-50%, -50%);
+		object-fit: scale-down;
+		width: 100%;
+		position: relative;
 	}
 	.spacingIconsSerCss{
 		margin-left: 1%!important;
