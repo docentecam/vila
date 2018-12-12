@@ -199,10 +199,7 @@
 	Edicions anteriors
 </div>
 <div class="row">
-		<div ng-repeat="dadesTotesEdicion in dadesTotesEdicions" class="col-md-4 col-12 mb-md-0 mb-3 colorRosa text-center">
-			<button type="button" class="btn btn-outline-dark px-5 py-3"><a class="cursor" ng-href="" ng-click="llistatEdicioFirmar(dadesTotesEdicion.dataFiramar)"><b>{{dadesTotesEdicion.titolFiramar }}</b> - {{dadesTotesEdicion.dataFiramar |limitTo:4}}</a></button>
+		<div ng-repeat="dadesTotesEdicion in dadesTotesEdicions" class="col-md-4 col-12 mb-md-0 mb-3 text-center">
+			<a class=" btn btn-outline-dark px-5 py-3 cursor ColorBlancoFiramar" ng-href="" ng-click="llistatEdicioFirmar(dadesTotesEdicion.dataFiramar)"><b>{{dadesTotesEdicion.titolFiramar }}</b> - {{dadesTotesEdicion.dataFiramar |limitTo:4}}</a>
 		</div>
 </div>
-
-<!-- ALTER TABLE `activitatsfiramar` ADD `idActivitat` INT NOT NULL AUTO_INCREMENT FIRST, ADD PRIMARY KEY (`idActivitat`); -->
-<!-- position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light -->
