@@ -14,7 +14,7 @@
 		<a class=" fas fa-plus-square iconSize mb-3 col-1 offset-lg-1" title="Afegir nou comerç" ng-href="#/newComerc"></a>
 	</div>
 	<div class="row table-responsive divTable">
-		<table border="1" class="divTable col-12 col-lg-10 offset-lg-1 text-center tablaSocis" ng-if="(directoris | filter:{'activo':'S'}).length!=0">
+		<table border="1" class="divTable col-12 col-xl-10 offset-xl-1 text-center tablaSocis" ng-if="(directoris | filter:{'activo':'S'}).length!=0">
 			<tr>
 				<th class="cursor" ng-click="columnOrder('nomAssociat')">Nom del Comerç</th>
 				<th class="cursor" ng-click="columnOrder('nomCategoria')">Categoria Principal</th>
@@ -46,7 +46,7 @@
 		<h1 class="col">Llistat d'Associats inactius</h1>
 	</div>
 	<div class="row table-responsive divTable">
-		<table border="1" class="divTable col-12 col-lg-10 offset-lg-1 text-center tablaSocis" ng-if="(directoris | filter:{'activo':'N'}).length!=0">
+		<table border="1" class="divTable col-12 col-xl-10 offset-xl-1 text-center tablaSocis" ng-if="(directoris | filter:{'activo':'N'}).length!=0">
 			<tr>
 				<th class="cursor" ng-click="columnOrder('nomAssociat')">Nom del Comerç</th>
 				<th>Telèfon 1</th>

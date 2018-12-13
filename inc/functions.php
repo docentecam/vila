@@ -1,13 +1,10 @@
 <?php
 	function connect(){
 		
-<<<<<<< HEAD
-		$connexio=@mysqli_connect("localhost","root","","vila");
-=======
 		// $connexio=@mysqli_connect("localhost","root","","vila");
->>>>>>> e34f3bda87a138c30f4ad9d723a8aa6d8f65b8bd
 
-		// $connexio=@mysqli_connect("bbdd.codigitals.com.es","ddb118414","VilaProves@2018","ddb118414");
+
+		$connexio=@mysqli_connect("bbdd.codigitals.com.es","ddb118414","VilaProves@2018","ddb118414");
 		
 		if(!$connexio){
 			die("error al conectar");
