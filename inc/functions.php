@@ -239,7 +239,7 @@
 		//$mail->AddAttachment("ruta/".$nombre_archivo);
 
 		$exito = $mail->Send();
-		$mail->ClearAddresses(); //Eliminamos direcciones destino(por si reutilizamos)
+		$mail->ClearAddresses(); 
 
 		if ($copia=="si") {
 			$mail->Subject = "Copia de contacte per formulari ";
@@ -248,7 +248,7 @@
 			$mail->ClearAddresses();
 		}
 		
-		// Informamos tanto si ha ido bien como si ha ido mal
+		
 		if(!$exito){
 			return  $mail->ErrorInfo;		
 		}

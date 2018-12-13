@@ -56,21 +56,6 @@
 					
 			return json_encode($rows);
 
-			// $i=0; 
-
-			// $dataHome.='","noticiesDestacades":[';
-
-			// $i=0; 
-			// while ($row=mysqli_fetch_array($resultDadesNoticies)) {
-			// 	if ($i!=0) {
-			// 		$dataHome.=",";	
-			// 	}
-			// 	$i++;
-			// 	$dataHome.='{"idNoticia":"'.$row['idNoticia'].'","dataNoticia":"'.$row['dataNoticia'].'","principal":"'.$row['principal'].'","titular":"'.replaceFromBBDD($row['titolNoticia']).'","descripcio":"'.replaceFromBBDD($row['txtNoticia']).'","fotoNoticia":"'.$row['fotoNoticia'].'"}';
-			// }
-
-			// $dataHome.=']}';
-			// echo $dataHome;
 
 		}
 
