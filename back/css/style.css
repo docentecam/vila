@@ -123,9 +123,6 @@ a:hover {
 .FacebookAssCss{
 	font-size: 1.5rem;
 }
-.imgCssAss{
-	height: 78%;
-}
 .passwordAss{
 	border-radius: 0.25rem 0rem 0rem 0.25rem !important;
 	width: 67%;
@@ -278,6 +275,9 @@ a:hover {
 		position: relative;
 	    top: 50%;
 	}
+	.AgregarImgCabeceraCssAss{
+		margin-top: 2%;
+	}
 }
 @media (min-width: 576px) and (max-width: 767px){
 	.imglogonav{
@@ -298,6 +298,9 @@ a:hover {
 		width: 100%;
 		position: relative;
 	    top: 50%;
+	}
+	.AgregarImgCabeceraCssAss{
+		margin-top: 2%;
 	}
 }
 @media (min-width: 768px) and (max-width: 991px){
@@ -322,6 +325,9 @@ a:hover {
 	}
 	.spacingIconsSerCss{
 		margin-left: 2%!important;
+	}
+	.AgregarImgCabeceraCssAss{
+		margin-top: 1%;
 	}
 }
 @media (max-width: 991px){
@@ -392,6 +398,12 @@ a:hover {
 	.spacingIconsSerCss{
 		margin-left: 1%!important;
 	}
+	.EspacioAgregarImgLogoYFavicon{
+		margin-top: -3%;
+	}
+	.EspacioAgregarImgLogoVila{
+		margin-top: -1%;
+	}
 }
 @media (min-width: 1200px){
 	.imglogonav{
@@ -416,6 +428,9 @@ a:hover {
 	}
 	.spacingIconsSerCss{
 		margin-left: 1%!important;
+	}
+	.AgregarImgCabeceraCssAss{
+		margin-top: 7%;
 	}
 
 }	
