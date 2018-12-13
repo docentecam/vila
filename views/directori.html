@@ -15,12 +15,6 @@
 <div class="mb-1 mt-md-4 mb-md-4 txtMovil tipoTituloHome text-center">
 	Associats
 </div>
-
-<!-- 
-					 data-srcset="https://placehold.it/800x400 800w 400h,
-							https://placehold.it/1200x600 1200w" -->
-
-
 <div class="card-columns">
 	<div ng-repeat="associat in associats " ng-href="#/directori/{{associat.idAssociat}}" class="col-12 mb-4 p-2">
   		<div class="card" style="border: solid; border-width: 0.5em; border-color: #f0f0f0;">
@@ -56,60 +50,3 @@
 	  </div>
 	</div>
 </div>
-
-<!-- <div class="row">	
-	<div ng-repeat="associat in associats " ng-href="#/directori/{{associat.idAssociat}}" class="col-12 col-md-6 mb-4">
-		<div class="row align-items-center estiloAso">
-			<div class="col">
-				<div class="card">
-					<div class="group">
-						<div class="group-item">
-							<div class="imagecontainer is-cover">	
-								<a ng-href="#/directori/{{associat.idAssociat}}">
-									<img ng-src="{{associat.logoAssociat!=''?'img/associats/'+associat.logoAssociat:'img/noimage.png'}}" class="imagecontainer-img lazyload" alt="associat">
-								</a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			
-			
-			<div class="col">
-				<div class="tipoSubTitulo mb-1">
-					<a ng-href="#/directori/{{associat.idAssociat}}">
-					{{associat.nomAssociat}}
-					</a>
-				</div>
-
-				<div class="tipoTexto mb-1" ng-repeat="categoria in categoriaassociat | filter:{idAssociat:associat.idAssociat}:true">
-					{{categoria.nomCategoria}}
-				</div>
-
-				<div class="tipoTexto">
-					{{associat.adreca}}
-				</div>
-
-				<div class="tipoTexto">
-					{{associat.telf1}}
-					{{associat.telf2}}
-					{{associat.email}}
-				</div>
-			</div>
-		</div>
-	</div>		
-</div> -->
-
-
-<!-- 
-
-Hacer que aparezca sólo: EL TELÉFONO 1 (en caso de que no haya) TELÉFONO 2 (en caso de que no haya) MAIL
-
-preguntamos en el mail a la vila: ¿todo el mundo tendrá un teléfono?
-respuesta: pendiente
-
-IMPORTANTE!
-asegurarse de tener respuesta antes de solucionar el problema
-                                                                -Raquel
-
- -->

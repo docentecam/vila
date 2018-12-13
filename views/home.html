@@ -5,28 +5,52 @@
 		<img src="img/{{vila.logoVila}}">
 	</div>
 </div>
+<div class="d-none d-md-inline">
+	<div id="carouselNoMovilHome" class="carousel slide" data-ride="carousel">
+		<ol class="carousel-indicators hidemovil">
+			<li data-target="#carouselNoMovilHome" data-slide-to="{{$index}}" ng-repeat="carousel in carousels" ng-class="{'active': $index==0}"></li>
+		</ol>
 
-<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-	<ol class="carousel-indicators hidemovil">
-		<li data-target="#carouselExampleIndicators" data-slide-to="{{$index}}" ng-repeat="carousel in carousels" ng-class="{'active': $index==0}"></li>
-	</ol>
+		<div class="carousel-inner carousel text-center">
+			<div class="carousel-item" ng-repeat="carousel in carousels" ng-class="{'active': $index==0}">
+				<img class=" img-fluid " ng-src="{{carousel.fotoCarousel!=''?'img/carousel/'+carousel.fotoCarousel:'img/noimage.png'}}" alt="Carousel {{$index}}"> 
+			</div>
+		</div>
 
-	<div class="carousel-inner carousel text-center">
-		<div class="carousel-item" ng-repeat="carousel in carousels" ng-class="{'active': $index==0}">
-			<img class=" img-fluid " ng-src="{{carousel.fotoCarousel!=''?'img/carousel/'+carousel.fotoCarousel:'img/noimage.png'}}" alt="Carousel {{$index}}"> 
+		<a class="carousel-control-prev" role="button" data-target="#carouselNoMovilHome" data-slide="prev">
+			<span class="arrow-circle-lefts"><i class="fas fa-arrow-circle-left"></i></span>
+			<span class="sr-only">Anterior</span>
+		</a>
+		<a class="carousel-control-next" role="button" data-target="#carouselNoMovilHome" data-slide="next">
+	    	<span class="arrow-circle-rights"><i class="fas fa-arrow-circle-right"></i></span>
+		 	<span class="sr-only">Següent</span>
+		</a>
+	</div>
+</div>
+<div class="row">
+	<div class="d-md-none">
+		<div id="carouselMovilHome" class="carousel slide" data-ride="carousel">
+			<ol class="carousel-indicators hidemovil">
+				<li data-target="#carouselMovilHome" data-slide-to="{{$index}}" ng-repeat="carousel in carousels" ng-class="{'active': $index==0}"></li>
+			</ol>
+
+			<div class="carousel-inner carousel text-center">
+				<div class="carousel-item" ng-repeat="carousel in carousels" ng-class="{'active': $index==0}">
+					<img class=" img-fluid " ng-src="{{carousel.fotoCarousel!=''?'img/carousel/'+carousel.fotoCarousel:'img/noimage.png'}}" alt="Carousel {{$index}}"> 
+				</div>
+			</div>
+
+			<a class="carousel-control-prev" role="button" data-target="#carouselMovilHome" data-slide="prev">
+				<span class="arrowLeftPhone"><i class="fas fa-arrow-circle-left"></i></span>
+				<span class="sr-only">Anterior</span>
+			</a>
+			<a class="carousel-control-next" role="button" data-target="#carouselMovilHome" data-slide="next">
+		    	<span class="arrowRightPhone"><i class="fas fa-arrow-circle-right"></i></span>
+			 	<span class="sr-only">Següent</span>
+			</a>
 		</div>
 	</div>
-
-	<a class="carousel-control-prev" role="button" data-target="#carouselExampleIndicators" data-slide="prev">
-		<span class="arrow-circle-lefts"><i class="fas fa-arrow-circle-left"></i></span>
-		<span class="sr-only">Anterior</span>
-	</a>
-	<a class="carousel-control-next" role="button" data-target="#carouselExampleIndicators" data-slide="next">
-    	<span class="arrow-circle-rights"><i class="fas fa-arrow-circle-right"></i></span>
-	 	<span class="sr-only">Següent</span>
-	</a>
 </div>
-
 <div class="mb-1 my-md-5 my-3 txtMovil tipoTituloHome text-center">
 	Notícies destacades
 </div>
