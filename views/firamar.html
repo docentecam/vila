@@ -1,13 +1,13 @@
 <div class="row">
 	<div class="col-12 text-center p-md-5 p-4" style="max-width: 100%;height: 100%;background-image: url(img/{{vila.cabeceraFiramar}})">
-		<div class="col-12 tipoTituloBlanco text-center">
+		<div class="col-12 tipoTextoFirmar text-center">
 			<span>{{firamar.titolFiramar}}</span> 
 			<span>{{firamar.dataFiramar|limitTo:4}}</span>
 		</div>
 		<br>
 		<div class="h_divider_w mb-1 mt-1 hideMovil"></div>
 		<br>
-		<p class="tipoTextoBlanco">
+		<p class="tipoTextoFirmar">
 			{{firamar.txtFiramar}}
 		</p>
 	</div>
@@ -51,7 +51,7 @@
 		</div>
 	</div>
 </div>
-<div class="modal fade " id="modalFoto" tabindex="-1" role="dialog" aria-hidden="true" ng-if="fotoModal!=''">
+<div class="modal fade " id="modalFoto" tabindex="-1" role="dialog" aria-hidden="true">
   	<div class="modal-dialog modal-dialog-centered" role="document">
   		<div class="modal-content">
 			<div class="modal-body">
@@ -126,17 +126,22 @@
 				</div>
 			</div>
 		</div>
+		
+
 		<a class="carousel-control-prev" role="button" data-target="#carouselNoMovilSponsors" data-slide="prev" ng-show="sponsorsDiv.length>1">
+			<!-- <span class="carousel-control-prev-icon" aria-hidden="true" ></span> -->
 			<span class="arrow-circle-lefts"><i class="fas fa-arrow-circle-left"></i></span>
 			<span class="sr-only">Anterior</span>
 		</a>
 		<a class="carousel-control-next" role="button" data-target="#carouselNoMovilSponsors" data-slide="next"  ng-show="sponsorsDiv.length>1">
+	    	<!-- <span class="carousel-control-next-icon" aria-hidden="true"></span> -->
 	    	<span class="arrow-circle-rights"><i class="fas fa-arrow-circle-right"></i></span>
 	 		<span class="sr-only">Següent</span>
 		</a>
 		</div>
 	</div>
 </div>
+<<<<<<< HEAD
 <div class="row">
 	<div class="d-md-none">
 		<div id="carouselMovilSponsor" class="carousel slide" data-ride="carousel">
@@ -145,6 +150,46 @@
 					<img class=" img-fluid col-12" ng-src="{{sponsor.logoSponsor!=''?'img/sponsors/'+sponsor.logoSponsor:'img/noimage.png'}}" alt="Sponsor {{$index}}">
 			    </div>
 			</div>
+=======
+
+<!-- <div class="row">
+	<div class="d-none d-md-inline">
+		<div id="carouselNoMovilSponsors" class="carousel slide" data-ride="carousel">
+
+		<div class="carousel-inner carousel text-center">
+			<div class="carousel-item" ng-repeat="sponsor in sponsorsDiv" ng-class="{'active': $index==0}">
+				<img class=" img-fluid col-3" ng-src="{{imatge.logoSponsor!=''?'img/sponsors/'+imatge.logoSponsor:'img/noimage.png'}}" alt="Sponsor {{$index+imatge.logoSponsor}}"  ng-repeat="imatge in sponsorsDiv[$index]">
+				
+			</div>
+		</div>
+		
+
+		<a class="carousel-control-prev" role="button" data-target="#carouselNoMovilSponsors" data-slide="prev" ng-show="sponsorsDiv.length>1">
+
+			<span class="arrow-circle-lefts"><i class="fas fa-arrow-circle-left"></i></span>
+			<span class="sr-only">Anterior</span>
+		</a>
+		<a class="carousel-control-next" role="button" data-target="#carouselNoMovilSponsors" data-slide="next"  ng-show="sponsorsDiv.length>1">
+
+	    	<span class="arrow-circle-rights"><i class="fas fa-arrow-circle-right"></i></span>
+	 		<span class="sr-only">Següent</span>
+		</a>
+		</div>
+	</div>
+</div> -->
+
+<div class="d-md-none">
+	<div id="carouselMovilSponsor" class="carousel slide" data-ride="carousel">
+		<!-- <ol class="carousel-indicators">
+			<li data-target="#carouselMovil" data-slide-to="0" class="active"></li>
+			<li data-target="#carouselMovil" data-slide-to="1"></li>
+			<li data-target="#carouselMovil" data-slide-to="2"></li>
+		</ol> -->
+		<div class="carousel-inner carousel text-center">
+			<div class="carousel-item" ng-repeat="sponsor in sponsors" ng-class="{'active': $index==0}">
+				<img class=" img-fluid col-12" ng-src="{{sponsor.logoSponsor!=''?'img/sponsors/'+sponsor.logoSponsor:'img/noimage.png'}}" alt="Sponsor {{$index}}">
+		    </div>
+>>>>>>> 75b55a978224709b8949ea1032c8a222e46d18a9
 		</div>
 		<a class="carousel-control-prev-movil" role="button" data-target="#carouselMovilSponsor" data-slide="prev" ng-show="sponsors.length>1 ">
 			<span class="arrow-circle-lefts"><i class="fas fa-arrow-circle-left"></i></span>
@@ -160,7 +205,10 @@
 	Edicions anteriors
 </div>
 <div class="row">
-		<div ng-repeat="dadesTotesEdicion in dadesTotesEdicions" class="col-md-4 col-12 mb-md-0 mb-3 text-center">
-			<a class=" btn btn-outline-dark px-5 py-3 cursor ColorBlancoFiramar" ng-href="" ng-click="llistatEdicioFirmar(dadesTotesEdicion.dataFiramar)"><b>{{dadesTotesEdicion.titolFiramar }}</b> - {{dadesTotesEdicion.dataFiramar |limitTo:4}}</a>
+		<div ng-repeat="dadesTotesEdicion in dadesTotesEdicions" class="col-md-4 col-12 mb-md-0 mb-3 colorRosa text-center">
+			<button type="button" class="btn btn-outline-dark px-5 py-3"><a class="cursor" ng-href="" ng-click="llistatEdicioFirmar(dadesTotesEdicion.dataFiramar)"><b>{{dadesTotesEdicion.titolFiramar }}</b> - {{dadesTotesEdicion.dataFiramar |limitTo:4}}</a></button>
 		</div>
 </div>
+
+<!-- ALTER TABLE `activitatsfiramar` ADD `idActivitat` INT NOT NULL AUTO_INCREMENT FIRST, ADD PRIMARY KEY (`idActivitat`); -->
+<!-- position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center bg-light -->

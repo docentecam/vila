@@ -141,7 +141,6 @@ angular.module('vila')
 			else if(nomCamp=="cabeceraAssociacio"){
 				data.append("logoOld", $scope.ass.cabeceraAssociacio);
 			}
-			// console.log("Actualizamos campo "+nomCamp+" Borramos fichero"+$scope.ass.cabeceraAssociacio+" Subimos fichero"+e.files[0]);
 			 var deferred=$q.defer();
 			 $http.post("models/associacio.php", data,{
 				headers:{
@@ -847,15 +846,16 @@ angular.module('vila')
 			$scope.sponsorsFiramar=res.data.sponsorsFiramar;
 			$scope.participantsFiramar=res.data.participantsFiramar;
 			$scope.activitatsFiramar=res.data.activitatsFiramar;
+			$scope.capsaleraFiramar=res.data.capsaleraFiramar;
 			$rootScope.cargador=false;
 			$scope.firaSelect=false;
 		})
 		.catch(function(error) {
 			$rootScope.cargador=false;
 		});
-		}
+		
 		window.onscroll = function() {scrollFunction()};
-
+}
 	function scrollFunction() {
 	    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
 	        document.getElementById("goTop").style.display = "block";
@@ -951,11 +951,13 @@ angular.module('vila')
 			})
 			.then(function(res){
 				deferred.resolve(res);
+				console.log(res.data.edicioFiramar);
 				$scope.edicioFiramar=res.data.edicioFiramar[0];
 				$scope.galeriaFiramar=res.data.galeriaFiramar;
 				$scope.sponsorsFiramar=res.data.sponsorsFiramar;
 				$scope.participantsFiramar=res.data.participantsFiramar;
 				$scope.activitatsFiramar=res.data.activitatsFiramar;
+				$scope.capsaleraFiramar=res.data.capsaleraFiramar;
 
 
 				$rootScope.cargador=false;
@@ -1006,7 +1008,8 @@ angular.module('vila')
 				$scope.sponsorsFiramar=res.data.sponsorsFiramar;
 				$scope.participantsFiramar=res.data.participantsFiramar;
 				$scope.activitatsFiramar=res.data.activitatsFiramar;
-				 $rootScope.cargador=false;
+				$scope.capsaleraFiramar=res.data.capsaleraFiramar;
+				$rootScope.cargador=false;
 
 			})
 			.catch(function(error) {

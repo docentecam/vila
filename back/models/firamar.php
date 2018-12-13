@@ -5,6 +5,7 @@
 	$tbl_sponsors="sponsors";
 	$tbl_galeriafiramar="galeriafiramar";
 	$tbl_activitatsfiramar="activitatsfiramar";
+	$tbl_vila="vila";
 
 	require("../../inc/functions.php");
 
@@ -16,7 +17,7 @@
 
 	if(isset($_POST['acc'])&&$_POST['acc']=='listEdicion'){
 
-		echo firaEdicion($tbl_firamar,$tbl_participants,$tbl_sponsors,$tbl_galeriafiramar,$tbl_activitatsfiramar,$_POST['dataFiramar']);
+		echo firaEdicion($tbl_firamar,$tbl_participants,$tbl_sponsors,$tbl_galeriafiramar,$tbl_activitatsfiramar,$tbl_vila,$_POST['dataFiramar']);
 	}
 
 
@@ -29,7 +30,7 @@
 		$resultFiramar=mysqli_query($connexio,$mySqlFiramar);
 		disconnect($connexio);
 	
-		echo firaEdicion($tbl_firamar,$tbl_participants,$tbl_sponsors,$tbl_galeriafiramar,$tbl_activitatsfiramar,$_POST['fecha']);
+		echo firaEdicion($tbl_firamar,$tbl_participants,$tbl_sponsors,$tbl_galeriafiramar,$tbl_activitatsfiramar,$tbl_vila,$_POST['fecha']);
 	}
 	if(isset($_POST['acc'])&&$_POST['acc']=='GSaveAct'){
 		$mySqlActivitatsFiramar="UPDATE $tbl_activitatsfiramar 
@@ -42,7 +43,7 @@
 		$resultActivitatsFiramar=mysqli_query($connexio,$mySqlActivitatsFiramar);
 		disconnect($connexio);
 	
-		echo firaEdicion($tbl_firamar,$tbl_participants,$tbl_sponsors,$tbl_galeriafiramar,$tbl_activitatsfiramar,$_POST['dataFiramar']);
+		echo firaEdicion($tbl_firamar,$tbl_participants,$tbl_sponsors,$tbl_galeriafiramar,$tbl_activitatsfiramar,$tbl_vila,$_POST['dataFiramar']);
 }
 	if(isset($_POST['acc'])&&$_POST['acc']=='newEdicio'){
 		$mySqlFiramar="INSERT INTO $tbl_firamar 
@@ -110,7 +111,7 @@ if(isset($_POST['acc'])&&$_POST['acc']=='newACtivitat'){
 	}
 	    disconnect($connexio);
 	    
-		echo firaEdicion($tbl_firamar,$tbl_participants,$tbl_sponsors,$tbl_galeriafiramar,$tbl_activitatsfiramar,$_POST['dataFiramar']);
+		echo firaEdicion($tbl_firamar,$tbl_participants,$tbl_sponsors,$tbl_galeriafiramar,$tbl_activitatsfiramar,$tbl_vila,$_POST['dataFiramar']);
 		
 	}
 
@@ -119,7 +120,7 @@ if(isset($_POST['acc'])&&$_POST['acc']=='deleteActivitat'){
 	$connexio=connect();
 	$resulEliminaImg=mysqli_query($connexio,$mySql);
 	disconnect($connexio);
-	echo firaEdicion($tbl_firamar,$tbl_participants,$tbl_sponsors,$tbl_galeriafiramar,$tbl_activitatsfiramar,$_POST['dataFiramar']);
+	echo firaEdicion($tbl_firamar,$tbl_participants,$tbl_sponsors,$tbl_galeriafiramar,$tbl_activitatsfiramar,$tbl_vila,$_POST['dataFiramar']);
 
 }
 
@@ -149,7 +150,7 @@ if(isset($_POST['acc'])&&$_POST['acc']=='Volatilizado'){
 		$resulEliminaImg=mysqli_query($connexio,$mySql);
 		disconnect($connexio);
 
-		echo firaEdicion($tbl_firamar,$tbl_participants,$tbl_sponsors,$tbl_galeriafiramar,$tbl_activitatsfiramar,$_POST['dataFiramar']);
+		echo firaEdicion($tbl_firamar,$tbl_participants,$tbl_sponsors,$tbl_galeriafiramar,$tbl_activitatsfiramar,$tbl_vila,$_POST['dataFiramar']);
 	}
 
 function firaFulls($tbl_firamar){
@@ -166,7 +167,7 @@ function firaFulls($tbl_firamar){
 		 return json_encode($rows);
 	}
 
-function firaEdicion($tbl_firamar,$tbl_participants,$tbl_sponsors,$tbl_galeriafiramar,$tbl_activitatsfiramar,$dataFiramar){
+function firaEdicion($tbl_firamar,$tbl_participants,$tbl_sponsors,$tbl_galeriafiramar,$tbl_activitatsfiramar,$tbl_vila,$dataFiramar){
 		
 		$mySql="SELECT `txtFiramar`, `titolFiramar`, `dataFiramar` AS 'fecha' ,DATE_FORMAT(`dataFiramar`,'%d-%m-%Y' )AS 'fechaEsp' 
 				FROM $tbl_firamar WHERE `dataFiramar`='".$dataFiramar."'";
@@ -181,7 +182,10 @@ function firaEdicion($tbl_firamar,$tbl_participants,$tbl_sponsors,$tbl_galeriafi
 							FROM $tbl_galeriafiramar WHERE `dataFiramar`='".$dataFiramar."'";
 
 		$mySqlActivitatsFiramar="SELECT `idActivitat`,`horaInici` AS 'horaI' ,DATE_FORMAT(`horaInici`,'%H:%i' ) AS 'horaIni',`horaFi` AS 'horaF',DATE_FORMAT(`horaFi`,'%H:%i' ) AS 'horaFF',`titolActivitat`,`txtActivitat`,`dataFiramar` AS 'fecha' ,DATE_FORMAT(`dataFiramar`,'%d-%m-%Y' )AS 'fechaEsp' 
-							FROM $tbl_activitatsfiramar WHERE `dataFiramar`='".$dataFiramar."' ORDER BY `horaInici`";				
+							FROM $tbl_activitatsfiramar WHERE `dataFiramar`='".$dataFiramar."' ORDER BY `horaInici`";
+
+		$mySqlCapsaleraFiramar="SELECT `idVila`, `cabeceraFiramar` 
+							FROM $tbl_vila";				
 
 		$connexio=connect();
 		$resultFiramar=mysqli_query($connexio,$mySql); 
@@ -189,6 +193,7 @@ function firaEdicion($tbl_firamar,$tbl_participants,$tbl_sponsors,$tbl_galeriafi
 		$resultSponsors=mysqli_query($connexio,$mySqlSponsors); 
 		$resultGaleriaFiramar=mysqli_query($connexio,$mySqlGaleriaFiramar);
 		$resultActivitatsFiramar=mysqli_query($connexio,$mySqlActivitatsFiramar); 
+		$resultCapsaleraFiramar=mysqli_query($connexio,$mySqlCapsaleraFiramar);
 		disconnect($connexio);
 
 
@@ -223,6 +228,13 @@ function firaEdicion($tbl_firamar,$tbl_participants,$tbl_sponsors,$tbl_galeriafi
 				$datos.=',"activitatsFiramar":';
 				$rows = array(); 
 				while($r = mysqli_fetch_array($resultActivitatsFiramar)) 
+				{
+					$rows[] = $r; 
+				}
+				$datos.=json_encode($rows);
+				$datos.=',"capsaleraFiramar":';
+				$rows = array(); 
+				while($r = mysqli_fetch_array($resultCapsaleraFiramar)) 
 				{
 					$rows[] = $r; 
 				}

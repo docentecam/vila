@@ -16,14 +16,20 @@
 	<div id="tabstid" class="row tabst">
 		<table border="1" class="tabcont col-12 col-lg-4 offset-lg-4 textTabla text-center">
 			<tr>
-				<th colspan="3" class="my-1">Edicions</th>
+				<th colspan="3" class="my-2">Edicions</th>
 			</tr>
 			<tr ng-repeat="edicion in edicions | orderBy:'-fecha'">
 				<td>
 					<a class="cursor" ng-href="#/firamar/{{edicion.fecha}}">{{edicion.titolFiramar}}&nbsp;{{edicion.fecha |limitTo:4}}</a>
 				</td>
 		   		<td>
-		   				<h5><span class="badge badge-secondary"><a ng-href="#/firamarEdit/{{edicion.fecha}}" title="Edita aquesta edicio">Edita</a></span></h5>
+		   				<h5><span class="badge badge-secondary mt-2"><a ng-href="#/firamarEdit/{{edicion.fecha}}" title="Edita aquesta edicio">Edita</a></span></h5>
+				</td>
+				<td>
+					<select class="" name="selGalFira" id="selGalFira" ng-model="edicion.fecha" ng-repeat="galeria in galeriaFiramar" ng-change="UpdateCatPrin()">
+						<option value="-1"> - - - </option>
+						<option ng-selected="edicion.fecha==galeria.idGaleriaFiramar" ng-value="galeria.dataFiramar">{{edicion.fecha}}</option>
+					</select>	
 				</td>
 			</tr>
 		</table>	
@@ -34,6 +40,24 @@
 
 	<form id="formFiramar" name="formFiramar" class="col-12 mt-4">
 
+		<div class="row text-center mt-4 mb-3"  ng-hide="isNew">
+	  		<div class="col-12 " ><h1 class="titleSocis" >Cabecera Firamar</h1></div>
+		</div>
+		
+		<div class="form-row">
+			<div class="form-group col-md-6 col-lg-2 offset-lg-5">
+			    <div class="form-row">
+			        <div class="form-group col-12">
+			        	<label for="inputFoto" class="col-12">Logo del comerç</label>
+			        	<img class="img-fluid imgCssLogoDir col-10" ng-src="{{capsaleraFiramar.cabeceraFiramar!='' ? '../img/'+capsaleraFiramar.cabeceraFiramar : '../img/noimage.png'}}" alt="imatge capçalera">
+			        </div>
+			        <div class="form-group col-12">
+			            <label for="btnExVila" class="cursor text-primary col-12 "><u>Examinar</u>&nbsp;<i class="fas fa-search add-examinar cursor" aria-hidden="true"></i></label>
+			            <input type="file" id="btnExVila" class="align-self-end" name="btnExVila" accept="image/jpg, image/png" onchange="angular.element(this).scope().getFileDetails(this)" ng-show="false"/>
+			        </div>
+			    </div>    
+			</div>
+		</div> 
 	 	<div class="form-row">
 		    <div class="form-group col-md-5 col-lg-3 offset-lg-2">
 		      <label for="txtNom">Titol Firamar</label>
@@ -304,7 +328,7 @@
 
 <button id="goTop" class="goToTop" value="Pujar" ng-click="goTop()">
 		<span class="d-none d-lg-inline ">Pujar</span>
-		<img ng-src="img/if_arrow-up.png" class="d-lg-none imgBtnTop">
+		<img ng-src="../img/if_arrow-up.png" class="d-lg-none imgBtnTop">
 </button>
   
 
