@@ -1,6 +1,11 @@
 <?php
 	function connect(){
 		
+
+
+		$connexio=@mysqli_connect("localhost","root","","vila");
+
+
 		// $connexio=@mysqli_connect("localhost","root","","vila");
 
 		$connexio=@mysqli_connect("bbdd.codigitals.com.es","ddb118414","VilaProves@2018","ddb118414");
