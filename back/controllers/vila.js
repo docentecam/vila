@@ -141,7 +141,6 @@ angular.module('vila')
 			else if(nomCamp=="cabeceraAssociacio"){
 				data.append("logoOld", $scope.ass.cabeceraAssociacio);
 			}
-			// console.log("Actualizamos campo "+nomCamp+" Borramos fichero"+$scope.ass.cabeceraAssociacio+" Subimos fichero"+e.files[0]);
 			 var deferred=$q.defer();
 			 $http.post("models/associacio.php", data,{
 				headers:{
@@ -847,6 +846,7 @@ angular.module('vila')
 			$scope.sponsorsFiramar=res.data.sponsorsFiramar;
 			$scope.participantsFiramar=res.data.participantsFiramar;
 			$scope.activitatsFiramar=res.data.activitatsFiramar;
+			$scope.capsaleraFiramar=res.data.capsaleraFiramar;
 			$rootScope.cargador=false;
 			$scope.firaSelect=false;
 		})
