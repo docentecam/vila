@@ -83,6 +83,7 @@ angular.module('vila')
 		$scope.vila=res.data.dadesVila[0];
 		$scope.serveis=res.data.dadesServeis;
 		$scope.equip=res.data.dadesVila[0];
+		console.log(res.data.dadesServeis);
 		$scope.equip=res.data.dadesEquip[0];
 		$rootScope.cargador=false;
 		
@@ -98,6 +99,8 @@ angular.module('vila')
 
 .controller('DirectoriCtrl',function($scope,$http,$q,$rootScope,$timeout,$window,$document){
 	$(".dirButton").height(($("#mapId").height())/4);
+	console.log(($("#mapId").height())/4);
+	console.log($("#mapId").height());
 
 
 	$scope.llistat=true;
@@ -119,6 +122,7 @@ angular.module('vila')
 		$scope.categoriaassociat=res.data.dadesCategoriaassociat;
 		$scope.galeriaassociats=res.data.dadesGaleriaassociats;
 		$scope.categories=res.data.dadesCategories;
+		console.log($scope.categoriaassociat);
 	})
 	.catch(function(error) {
 		$rootScope.cargador=false;
@@ -236,6 +240,7 @@ angular.module('vila')
 	.then(function(res){
 		deferred.resolve(res);
 		$rootScope.cargador=false;
+		console.log(res.data.dadesFiramar[0]);
 		$scope.firamar=res.data.dadesFiramar[0];
 		$scope.galeriafiramar=res.data.dadesGaleriafiramar;
 		$scope.activitatsfiramar=res.data.dadesActivitatsfiramar;
@@ -271,6 +276,9 @@ angular.module('vila')
 			}
 			supSponsors++;
 		}
+
+
+
 	})
 	.catch(function(error) {
 		$rootScope.cargador=false;
@@ -373,6 +381,7 @@ angular.module('vila')
 			.then(function(res){
 				deferred.resolve(res);
 				$scope.contactaLlistat = res.data[0];
+				// console.log(res.data);
 				$rootScope.cargador=false;
 			})
 
@@ -385,6 +394,7 @@ angular.module('vila')
 				$scope.contactans.checkTipo="Empresa";
 				
 			}
+		console.log($scope.contactans.checkTipo);
 	}
 
 	$scope.enviaEmail=function(){
@@ -408,6 +418,7 @@ angular.module('vila')
 			},3000);
 	}
 	else{
+	 console.log("llega");
 		var data = new FormData();
 			data.append("acc","i");
 			data.append("nomContacte",$scope.contactans.nomContacte);
@@ -428,6 +439,7 @@ angular.module('vila')
 		.then(function(res){
 			deferred.resolve(res);
 			$rootScope.cargador=false;
+			console.log(""+res.data);
 			$scope.contactans.nomContacte="";
 			$scope.contactans.cognomContacte="";
 			$scope.contactans.checkTipo="";
@@ -491,6 +503,7 @@ $scope.enviaSoci=function(){
 	.then(function(res){
 		deferred.resolve(res);
 		$scope.fitxaSuccess=false;
+		console.log(res.data);
 		if(res.data.trim()=="ok") {
 			$scope.msg="Missatge registrat";
 		}
@@ -507,6 +520,7 @@ $scope.enviaSoci=function(){
 	}
 }
 	$scope.recarga=function(){
+		console.log("Intentamos");
 			$scope.contactaSoci.nomComercial="";
 			$scope.contactaSoci.sectorComercial="";
 			$scope.contactaSoci.adreca="";

@@ -88,50 +88,50 @@
 	</form>
 	<div class="form-row">
 		<div class="col-lg-1"></div>
-		<div class="form-group col-md-4 col-lg text-center">
+		<div class="form-group col-md-6 col-lg text-center">
 	      <div class="form-row">
 	        <div class="form-group col-12">
 	          <label for="inputLogoVilaAss" class="col-12 mt-2">Logo de la Vila</label>
-	          <img class="col-10 img-fluid imgCssAss" ng-src="{{ass.logoVila!='' ? '../img/'+ass.logoVila : '../img/noimage.png'}}" alt="">
+	          <img class="col-10 img-fluid" ng-src="{{ass.logoVila!='' ? '../img/'+ass.logoVila : '../img/noimage.png'}}" alt="">
 	        </div>
-	        <div class="form-group col-12" >
-	          <label for="btnVilaLogoAss" class="col-12 text-primary cursor align-self-end"><u>Cambiar Imatge</u>&nbsp;<i class="fas fa-search add-examinar cursor" aria-hidden="true"></i></label>
+	        <div class="form-group col-12 EspacioAgregarImgLogoVila" >
+	          <label for="btnVilaLogoAss" class="col-12 text-primary cursor align-self-end"><u>Cambiar Imatge</u>&nbsp;<br><i class="fas fa-search add-examinar cursor" aria-hidden="true"></i></label>
 	          <input type="file" id="btnVilaLogoAss" name="btnVilaLogoAss" onchange="angular.element(this).scope().getFileDetails(this,'logoVila')" ng-show="false"/>
 	        </div>
 	      </div>  
 	    </div>
-	    <div class="form-group col-md-4 col-lg-2 text-center">
+	    <div class="form-group col-md-6 col-lg-2 text-center">
 	      <div class="form-row">
 	        <div class="form-group col-12">
-	          <label for="inputCabeceraAss" class="col-12 mt-2">Capçalera Associacio.</label>
-	          <img class="img-fluid imgCssAss col-10" ng-src="{{ass.cabeceraAssociacio!='' ? '../img/'+ass.cabeceraAssociacio : '../img/noimage.png'}}" alt="">
+	          <label for="inputCabeceraAss" class="col-12 mt-2">Capçalera Associacio</label>
+	          <img class="img-fluid col-10" ng-src="{{ass.cabeceraAssociacio!='' ? '../img/'+ass.cabeceraAssociacio : '../img/noimage.png'}}" alt="">
 	        </div>
-	        <div class="form-group col-12">
-	          <label for="btnCabeceraAss" class="col-12 text-primary cursor align-self-end"><u>Cambiar Imatge</u>&nbsp;<i class="fas fa-search add-examinar cursor" aria-hidden="true"></i></label>
+	        <div class="form-group col-12 AgregarImgCabeceraCssAss">
+	          <label for="btnCabeceraAss" class="col-12 text-primary cursor align-self-end"><u>Cambiar Imatge</u>&nbsp;<br><i class="fas fa-search add-examinar cursor" aria-hidden="true"></i></label>
 	          <input type="file" id="btnCabeceraAss" name="btnCabeceraAss" onchange="angular.element(this).scope().getFileDetails(this,'cabeceraAssociacio')" ng-show="false"/>
 	        </div>
 	      </div>  
 	    </div>
-	    <div class="form-group col-md-4 col-lg-2 text-center">
+	    <div class="form-group col-md-6 col-lg-2 text-center">
 	      <div class="form-row">
 	        <div class="form-group col-12">
 	          <label for="inputLogoBolsaAss" class="col-12 mt-2">Logo de la bossa</label>
-	          <img class="img-fluid imgCssAss col-10" ng-src="{{ass.logoBolsa!='' ? '../img/'+ass.logoBolsa : '../img/noimage.png'}}" alt="">
+	          <img class="img-fluid col-10" ng-src="{{ass.logoBolsa!='' ? '../img/'+ass.logoBolsa : '../img/noimage.png'}}" alt="">
 	        </div>
-	        <div class="form-group col-12">
-	          <label for="btnBolsaLogoAss" class="col-12 text-primary cursor align-self-end"><u>Cambiar Imatge</u>&nbsp;<i class="fas fa-search add-examinar cursor" aria-hidden="true"></i></label>
+	        <div class="form-group col-12 EspacioAgregarImgLogoYFavicon">
+	          <label for="btnBolsaLogoAss" class="col-12 text-primary cursor align-self-end"><u>Cambiar Imatge</u>&nbsp;<br><i class="fas fa-search add-examinar cursor" aria-hidden="true"></i></label>
 	          <input type="file" id="btnBolsaLogoAss" name="btnBolsaLogoAss" onchange="angular.element(this).scope().getFileDetails(this,'logoBolsa')" ng-show="false"/>
 	        </div>
 	      </div>  
 	    </div>
-    	<div class="form-group col-md-4 col-lg-2 text-center">
+    	<div class="form-group col-md-6 col-lg-2 text-center">
 	      <div class="form-row">
-	        <div class="form-group col-12">
+	        <div class="form-group col-12 ">
 	          <label for="inputFavIconAss" class="col-12 mt-2">Imatge pestanya</label>
-	          <img class="img-fluid imgCssAss col-10" ng-src="{{ass.favIcon!='' ? '../img/'+ass.favIcon : '../img/noimage.png'}}" alt="">
+	          <img class="img-fluid col-10" ng-src="{{ass.favIcon!='' ? '../img/'+ass.favIcon : '../img/noimage.png'}}" alt="">
 	        </div>
-	        <div class="form-group col-12">
-	          <label for="btnFavIconAss" class="col-12 text-primary cursor align-self-end"><u>Cambiar Imatge</u>&nbsp;<i class="fas fa-search add-examinar cursor" aria-hidden="true"></i></label>
+	        <div class="form-group col-12 EspacioAgregarImgLogoYFavicon">
+	          <label for="btnFavIconAss" class="col-12 text-primary cursor align-self-end"><u>Cambiar Imatge</u>&nbsp;<br><i class="fas fa-search add-examinar cursor" aria-hidden="true"></i></label>
 	          <input type="file" id="btnFavIconAss" name="btnFavIconAss" onchange="angular.element(this).scope().getFileDetails(this,'favIcon')" ng-show="false"/>
 	        </div>
 	      </div>  
