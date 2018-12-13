@@ -1,6 +1,4 @@
 angular.module('vila')
-.controller('IniciCtrl',function($scope,$http,$q,$rootScope,$timeout){
-})
 .controller('AssociCtrl',function($scope,$http,$q,$rootScope,$timeout){
 	var data = new FormData();
 		data.append("acc", "l");
@@ -63,6 +61,7 @@ angular.module('vila')
 		$scope.ass.longitud=$scope.vila.longitud;
 		$scope.ass.LGPD=$scope.vila.LGPD;
 		$scope.ass.URLWeb=$scope.vila.URLWeb;
+		$scope.ass.cabeceraAssociacio=$scope.vila.cabeceraAssociacio;
 	})
 	.catch(function(error) {
 		$rootScope.cargador=false;
@@ -89,6 +88,7 @@ angular.module('vila')
 				data.append("longitud",$scope.ass.longitud);
 				data.append("LGPD",$scope.ass.LGPD);
 				data.append("URLWeb",$scope.ass.URLWeb);
+				data.append("cabeceraAssociacio",$scope.ass.cabeceraAssociacio);
 				var deferred=$q.defer();
 			$rootScope.cargador=true;
 			$http.post("models/associacio.php", data,{
@@ -138,6 +138,9 @@ angular.module('vila')
 				data.append("logoOld", $scope.ass.favIcon);
 
 			}
+			else if(nomCamp=="cabeceraAssociacio"){
+				data.append("logoOld", $scope.ass.cabeceraAssociacio);
+			}
 			 var deferred=$q.defer();
 			 $http.post("models/associacio.php", data,{
 				headers:{
@@ -157,6 +160,10 @@ angular.module('vila')
 					}
 					else if(nomCamp=="favIcon"){
 						$scope.ass.favIcon=res.data;
+
+					}
+					else if(nomCamp=="cabeceraAssociacio"){
+						$scope.ass.cabeceraAssociacio=res.data;
 
 					}				
 				})
@@ -839,6 +846,7 @@ angular.module('vila')
 			$scope.sponsorsFiramar=res.data.sponsorsFiramar;
 			$scope.participantsFiramar=res.data.participantsFiramar;
 			$scope.activitatsFiramar=res.data.activitatsFiramar;
+			$scope.capsaleraFiramar=res.data.capsaleraFiramar;
 			$rootScope.cargador=false;
 			$scope.firaSelect=false;
 		})

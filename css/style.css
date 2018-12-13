@@ -134,6 +134,13 @@ a.ColorNegre:link, a.ColorNegre:visited, a.ColorNegre:hover{
 a.ColorGris:link, a.ColorGris:visited, a.ColorGris:hover{
 	color:#999999;
 }
+a.ColorBlancoFiramar:hover{
+	color: white!important;
+}
+a.ColorBlancoFiramar:active{
+	color: white!important;
+	box-shadow: 0 0 0 0.2rem rgba(52,58,64,.5);
+}
 
 i,.cursor{
 	cursor:pointer;
@@ -537,14 +544,13 @@ ul, li{
 @media (max-width: 575px){
 
 	.arrow-circle-rights ,.arrow-circle-lefts{
-	/*	padding-top: calc(167px / 2 - 15px);*/
-		/*margin-left:-15px;*/
 	    color: #999;
 	    font-family: flexslider-icon;
 	    font-size: 25px;
 	    display: flex;
 	   margin-top: -20rem;
 	}
+	
 	.centrarFooterMovil{
 		text-align: center;
 	}
@@ -575,7 +581,7 @@ ul, li{
  	height: 100%;
 	}
 	.provaCar img {
-  	visibility: hidden; /*HOLA! esto sirve para que desaparezca el tag img y para que el SEO crea que hay un tag img igualmente, porque poner imágenes por background-image es muy feo*/
+  	visibility: hidden; 
 	}
 	.container{
 		margin-left: 0;
@@ -605,7 +611,7 @@ ul, li{
 		text-align: center;	}
 
 }
-@media (min-width: 768px){ /*ESTO ES PARA PANTALLAS DE 768 < */
+@media (min-width: 768px){ 
 	.bannerAlto{
 		height: 166.6px;
 		width: 97%;
